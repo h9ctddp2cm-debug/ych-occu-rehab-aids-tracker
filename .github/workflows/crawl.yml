@@ -2,7 +2,7 @@ name: Daily Rehab Price Crawler
 
 on:
   schedule:
-    - cron: '0 1 * * *'
+    - cron: '0 23 * * *'  # Runs daily at 23:00 UTC = 07:00 HKT
   workflow_dispatch:
 
 jobs:
