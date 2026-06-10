@@ -1,355 +1,126 @@
-import os
-import json
-import re
-import time
 import requests
 from bs4 import BeautifulSoup
+import json
+import os
+import re
 from datetime import date
 from supabase import create_client
 
-# --- Supabase setup ---
-SUPABASE_URL = os.environ.get('SUPABASE_URL', 'https://tgirhkngkacpbvwpzbrq.supabase.co')
-SUPABASE_KEY = os.environ.get('SUPABASE_KEY', 'sb_publishable_h0098vYPRToMsw3zxdRK7A_5aIHl9ZZ')
-supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
+SUPABASE_URL = os.environ.get("SUPABASE_URL")
+SUPABASE_KEY = os.environ.get("SUPABASE_KEY")
 
 HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-    'Accept-Language': 'zh-HK,zh;q=0.9,en;q=0.8',
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36"
 }
-TODAY = str(date.today())
 
+today = str(date.today())
 
-def parse_price(text):
-    if not text:
-        return None, None, text
-    text = text.strip()
-    nums = re.findall(r'[\d,]+\.?\d*', text.replace(',', ''))
-    nums = [float(n) for n in nums if float(n) > 0]
-    if len(nums) >= 2:
-        return min(nums), max(nums), text
-    elif len(nums) == 1:
-        return nums[0], nums[0], text
-    return None, None, text
+TARGET_PRODUCTS = [
+    {"id": "w3",  "model": "ALP-DS1807PF-T05",      "name": "Alpha® T05 自助式輪椅",       "source": "rehabexpress", "source_name": "復康速遞", "category": "wheelchair", "search_url": "https://www.rehabexpress.com.hk/catalogsearch/result/?q=ALP-DS1807PF-T05"},
+    {"id": "sc3", "model": "FS-798L",                "name": "靠背沐浴椅/沖涼椅",           "source": "rehabexpress", "source_name": "復康速遞", "category": "shower",    "search_url": "https://www.rehabexpress.com.hk/catalogsearch/result/?q=FS-798L"},
+    {"id": "sc4", "model": "ST-D1004",               "name": "日式旋轉沐浴椅",             "source": "rehabexpress", "source_name": "復康速遞", "category": "shower",    "search_url": "https://www.rehabexpress.com.hk/catalogsearch/result/?q=ST-D1004"},
+    {"id": "cm3", "model": "H-61-G-D-PW3",          "name": "不銹鋼沐浴便廁椅",           "source": "rehabexpress", "source_name": "復康速遞", "category": "toilet",    "search_url": "https://www.rehabexpress.com.hk/catalogsearch/result/?q=H-61-G-D-PW3"},
+    {"id": "br1", "model": "NOT-P42434",             "name": "免安裝扶手床欄(可伸長)",     "source": "rehabexpress", "source_name": "復康速遞", "category": "bedrail",   "search_url": "https://www.rehabexpress.com.hk/catalogsearch/result/?q=NOT-P42434"},
+    {"id": "r2",  "model": "WOH-TRRUB-RUB-1525-2",  "name": "WONSH®膠斜台",              "source": "rehabexpress", "source_name": "復康速遞", "category": "ramp",      "search_url": "https://www.rehabexpress.com.hk/catalogsearch/result/?q=WONSH"},
+    {"id": "m2",  "model": "RX-AM40A",               "name": "ROSSMAX條狀氣墊床褥",       "source": "rehabexpress", "source_name": "復康速遞", "category": "mattress",  "search_url": "https://www.rehabexpress.com.hk/catalogsearch/result/?q=RX-AM40A"},
+    {"id": "w4",  "model": "VA3000",                 "name": "日式鋁合金輪椅",             "source": "easy66",       "source_name": "Easy66",  "category": "wheelchair", "search_url": "https://www.easy66.com.hk/en/search?q=VA3000"},
+    {"id": "cm4", "model": "CS307A",                 "name": "四輪沐浴便椅(活動扶手)",     "source": "easy66",       "source_name": "Easy66",  "category": "toilet",    "search_url": "https://www.easy66.com.hk/en/search?q=CS307A"},
+    {"id": "cm6", "model": "CA1360",                 "name": "摺合式沐浴便椅",             "source": "easy66",       "source_name": "Easy66",  "category": "toilet",    "search_url": "https://www.easy66.com.hk/en/search?q=CA1360"},
+    {"id": "r3",  "model": "WA200",                  "name": "摺疊式輪椅斜板",             "source": "easy66",       "source_name": "Easy66",  "category": "ramp",      "search_url": "https://www.easy66.com.hk/en/search?q=WA200"},
+]
 
-
-def upsert_product(data):
+def scrape_rehabexpress(product):
     try:
-        existing = supabase.table('products').select('id').eq('model', data['model']).eq('source', data['source']).execute()
-        if existing.data:
-            supabase.table('products').update({
-                'price_min': data.get('price_min'),
-                'price_max': data.get('price_max'),
-                'price_display': data.get('price_display'),
-                'image_url': data.get('image_url'),
-                'updated_date': TODAY,
-                'last_checked': 'now()'
-            }).eq('id', existing.data[0]['id']).execute()
-            print(f'Updated: {data["product_name"]} -> {data["price_display"]} | img: {data.get("image_url", "none")}')
-        else:
-            data['updated_date'] = TODAY
-            supabase.table('products').insert(data).execute()
-            print(f'Inserted: {data["product_name"]} -> {data["price_display"]} | img: {data.get("image_url", "none")}')
+        r = requests.get(product["search_url"], headers=HEADERS, timeout=15)
+        soup = BeautifulSoup(r.text, "html.parser")
+        item = soup.select_one(".product-item-info") or soup.select_one(".item.product")
+        if not item:
+            return None
+        price_tag = item.select_one(".price")
+        price_text = price_tag.get_text(strip=True) if price_tag else "請查詢"
+        nums = re.findall(r"[\d]+", price_text.replace(",", ""))
+        price_num = float(nums[0]) if nums else 0
+        img_tag = item.select_one("img.product-image-photo") or item.select_one("img")
+        image_url = ""
+        if img_tag:
+            image_url = img_tag.get("data-src") or img_tag.get("src") or ""
+            if image_url.startswith("/"):
+                image_url = "https://www.rehabexpress.com.hk" + image_url
+            if "blank.png" in image_url or "placeholder" in image_url:
+                image_url = ""
+        link_tag = item.select_one("a.product-item-link") or item.select_one("a")
+        product_url = link_tag["href"] if link_tag and link_tag.get("href") else ""
+        return {"price_num": price_num, "price_display": price_text, "image_url": image_url, "product_url": product_url}
     except Exception as e:
-        print(f'Error upserting {data.get("product_name")}: {e}')
+        print(f"  [rehabexpress] Error: {e}")
+        return None
 
-
-# ======================
-# 1. Healthtop
-# ======================
-def crawl_healthtop():
-    print('\n=== Crawling Healthtop ===' )
-    return  # TODO: Fix Healthtop URL structure - should be /products_en?page=N
-    base_url = 'https://healthtop.com.hk'
-    categories = [
-        ('Wheelchairs-and-Walking-Aids', 'wheelchair'),
-        ('Shower-Toilet-Accessories', 'toilet_aid'),
-        ('Nursing-Bed', 'nursing_bed'),
-        ('Transfer-Aids-Restraint-Products', 'transfer_aid'),
-        ('Pressure-Relieving-Products', 'pressure_relief'),
-    ]
-    for cat_path, cat_key in categories:
-        page = 1
-        while True:
-            url = f'{base_url}/{cat_path}?page={page}'
-            try:
-                resp = requests.get(url, headers=HEADERS, timeout=15)
-                if resp.status_code != 200:
-                    break
-                soup = BeautifulSoup(resp.text, 'html.parser')
-                products = soup.select('.product-thumb')
-                if not products:
-                    break
-                for prod in products:
-                    try:
-                        name_tag = prod.select_one('.name a')
-                        price_tag = prod.select_one('.price')
-                        img_tag = prod.select_one('img')
-                        if not name_tag:
-                            continue
-                        name = name_tag.get_text(strip=True)
-                        price_text = price_tag.get_text(strip=True) if price_tag else ''
-                        pmin, pmax, pdisplay = parse_price(price_text)
-                        product_url = base_url + name_tag.get('href', '')
-                        # Extract model from URL
-                        model = product_url.rstrip('/').split('/')[-1]
-                        if not model or model == 'products_en':
-                            model = name[:40]
-                        # Image URL
-                        img_url = ''
-                        if img_tag:
-                            src = img_tag.get('src') or img_tag.get('data-src') or ''
-                            if src and not src.startswith('http'):
-                                src = base_url + src
-                            img_url = src
-                        upsert_product({
-                            'source': 'healthtop',
-                            'source_name': 'Healthtop 唯健康',
-                            'category': cat_key,
-                            'product_name': name,
-                            'model': model,
-                            'price_min': pmin,
-                            'price_max': pmax,
-                            'price_display': pdisplay,
-                            'image_url': img_url,
-                            'url': product_url,
-                            'phone': '2413 7867',
-                            'specs': [],
-                            'tags': [],
-                            'notes': ''
-                        })
-                    except Exception as e:
-                        print(f'  Product error: {e}')
-                # Check if next page exists
-                next_page = soup.select_one('.pagination .active + li a')
-                if not next_page:
-                    break
-                page += 1
-                time.sleep(1)
-            except Exception as e:
-                print(f'  Category error {url}: {e}')
-                break
-
-
-# ======================
-# 2. Rehabexpress
-# ======================
-def crawl_rehabexpress():
-    print('\n=== Crawling Rehabexpress ===' )
-    base_url = 'https://www.rehabexpress.com.hk'
-    categories = [
-        ('mobility.html', 'wheelchair'),
-        ('anatomical-support-and-decompression-supplies.html', 'pressure_relief'),
-        ('assisted-daily-living-products.html', 'daily_aid'),
-        ('fitness-and-rehab-products.html', 'rehab_equipment'),
-    ]
-    for cat_path, cat_key in categories:
-        page = 1
-        while True:
-            url = f'{base_url}/{cat_path}?p={page}'
-            try:
-                resp = requests.get(url, headers=HEADERS, timeout=15)
-                if resp.status_code != 200:
-                    break
-                soup = BeautifulSoup(resp.text, 'html.parser')
-                products = soup.select('.product-item-info')
-                if not products:
-                    break
-                for prod in products:
-                    try:
-                        name_tag = prod.select_one('.product-item-link')
-                        price_tag = prod.select_one('.price')
-                        img_tag = prod.select_one('.product-image-photo')
-                        if not name_tag:
-                            continue
-                        name = name_tag.get_text(strip=True)
-                        price_text = price_tag.get_text(strip=True) if price_tag else ''
-                        pmin, pmax, pdisplay = parse_price(price_text)
-                        product_url = name_tag.get('href', '')
-                        model = product_url.rstrip('/').split('/')[-1].split('.')[0]
-                        if not model:
-                            model = name[:40]
-                        # Image URL
-                        img_url = ''
-                        if img_tag:
-                            src = img_tag.get('src') or img_tag.get('data-src') or ''
-                            img_url = src
-                        upsert_product({
-                            'source': 'rehabexpress',
-                            'source_name': 'Rehabexpress 復康速遞',
-                            'category': cat_key,
-                            'product_name': name,
-                            'model': f'RE-{model}',
-                            'price_min': pmin,
-                            'price_max': pmax,
-                            'price_display': pdisplay,
-                            'image_url': img_url,
-                            'url': product_url,
-                            'phone': '8206 6160',
-                            'specs': [],
-                            'tags': [],
-                            'notes': ''
-                        })
-                    except Exception as e:
-                        print(f'  Product error: {e}')
-                # Pagination check
-                next_btn = soup.select_one('a.action.next')
-                if not next_btn:
-                    break
-                page += 1
-                time.sleep(1)
-            except Exception as e:
-                print(f'  Category error {url}: {e}')
-                break
-
-
-# ======================
-# 3. Easy66
-# ======================
-def crawl_easy66():
-    print('\n=== Crawling Easy66 ===' )
-    base_url = 'https://www.easy66.com.hk'
-    categories = [
-        ('categories/wheelchair', 'wheelchair'),
-        ('categories/walkers', 'walking_aid'),
-        ('categories/handrail', 'handrail'),
-        ('categories/toilet-aids', 'toilet_aid'),
-        ('categories/rollators', 'rollator'),
-    ]
-    for cat_path, cat_key in categories:
-        page = 1
-        while True:
-            url = f'{base_url}/{cat_path}?page={page}'
-            try:
-                resp = requests.get(url, headers=HEADERS, timeout=15)
-                if resp.status_code == 404:
-                    break
-                if resp.status_code != 200:
-                    break
-                soup = BeautifulSoup(resp.text, 'html.parser')
-                products = soup.select('.product-item, .product-card, article.product')
-                if not products:
-                    # Try alternate selectors
-                    products = soup.select('[data-product-id]')
-                if not products:
-                    break
-                found_any = False
-                for prod in products:
-                    try:
-                        name_tag = prod.select_one('a.product-item__title, .product-name a, h2 a, h3 a, .title a')
-                        if not name_tag:
-                            name_tag = prod.select_one('a[href*="/products/"]')
-                        price_tag = prod.select_one('.price, .product-price, .price-item')
-                        img_tag = prod.select_one('img')
-                        if not name_tag:
-                            continue
-                        found_any = True
-                        name = name_tag.get_text(strip=True)
-                        price_text = price_tag.get_text(strip=True) if price_tag else ''
-                        pmin, pmax, pdisplay = parse_price(price_text)
-                        href = name_tag.get('href', '')
-                        if href and not href.startswith('http'):
-                            href = base_url + href
-                        model = href.rstrip('/').split('/')[-1]
-                        if not model:
-                            model = name[:40]
-                        # Image URL
-                        img_url = ''
-                        if img_tag:
-                            src = img_tag.get('src') or img_tag.get('data-src') or img_tag.get('data-lazy-src') or ''
-                            if src.startswith('//'):
-                                src = 'https:' + src
-                            elif src and not src.startswith('http'):
-                                src = base_url + src
-                            img_url = src
-                        upsert_product({
-                            'source': 'easy66',
-                            'source_name': 'Easy66 樂齡網',
-                            'category': cat_key,
-                            'product_name': name,
-                            'model': f'E66-{model}',
-                            'price_min': pmin,
-                            'price_max': pmax,
-                            'price_display': pdisplay,
-                            'image_url': img_url,
-                            'url': href,
-                            'phone': '3426 9090',
-                            'specs': [],
-                            'tags': [],
-                            'notes': ''
-                        })
-                    except Exception as e:
-                        print(f'  Product error: {e}')
-                if not found_any:
-                    break
-                # Pagination: stop if no next page link
-                next_btn = soup.select_one('a[rel="next"], .pagination__next, a.next')
-                if not next_btn:
-                    break
-                page += 1
-                time.sleep(1)
-            except Exception as e:
-                print(f'  Category error {url}: {e}')
-                break
-
-
-
-def crawl_justmed():
-    print('\n=== Crawling Just Med ====')
+def scrape_easy66(product):
     try:
-        url = 'https://www.justmed.com.hk/product-list.php?name=Power%20Wheelchair'
-        r = requests.get(url, headers=HEADERS, timeout=10)
-        soup = BeautifulSoup(r.text, 'html.parser')
-        # Placeholder - to be refined after testing
-        print('  Just Med crawler - needs site structure analysis')
+        r = requests.get(product["search_url"], headers=HEADERS, timeout=15)
+        soup = BeautifulSoup(r.text, "html.parser")
+        item = (soup.select_one(".product-item") or
+                soup.select_one(".grid-product__content") or
+                soup.select_one("li.grid__item"))
+        if not item:
+            return None
+        price_tag = item.select_one(".product-price__price") or item.select_one(".price") or item.select_one(".money")
+        price_text = price_tag.get_text(strip=True) if price_tag else "請查詢"
+        nums = re.findall(r"[\d]+", price_text.replace(",", ""))
+        price_num = float(nums[0]) if nums else 0
+        img_tag = item.select_one("img")
+        image_url = ""
+        if img_tag:
+            image_url = img_tag.get("data-src") or img_tag.get("src") or ""
+            if image_url.startswith("//"):
+                image_url = "https:" + image_url
+            if image_url.startswith("/"):
+                image_url = "https://www.easy66.com.hk" + image_url
+        link_tag = item.select_one("a")
+        product_url = ""
+        if link_tag and link_tag.get("href"):
+            href = link_tag["href"]
+            product_url = href if href.startswith("http") else "https://www.easy66.com.hk" + href
+        return {"price_num": price_num, "price_display": price_text, "image_url": image_url, "product_url": product_url}
     except Exception as e:
-        print(f'  Just Med error: {e}')
+        print(f"  [easy66] Error: {e}")
+        return None
 
-def crawl_nero():
-    print('\n=== Crawling Nero Medical ===')
-    try:
-        url = 'https://www.neromedical.com.hk/products'
-        r = requests.get(url, headers=HEADERS, timeout=10)
-        soup = BeautifulSoup(r.text, 'html.parser')
-        # Placeholder - to be refined after testing  
-        print('  Nero crawler - needs site structure analysis')
-    except Exception as e:
-        print(f'  Nero error: {e}')
+def run_crawler():
+    results = []
+    for p in TARGET_PRODUCTS:
+        print(f"Scraping: {p['name']} ({p['model']})...")
+        data = scrape_rehabexpress(p) if p["source"] == "rehabexpress" else scrape_easy66(p)
+        record = {
+            "id": p["id"],
+            "source": p["source"],
+            "source_name": p["source_name"],
+            "category": p["category"],
+            "product_name": p["name"],
+            "model": p["model"],
+            "price_min": data["price_num"] if data else 0,
+            "price_max": data["price_num"] if data else 0,
+            "price_display": data["price_display"] if data else "請查詢",
+            "image_url": data["image_url"] if data else "",
+            "product_url": data["product_url"] if data else "",
+            "updated_date": today,
+            "last_checked": today,
+        }
+        results.append(record)
+        print(f"  {'✅' if data else '⚠️'} {record['price_display']} | img: {'✓' if record['image_url'] else '✗'}")
 
-def crawl_supreme():
-    print('\n=== Crawling Supreme Medical ===')
-    try:
-        url = 'https://www.suprememedical.com.hk/'
-        r = requests.get(url, headers=HEADERS, timeout=10)
-        soup = BeautifulSoup(r.text, 'html.parser')
-        # Placeholder - to be refined after testing
-        print('  Supreme crawler - needs site structure analysis')
-    except Exception as e:
-        print(f'  Supreme error: {e}')
+    with open("products.json", "w", encoding="utf-8") as f:
+        json.dump(results, f, ensure_ascii=False, indent=2)
+    print(f"\nSaved {len(results)} products to products.json")
 
+    if SUPABASE_URL and SUPABASE_KEY:
+        try:
+            supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
+            for r in results:
+                supabase.table("products").upsert(r, on_conflict="id").execute()
+            print("✅ Supabase updated")
+        except Exception as e:
+            print(f"⚠️ Supabase error: {e}")
 
-# ======================
-# Main
-# ======================
-if __name__ == '__main__':
-    print(f'Starting crawler - {TODAY}')
-    crawl_healthtop()
-    crawl_rehabexpress()
-    crawl_easy66()
-    crawl_justmed()
-    crawl_nero()
-    crawl_supreme()
-    print('\nDone! Crawled 6 suppliers.')
-    crawl_rehabexpress()
-    crawl_easy66()
-    print('\nDone!')
-
-    # Export to JSON
-    print('\n=== Exporting to products.json ===')
-    try:
-        response = supabase.table('products').select('*').execute()
-        with open('products.json', 'w', encoding='utf-8') as f:
-            json.dump(response.data, f, ensure_ascii=False, indent=2)
-        print(f'Exported {len(response.data)} products to products.json')
-    except Exception as e:
-        print(f'Export error: {e}')
+if __name__ == "__main__":
+    run_crawler()
