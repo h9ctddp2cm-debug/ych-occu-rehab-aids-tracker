@@ -1,4 +1,5 @@
 import os
+import json
 import re
 import time
 import requests
@@ -342,3 +343,13 @@ if __name__ == '__main__':
     crawl_rehabexpress()
     crawl_easy66()
     print('\nDone!')
+
+    # Export to JSON
+    print('\n=== Exporting to products.json ===')
+    try:
+        response = supabase.table('products').select('*').execute()
+        with open('products.json', 'w', encoding='utf-8') as f:
+            json.dump(response.data, f, ensure_ascii=False, indent=2)
+        print(f'Exported {len(response.data)} products to products.json')
+    except Exception as e:
+        print(f'Export error: {e}')
