@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>仁濟醫院職業治療部 - 輔助工具價格比較</title>    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
         * {
             margin: 0;
@@ -202,21 +201,15 @@
         };
 
         async function loadProducts() {
-            try {
-                const { data, error } = await supabase
-                    .from('products')
-                    .select('*')
-                    .order('updated_date', { ascending: false });
-                
-                if (error) throw error;
-                
-                allProducts = data || [];
-                displayProducts(allProducts);
-            } catch (error) {
-                console.error('Error loading products:', error);
-                document.getElementById('productsContainer').innerHTML = 
-                    '<div class="no-results">載入失敗，請稍後再試</div>';
-            }
+                    const response = await fetch('products.json');
+            const data = await response.json();
+            
+            allProducts = data || [];
+            displayProducts(allProducts);
+        } catch (error) {
+            console.error('Error loading products:', error);
+            document.getElementById('productsContainer').innerHTML = 
+                '<div class="no-results">載入失敗，請稍後再試</div>';}
         }
 
         function displayProducts(products) {
