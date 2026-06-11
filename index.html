@@ -170,6 +170,8 @@
     <option value="bathboard" data-i18n="cat_bathboard">沐浴板 / Bath board</option>
     <option value="mattress" data-i18n="cat_mattress">氣墊床褥 / Mattress</option>
     <option value="walker" data-i18n="cat_walker">助行架 / Walker</option>
+    <option value="reacher" data-i18n="cat_reacher">長柄夾 / Reacher</option>
+    <option value="sockaid" data-i18n="cat_sockaid">穿襪器 / Sock aid</option>
   </select>
   <select id="filter-source"><option value="" data-i18n="src_all">所有供應商 / All suppliers</option></select>
   <input id="search-input" type="text" data-i18n-attr="placeholder" data-i18n="search_placeholder" placeholder="搜尋產品名稱 / Search products..." />
@@ -211,6 +213,7 @@ const I18N = {
     cat_all: '所有類別', cat_wheelchair: '輪椅', cat_shower: '沐浴椅',
     cat_toilet: '便椅 / 廁所加高', cat_handrail: '扶手', cat_bedrail: '床邊扶手',
     cat_ramp: '斜台板', cat_bathboard: '沐浴板', cat_mattress: '氣墊床褥', cat_walker: '助行架',
+    cat_reacher: '長柄夾 / 取物器', cat_sockaid: '穿襪器',
     src_all: '所有供應商', search_placeholder: '搜尋產品名稱...',
     btn_search: '🔎 搜尋',
     cmp_selected: '已選', cmp_max: '件產品（最多4件）',
@@ -235,6 +238,7 @@ const I18N = {
     cat_all: 'All categories', cat_wheelchair: 'Wheelchair', cat_shower: 'Shower chair',
     cat_toilet: 'Commode / Raised toilet', cat_handrail: 'Handrail', cat_bedrail: 'Bed rail',
     cat_ramp: 'Ramp', cat_bathboard: 'Bath board', cat_mattress: 'Pressure-relief mattress', cat_walker: 'Walker',
+    cat_reacher: 'Reacher / Grabber', cat_sockaid: 'Sock aid',
     src_all: 'All suppliers', search_placeholder: 'Search product name...',
     btn_search: '🔎 Search',
     cmp_selected: 'Selected', cmp_max: 'items (max 4)',
@@ -259,6 +263,7 @@ const I18N = {
     cat_all: '所有類別 / All', cat_wheelchair: '輪椅 / Wheelchair', cat_shower: '沐浴椅 / Shower',
     cat_toilet: '便椅 / Commode', cat_handrail: '扶手 / Handrail', cat_bedrail: '床邊扶手 / Bed rail',
     cat_ramp: '斜台板 / Ramp', cat_bathboard: '沐浴板 / Bath board', cat_mattress: '氣墊床褥 / Mattress', cat_walker: '助行架 / Walker',
+    cat_reacher: '長柄夾 / Reacher', cat_sockaid: '穿襪器 / Sock aid',
     src_all: '所有供應商 / All suppliers', search_placeholder: '搜尋產品 / Search...',
     btn_search: '🔎 搜尋 / Search',
     cmp_selected: '已選 / Selected', cmp_max: '件 (最多4件 / max 4)',
@@ -278,12 +283,15 @@ const I18N = {
 
 const CATEGORY_LABELS = {
   zh: { wheelchair:'輪椅', shower:'沐浴椅', toilet:'便椅/廁所加高', handrail:'扶手',
-        bedrail:'床邊扶手', ramp:'斜台板', bathboard:'沐浴板', mattress:'氣墊床褥', walker:'助行架' },
+        bedrail:'床邊扶手', ramp:'斜台板', bathboard:'沐浴板', mattress:'氣墊床褥', walker:'助行架',
+        reacher:'長柄夾/取物器', sockaid:'穿襪器' },
   en: { wheelchair:'Wheelchair', shower:'Shower chair', toilet:'Commode', handrail:'Handrail',
-        bedrail:'Bed rail', ramp:'Ramp', bathboard:'Bath board', mattress:'Mattress', walker:'Walker' },
+        bedrail:'Bed rail', ramp:'Ramp', bathboard:'Bath board', mattress:'Mattress', walker:'Walker',
+        reacher:'Reacher / Grabber', sockaid:'Sock aid' },
   both: { wheelchair:'輪椅 / Wheelchair', shower:'沐浴椅 / Shower', toilet:'便椅 / Commode',
           handrail:'扶手 / Handrail', bedrail:'床邊扶手 / Bed rail', ramp:'斜台板 / Ramp',
-          bathboard:'沐浴板 / Bath board', mattress:'氣墊床褥 / Mattress', walker:'助行架 / Walker' }
+          bathboard:'沐浴板 / Bath board', mattress:'氣墊床褥 / Mattress', walker:'助行架 / Walker',
+          reacher:'長柄夾 / Reacher', sockaid:'穿襪器 / Sock aid' }
 };
 
 // English product-name translations (lookup by model). Add more as you go.
