@@ -136,6 +136,36 @@
     }
     .home-tile.favorites .tile-label { color: #b45309; }
 
+    /* ===== Category notice (per-category installation notes) ===== */
+    #category-notice {
+      max-width: 1200px;
+      margin: 14px auto 18px;
+      padding: 0 10px;
+    }
+    .cat-notice-card {
+      background: #fff8e1;
+      border-left: 6px solid #f59e0b;
+      border-radius: 12px;
+      padding: 16px 20px;
+      color: #1a1a1a;
+      line-height: 1.65;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      font-size: calc(1em * var(--font-scale, 1));
+    }
+    .cat-notice-card h3 {
+      margin: 0 0 8px 0;
+      color: #b45309;
+      font-size: 1.1em;
+      font-weight: 800;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .cat-notice-card h3::before {
+      content: "⚠️";
+      font-size: 1.1em;
+    }
+    .cat-notice-card ul { margin: 4px 0 0; padding-left: 22px; }
+    .cat-notice-card ul li { margin: 4px 0; }
+
     /* === Favorite star on cards === */
     .card { position: relative; }
     .fav-btn {
@@ -407,6 +437,8 @@
   <button id="btn-clear"   onclick="clearCompare()" data-i18n="btn_clear">清除</button>
 </div>
 
+<div id="category-notice"></div>
+
 <div id="product-grid"><div id="status" data-i18n="loading">正在載入產品資料...</div></div>
 
 <div id="compare-modal">
@@ -519,6 +551,24 @@ const I18N = {
     footer_note2_body: '本網頁僅列出部分輔助工具型號作為參考，市面上各品牌均有類似款式。',
     footer_note3_label: '免責聲明：',
     footer_note3_body: '上述建議不涉及任何商業利益關係。請讀者在購買前，自行查詢現貨供應情況、最新價格及運費。',
+    notice_handrail_title: '安裝扶手注意事項：',
+    notice_handrail_1: '請先向職業治療師詢問建議安裝扶手的位置、尺寸及方向',
+    notice_handrail_2: '扶手價格未必包含安裝費用',
+    notice_handrail_3: '雲石材質的牆壁上安裝需要特別查詢',
+    notice_handrail_4: '公共房屋安裝扶手需要另行通知房屋署',
+    notice_bathboard_title: '安裝浴缸板注意事項：',
+    notice_bathboard_1: '部分浴缸板可另加扶手',
+    notice_bathboard_2: '浴缸板下兩側固定螺絲必須鎖實，緊貼浴缸內壁',
+    notice_bathboard_3: '避免浴缸板邊緣突出至浴缸外壁外，避免邊緣造成刮傷',
+    notice_bathboard_4: '如有需要，請額外添加防滑墊',
+    notice_toiletriser_title: '注意事項：',
+    notice_toiletriser_1: '建議安裝在廁盤上，而非廁板上',
+    notice_toiletriser_2: '安裝後要確保加高器已經完全固定，定期需檢查固定螺絲是否有鬆弛的痕跡',
+    notice_toiletriser_3: '不適用於方形或者廁盤邊緣太圓的坐廁',
+    notice_commode_title: '注意事項：',
+    notice_commode_1: '若病人能力不足夠步行到浴室沐浴便椅，可作代步用帶病人到廁所上如廁或沐浴',
+    notice_commode_2: '選購時，請自行量度坐廁旁邊空間是否足夠供便椅推進坐廁上',
+    notice_commode_3: '如進出浴室需踏級，則請額外通知職業治療師',
   },
   en: {
     title_app: 'Assistive Devices',
@@ -567,6 +617,24 @@ const I18N = {
     footer_note2_body: 'This website lists selected assistive device models for reference only. Similar products are available from many brands on the market.',
     footer_note3_label: 'Disclaimer: ',
     footer_note3_body: 'The recommendations above involve no commercial interest. Please verify stock availability, current prices, and shipping costs before purchase.',
+    notice_handrail_title: 'Handrail Installation Notes:',
+    notice_handrail_1: 'Please consult your occupational therapist first regarding the recommended position, size and orientation of the handrail.',
+    notice_handrail_2: 'The handrail price may not include installation fees.',
+    notice_handrail_3: 'Installation on marble walls requires special enquiry.',
+    notice_handrail_4: 'For public housing, installing a handrail requires separate notification to the Housing Department.',
+    notice_bathboard_title: 'Bath Board Installation Notes:',
+    notice_bathboard_1: 'Some bath boards can be fitted with an additional handrail.',
+    notice_bathboard_2: 'The fixing screws on both sides under the bath board must be tightened firmly against the inner wall of the bathtub.',
+    notice_bathboard_3: 'Avoid letting the edge of the bath board protrude beyond the outer wall of the bathtub to prevent scratches.',
+    notice_bathboard_4: 'If needed, please add an anti-slip mat.',
+    notice_toiletriser_title: 'Important Notes:',
+    notice_toiletriser_1: 'It is recommended to install on the toilet bowl, not on the toilet seat cover.',
+    notice_toiletriser_2: 'After installation, ensure the riser is fully secured; check the fixing screws regularly for any signs of loosening.',
+    notice_toiletriser_3: 'Not suitable for square toilet bowls or those with very rounded edges.',
+    notice_commode_title: 'Important Notes:',
+    notice_commode_1: 'If a patient is not able to walk to a shower commode in the bathroom, a commode chair can be used as a transport aid to bring the patient to the toilet or shower area.',
+    notice_commode_2: 'When purchasing, please measure the space beside the toilet to ensure the commode can be wheeled over it.',
+    notice_commode_3: 'If there is a step at the entrance of the bathroom, please notify the occupational therapist.',
   }
 };
 
@@ -659,6 +727,8 @@ function setLang(lang) {
   } else if ((location.hash || '').startsWith('#/favorites')) {
     renderFavoritesView();
   } else {
+    const curCat = document.getElementById('filter-category');
+    if (curCat) renderCategoryNotice(curCat.value);
     renderCards(window._lastFiltered || allProducts);
   }
 }
@@ -776,10 +846,27 @@ function escapeHTML(s) {
 }
 function escapeAttr(s) { return escapeHTML(s); }
 
+const CATEGORY_NOTICES = {
+  handrail:    { titleKey: 'notice_handrail_title',    itemKeys: ['notice_handrail_1','notice_handrail_2','notice_handrail_3','notice_handrail_4'] },
+  bathboard:   { titleKey: 'notice_bathboard_title',   itemKeys: ['notice_bathboard_1','notice_bathboard_2','notice_bathboard_3','notice_bathboard_4'] },
+  toiletriser: { titleKey: 'notice_toiletriser_title', itemKeys: ['notice_toiletriser_1','notice_toiletriser_2','notice_toiletriser_3'] },
+  commode:     { titleKey: 'notice_commode_title',     itemKeys: ['notice_commode_1','notice_commode_2','notice_commode_3'] }
+};
+
+function renderCategoryNotice(cat) {
+  const wrap = document.getElementById('category-notice');
+  if (!wrap) return;
+  const def = CATEGORY_NOTICES[cat];
+  if (!def) { wrap.innerHTML = ''; return; }
+  const items = def.itemKeys.map(k => `<li>${escapeHTML(t(k))}</li>`).join('');
+  wrap.innerHTML = `<div class="cat-notice-card"><h3>${escapeHTML(t(def.titleKey))}</h3><ul>${items}</ul></div>`;
+}
+
 function applyFilters() {
   const cat = document.getElementById('filter-category').value;
   const src = document.getElementById('filter-source').value;
   const q   = document.getElementById('search-input').value.toLowerCase();
+  renderCategoryNotice(cat);
   renderCards(allProducts.filter(p => {
     const nm = (fieldName(p) || '').toLowerCase();
     const md = (p.model || '').toLowerCase();
@@ -887,6 +974,8 @@ function updateHomeFavCount() {
 
 /* ===== Home page rendering ===== */
 function renderHomePage() {
+  const noticeWrap = document.getElementById('category-notice');
+  if (noticeWrap) noticeWrap.innerHTML = '';
   const grid = document.getElementById('home-grid');
   if (!grid) return;
   grid.innerHTML = '';
@@ -918,6 +1007,8 @@ function renderHomePage() {
 }
 
 function renderFavoritesView() {
+  const noticeWrap = document.getElementById('category-notice');
+  if (noticeWrap) noticeWrap.innerHTML = '';
   // Set category filter to none (show favorites instead)
   document.getElementById('filter-category').value = '';
   document.getElementById('filter-source').value = '';

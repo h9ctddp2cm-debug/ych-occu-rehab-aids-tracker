@@ -1697,5 +1697,201 @@
     ],
     "price_display_en": "HK$1,850.00 (HKTVmall special; original $1,900)",
     "note_en": "HKTVmall special $1,850 (was $1,900). CE/FDA certified"
+  },
+  {
+    "id": "hr1",
+    "source": "justmed",
+    "source_name": "真善美醫護",
+    "category": "handrail",
+    "product_name": "防滑浴室扶手",
+    "model": "NOT-F19467",
+    "price_min": 190,
+    "price_max": 250,
+    "price_display": "HK$190 - $250 (因尺寸而異)",
+    "image_url": "images/handrail_justmed_f19467.jpeg",
+    "product_url": "https://www.justmed.com.hk/product-detail.php?id=80",
+    "updated_date": "2026-06-11",
+    "last_checked": "2026-06-11",
+    "phone": "2742 4370",
+    "specs": [
+      "長度：12\" / 18\" / 24\"",
+      "防滑紋設計",
+      "白色塑膠 + 鋁管",
+      "包安裝螺絲"
+    ],
+    "specs_en": [
+      "Length: 12\" / 18\" / 24\"",
+      "Anti-slip texture surface",
+      "White plastic + aluminium tube",
+      "Mounting screws included"
+    ],
+    "product_name_en": "Anti-slip Bathroom Grab Bar",
+    "price_display_en": "HK$190 - $250 (size-dependent)"
+  },
+  {
+    "id": "hr2",
+    "source": "medicare",
+    "source_name": "康健醫療",
+    "category": "handrail",
+    "product_name": "1.38直徑白色尼龍鋁管防滑扶手",
+    "model": "EMS00532",
+    "price_min": 300,
+    "price_max": 500,
+    "price_display": "HK$300 - $500 (因尺寸而異)",
+    "image_url": "images/handrail_medicare_ems00532.jpeg",
+    "product_url": "https://medicare.com.hk/zh-hant/care/191/",
+    "updated_date": "2026-06-11",
+    "last_checked": "2026-06-11",
+    "phone": "2687 6380",
+    "specs": [
+      "長度：12\" / 18\" / 24\" / 32\"",
+      "直徑：1.38\"",
+      "離牆高度：2\"",
+      "尼龍包鋁管 + 防滑紋",
+      "白色"
+    ],
+    "specs_en": [
+      "Length: 12\" / 18\" / 24\" / 32\"",
+      "Diameter: 1.38\"",
+      "Wall clearance: 2\"",
+      "Nylon-coated aluminium with anti-slip pattern",
+      "White"
+    ],
+    "product_name_en": "1.38\" Nylon-coated Aluminium Anti-slip Grab Bar",
+    "price_display_en": "HK$300 - $500 (size-dependent)"
+  },
+  {
+    "id": "hr3",
+    "source": "healthyliving",
+    "source_name": "盈康 Healthy Living",
+    "category": "handrail",
+    "product_name": "DBPE 安全防滑扶手",
+    "model": "DBPE-0001",
+    "price_min": 200,
+    "price_max": 350,
+    "price_display": "HK$200 - $350 (因尺寸而異)",
+    "image_url": "images/handrail_healthyliving_dbpe0001.jpeg",
+    "product_url": "https://www.healthyliving.com.hk/product-category/%E6%B5%B4%E5%AE%A4%E5%AE%89%E5%85%A8/%E6%B5%B4%E5%AE%A4%E6%89%B6%E6%89%8B-%E6%B5%B4%E5%AE%A4%E5%AE%89%E5%85%A8/",
+    "updated_date": "2026-06-11",
+    "last_checked": "2026-06-11",
+    "phone": "3426 9090",
+    "specs": [
+      "長度：30 / 40 / 50 / 60 / 70 / 80 cm",
+      "承重：330.7 lb (150 kg)",
+      "防滑手柄設計",
+      "包安裝用螺絲"
+    ],
+    "specs_en": [
+      "Length: 30 / 40 / 50 / 60 / 70 / 80 cm",
+      "Load capacity: 330.7 lb (150 kg)",
+      "Anti-slip handle design",
+      "Mounting screws included"
+    ],
+    "product_name_en": "DBPE Anti-slip Safety Grab Bar",
+    "price_display_en": "HK$200 - $350 (size-dependent)"
+  },
+  {
+    "id": "hr4",
+    "source": "easy66",
+    "source_name": "樂齡網 Easy66",
+    "category": "handrail",
+    "product_name": "【尚齡】ABS防滑浴室扶手 (搭配螢光矽膠環)",
+    "model": "ABS 螢光環",
+    "price_min": 250,
+    "price_max": 800,
+    "price_display": "HK$250 - $800 (因尺寸而異)",
+    "image_url": "images/handrail_easy66_abs.jpeg",
+    "product_url": "https://www.easy66.com.hk/products/handrail",
+    "updated_date": "2026-06-11",
+    "last_checked": "2026-06-11",
+    "phone": "2102 7180",
+    "specs": [
+      "長度：30 - 120 cm",
+      "有白色 / 黃色選擇",
+      "螢光矽膠環（夜間防跌）",
+      "ABS + 304 不銹鋼",
+      "抗菌塗層",
+      "德國 TUV 認證 承重 120 kg",
+      "121 cm 或以上長度需另行報價"
+    ],
+    "specs_en": [
+      "Length: 30 - 120 cm",
+      "Colours: white / yellow",
+      "Fluorescent silicone ring (visible at night)",
+      "ABS + 304 stainless steel",
+      "Antibacterial coating",
+      "German TUV certified · 120 kg load",
+      "Quote required for 121 cm or longer"
+    ],
+    "product_name_en": "[Shangling] ABS Anti-slip Grab Bar with Fluorescent Ring",
+    "price_display_en": "HK$250 - $800 (size-dependent)"
+  },
+  {
+    "id": "hr5",
+    "source": "medicare",
+    "source_name": "康健醫療",
+    "category": "handrail",
+    "product_name": "1.25直徑 304不銹鋼防滑扶手",
+    "model": "EMS00502",
+    "price_min": 350,
+    "price_max": 500,
+    "price_display": "HK$350 - $500 (因尺寸而異)",
+    "image_url": "images/handrail_medicare_ems00502.jpeg",
+    "product_url": "https://www.medicare.com.hk/zh-hant/care/186/",
+    "updated_date": "2026-06-11",
+    "last_checked": "2026-06-11",
+    "phone": "2687 6380",
+    "specs": [
+      "長度：12\" / 18\" / 24\" / 32\"",
+      "直徑：1.25\"",
+      "離牆高度：2\"",
+      "304 不銹鋼 + 防滑紋",
+      "金屬光澤"
+    ],
+    "specs_en": [
+      "Length: 12\" / 18\" / 24\" / 32\"",
+      "Diameter: 1.25\"",
+      "Wall clearance: 2\"",
+      "304 stainless steel with anti-slip pattern",
+      "Metallic finish"
+    ],
+    "product_name_en": "1.25\" 304 Stainless Steel Anti-slip Grab Bar",
+    "price_display_en": "HK$350 - $500 (size-dependent)"
+  },
+  {
+    "id": "hr6",
+    "source": "healthyliving",
+    "source_name": "盈康 Healthy Living",
+    "category": "handrail",
+    "product_name": "DBPE 上翻式浴室扶手",
+    "model": "DBPE-0014",
+    "price_min": 880,
+    "price_max": 1080,
+    "price_display": "HK$880 / $1,080 (60 / 70 cm)",
+    "image_url": "images/handrail_healthyliving_dbpe0014.jpeg",
+    "product_url": "https://www.healthyliving.com.hk/product-category/%E6%B5%B4%E5%AE%A4%E5%AE%89%E5%85%A8/%E6%B5%B4%E5%AE%A4%E6%89%B6%E6%89%8B-%E6%B5%B4%E5%AE%A4%E5%AE%89%E5%85%A8/",
+    "updated_date": "2026-06-11",
+    "last_checked": "2026-06-11",
+    "phone": "3426 9090",
+    "specs": [
+      "長度：60 / 70 cm",
+      "上翻式設計，方便輪椅進出",
+      "承重：165 lb (75 kg)",
+      "防滑手柄",
+      "包安裝用螺絲",
+      "適合廁所旁邊安裝"
+    ],
+    "specs_en": [
+      "Length: 60 / 70 cm",
+      "Swing-up design — wheelchair friendly",
+      "Load capacity: 165 lb (75 kg)",
+      "Anti-slip handle",
+      "Mounting screws included",
+      "Suitable for toilet-side installation"
+    ],
+    "product_name_en": "DBPE Swing-up Bathroom Grab Bar",
+    "price_display_en": "HK$880 / $1,080 (60 / 70 cm)",
+    "note": "上翻式：閒置時可向上翻起，方便輪椅或助行架進出。常用於座廁旁邊。",
+    "note_en": "Swing-up: folds up when not in use — wheelchair/walker access. Common around toilet."
   }
 ]
