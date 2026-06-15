@@ -80,6 +80,36 @@ def _make_session() -> requests.Session:
 
 
 # ---------------------------------------------------------------------------
+# Stock detection keywords
+# ---------------------------------------------------------------------------
+OUT_OF_STOCK_KEYWORDS = [
+    "未有庫存",
+    "缺貨",
+    "售完",
+    "已售完",
+    "out of stock",
+    "sold out",
+    "無貨",
+    "暂無庫存",
+]
+
+
+def _detect_stock_status(html: str) -> str | None:
+    """Return 'out_of_stock' if any OOS keyword found, else None (treat as in_stock).
+    
+    We only mark out_of_stock on explicit detection. We never flip in_stock without
+    positive evidence (could be missed price = page changed, not OOS).
+    """
+    if not html:
+        return None
+    haystack = html.lower()
+    for kw in OUT_OF_STOCK_KEYWORDS:
+        if kw.lower() in haystack:
+            return "out_of_stock"
+    return None
+
+
+# ---------------------------------------------------------------------------
 # Price validation
 # ---------------------------------------------------------------------------
 PRICE_MIN_VALID = 20
@@ -178,6 +208,24 @@ def main():
             failed_skipped.append((pid, "fetch failed"))
             continue
 
+        # ---- Stock detection (BEFORE price parse so OOS products handled even with no price) ----
+        prev_stock = product.get("stock_status", "in_stock")
+        oos_detected = (_detect_stock_status(html) == "out_of_stock")
+        
+        if oos_detected:
+            # Mark out_of_stock. Keep last known price unchanged.
+            if prev_stock != "out_of_stock":
+                product["stock_status"] = "out_of_stock"
+                product["stock_status_changed"] = today
+                logger.info("  [%s] STOCK: in_stock → out_of_stock", pid)
+            else:
+                product["stock_status"] = "out_of_stock"  # idempotent
+                logger.info("  [%s] STOCK: still out_of_stock", pid)
+            product["last_checked"] = today
+            checked_count += 1
+            # Rate limit even when not calling Gemini (we still hit the supplier site)
+            continue
+
         # Get parser (unified Gemini-based parser, ignores domain)
         parser = get_parser(domain)
 
@@ -224,7 +272,19 @@ def main():
                 # Do NOT update any fields — not even last_checked (we don't trust this fetch)
                 continue
 
-        if current_min_int is not None and price == current_min_int:
+        # ---- Stock status: in_stock confirmed (no OOS keyword + valid price) ----
+        stock_flipped_to_in = (prev_stock == "out_of_stock")
+        if stock_flipped_to_in:
+            product["stock_status"] = "in_stock"
+            product["stock_status_changed"] = today
+            logger.info("  [%s] STOCK: out_of_stock → in_stock (有貨了!)", pid)
+        else:
+            product["stock_status"] = "in_stock"  # ensure field exists
+        
+        # If stock flipped to in_stock, force price update (treat as new appearance)
+        force_price_update = stock_flipped_to_in
+
+        if current_min_int is not None and price == current_min_int and not force_price_update:
             # Price unchanged — only update last_checked
             product["last_checked"] = today
             logger.info("  [%s] unchanged at HK$%d — updated last_checked", pid, price)

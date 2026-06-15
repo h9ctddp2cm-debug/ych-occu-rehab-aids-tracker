@@ -262,6 +262,8 @@
     .card h3 { font-size: 1em; font-weight: bold; color: #2c3e50; line-height: 1.35; }
     .card .model { font-size: 0.8em; color: #888; }
     .card .price { font-size: 1.2em; color: #e74c3c; font-weight: bold; }
+    .card .price.out-of-stock { color: #999; text-decoration: line-through; font-size: 0.95em; font-weight: 500; }
+    .card .stock-badge { display: inline-block; background: #fee2e2; color: #b91c1c; font-size: 0.9em; font-weight: 600; padding: 4px 10px; border-radius: 6px; margin: 4px 0 6px 0; border: 1px solid #fca5a5; }
     .card .source { font-size: 0.85em; color: #27ae60; }
     .card .updated { font-size: 0.75em; color: #aaa; line-height: 1.4; }
     .card .updated.checked { color: #16a34a; font-weight: 500; }
@@ -539,6 +541,7 @@ const I18N = {
     label_product: '產品名稱', label_model: '型號', label_price: '價格',
     label_supplier: '供應商', label_category: '類別', label_specs: '規格',
     label_phone: '電話', label_web: '網頁', label_updated: '價錢最後變動', label_checked: '最後核對', label_item: '項目',
+    label_stock: '庫存狀態', stock_out: '⚠️ 未有庫存', stock_in: '有貨', stock_last_price: '上次售價',
     updated: '價錢最後變動：',
     checked: '最後核對：',
     btn_call_text: '一按即打', btn_web_text: '產品網頁',
@@ -607,6 +610,7 @@ const I18N = {
     label_product: 'Product', label_model: 'Model', label_price: 'Price',
     label_supplier: 'Supplier', label_category: 'Category', label_specs: 'Specs',
     label_phone: 'Phone', label_web: 'Website', label_updated: 'Price last changed', label_checked: 'Last verified', label_item: 'Item',
+    label_stock: 'Stock', stock_out: '⚠️ Out of stock', stock_in: 'In stock', stock_last_price: 'Last known price',
     updated: 'Price last changed: ',
     checked: 'Last verified: ',
     btn_call_text: 'Call', btn_web_text: 'Product page',
@@ -748,6 +752,15 @@ function setFontSize(size) {
 /* ===== Per-product field getters (language-aware) ===== */
 function fieldName(p)   { return currentLang === 'en' ? (p.product_name_en || p.product_name || t('no_product')) : (p.product_name || t('no_product')); }
 function fieldPrice(p)  { return currentLang === 'en' ? (p.price_display_en || p.price_display || 'HK$ N/A') : (p.price_display || 'HK$ N/A'); }
+function isOutOfStock(p) { return p.stock_status === 'out_of_stock'; }
+function priceBlockHTML(p) {
+  if (isOutOfStock(p)) {
+    const last = escapeHTML(fieldPrice(p));
+    return `<div class="stock-badge">${t('stock_out')}</div>` +
+           `<div class="price out-of-stock" title="${escapeHTML(t('stock_last_price'))}">${last}</div>`;
+  }
+  return `<div class="price">${escapeHTML(fieldPrice(p))}</div>`;
+}
 function fieldSpecs(p)  {
   const list = currentLang === 'en' ? (p.specs_en || p.specs) : (p.specs);
   return Array.isArray(list) ? list : (typeof list === 'string' ? safeParseArray(list) : []);
@@ -833,7 +846,7 @@ function renderCards(products) {
       ${imgHTML}
       <h3>${escapeHTML(fieldName(p))}</h3>
       <div class="model">${escapeHTML(p.model || '')}</div>
-      <div class="price">${escapeHTML(fieldPrice(p))}</div>
+      ${priceBlockHTML(p)}
       <div class="source">📦 ${escapeHTML(supplierName(p))}</div>
       ${specsHTML}
       ${actionsHTML}
@@ -948,6 +961,7 @@ function showCompare() {
       : '-'],
     [t('label_updated'),  p => escapeHTML(p.updated_date || '-')],
     [t('label_checked'),  p => escapeHTML(p.last_checked || p.updated_date || '-')],
+    [t('label_stock'),    p => isOutOfStock(p) ? `<span style="color:#b91c1c;font-weight:600">${t('stock_out')}</span>` : t('stock_in')],
   ];
   let html = `<tr><th>${t('label_item')}</th>` + items.map(p=>`<th>${escapeHTML(fieldName(p))||'-'}</th>`).join('') + '</tr>';
   rows.forEach(([label, fn]) => {
