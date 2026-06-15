@@ -580,18 +580,18 @@
     "product_name": "WONSH® 膠斜台",
     "model": "WOH-TRRUB-RUB-1525-2",
     "price_min": 150.0,
-    "price_max": 370.0,
-    "price_display": "HK$150 - $370 (參考價, 視乎尺寸)",
+    "price_max": 150.0,
+    "price_display": "HK$150.00",
     "specs": [
       "PDF QR 已失效, 請致電查詢確實型號規格",
       "適用門檻 / 小斜台",
       "真善美 WONSH® 系列"
     ],
     "image_url": "images/ramp_wonsh_trrub.jpeg",
-    "product_url": "https://www.justmed.com.hk/",
+    "product_url": "https://www.justmed.com.hk/product-detail.php?id=1914",
     "phone": "2742 4370",
     "note": "QR 已失效, PDF 參考價 $150-$370",
-    "updated_date": "2026-06-11",
+    "updated_date": "2026-06-15",
     "last_checked": "2026-06-15",
     "product_name_en": "WONSH® Rubber Ramp",
     "specs_en": [
@@ -599,7 +599,7 @@
       "For thresholds / small ramps",
       "Just Med WONSH® series"
     ],
-    "price_display_en": "HK$150 – $370 (reference, depending on size)",
+    "price_display_en": "HK$150.00",
     "note_en": "QR expired; PDF reference $150-$370"
   },
   {
@@ -1202,7 +1202,7 @@
     "model": "FHA-HE-1626",
     "price_min": 120.0,
     "price_max": 120.0,
-    "price_display": "HK$120.00 (參考價)",
+    "price_display": "HK$120.00",
     "specs": [
       "長度: 26\" (85cm)",
       "夾頭闊度: 9cm",
@@ -1211,7 +1211,7 @@
       "可旋轉夾頭"
     ],
     "image_url": "images/reacher_healthtop_he1626.jpg",
-    "product_url": "https://healthtop.com.hk/",
+    "product_url": "https://healthtop.com.hk/取物器FHA-HE-1626",
     "phone": "2413 7867",
     "note": "原 QR 已失效, 唯健康 online product page 未找到, 請致電",
     "updated_date": "2026-06-11",
@@ -1222,7 +1222,7 @@
       "Anti-slip jaws",
       "Lightweight aluminium"
     ],
-    "price_display_en": "HK$180.00 (reference)"
+    "price_display_en": "HK$120.00"
   },
   {
     "id": "sa1",
@@ -1417,7 +1417,7 @@
     "model": "FHA-WS-RUB",
     "price_min": 370.0,
     "price_max": 650.0,
-    "price_display": "HK$370 - $650 (參考價, 視乎尺寸)",
+    "price_display": "HK$370 - $650",
     "specs": [
       "闊度: 90cm",
       "高度: 0.8cm / 1.3cm / 2cm / 2.5cm / 3cm / 4cm / 4.5cm 七款可選",
@@ -1427,10 +1427,10 @@
       "無需安裝"
     ],
     "image_url": "images/ramp_healthtop_rub.jpeg",
-    "product_url": "https://healthtop.com.hk/",
+    "product_url": "https://healthtop.com.hk/index.php?route=product/product&product_id=423",
     "phone": "2413 7867",
     "note": "PDF 列參考價 $370-$650, 視乎尺寸. 詳情請致電查詢",
-    "updated_date": "2026-06-11",
+    "updated_date": "2026-06-15",
     "last_checked": "2026-06-15",
     "product_name_en": "Rubber Threshold Ramp (Multiple Sizes)",
     "specs_en": [
@@ -1441,7 +1441,7 @@
       "Suitable for wheelchair & walker access",
       "No installation needed"
     ],
-    "price_display_en": "HK$370 – $650 (reference, depending on size)",
+    "price_display_en": "HK$370 – $650",
     "note_en": "PDF reference $370-$650 by size. Please call to confirm"
   },
   {
