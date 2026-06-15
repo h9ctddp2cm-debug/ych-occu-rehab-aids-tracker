@@ -263,7 +263,8 @@
     .card .model { font-size: 0.8em; color: #888; }
     .card .price { font-size: 1.2em; color: #e74c3c; font-weight: bold; }
     .card .source { font-size: 0.85em; color: #27ae60; }
-    .card .updated { font-size: 0.75em; color: #aaa; }
+    .card .updated { font-size: 0.75em; color: #aaa; line-height: 1.4; }
+    .card .updated.checked { color: #16a34a; font-weight: 500; }
     /* === Specs as bullet list, one per line === */
     .card .specs-list {
       margin: 4px 0 4px 18px;
@@ -537,8 +538,9 @@ const I18N = {
     no_product: '未知產品',
     label_product: '產品名稱', label_model: '型號', label_price: '價格',
     label_supplier: '供應商', label_category: '類別', label_specs: '規格',
-    label_phone: '電話', label_web: '網頁', label_updated: '更新日期', label_item: '項目',
-    updated: '更新：',
+    label_phone: '電話', label_web: '網頁', label_updated: '價錢最後變動', label_checked: '最後核對', label_item: '項目',
+    updated: '價錢最後變動：',
+    checked: '最後核對：',
     btn_call_text: '一按即打', btn_web_text: '產品網頁',
     alert_max: '最多選4件產品', alert_min: '請選至少2件產品',
     footer_contact_title: '仁濟醫院職業治療部電話',
@@ -604,8 +606,9 @@ const I18N = {
     no_product: 'Unknown product',
     label_product: 'Product', label_model: 'Model', label_price: 'Price',
     label_supplier: 'Supplier', label_category: 'Category', label_specs: 'Specs',
-    label_phone: 'Phone', label_web: 'Website', label_updated: 'Updated', label_item: 'Item',
-    updated: 'Updated: ',
+    label_phone: 'Phone', label_web: 'Website', label_updated: 'Price last changed', label_checked: 'Last verified', label_item: 'Item',
+    updated: 'Price last changed: ',
+    checked: 'Last verified: ',
     btn_call_text: 'Call', btn_web_text: 'Product page',
     alert_max: 'Maximum 4 products', alert_min: 'Please select at least 2 products',
     footer_contact_title: 'Yan Chai Hospital Occupational Therapy — Phone',
@@ -834,7 +837,8 @@ function renderCards(products) {
       <div class="source">📦 ${escapeHTML(supplierName(p))}</div>
       ${specsHTML}
       ${actionsHTML}
-      <div class="updated">${t('updated')}${escapeHTML(p.updated_date || p.last_checked || 'N/A')}</div>
+      <div class="updated">${t('updated')}${escapeHTML(p.updated_date || 'N/A')}</div>
+      <div class="updated checked">✓ ${t('checked')}${escapeHTML(p.last_checked || p.updated_date || 'N/A')}</div>
       <label><input type="checkbox" ${checked} data-id="${id}" data-product="${pData}" onchange="toggleCompare(this)"> ${t('btn_compare')}</label>
     `;
     grid.appendChild(card);
@@ -943,6 +947,7 @@ function showCompare() {
       ? `<a href="${p.product_url}" target="_blank" rel="noopener" style="color:#3498db;text-decoration:none">🌐 ${t('btn_web_text')}</a>`
       : '-'],
     [t('label_updated'),  p => escapeHTML(p.updated_date || '-')],
+    [t('label_checked'),  p => escapeHTML(p.last_checked || p.updated_date || '-')],
   ];
   let html = `<tr><th>${t('label_item')}</th>` + items.map(p=>`<th>${escapeHTML(fieldName(p))||'-'}</th>`).join('') + '</tr>';
   rows.forEach(([label, fn]) => {
