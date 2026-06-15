@@ -1325,30 +1325,36 @@
   },
   {
     "id": "sa3",
-    "source": "rehabexpress",
-    "source_name": "復康速遞 / 卓思廊 Cheers Gallery",
+    "source": "hktvmall",
+    "source_name": "HKTVmall",
     "category": "sockaid",
-    "product_name": "穿襪神器 (2合1 穿/脫襪)",
-    "model": "16200256",
-    "price_min": 30.0,
-    "price_max": 30.0,
-    "price_display": "HK$30.00 (參考價)",
+    "product_name": "Sun® 穿襪器 (台灣製)",
+    "model": "SUNS-0014",
+    "price_min": 120.0,
+    "price_max": 120.0,
+    "price_display": "HK$120.00",
     "specs": [
-      "結合兩種功能: 穿襪及脫襪"
+      "台灣製造",
+      "高彈力伸縮性棉帶",
+      "長 230mm, 重 88g",
+      "尼龍 + 棉質毛巾 + 塑膠製造",
+      "適合髖關節置換、平衡不佳人士"
     ],
     "image_url": "images/sockaid_cheers_16200256.jpg",
-    "product_url": "https://www.rehabexpress.com.hk/",
-    "phone": "3111 2386",
-    "note": "原 QR 已失效, 卓思廊冇 online product page",
-    "updated_date": "2026-06-11",
+    "product_url": "https://www.hktvmall.com/hktv/zh/main/%E7%9B%88%E5%BA%B7%E9%86%AB%E7%99%82%E7%94%A8%E5%93%81/s/H0861001/%E8%AD%B7%E7%90%86%E4%BF%9D%E5%81%A5/%E8%AD%B7%E7%90%86%E4%BF%9D%E5%81%A5/%E9%86%AB%E8%97%A5%E7%94%A2%E5%93%81/%E9%86%AB%E7%99%82%E8%A8%AD%E5%82%99/%E5%BE%A9%E5%BA%B7%E7%94%A8%E5%93%81/%E7%A9%BF%E8%A5%AA%E5%99%A8/p/H0861001_S_SUNS-0014",
+    "phone": "3678 8000",
+    "note": "",
+    "updated_date": "2026-06-15",
     "last_checked": "2026-06-15",
-    "product_name_en": "Sock Aid (2-in-1: put on / take off)",
+    "product_name_en": "Sun® Sock Aid (Made in Taiwan)",
     "specs_en": [
-      "2-in-1 design",
-      "Put on AND take off socks",
-      "For users who cannot bend"
+      "Made in Taiwan",
+      "High-elasticity stretch cotton band",
+      "Length 230mm, Weight 88g",
+      "Nylon + cotton towel + plastic construction",
+      "Suitable for hip-replacement patients & those with poor balance"
     ],
-    "price_display_en": "HK$150.00 (reference)",
+    "price_display_en": "HK$120.00",
     "stock_status": "in_stock"
   },
   {
