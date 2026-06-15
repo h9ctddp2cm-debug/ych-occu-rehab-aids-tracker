@@ -82,7 +82,7 @@
     "model": "GHM-WC-EX2",
     "price_min": 2900.0,
     "price_max": 3200.0,
-    "price_display": "HK$2,900 - $3,200 (參考價)",
+    "price_display": "HK$2,900 - $3,200",
     "specs": [
       "座高: 17.5\"-19.5\" (雙軸位可調)",
       "座闊: 16\"/18\"/20\"",
@@ -106,7 +106,7 @@
       "Brand: Invacare (USA)",
       "Detachable armrests & footrests"
     ],
-    "price_display_en": "HK$2,900 – $3,200 (reference)",
+    "price_display_en": "HK$2,900 – $3,200",
     "note_en": "Product page confirmed via QR code",
     "stock_status": "in_stock"
   },
@@ -119,7 +119,7 @@
     "model": "H508",
     "price_min": 1880.0,
     "price_max": 1880.0,
-    "price_display": "HK$1,880.00 (參考價)",
+    "price_display": "HK$1,880.00",
     "specs": [
       "座高: 20\"",
       "座闊: 16\"/18\"",
@@ -143,7 +143,7 @@
       "Foldable back design",
       "Aluminium alloy frame"
     ],
-    "price_display_en": "HK$1,880.00 (reference)",
+    "price_display_en": "HK$1,880.00",
     "stock_status": "in_stock"
   },
   {
@@ -213,7 +213,7 @@
       "Elevating leg rest",
       "Suitable for long-term seating"
     ],
-    "price_display_en": "HK$5,800.00 (reference)",
+    "price_display_en": "HK$5,800.00",
     "stock_status": "in_stock"
   },
   {
@@ -225,7 +225,7 @@
     "model": "ALP-RW1611P-F-V1",
     "price_min": 4000.0,
     "price_max": 4000.0,
-    "price_display": "HK$4,000.00 (參考價)",
+    "price_display": "HK$4,000.00",
     "specs": [
       "座高: 20\"",
       "座闊: 16\"/18\"",
@@ -249,7 +249,7 @@
       "Adjustable headrest & leg rest",
       "Padded seat & back"
     ],
-    "price_display_en": "HK$6,800.00 (reference)",
+    "price_display_en": "HK$6,800.00",
     "stock_status": "in_stock"
   },
   {
@@ -261,7 +261,7 @@
     "model": "GHM-WC-RC",
     "price_min": 3900.0,
     "price_max": 3900.0,
-    "price_display": "HK$3,900.00 (參考價)",
+    "price_display": "HK$3,900.00",
     "specs": [
       "座高: 20\"",
       "座闊: 18\"",
@@ -282,7 +282,7 @@
       "Elevating leg rest",
       "Suitable for stroke / long-term care"
     ],
-    "price_display_en": "Please call to enquire",
+    "price_display_en": "HK$ — Please call",
     "stock_status": "in_stock"
   },
   {
@@ -323,7 +323,7 @@
     "model": "CA1360",
     "price_min": 780.0,
     "price_max": 780.0,
-    "price_display": "HK$780.00 (請電話查詢)",
+    "price_display": "HK$780.00",
     "specs": [
       "座高: 17-21\" (可調)",
       "座闊: 17\"",
@@ -342,7 +342,7 @@
       "Both shower & commode use",
       "Aluminium alloy"
     ],
-    "price_display_en": "HK$880.00 (reference)",
+    "price_display_en": "HK$880.00",
     "stock_status": "in_stock"
   },
   {
@@ -387,7 +387,7 @@
     "model": "CS880A",
     "price_min": 0,
     "price_max": 0,
-    "price_display": "請電話查詢",
+    "price_display": "HK$ — 請致電查詢",
     "specs": [
       "座高: 20\"",
       "座闊: 17\"",
@@ -412,7 +412,7 @@
       "V-shape seat opening",
       "Shower-safe materials"
     ],
-    "price_display_en": "HK$2,200.00 (reference)",
+    "price_display_en": "HK$2,200.00",
     "stock_status": "in_stock"
   },
   {
@@ -709,7 +709,7 @@
     "model": "FHA-DW-3500",
     "price_min": 500.0,
     "price_max": 500.0,
-    "price_display": "HK$500.00 (參考價)",
+    "price_display": "HK$500.00",
     "specs": [
       "座高: 16-21\" (可調校)",
       "座闊: 16\"",
@@ -731,7 +731,7 @@
       "Max load: 100 kg",
       "Detachable armrests"
     ],
-    "price_display_en": "HK$500.00 (reference)",
+    "price_display_en": "HK$500.00",
     "note_en": "Product page confirmed by QR; price not listed online — please call",
     "stock_status": "in_stock"
   },
@@ -868,7 +868,7 @@
       "Anti-slip rubber feet",
       "Height adjustable"
     ],
-    "price_display_en": "HK$280.00 (reference)",
+    "price_display_en": "HK$280.00",
     "stock_status": "in_stock"
   },
   {
@@ -900,7 +900,7 @@
       "Aluminium alloy frame",
       "Height adjustable"
     ],
-    "price_display_en": "HK$680.00 (reference)",
+    "price_display_en": "HK$680.00",
     "stock_status": "in_stock"
   },
   {
@@ -1001,7 +1001,7 @@
       "Height adjustable",
       "Anti-slip feet"
     ],
-    "price_display_en": "HK$320.00 (reference)",
+    "price_display_en": "HK$320.00",
     "stock_status": "in_stock"
   },
   {
@@ -1013,7 +1013,7 @@
     "model": "FHA-TB-9000 (3\"/4\"/5.5\")",
     "price_min": 400.0,
     "price_max": 400.0,
-    "price_display": "HK$400.00 (參考價, 三種高度同價)",
+    "price_display": "HK$400.00",
     "specs": [
       "尺寸: 40cm(L) × 36cm(W)",
       "高度: 3\" / 4\" / 5.5\" 三款",
@@ -1172,7 +1172,7 @@
     "model": "NOT-L36237 (26\") / NOT-L61554 (32\")",
     "price_min": 200.0,
     "price_max": 200.0,
-    "price_display": "HK$200.00 (參考價, 兩種長度同價)",
+    "price_display": "HK$200.00",
     "specs": [
       "長度: 26\" / 32\" 兩款",
       "重量: 160g (26\") / 180g (32\")",
@@ -1211,7 +1211,7 @@
     "model": "16200254",
     "price_min": 28.0,
     "price_max": 28.0,
-    "price_display": "HK$28.00 (參考價)",
+    "price_display": "HK$28.00",
     "specs": [
       "長度: 24\" / 30\" 兩款"
     ],
@@ -1227,7 +1227,7 @@
       "Lightweight",
       "For users who cannot bend"
     ],
-    "price_display_en": "HK$120.00 (reference)",
+    "price_display_en": "HK$120.00",
     "stock_status": "in_stock"
   },
   {
@@ -1300,7 +1300,7 @@
     "model": "AAA026-002",
     "price_min": 380.0,
     "price_max": 380.0,
-    "price_display": "HK$380.00 (參考價, 商品存貨不足)",
+    "price_display": "HK$380.00",
     "specs": [
       "長度: 70cm",
       "6 種功能: 穿襪 / 脫襪 / 取襪 / 穿鞋 / 脫鞋 / 取鞋",
@@ -1320,7 +1320,7 @@
       "6-in-1: put on / take off socks & shoes",
       "Long handle"
     ],
-    "price_display_en": "HK$220.00 (reference)",
+    "price_display_en": "HK$220.00",
     "stock_status": "in_stock"
   },
   {
@@ -1405,7 +1405,7 @@
     "model": "ESB00100",
     "price_min": 480.0,
     "price_max": 480.0,
-    "price_display": "HK$480.00 (參考價)",
+    "price_display": "HK$480.00",
     "specs": [
       "適合浴缸寬度: 16.5\"-25.5\"",
       "深度: 12.5\"",
@@ -1424,7 +1424,7 @@
       "Integrated handrail",
       "Standard width"
     ],
-    "price_display_en": "HK$550.00 (reference)",
+    "price_display_en": "HK$550.00",
     "stock_status": "in_stock"
   },
   {
@@ -1436,7 +1436,7 @@
     "model": "FHA-HE-5036P",
     "price_min": 450.0,
     "price_max": 450.0,
-    "price_display": "HK$450.00 (參考價)",
+    "price_display": "HK$450.00",
     "specs": [
       "適合浴缸寬度: 20\"-25.6\"",
       "深度: 9.1\"",
@@ -1455,7 +1455,7 @@
       "4-grid drainage design",
       "Anti-slip surface"
     ],
-    "price_display_en": "HK$480.00 (reference)",
+    "price_display_en": "HK$480.00",
     "stock_status": "in_stock"
   },
   {
@@ -1504,7 +1504,7 @@
     "model": "FHA-SR-R-70G2-E",
     "price_min": 0.0,
     "price_max": 0.0,
-    "price_display": "請致電查詢",
+    "price_display": "HK$ — 請致電查詢",
     "specs": [
       "日本 Dunlop 品牌",
       "玻璃纖維製, 輕便",
@@ -1522,7 +1522,7 @@
       "Fiberglass construction — lightweight",
       "Specs available on request"
     ],
-    "price_display_en": "Please call to enquire",
+    "price_display_en": "HK$ — Please call",
     "note_en": "Call to enquire",
     "stock_status": "out_of_stock",
     "stock_status_changed": "2026-06-15"
@@ -1536,7 +1536,7 @@
     "model": "GHM-NB-888 (B/C)",
     "price_min": 7600.0,
     "price_max": 7600.0,
-    "price_display": "HK$7,600 (參考價, 兩個尺寸同價)",
+    "price_display": "HK$7,600",
     "specs": [
       "2.5呎: 74(L) × 34(W) 吋, 3呎: 76(L) × 38(W) 吋",
       "離地: 30cm – 72cm",
@@ -1562,7 +1562,7 @@
       "Includes 3\" mattress, grip handle, IV pole",
       "2-year warranty on motor system"
     ],
-    "price_display_en": "HK$7,600 (reference, both sizes same price)",
+    "price_display_en": "HK$7,600",
     "note_en": "Also on HKTVmall in two sizes (GHM-NB-888B 2.5 ft / 888C 3 ft)",
     "stock_status": "in_stock"
   },
@@ -1575,7 +1575,7 @@
     "model": "FHA-FO-KS-828A (2.5呎) / 888B (3呎)",
     "price_min": 13600.0,
     "price_max": 13600.0,
-    "price_display": "HK$13,600 (參考價)",
+    "price_display": "HK$13,600",
     "specs": [
       "2.5呎: 74(L) × 34(W) 吋, 3呎: 78.7(L) × 38.2(W) 吋",
       "離地: 35cm – 74cm",
@@ -1603,7 +1603,7 @@
       "Independent castor locks; 1-year warranty",
       "Includes 1\" / 3\" mattress"
     ],
-    "price_display_en": "HK$13,600 (reference)",
+    "price_display_en": "HK$13,600",
     "note_en": "Currently \"out of stock\" online — please call to check availability",
     "stock_status": "in_stock"
   },
@@ -1616,7 +1616,7 @@
     "model": "EHB00055",
     "price_min": 12000.0,
     "price_max": 12000.0,
-    "price_display": "HK$12,000 (參考價)",
+    "price_display": "HK$12,000",
     "specs": [
       "尺寸: 78(L) × 38(W) 吋, 總長 199cm × 96cm",
       "離地: 36cm – 74cm (面板高 34.5-80cm)",
@@ -1644,7 +1644,7 @@
       "4× IV pole holes + 2× grip handle holes",
       "Four 5\" deluxe locking castors"
     ],
-    "price_display_en": "HK$12,000 (reference)",
+    "price_display_en": "HK$12,000",
     "note_en": "Full specs online; price not listed — please call",
     "stock_status": "in_stock"
   },
