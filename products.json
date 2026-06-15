@@ -41,9 +41,9 @@
     "category": "wheelchair",
     "product_name": "Alpha® T05 自助式輪椅 (大轆)",
     "model": "ALP-DS1807PF-T05",
-    "price_min": 1998.0,
-    "price_max": 1998.0,
-    "price_display": "HK$1,998.00 (LiveSmart 營康薈)",
+    "price_min": 2400.0,
+    "price_max": 2400.0,
+    "price_display": "HK$2,400.00",
     "specs": [
       "座高: 20\"",
       "座闊: 16\"/18\"",
@@ -57,7 +57,7 @@
     "product_url": "https://www.justmed.com.hk/product-detail.php?id=9",
     "phone": "2742 4370",
     "note": "醫院推介款式",
-    "updated_date": "2026-06-11",
+    "updated_date": "2026-06-15",
     "last_checked": "2026-06-15",
     "product_name_en": "Alpha® T05 Self-propelled Wheelchair (Large Rear Wheel)",
     "specs_en": [
@@ -69,7 +69,7 @@
       "Flip-back armrests with side panels",
       "Detachable footrests"
     ],
-    "price_display_en": "HK$1,998.00 (LiveSmart)",
+    "price_display_en": "HK$2,400.00",
     "note_en": "Recommended by hospitals",
     "stock_status": "in_stock"
   },
@@ -153,9 +153,9 @@
     "category": "wheelchair",
     "product_name": "功能型鋁合金小輪手動輪椅",
     "model": "FHW-13",
-    "price_min": 2500,
-    "price_max": 2500,
-    "price_display": "HK$2,500 (HealthTop 唯健康)",
+    "price_min": 2800.0,
+    "price_max": 3000.0,
+    "price_display": "HK$2,800 - $3,000 (16\"/18\": $2,800, 20\": $3,000)",
     "specs": [
       "座高: 19\"",
       "座闊: 16\"/18\"",
@@ -170,7 +170,7 @@
     "image_url": "images/wheelchair_healthtop_fhw13.jpg",
     "product_url": "https://healthtop.com.hk/%E5%8A%9F%E8%83%BD%E5%9E%8B%E9%8B%81%E5%90%88%E9%87%91%E5%B0%8F%E8%BC%AA%E6%89%8B%E5%8B%95%E8%BC%AA%E6%A4%85-FHW-13",
     "phone": "2413 7867",
-    "updated_date": "2026-06-11",
+    "updated_date": "2026-06-15",
     "last_checked": "2026-06-15",
     "product_name_en": "Functional Aluminium Small-wheel Manual Wheelchair FHW-13",
     "specs_en": [
@@ -179,7 +179,7 @@
       "Aluminium alloy, lightweight",
       "Foldable"
     ],
-    "price_display_en": "HK$2,500 (HealthTop)",
+    "price_display_en": "HK$2,800 - $3,000 (16\"/18\": $2,800, 20\": $3,000)",
     "stock_status": "in_stock"
   },
   {
@@ -559,12 +559,12 @@
     "category": "bedrail",
     "product_name": "床邊無腳扶手 (單邊)",
     "model": "BP3888",
-    "price_min": 920,
-    "price_max": 920,
-    "price_display": "HK$920.00",
+    "price_min": 920.0,
+    "price_max": 1770.0,
+    "price_display": "HK$920 - $1,770 (BP3888 $920 / BP3868 $1,770, 原價 $970-$1,820)",
     "image_url": "images/bedrail_nero_bp3888.jpeg",
     "product_url": "https://www.nrmedic.com/index.php?route=product/product&product_id=509",
-    "updated_date": "2026-06-11",
+    "updated_date": "2026-06-15",
     "last_checked": "2026-06-15",
     "phone": "2419 6788",
     "note": "單邊無腳扶手；連 24\"×24\" 木底板；費用已包送貨及上門安裝；建議固定於床板；如鐵床板/床架另收費",
@@ -585,7 +585,7 @@
       "Price includes delivery and installation",
       "For 2–3\" mattresses, can mount directly to frame"
     ],
-    "price_display_en": "HK$920",
+    "price_display_en": "HK$920 - $1,770 (BP3888 $920 / BP3868 $1,770, was $970-$1,820)",
     "note_en": "Single-side footless rail; includes 24×24\" wood base; price covers delivery + install; recommend mounting on bed frame; metal frame install costs extra",
     "stock_status": "in_stock"
   },
@@ -597,8 +597,8 @@
     "product_name": "WONSH® 膠斜台",
     "model": "WOH-TRRUB-RUB-1525-2",
     "price_min": 150.0,
-    "price_max": 150.0,
-    "price_display": "HK$150.00",
+    "price_max": 370.0,
+    "price_display": "HK$150 - $370 (按尺寸/高度)",
     "specs": [
       "橡膠製造, 防滑設計; 多款尺寸",
       "適用門檻 / 小斜台",
@@ -616,7 +616,7 @@
       "For thresholds / small ramps",
       "Just Med WONSH® series"
     ],
-    "price_display_en": "HK$150.00",
+    "price_display_en": "HK$150 - $370 (by size/height)",
     "note_en": "",
     "stock_status": "in_stock"
   },
@@ -742,9 +742,9 @@
     "category": "shower",
     "product_name": "U型靠背扶手沐浴椅/沖涼椅",
     "model": "FS-7961L",
-    "price_min": 500.0,
-    "price_max": 500.0,
-    "price_display": "HK$500.00",
+    "price_min": 700.0,
+    "price_max": 700.0,
+    "price_display": "HK$700.00",
     "specs": [
       "座高: 14-18\" (可調校)",
       "座闊: 16\"",
@@ -757,7 +757,7 @@
     "product_url": "https://www.justmed.com.hk/product-detail.php?id=71",
     "phone": "2742 4370",
     "note": "產品頁由相片 QR code 確認",
-    "updated_date": "2026-06-11",
+    "updated_date": "2026-06-15",
     "last_checked": "2026-06-15",
     "product_name_en": "U-shape Back Shower Chair with Armrests",
     "specs_en": [
@@ -766,7 +766,7 @@
       "Anti-slip rubber feet",
       "Height adjustable"
     ],
-    "price_display_en": "HK$500.00",
+    "price_display_en": "HK$700.00",
     "note_en": "",
     "stock_status": "in_stock"
   },
@@ -993,7 +993,7 @@
     "product_url": "https://www.rehabexpress.com.hk/uat4-15300045.html",
     "phone": "8206 6160",
     "note": "產品頁由相片 QR code 確認",
-    "updated_date": "2026-06-11",
+    "updated_date": "2026-06-15",
     "last_checked": "2026-06-15",
     "product_name_en": "Backless Shower Stool",
     "specs_en": [
@@ -1002,7 +1002,8 @@
       "Anti-slip feet"
     ],
     "price_display_en": "HK$320.00",
-    "stock_status": "in_stock"
+    "stock_status": "out_of_stock",
+    "stock_status_changed": "2026-06-15"
   },
   {
     "id": "tr1",
@@ -1043,9 +1044,9 @@
     "category": "toiletriser",
     "product_name": "NRS 座廁加高器 (兩種高度可選)",
     "model": "NOT-M53564 (2\") / NOT-M53576 (4\")",
-    "price_min": 350.0,
-    "price_max": 380.0,
-    "price_display": "HK$350 (2\") / $380 (4\")",
+    "price_min": 400.0,
+    "price_max": 430.0,
+    "price_display": "HK$400 (2\") / $430 (4\")",
     "specs": [
       "孔徑: 10.5\"(L) × 9\"(W)",
       "高度: 2\" 或 4\"",
@@ -1057,7 +1058,7 @@
     "product_url": "https://www.justmed.com.hk/product-detail.php?id=81",
     "phone": "2742 4370",
     "note": "產品頁由相片 QR code 確認, 2\" 線上 $350 (參考價亦同價), 4\" 請致電",
-    "updated_date": "2026-06-11",
+    "updated_date": "2026-06-15",
     "last_checked": "2026-06-15",
     "product_name_en": "NRS Toilet Seat Riser (2\" / 4\")",
     "specs_en": [
@@ -1065,7 +1066,7 @@
       "Two options",
       "NRS brand"
     ],
-    "price_display_en": "HK$380 / $480",
+    "price_display_en": "HK$400 (2\") / $430 (4\")",
     "stock_status": "in_stock"
   },
   {
@@ -1534,9 +1535,9 @@
     "category": "bed",
     "product_name": "三功能電動護理床 (經濟之選, 可選 3呎 / 2.5呎)",
     "model": "GHM-NB-888 (B/C)",
-    "price_min": 7600.0,
-    "price_max": 7600.0,
-    "price_display": "HK$7,600",
+    "price_min": 7450.0,
+    "price_max": 7450.0,
+    "price_display": "HK$7,450 (2.5呎 / 3呎)",
     "specs": [
       "2.5呎: 74(L) × 34(W) 吋, 3呎: 76(L) × 38(W) 吋",
       "離地: 30cm – 72cm",
@@ -1550,7 +1551,7 @@
     "product_url": "https://www.gethealth.com.hk/%E5%95%86%E5%93%81/%e4%b8%89%e5%8a%9f%e8%83%bd%e9%9b%bb%e5%8b%95%e8%ad%b7%e7%90%86%e5%ba%8a-%e7%b6%93%e6%bf%9f%e4%b9%8b%e9%81%b8-%e5%8f%af%e9%81%b83%e5%91%8e2-5%e5%91%8e/",
     "phone": "2432 2028",
     "note": "亦於 HKTVmall 上架, 兩個尺寸 (GHM-NB-888B 2.5呎 / GHM-NB-888C 3呎)",
-    "updated_date": "2026-06-11",
+    "updated_date": "2026-06-15",
     "last_checked": "2026-06-15",
     "product_name_en": "3-function Electric Care Bed (Economical, 2.5 ft / 3 ft)",
     "specs_en": [
@@ -1562,7 +1563,7 @@
       "Includes 3\" mattress, grip handle, IV pole",
       "2-year warranty on motor system"
     ],
-    "price_display_en": "HK$7,600",
+    "price_display_en": "HK$7,450 (2.5ft / 3ft)",
     "note_en": "Also on HKTVmall in two sizes (GHM-NB-888B 2.5 ft / 888C 3 ft)",
     "stock_status": "in_stock"
   },
@@ -1714,7 +1715,7 @@
     "product_url": "https://www.hktvmall.com/p/H9500001_S_GHM-PM-EFFECT76",
     "phone": "2432 2028",
     "note": "HKTVmall 特價 $1,850 (原價 $1,900). 通過 CE/FDA 認證",
-    "updated_date": "2026-06-11",
+    "updated_date": "2026-06-15",
     "last_checked": "2026-06-15",
     "product_name_en": "Effect Pressure-relief Air Mattress (Taiwan Brand)",
     "specs_en": [
@@ -1732,7 +1733,8 @@
     ],
     "price_display_en": "HK$1,850.00 (HKTVmall special; original $1,900)",
     "note_en": "HKTVmall special $1,850 (was $1,900). CE/FDA certified",
-    "stock_status": "in_stock"
+    "stock_status": "out_of_stock",
+    "stock_status_changed": "2026-06-15"
   },
   {
     "id": "hr1",
