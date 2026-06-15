@@ -386,16 +386,7 @@
   <p data-i18n="title_subtitle">以下資料只作參考，詳情請查詢相關的復康公司</p>
 </div>
 
-<!-- Home view -->
-<div id="home-view" class="home-wrap" style="display:none">
-  <div class="home-title" data-i18n="home_title">請選擇輔助工具類別</div>
-  <div class="home-grid" id="home-grid"></div>
-</div>
-
-<!-- Products view (default; container for everything else below) -->
-<div id="products-view">
-
-<!-- Settings: language + font size -->
+<!-- Settings: language + font size (shown on BOTH home view and products view) -->
 <div class="settings-bar">
   <div class="settings-group">
     <span class="label" data-i18n="settings_lang">🌐 語言 Language:</span>
@@ -410,6 +401,16 @@
     <button class="seg-btn" data-size="1.5">A++</button>
   </div>
 </div>
+
+<!-- Home view -->
+<div id="home-view" class="home-wrap" style="display:none">
+  <div class="home-title" data-i18n="home_title">請選擇輔助工具類別</div>
+  <div class="home-grid" id="home-grid"></div>
+</div>
+
+<!-- Products view (default; container for everything else below) -->
+<div id="products-view">
+
 
 <div class="controls">
   <select id="filter-category">
