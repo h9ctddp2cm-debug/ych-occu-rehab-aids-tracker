@@ -627,9 +627,9 @@
     "category": "mattress",
     "product_name": "ROSSMAX 條狀氣墊床褥",
     "model": "RX-AM40A",
-    "price_min": 2200.0,
-    "price_max": 2200.0,
-    "price_display": "HK$2,200.00 (參考價)",
+    "price_min": 1980.0,
+    "price_max": 1980.0,
+    "price_display": "HK$1,980.00 (原價 $2,200, 減 10%)",
     "specs": [
       "充氣後尺寸: 74\"(L) × 33.8\"(W) × 4\"(H)",
       "承重: 135kg",
@@ -646,7 +646,7 @@
     "product_url": "https://www.justmed.com.hk/product-detail.php?id=758",
     "phone": "2742 4370",
     "note": "官網規格齊全, 線上未列價, 請致電查詢. 中等至高皮膚破損風險適用",
-    "updated_date": "2026-06-11",
+    "updated_date": "2026-06-15",
     "last_checked": "2026-06-15",
     "product_name_en": "ROSSMAX Strip Air Mattress",
     "specs_en": [
@@ -661,7 +661,7 @@
       "Includes waterproof breathable cover",
       "2-year warranty on pump + tubes"
     ],
-    "price_display_en": "HK$2,200.00 (reference)",
+    "price_display_en": "HK$1,980.00 (original $2,200, 10% off)",
     "note_en": "Specs available online; price not listed — please call. Suitable for medium-to-high pressure ulcer risk",
     "stock_status": "in_stock"
   },
