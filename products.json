@@ -1231,9 +1231,9 @@
     "category": "sockaid",
     "product_name": "穿襪輔助器",
     "model": "NOT-F17252",
-    "price_min": 85.0,
-    "price_max": 85.0,
-    "price_display": "HK$85.00 (網店實價, PDF 參考 $100)",
+    "price_min": 100.0,
+    "price_max": 100.0,
+    "price_display": "HK$100.00",
     "specs": [
       "有效幫助康復者將襪子穿上",
       "適合未能彎腰穿襪人士"
@@ -1242,14 +1242,14 @@
     "product_url": "https://www.justmed.com.hk/product-detail.php?id=831",
     "phone": "2742 4370",
     "note": "原 QR 已失效, 已用 Google 搵到 official page, 線上實價 $85 (比 PDF 平 $15)",
-    "updated_date": "2026-06-11",
+    "updated_date": "2026-06-15",
     "last_checked": "2026-06-15",
     "product_name_en": "Sock Aid",
     "specs_en": [
       "Helps users pull socks on",
       "For people who cannot bend to put on socks"
     ],
-    "price_display_en": "HK$85.00 (online price; PDF reference $100 — save $15)",
+    "price_display_en": "HK$100.00",
     "note_en": "Original QR expired; URL recovered via Google. Online price $85 (saves $15 vs PDF)"
   },
   {
