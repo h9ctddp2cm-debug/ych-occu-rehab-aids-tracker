@@ -1691,13 +1691,13 @@
   {
     "id": "mat3",
     "source": "gethealth",
-    "source_name": "家得康 Get Health",
+    "source_name": "健康家居 GetHealth",
     "category": "mattress",
     "product_name": "Effect 減壓氣墊床 (台灣品牌)",
     "model": "GHM-PM-EFFECT",
     "price_min": 1850.0,
     "price_max": 1850.0,
-    "price_display": "HK$1,850.00 (HKTVmall 特價, 原 $1,900)",
+    "price_display": "HK$1,850.00 (2.5呎 / 3呎)",
     "specs": [
       "近 2.5呎: 185(L) × 76(W) × 11(H) cm",
       "近 3呎: 185(L) × 88(W) × 11(H) cm",
@@ -1712,7 +1712,7 @@
       "中等壓瘡風險患者適用"
     ],
     "image_url": "images/mattress_gethealth_effect.jpeg",
-    "product_url": "https://www.hktvmall.com/p/H9500001_S_GHM-PM-EFFECT76",
+    "product_url": "https://www.gethealth.com.hk/商品/effect-減壓氣墊床-台灣品牌/",
     "phone": "2432 2028",
     "note": "HKTVmall 特價 $1,850 (原價 $1,900). 通過 CE/FDA 認證",
     "updated_date": "2026-06-15",
@@ -1731,10 +1731,9 @@
       "Low-pressure alert; CE & FDA certified",
       "For medium pressure ulcer risk patients"
     ],
-    "price_display_en": "HK$1,850.00 (HKTVmall special; original $1,900)",
+    "price_display_en": "HK$1,850.00 (2.5ft / 3ft)",
     "note_en": "HKTVmall special $1,850 (was $1,900). CE/FDA certified",
-    "stock_status": "out_of_stock",
-    "stock_status_changed": "2026-06-15"
+    "stock_status": "in_stock"
   },
   {
     "id": "hr1",
