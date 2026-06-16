@@ -356,23 +356,42 @@
       margin: 2px 0;
       padding-left: 2px;
     }
-    /* === Features section: subtle heading + ✓ tags === */
+    /* === Features section: collapsible with subtle heading + ✓ tags === */
     .card .features-section {
       margin: 6px 0 2px 0;
       padding-top: 6px;
       border-top: 1px dashed #e5e7eb;
     }
-    .card .features-heading {
+    .card .features-toggle {
+      display: flex; align-items: center; gap: 4px;
+      width: 100%;
+      background: none; border: none; padding: 2px 0;
+      cursor: pointer;
       font-size: 0.72em;
       color: #94a3b8;
       font-weight: 600;
       letter-spacing: 0.04em;
-      margin-bottom: 4px;
       text-transform: uppercase;
+      font-family: inherit;
+      text-align: left;
+    }
+    .card .features-toggle:hover { color: #475569; }
+    .card .features-toggle .arrow {
+      display: inline-block;
+      transition: transform 0.2s ease;
+      font-size: 0.9em;
+      color: #94a3b8;
+    }
+    .card .features-toggle.open .arrow {
+      transform: rotate(90deg);
     }
     .card .features-list {
-      display: flex; flex-wrap: wrap; gap: 4px 6px;
-      margin: 0; padding: 0; list-style: none;
+      display: none;
+      flex-wrap: wrap; gap: 4px 6px;
+      margin: 4px 0 0 0; padding: 0; list-style: none;
+    }
+    .card .features-list.open {
+      display: flex;
     }
     .card .features-list li {
       font-size: 0.76em;
@@ -975,7 +994,7 @@ function renderCards(products) {
       : '';
     const features = fieldFeatures(p);
     const featuresHTML = features.length
-      ? `<div class="features-section"><div class="features-heading">${t('label_features')}</div><ul class="features-list">${features.map(f => `<li>${escapeHTML(f)}</li>`).join('')}</ul></div>`
+      ? `<div class="features-section"><button type="button" class="features-toggle" onclick="toggleFeatures(this)" aria-expanded="false"><span class="arrow">▶</span><span>${t('label_features')}</span></button><ul class="features-list">${features.map(f => `<li>${escapeHTML(f)}</li>`).join('')}</ul></div>`
       : '';
     const checked = compareList.includes(String(id)) ? 'checked' : '';
     const pData = JSON.stringify(p).replace(/\\/g,'\\\\').replace(/"/g,'&quot;');
@@ -1015,6 +1034,15 @@ function escapeHTML(s) {
   return String(s)
     .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+function toggleFeatures(btn) {
+  const section = btn.closest('.features-section');
+  if (!section) return;
+  const list = section.querySelector('.features-list');
+  if (!list) return;
+  const isOpen = list.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
 }
 function escapeAttr(s) { return escapeHTML(s); }
 
