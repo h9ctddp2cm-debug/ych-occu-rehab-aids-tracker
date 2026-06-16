@@ -186,6 +186,84 @@
     }
     .fav-btn .star { display: inline-block; }
     .fav-btn.faved .star { animation: pop 0.3s; }
+
+    /* === Share bar (therapist view of favorites) === */
+    #fav-share-bar {
+      display: none;
+      max-width: 1200px;
+      margin: 14px auto 6px;
+      padding: 14px 18px;
+      background: linear-gradient(135deg, #fff3cd, #ffe082);
+      border: 2px solid #f1c40f;
+      border-radius: 14px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+      color: #1a1a1a;
+    }
+    #fav-share-bar.show { display: block; }
+    #fav-share-bar .fsb-title {
+      font-size: 1.05em; font-weight: 800;
+      color: #b45309; margin-bottom: 4px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    #fav-share-bar .fsb-hint {
+      font-size: 0.9em; opacity: 0.85; margin-bottom: 10px;
+    }
+    #fav-share-bar .fsb-link {
+      display: flex; gap: 8px; flex-wrap: wrap;
+      align-items: center;
+    }
+    #fav-share-bar input.fsb-url {
+      flex: 1 1 240px;
+      padding: 9px 12px;
+      border: 1px solid #d4a017; border-radius: 8px;
+      background: white; font-size: 0.88em;
+      font-family: ui-monospace, monospace;
+      color: #444;
+    }
+    #fav-share-bar button.fsb-copy {
+      background: #27ae60; color: white;
+      border: none; border-radius: 8px;
+      padding: 10px 18px; font-size: 0.95em; font-weight: 700;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.15s;
+      white-space: nowrap;
+    }
+    #fav-share-bar button.fsb-copy:hover { background: #229954; transform: translateY(-1px); }
+    #fav-share-bar button.fsb-copy.copied { background: #16a085; }
+    #fav-share-bar .fsb-empty {
+      font-style: italic; color: #888; padding: 6px 0;
+    }
+
+    /* === Patient banner (when ?fav= URL is shared) === */
+    #patient-banner {
+      display: none;
+      max-width: 1200px;
+      margin: 14px auto 6px;
+      padding: 18px 22px;
+      background: linear-gradient(135deg, #ffffff, #f0fff4);
+      border: 2px solid #27ae60;
+      border-radius: 14px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+    }
+    #patient-banner.show { display: block; }
+    #patient-banner .pb-title {
+      font-size: 1.25em; font-weight: 800;
+      color: #1a7a3e; margin-bottom: 6px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    #patient-banner .pb-title::before { content: "👩‍⚕️"; }
+    #patient-banner .pb-sub {
+      font-size: 0.95em; color: #333; margin-bottom: 12px; line-height: 1.5;
+    }
+    #patient-banner button.pb-toggle {
+      background: white; color: #1a7a3e;
+      border: 2px solid #27ae60; border-radius: 8px;
+      padding: 9px 16px; font-size: 0.92em; font-weight: 700;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    #patient-banner button.pb-toggle:hover { background: #eafaf1; }
+
     @keyframes pop {
       0% { transform: scale(1); }
       50% { transform: scale(1.35); }
@@ -441,6 +519,21 @@
   <button id="btn-clear"   onclick="clearCompare()" data-i18n="btn_clear">清除</button>
 </div>
 
+<div id="patient-banner">
+  <div class="pb-title" data-i18n="patient_banner_title">治療師建議你參考以下產品</div>
+  <div class="pb-sub" data-i18n="patient_banner_sub">以下是治療師為你揀選嘅產品。你亦可以查看所有產品。</div>
+  <button class="pb-toggle" id="pb-toggle-btn" onclick="togglePatientView()" data-i18n="patient_view_all">查看所有產品</button>
+</div>
+
+<div id="fav-share-bar">
+  <div class="fsb-title" data-i18n="fav_share_title">我的最愛</div>
+  <div class="fsb-hint" data-i18n="fav_share_hint">揀好產品後，按下面個掣複製連結 send 俾 patient</div>
+  <div class="fsb-link" id="fsb-link-wrap">
+    <input class="fsb-url" id="fsb-url" type="text" readonly />
+    <button class="fsb-copy" id="fsb-copy-btn" onclick="copyFavoritesLink()" data-i18n="fav_share_copy">🔗 複製連結</button>
+  </div>
+</div>
+
 <div id="category-notice"></div>
 
 <div id="product-grid"><div id="status" data-i18n="loading">正在載入產品資料...</div></div>
@@ -530,6 +623,15 @@ const I18N = {
     section_title_fav: '我的最愛',
     fav_tooltip: '加入我的最愛',
     unfav_tooltip: '移出我的最愛',
+    fav_share_title: '我的最愛',
+    fav_share_hint: '揀好產品後，按下面個掣複製連結 send 俾 patient',
+    fav_share_copy: '🔗 複製連結',
+    fav_share_copied: '✓ 已複製連結',
+    fav_share_empty: '請先加入至少 1 件產品',
+    patient_banner_title: '治療師建議你參考以下產品',
+    patient_banner_sub: '以下是治療師為你揀選嘅產品。你亦可以查看所有產品。',
+    patient_view_all: '查看所有產品',
+    patient_view_picks: '返回治療師推介',
     cat_no_products: '此類別暫時未有產品',
     src_all: '所有供應商', search_placeholder: '搜尋產品名稱...',
     btn_search: '🔎 搜尋',
@@ -599,6 +701,15 @@ const I18N = {
     section_title_fav: 'My Favorites',
     fav_tooltip: 'Add to favorites',
     unfav_tooltip: 'Remove from favorites',
+    fav_share_title: 'My Favorites',
+    fav_share_hint: 'Pick items, then copy the link to share with your patient',
+    fav_share_copy: '🔗 Copy share link',
+    fav_share_copied: '✓ Link copied',
+    fav_share_empty: 'Please add at least 1 item first',
+    patient_banner_title: 'Your therapist recommends the following items',
+    patient_banner_sub: 'These items were selected for you. You can also view all products.',
+    patient_view_all: 'View all products',
+    patient_view_picks: 'Back to therapist picks',
     cat_no_products: 'No products in this category yet',
     src_all: 'All suppliers', search_placeholder: 'Search product name...',
     btn_search: '🔎 Search',
@@ -977,11 +1088,20 @@ function closeCompare() { document.getElementById('compare-modal').style.display
 /* ===== Favorites (localStorage) ===== */
 let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
 
+/* ===== Patient view state =====
+ * When URL is ?fav=id1,id2,... the visitor is a patient who got a shared link.
+ */
+let patientMode = false;
+let patientViewAll = false;
+let patientFavorites = [];
+
 function saveFavorites() {
+  if (patientMode) return;  // never write patient's URL favs to localStorage
   localStorage.setItem('favorites', JSON.stringify(favorites));
 }
 
 window.toggleFavorite = function(btn) {
+  if (patientMode) return;  // patients can't edit favorites
   const id = String(btn.dataset.id);
   const idx = favorites.indexOf(id);
   if (idx >= 0) {
@@ -1003,6 +1123,105 @@ window.toggleFavorite = function(btn) {
   }
   saveFavorites();
   updateHomeFavCount();
+  updateShareBar();
+};
+
+/* ===== Share-link bar (therapist view) ===== */
+function buildShareUrl(ids) {
+  const url = new URL(location.href);
+  url.search = '';
+  url.hash = '#/favorites';
+  if (ids && ids.length) {
+    url.searchParams.set('fav', ids.join(','));
+  }
+  return url.toString();
+}
+
+function updateShareBar() {
+  const bar = document.getElementById('fav-share-bar');
+  if (!bar) return;
+  const onFav = (location.hash || '').startsWith('#/favorites');
+  if (onFav && !patientMode) {
+    bar.classList.add('show');
+    const input = document.getElementById('fsb-url');
+    const btn = document.getElementById('fsb-copy-btn');
+    if (favorites.length === 0) {
+      input.value = '';
+      input.placeholder = t('fav_share_empty');
+      btn.disabled = true;
+      btn.style.opacity = '0.55';
+      btn.style.cursor = 'not-allowed';
+    } else {
+      input.value = buildShareUrl(favorites);
+      btn.disabled = false;
+      btn.style.opacity = '1';
+      btn.style.cursor = 'pointer';
+    }
+  } else {
+    bar.classList.remove('show');
+  }
+}
+
+window.copyFavoritesLink = function() {
+  const input = document.getElementById('fsb-url');
+  const btn = document.getElementById('fsb-copy-btn');
+  if (!input.value) return;
+  input.select();
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(input.value).then(() => { showCopied(btn); }).catch(() => {
+      try { document.execCommand('copy'); showCopied(btn); } catch(e) {}
+    });
+  } else {
+    try { if (document.execCommand('copy')) showCopied(btn); } catch(e) {}
+  }
+};
+
+function showCopied(btn) {
+  btn.classList.add('copied');
+  btn.textContent = t('fav_share_copied');
+  setTimeout(() => {
+    btn.classList.remove('copied');
+    btn.textContent = t('fav_share_copy');
+  }, 2000);
+}
+
+/* ===== Patient view (?fav=... URL) ===== */
+function parsePatientFavorites() {
+  const params = new URLSearchParams(location.search);
+  const raw = params.get('fav');
+  if (!raw) return null;
+  return raw.split(',').map(s => s.trim()).filter(Boolean);
+}
+
+function updatePatientBanner() {
+  const banner = document.getElementById('patient-banner');
+  if (!banner) return;
+  const btn = document.getElementById('pb-toggle-btn');
+  if (patientMode) {
+    banner.classList.add('show');
+    if (btn) {
+      const k = patientViewAll ? 'patient_view_picks' : 'patient_view_all';
+      btn.textContent = t(k);
+      btn.setAttribute('data-i18n', k);
+    }
+    document.querySelectorAll('.fav-btn').forEach(el => el.style.display = 'none');
+  } else {
+    banner.classList.remove('show');
+    document.querySelectorAll('.fav-btn').forEach(el => el.style.display = '');
+  }
+}
+
+window.togglePatientView = function() {
+  patientViewAll = !patientViewAll;
+  if (patientViewAll) {
+    document.getElementById('filter-category').value = '';
+    document.getElementById('filter-source').value = '';
+    document.getElementById('search-input').value = '';
+    renderCards(allProducts);
+  } else {
+    renderFavoritesView();
+  }
+  updatePatientBanner();
 };
 
 function updateHomeFavCount() {
@@ -1058,6 +1277,8 @@ function renderFavoritesView() {
   } else {
     renderCards(favProducts);
   }
+  updateShareBar();
+  updatePatientBanner();
 }
 
 /* ===== Router (hash-based) ===== */
@@ -1084,6 +1305,8 @@ function handleRoute() {
     const cat = hash.slice('#/cat/'.length);
     document.getElementById('filter-category').value = cat;
     applyFilters();
+    updateShareBar();
+    updatePatientBanner();
   } else if (hash.startsWith('#/favorites')) {
     renderFavoritesView();
   } else {
@@ -1109,7 +1332,18 @@ applyFontSize();
 // Override loadProducts callback so home page renders correctly
 async function bootstrap() {
   await loadProducts();
-  handleRoute();  // Process initial hash
+  // If URL contains ?fav=ids, enter patient mode
+  const urlFavs = parsePatientFavorites();
+  if (urlFavs && urlFavs.length) {
+    patientMode = true;
+    patientFavorites = urlFavs;
+    favorites = urlFavs.slice();  // session-only, not persisted
+    if (!location.hash || location.hash === '#/' || location.hash === '#') {
+      location.hash = '#/favorites';
+      return;  // hashchange will call handleRoute
+    }
+  }
+  handleRoute();
 }
 bootstrap();
 </script>
