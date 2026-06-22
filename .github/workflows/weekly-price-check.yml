@@ -1,9 +1,11 @@
 name: Weekly Price Check
 
 on:
-  schedule:
-    # Saturday 9am HKT = Saturday 1am UTC
-    - cron: "0 1 * * 6"
+  # DISABLED 2026-06-22: Auto run produced wrong prices (all wheelchairs $499/$1980/$800/$1000 etc.)
+  # parser logic needs review before re-enabling. Manual trigger only for now.
+  # schedule:
+  #   # Saturday 9am HKT = Saturday 1am UTC
+  #   - cron: "0 1 * * 6"
   workflow_dispatch:
     inputs:
       dry_run:
