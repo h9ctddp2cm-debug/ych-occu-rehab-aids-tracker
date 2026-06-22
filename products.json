@@ -59,7 +59,7 @@
     "image_url": "images/wheelchair_justmed_alpha_t05.jpg",
     "product_url": "https://www.justmed.com.hk/product-detail.php?id=9",
     "phone": "2742 4370",
-    "note": "醫院推介款式",
+    "note": "醫院推介款式; ⚠ 不支援線上付款，請 WhatsApp 2742 4370 落單",
     "updated_date": "2026-06-15",
     "last_checked": "2026-06-15",
     "product_name_en": "Alpha® T05 Self-propelled Wheelchair (Large Rear Wheel)",
@@ -80,7 +80,8 @@
     "features_en": [
       "Flip-back armrests with side panels",
       "Detachable footrests"
-    ]
+    ],
+    "purchase_method": "whatsapp_only"
   },
   {
     "id": "w3",
@@ -267,7 +268,7 @@
     "image_url": "images/wheelchair_justmed_alpha_highback.jpg",
     "product_url": "https://www.justmed.com.hk/product-detail.php?id=14",
     "phone": "2742 4370",
-    "note": "請致電 6280-0738 / 2742-4370 確認最新價格",
+    "note": "請致電 6280-0738 / 2742-4370 確認最新價格; ⚠ 不支援線上付款，請 WhatsApp 2742 4370 落單",
     "updated_date": "2026-06-11",
     "last_checked": "2026-06-15",
     "product_name_en": "Alpha® High-back Reclining Wheelchair (180°)",
@@ -284,7 +285,8 @@
       "Backrest recline: up to 180° (full flat)",
       "Adjustable headrest & leg rest",
       "Padded seat & back"
-    ]
+    ],
+    "purchase_method": "whatsapp_only"
   },
   {
     "id": "w9",
@@ -424,7 +426,9 @@
       "Drop-down armrests for easy transfer",
       "Tilt-bar for caregiver",
       "Padded seat"
-    ]
+    ],
+    "purchase_method": "whatsapp_only",
+    "note": "⚠ 不支援線上付款，請 WhatsApp 2742 4370 落單"
   },
   {
     "id": "cm4",
@@ -586,7 +590,7 @@
     "updated_date": "2026-06-11",
     "last_checked": "2026-06-15",
     "phone": "2742 4370",
-    "note": "免安裝；床欄可由 25\" 伸長至 40\"；置於床褥下使用；床墊厚度需大過 8cm/3吋",
+    "note": "免安裝；床欄可由 25\" 伸長至 40\"；置於床褥下使用；床墊厚度需大過 8cm/3吋; ⚠ 不支援線上付款，請 WhatsApp 2742 4370 落單",
     "product_name_en": "UK NRS Single-side Bed Rail (Extendable)",
     "specs_en": [
       "Dimensions: 37.5\"(D) × 25–40\"(W) × 18.75\"(H)"
@@ -608,7 +612,8 @@
       "Extendable rail: 25\" to 40\"",
       "Single-side fall prevention",
       "UK NRS brand"
-    ]
+    ],
+    "purchase_method": "whatsapp_only"
   },
   {
     "id": "br2",
@@ -711,7 +716,7 @@
     "image_url": "images/ramp_wonsh_trrub.jpeg",
     "product_url": "https://www.justmed.com.hk/product-detail.php?id=1914",
     "phone": "2742 4370",
-    "note": "",
+    "note": "⚠ 不支援線上付款，請 WhatsApp 2742 4370 落單",
     "updated_date": "2026-06-15",
     "last_checked": "2026-06-15",
     "product_name_en": "WONSH® Rubber Ramp",
@@ -733,7 +738,8 @@
       "Rubber construction, anti-slip design; multiple sizes",
       "For thresholds / small ramps",
       "Just Med WONSH® series"
-    ]
+    ],
+    "purchase_method": "whatsapp_only"
   },
   {
     "id": "m2",
@@ -754,7 +760,7 @@
     "image_url": "images/mattress_justmed_rxam40a.jpeg",
     "product_url": "https://www.justmed.com.hk/product-detail.php?id=758",
     "phone": "2742 4370",
-    "note": "官網規格齊全, 線上未列價, 請致電查詢. 中等至高皮膚破損風險適用",
+    "note": "官網規格齊全, 線上未列價, 請致電查詢. 中等至高皮膚破損風險適用; ⚠ 不支援線上付款，請 WhatsApp 2742 4370 落單",
     "updated_date": "2026-06-15",
     "last_checked": "2026-06-15",
     "product_name_en": "ROSSMAX Strip Air Mattress",
@@ -782,7 +788,8 @@
       "Tubes can be removed individually for cleaning",
       "Includes waterproof breathable cover",
       "2-year warranty on pump + tubes"
-    ]
+    ],
+    "purchase_method": "whatsapp_only"
   },
   {
     "id": "r3",
@@ -883,7 +890,7 @@
     "image_url": "images/shower_justmed_fs7961l.jpg",
     "product_url": "https://www.justmed.com.hk/product-detail.php?id=71",
     "phone": "2742 4370",
-    "note": "產品頁由相片 QR code 確認",
+    "note": "產品頁由相片 QR code 確認; ⚠ 不支援線上付款，請 WhatsApp 2742 4370 落單",
     "updated_date": "2026-06-15",
     "last_checked": "2026-06-15",
     "product_name_en": "U-shape Back Shower Chair with Armrests",
@@ -900,7 +907,8 @@
       "Detachable armrests",
       "Anti-slip rubber feet",
       "Height adjustable"
-    ]
+    ],
+    "purchase_method": "whatsapp_only"
   },
   {
     "id": "sc3",
@@ -1033,7 +1041,7 @@
     "image_url": "images/shower_justmed_std1004.jpg",
     "product_url": "https://www.justmed.com.hk/product-detail.php?id=69",
     "phone": "2742 4370",
-    "note": "產品頁由相片 QR code 確認",
+    "note": "產品頁由相片 QR code 確認; ⚠ 不支援線上付款，請 WhatsApp 2742 4370 落單",
     "updated_date": "2026-06-11",
     "last_checked": "2026-06-15",
     "product_name_en": "Folding Aluminium Shower Chair",
@@ -1048,7 +1056,8 @@
       "Foldable design — space-saving",
       "Aluminium alloy frame",
       "Height adjustable"
-    ]
+    ],
+    "purchase_method": "whatsapp_only"
   },
   {
     "id": "sc7",
@@ -1069,7 +1078,7 @@
     "image_url": "images/shower_justmed_fs798l.jpg",
     "product_url": "https://www.justmed.com.hk/product-detail.php?id=73",
     "phone": "2742 4370",
-    "note": "產品頁由相片 QR code 確認, 網頁未列價, 請致電查詢",
+    "note": "產品頁由相片 QR code 確認, 網頁未列價, 請致電查詢; ⚠ 不支援線上付款，請 WhatsApp 2742 4370 落單",
     "updated_date": "2026-06-15",
     "last_checked": "2026-06-15",
     "product_name_en": "Shower Chair with Backrest",
@@ -1082,7 +1091,8 @@
       "With backrest",
       "Height adjustable",
       "Anti-slip rubber feet"
-    ]
+    ],
+    "purchase_method": "whatsapp_only"
   },
   {
     "id": "sc8",
@@ -1220,7 +1230,7 @@
     "image_url": "images/riser_justmed_nrs.jpg",
     "product_url": "https://www.justmed.com.hk/product-detail.php?id=81",
     "phone": "2742 4370",
-    "note": "產品頁由相片 QR code 確認, 2\" 線上 $350 (參考價亦同價), 4\" 請致電",
+    "note": "產品頁由相片 QR code 確認, 2\" 線上 $350 (參考價亦同價), 4\" 請致電; ⚠ 不支援線上付款，請 WhatsApp 2742 4370 落單",
     "updated_date": "2026-06-15",
     "last_checked": "2026-06-15",
     "product_name_en": "NRS Toilet Seat Riser (2\" / 4\")",
@@ -1237,7 +1247,8 @@
     "features_en": [
       "Two options",
       "NRS brand"
-    ]
+    ],
+    "purchase_method": "whatsapp_only"
   },
   {
     "id": "tr3",
@@ -1362,7 +1373,7 @@
     "image_url": "images/reacher_justmed_l36237.jpg",
     "product_url": "https://www.justmed.com.hk/product-detail.php?id=828",
     "phone": "2742 4370",
-    "note": "原 QR 已失效, 已用 Google 搵到 official page, 網頁未列價請致電",
+    "note": "原 QR 已失效, 已用 Google 搵到 official page, 網頁未列價請致電; ⚠ 不支援線上付款，請 WhatsApp 2742 4370 落單",
     "updated_date": "2026-06-11",
     "last_checked": "2026-06-15",
     "product_name_en": "Reacher / Grabber (Two Lengths)",
@@ -1386,7 +1397,8 @@
       "Magnetic surface for picking up metal items",
       "Doubles as a shoehorn",
       "For users who cannot bend"
-    ]
+    ],
+    "purchase_method": "whatsapp_only"
   },
   {
     "id": "rc2",
@@ -1467,7 +1479,7 @@
     "image_url": "images/sockaid_justmed_f17252.jpg",
     "product_url": "https://www.justmed.com.hk/product-detail.php?id=831",
     "phone": "2742 4370",
-    "note": "",
+    "note": "⚠ 不支援線上付款，請 WhatsApp 2742 4370 落單",
     "updated_date": "2026-06-15",
     "last_checked": "2026-06-15",
     "product_name_en": "Sock Aid",
@@ -1482,7 +1494,8 @@
     "features_en": [
       "Helps users pull socks on",
       "For people who cannot bend to put on socks"
-    ]
+    ],
+    "purchase_method": "whatsapp_only"
   },
   {
     "id": "sa2",
@@ -1578,7 +1591,7 @@
     "image_url": "images/bathboard_justmed_nuvo.jpg",
     "product_url": "https://www.justmed.com.hk/product-detail.php?id=75",
     "phone": "2742 4370",
-    "note": "產品頁由相片 QR code 確認, 線上實價 $470 對應 26\"/27\"/28\"",
+    "note": "產品頁由相片 QR code 確認, 線上實價 $470 對應 26\"/27\"/28\"; ⚠ 不支援線上付款，請 WhatsApp 2742 4370 落單",
     "updated_date": "2026-06-11",
     "last_checked": "2026-06-15",
     "product_name_en": "NUVO / NRS Bath Board (Four Widths)",
@@ -1602,7 +1615,8 @@
       "Latex-free padded surface (hypoallergenic)",
       "Fits various bathtub shapes",
       "Optional dedicated handrail: +HK$100"
-    ]
+    ],
+    "purchase_method": "whatsapp_only"
   },
   {
     "id": "bb2",
@@ -2037,7 +2051,9 @@
       "Anti-slip texture surface",
       "White plastic + aluminium tube",
       "Mounting screws included"
-    ]
+    ],
+    "purchase_method": "whatsapp_only",
+    "note": "⚠ 不支援線上付款，請 WhatsApp 2742 4370 落單"
   },
   {
     "id": "hr2",
