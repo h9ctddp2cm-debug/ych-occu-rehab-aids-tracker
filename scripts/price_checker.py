@@ -174,12 +174,28 @@ def _detect_duplicate_prices(per_domain_prices: dict) -> dict:
 # Fetch HTML
 # ---------------------------------------------------------------------------
 def fetch_html(session: requests.Session, url: str) -> str | None:
-    """Fetch a product URL and return HTML string or None on failure."""
+    """Fetch a product URL and return HTML string or None on failure.
+    Falls back to verify=False if SSL verification fails (some suppliers have
+    broken cert chains but otherwise serve normally).
+    """
     try:
         resp = session.get(url, timeout=TIMEOUT, allow_redirects=True)
         resp.raise_for_status()
         resp.encoding = resp.apparent_encoding or "utf-8"
         return resp.text
+    except requests.exceptions.SSLError as exc:
+        # Retry without SSL verification (cert chain issue on supplier side)
+        logger.warning("SSL FAIL [%s]: %s — retrying with verify=False", url, exc)
+        try:
+            import urllib3
+            urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+            resp = session.get(url, timeout=TIMEOUT, allow_redirects=True, verify=False)
+            resp.raise_for_status()
+            resp.encoding = resp.apparent_encoding or "utf-8"
+            return resp.text
+        except requests.RequestException as exc2:
+            logger.warning("FETCH FAIL (after SSL fallback) [%s]: %s", url, exc2)
+            return None
     except requests.RequestException as exc:
         logger.warning("FETCH FAIL [%s]: %s", url, exc)
         return None
@@ -253,11 +269,16 @@ def main():
         parser = get_parser(domain)
         is_tier2 = pid in TIER2_IDS
 
+        # Build hint from product name + model number to help LLM locate main product
+        product_name = product.get("product_name", "") or ""
+        model = product.get("model", "") or ""
+        product_hint = f"{product_name} {model}".strip()
+
         try:
             if is_tier2:
-                raw_price = parser.extract_min_price(html, url)
+                raw_price = parser.extract_min_price(html, url, product_hint=product_hint)
             else:
-                raw_price = parser.extract_price(html, url)
+                raw_price = parser.extract_price(html, url, product_hint=product_hint)
         except Exception as exc:
             logger.warning("PARSE ERROR [%s] %s: %s", pid, domain, exc)
             failed_skipped.append((pid, f"parse error: {exc}"))

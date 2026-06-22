@@ -17,8 +17,8 @@ def get_parser(domain: str):
 
 
 class _UnifiedParser:
-    def extract_price(self, html: str, url: str) -> int | None:
-        return _qwen_extract(html, url, tier=1)
+    def extract_price(self, html: str, url: str, product_hint: str = "") -> int | None:
+        return _qwen_extract(html, url, tier=1, product_hint=product_hint)
 
-    def extract_min_price(self, html: str, url: str) -> int | None:
-        return _qwen_extract(html, url, tier=2)
+    def extract_min_price(self, html: str, url: str, product_hint: str = "") -> int | None:
+        return _qwen_extract(html, url, tier=2, product_hint=product_hint)
