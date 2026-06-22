@@ -559,7 +559,6 @@
       "適合座廁闊：16\" / 15.25\""
     ],
     "image_url": "images/commode_medicare_ecm30442.jpg",
-    "product_url": "https://www.medicare.com.hk/zh-hant/care/94/",
     "phone": "2687 6380",
     "updated_date": "2026-06-22",
     "last_checked": "2026-06-22",
@@ -576,6 +575,16 @@
       "304 stainless steel — rust-resistant",
       "Optional tilt-bar for caregiver",
       "Shower-safe"
+    ],
+    "product_urls": [
+      {
+        "label": "ECM30444S",
+        "url": "https://www.medicare.com.hk/zh-hant/care/289/?back=6df2d64d5cd5bb7f387a99f77cdd2d04"
+      },
+      {
+        "label": "ECM30442",
+        "url": "https://www.medicare.com.hk/zh-hant/care/288/?back=6df2d64d5cd5bb7f387a99f77cdd2d04"
+      }
     ]
   },
   {
@@ -1404,37 +1413,6 @@
       "For users who cannot bend"
     ],
     "purchase_method": "whatsapp_only"
-  },
-  {
-    "id": "rc2",
-    "source": "rehabexpress",
-    "source_name": "復康速遞 / 卓思廊 Cheers Gallery",
-    "category": "reacher",
-    "product_name": "手挾器",
-    "model": "16200254",
-    "price_min": 28.0,
-    "price_max": 28.0,
-    "price_display": "HK$28.00",
-    "specs": [
-      "長度：24\" / 30\" 兩款"
-    ],
-    "image_url": "images/reacher_cheers_16200254.jpg",
-    "product_url": "https://www.rehabexpress.com.hk/",
-    "phone": "3111 2386",
-    "note": "原 QR 已失效, 卓思廊冇 online product page, 詳情請致電 3111 2386 (荃灣街市街分店)",
-    "updated_date": "2026-06-11",
-    "last_checked": "2026-06-22",
-    "product_name_en": "Reacher / Grabber",
-    "specs_en": [],
-    "price_display_en": "HK$120.00",
-    "stock_status": "in_stock",
-    "features": [],
-    "features_en": [
-      "Standard grabber design",
-      "Lightweight",
-      "For users who cannot bend"
-    ],
-    "stock_status_changed": "2026-06-22"
   },
   {
     "id": "rc3",

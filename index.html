@@ -1002,9 +1002,14 @@ function renderCards(products) {
     const callBtn = phoneClean
       ? `<a class="btn-call" href="tel:${phoneClean}">📞 ${escapeHTML(p.phone)}</a>`
       : '';
-    const webBtn = p.product_url
-      ? `<a class="btn-web" href="${p.product_url}" target="_blank" rel="noopener">🌐 ${t('btn_web_text')}</a>`
-      : '';
+    let webBtn = '';
+    if (Array.isArray(p.product_urls) && p.product_urls.length) {
+      webBtn = p.product_urls.map(u =>
+        `<a class="btn-web" href="${u.url}" target="_blank" rel="noopener">🌐 ${escapeHTML(u.label)}</a>`
+      ).join('');
+    } else if (p.product_url) {
+      webBtn = `<a class="btn-web" href="${p.product_url}" target="_blank" rel="noopener">🌐 ${t('btn_web_text')}</a>`;
+    }
     const actionsHTML = (callBtn || webBtn)
       ? `<div class="actions">${callBtn}${webBtn}</div>`
       : '';
@@ -1140,9 +1145,17 @@ function showCompare() {
       const clean = p.phone.replace(/\s+/g, '');
       return `<a href="tel:${clean}" style="color:#27ae60;font-weight:600;text-decoration:none">📞 ${escapeHTML(p.phone)}</a>`;
     }],
-    [t('label_web'),      p => p.product_url
-      ? `<a href="${p.product_url}" target="_blank" rel="noopener" style="color:#3498db;text-decoration:none">🌐 ${t('btn_web_text')}</a>`
-      : '-'],
+    [t('label_web'),      p => {
+      if (Array.isArray(p.product_urls) && p.product_urls.length) {
+        return p.product_urls.map(u =>
+          `<a href="${u.url}" target="_blank" rel="noopener" style="color:#3498db;text-decoration:none">🌐 ${escapeHTML(u.label)}</a>`
+        ).join(' / ');
+      }
+      if (p.product_url) {
+        return `<a href="${p.product_url}" target="_blank" rel="noopener" style="color:#3498db;text-decoration:none">🌐 ${t('btn_web_text')}</a>`;
+      }
+      return '-';
+    }],
     [t('label_updated'),  p => escapeHTML(p.updated_date || '-')],
     [t('label_checked'),  p => escapeHTML(p.last_checked || p.updated_date || '-')],
     [t('label_stock'),    p => isOutOfStock(p) ? `<span style="color:#b91c1c;font-weight:600">${t('stock_out')}</span>` : t('stock_in')],
