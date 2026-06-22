@@ -1708,9 +1708,9 @@
     "category": "ramp",
     "product_name": "橡膠門檻斜板 (多尺寸)",
     "model": "FHA-WS-RUB",
-    "price_min": 370.0,
-    "price_max": 650.0,
-    "price_display": "HK$370 - $650",
+    "price_min": 270,
+    "price_max": 550,
+    "price_display": "HK$270 - $550 (因尺寸而異)",
     "specs": [
       "長度：10cm",
       "闊度：90cm",
@@ -1722,7 +1722,7 @@
     "phone": "2413 7867",
     "note": "參考價 $370-$650, 視乎尺寸",
     "updated_date": "2026-06-15",
-    "last_checked": "2026-06-15",
+    "last_checked": "2026-06-22",
     "product_name_en": "Rubber Threshold Ramp (Multiple Sizes)",
     "specs_en": [
       "Length: 10 cm",
@@ -1742,7 +1742,8 @@
       "Natural rubber — durable & anti-slip",
       "Suitable for wheelchair & walker access",
       "No installation needed"
-    ]
+    ],
+    "price_changed_at": "2026-06-22"
   },
   {
     "id": "rmp4",
