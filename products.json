@@ -2023,9 +2023,9 @@
     "price_max": 350,
     "price_display": "HK$200 - $350 (因尺寸而異)",
     "image_url": "images/handrail_healthyliving_dbpe0001.jpeg",
-    "product_url": "https://www.healthyliving.com.hk/product-category/%E6%B5%B4%E5%AE%A4%E5%AE%89%E5%85%A8/%E6%B5%B4%E5%AE%A4%E6%89%B6%E6%89%8B-%E6%B5%B4%E5%AE%A4%E5%AE%89%E5%85%A8/",
+    "product_url": "https://www.healthyliving.com.hk/shop/dbpe-%e5%ae%89%e5%85%a8%e9%98%b2%e6%bb%91%e6%89%b6%e6%89%8b/",
     "updated_date": "2026-06-11",
-    "last_checked": "2026-06-15",
+    "last_checked": "2026-06-22",
     "phone": "3426 9090",
     "specs": [
       "長度：30 / 40 / 50 / 60 / 70 / 80cm",
@@ -2045,8 +2045,7 @@
     "features_en": [
       "Anti-slip handle design",
       "Mounting screws included"
-    ],
-    "url_issue": "URL 係 category 頁，唔係單一產品頁，故無法可靠地對應呢個 product entry。需要逐件搵返正確 product URL。"
+    ]
   },
   {
     "id": "hr4",
@@ -2140,9 +2139,9 @@
     "price_max": 1080,
     "price_display": "HK$880 / $1,080 (60 / 70 cm)",
     "image_url": "images/handrail_healthyliving_dbpe0014.jpeg",
-    "product_url": "https://www.healthyliving.com.hk/product-category/%E6%B5%B4%E5%AE%A4%E5%AE%89%E5%85%A8/%E6%B5%B4%E5%AE%A4%E6%89%B6%E6%89%8B-%E6%B5%B4%E5%AE%A4%E5%AE%89%E5%85%A8/",
+    "product_url": "https://www.healthyliving.com.hk/shop/dbpe-%e4%b8%8a%e7%bf%bb%e5%bc%8f%e6%b5%b4%e5%ae%a4%e6%89%b6%e6%89%8b/",
     "updated_date": "2026-06-11",
-    "last_checked": "2026-06-15",
+    "last_checked": "2026-06-22",
     "phone": "3426 9090",
     "specs": [
       "長度：60 / 70cm",
@@ -2168,8 +2167,7 @@
       "Anti-slip handle",
       "Mounting screws included",
       "Suitable for toilet-side installation"
-    ],
-    "url_issue": "URL 係 category 頁，唔係單一產品頁，故無法可靠地對應呢個 product entry。需要逐件搵返正確 product URL。"
+    ]
   },
   {
     "id": "hr7",
