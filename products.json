@@ -1342,11 +1342,11 @@
       "適合坐廁總外闊：12\"–15\""
     ],
     "image_url": "images/riser_medicare_ems00603.jpg",
-    "product_url": "https://www.medicare.com.hk/zh-hant/care/109/",
+    "product_url": "https://www.medicare.com.hk/zh-hant/care/102/",
     "phone": "2687 6380",
     "note": "產品頁由相片 QR code 確認, 三款線上實價",
     "updated_date": "2026-06-11",
-    "last_checked": "2026-06-15",
+    "last_checked": "2026-06-22",
     "product_name_en": "Toilet Riser with Lid (2.5\" / 4\" / 6\")",
     "specs_en": [
       "Height: 2.5\" / 4\" / 6\""
@@ -1359,8 +1359,7 @@
     "features_en": [
       "With lid",
       "Three options"
-    ],
-    "url_issue": "URL 對應 2.5吋無蓋版，但 products.json 入面係連蓋三尺寸版。需要 confirm 正確 URL 或者改 product entry。"
+    ]
   },
   {
     "id": "rc1",
