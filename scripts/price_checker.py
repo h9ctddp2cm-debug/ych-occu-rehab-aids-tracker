@@ -1,11 +1,19 @@
 #!/usr/bin/env python3
 """
 YCH Rehab Aids Tracker — Weekly Price Checker
-Backup for Perplexity AI cron (runs Saturday 9am HKT via GitHub Actions).
+Runs Saturday 9am HKT via GitHub Actions.
+
+Architecture (3-pass for safety):
+  Pass 1: Fetch HTML + extract raw price for every product (no writes).
+  Pass 2: Cross-product duplicate detection — reject any (domain, price)
+          returned for 3+ products on the same supplier domain.
+  Pass 3: Apply updates only to products surviving both safety checks
+          (sane single-product change + not flagged as duplicate).
 
 Safety rules:
   - NEVER delete any product.
-  - Only modify: price_min, price_max, price_display, last_checked, updated_date
+  - Only modify: price_min, price_max, price_display, last_checked, updated_date,
+    stock_status, stock_status_changed.
   - Tier 2 products: NEVER touch price_max or price_display.
   - assert len(data) == original_count before writing.
 """
@@ -14,7 +22,8 @@ import json
 import logging
 import sys
 import time
-from datetime import date, datetime, timezone, timedelta
+from collections import defaultdict
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -44,10 +53,10 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # ---------------------------------------------------------------------------
-# Rate limiting — Gemini free tier: 15 RPM
-# Sleep after each Gemini call to stay well within the limit.
+# Rate limiting — Perplexity Sonar tier 0/1 = 20 RPM
+# Sleep after each API call to stay well within limits.
 # ---------------------------------------------------------------------------
-GEMINI_SLEEP = 5.0  # seconds between products
+API_SLEEP = 3.5  # seconds between products (~17 RPM max)
 
 # ---------------------------------------------------------------------------
 # HTTP session with retry logic
@@ -95,11 +104,7 @@ OUT_OF_STOCK_KEYWORDS = [
 
 
 def _detect_stock_status(html: str) -> str | None:
-    """Return 'out_of_stock' if any OOS keyword found, else None (treat as in_stock).
-    
-    We only mark out_of_stock on explicit detection. We never flip in_stock without
-    positive evidence (could be missed price = page changed, not OOS).
-    """
+    """Return 'out_of_stock' if any OOS keyword found, else None (treat as in_stock)."""
     if not html:
         return None
     haystack = html.lower()
@@ -128,9 +133,9 @@ def _validate_price(price) -> int | None:
 
 
 # ---------------------------------------------------------------------------
-# Sanity check — reject implausible price changes
+# LAYER 1: Per-product sanity check — reject implausible price changes
 # ---------------------------------------------------------------------------
-# Tightened 2026-06-22 after Gemini parser hallucinated wrong prices for 33 products
+# Tightened 2026-06-22 after parser hallucinated wrong prices for 33 products
 # Old threshold (0.33x-3.0x) was too loose: e.g. $2,400→$1,980 (0.825x) passed
 # even though it was wrong. New threshold: ±25% (0.75x-1.33x).
 # Real supplier price changes within a week rarely exceed ±25%.
@@ -143,11 +148,11 @@ def _is_sane_change(old_price: int, new_price: int) -> bool:
 
 
 # ---------------------------------------------------------------------------
-# Cross-product duplicate detection
+# LAYER 2: Cross-product duplicate detection
 # ---------------------------------------------------------------------------
-# If Gemini returns the SAME exact price for 3+ different products on the SAME
-# supplier domain, that's a strong sign Gemini is hallucinating (e.g. picking
-# up a shipping cost or a banner price). Reject all of them.
+# If the parser returns the SAME exact price for 3+ different products on the
+# SAME supplier domain, that's a strong sign the parser is hallucinating (e.g.
+# picking up a shipping cost or a banner price). Reject all of them.
 # This was the root cause of the 2026-06-21 incident:
 #   healthyliving: 3 products all = HK$499 (the "free shipping over $499" banner)
 #   justmed: 7 products all = HK$1,980
@@ -202,7 +207,6 @@ def main():
     logger.info("Loaded %d products from %s", original_count, PRODUCTS_JSON)
 
     # Import parser dispatch table
-    # Adjust sys.path so relative imports work when run directly
     scripts_dir = Path(__file__).resolve().parent
     if str(scripts_dir) not in sys.path:
         sys.path.insert(0, str(scripts_dir))
@@ -210,12 +214,17 @@ def main():
 
     session = _make_session()
 
-    tier1_changed: list[str] = []
-    tier2_changed: list[str] = []
+    # ---------------------------------------------------------------------------
+    # PASS 1: Fetch + extract prices for every product (no writes yet)
+    # ---------------------------------------------------------------------------
+    # fetched_prices: pid -> dict with raw_price + meta needed for decision
+    fetched_prices: dict[str, dict] = {}
+    # per_domain_prices: domain -> {price -> [pids]} for duplicate detection
+    per_domain_prices: dict[str, dict[int, list[str]]] = defaultdict(lambda: defaultdict(list))
     failed_skipped: list[tuple[str, str]] = []
-    suspicious: list[tuple[str, int, int, float]] = []  # (pid, old, new, ratio)
-    checked_count = 0
+    oos_pids: set[str] = set()
 
+    logger.info("=== Pass 1: Fetching prices for all products ===")
     for product in data:
         pid = product.get("id", "?")
         url = product.get("product_url", "")
@@ -226,36 +235,22 @@ def main():
             continue
 
         domain = urlparse(url).hostname or ""
-        logger.info("Checking [%s] %s", pid, url)
+        logger.info("Fetching [%s] %s", pid, url)
 
-        # Fetch HTML
         html = fetch_html(session, url)
         if html is None:
             logger.warning("FAIL [%s]: fetch failed", pid)
             failed_skipped.append((pid, "fetch failed"))
             continue
 
-        # ---- Stock detection (BEFORE price parse so OOS products handled even with no price) ----
-        prev_stock = product.get("stock_status", "in_stock")
-        oos_detected = (_detect_stock_status(html) == "out_of_stock")
-        
-        if oos_detected:
-            # Mark out_of_stock. Keep last known price unchanged.
-            if prev_stock != "out_of_stock":
-                product["stock_status"] = "out_of_stock"
-                product["stock_status_changed"] = today
-                logger.info("  [%s] STOCK: in_stock → out_of_stock", pid)
-            else:
-                product["stock_status"] = "out_of_stock"  # idempotent
-                logger.info("  [%s] STOCK: still out_of_stock", pid)
-            product["last_checked"] = today
-            checked_count += 1
-            # Rate limit even when not calling Gemini (we still hit the supplier site)
+        # Stock detection BEFORE price parse (OOS products handled even with no price)
+        if _detect_stock_status(html) == "out_of_stock":
+            oos_pids.add(pid)
+            logger.info("  [%s] STOCK: out_of_stock detected", pid)
             continue
 
-        # Get parser (unified Gemini-based parser, ignores domain)
+        # Extract price via Perplexity
         parser = get_parser(domain)
-
         is_tier2 = pid in TIER2_IDS
 
         try:
@@ -266,20 +261,81 @@ def main():
         except Exception as exc:
             logger.warning("PARSE ERROR [%s] %s: %s", pid, domain, exc)
             failed_skipped.append((pid, f"parse error: {exc}"))
-            # Rate limit sleep even on error
-            time.sleep(GEMINI_SLEEP)
+            time.sleep(API_SLEEP)
             continue
 
-        # Rate limiting — sleep after each Gemini call
-        time.sleep(GEMINI_SLEEP)
+        # Rate limiting — sleep after each API call
+        time.sleep(API_SLEEP)
 
         price = _validate_price(raw_price)
-        checked_count += 1
-
         if price is None:
             logger.warning("SKIP [%s]: no valid price found (raw=%r)", pid, raw_price)
             failed_skipped.append((pid, f"no valid price (raw={raw_price!r})"))
             continue
+
+        # Record for cross-product duplicate detection
+        fetched_prices[pid] = {
+            "price": price,
+            "domain": domain,
+            "is_tier2": is_tier2,
+        }
+        per_domain_prices[domain][price].append(pid)
+
+    # ---------------------------------------------------------------------------
+    # PASS 2: Detect cross-product duplicate prices (parser hallucination signal)
+    # ---------------------------------------------------------------------------
+    logger.info("=== Pass 2: Detecting duplicate-price clusters ===")
+    duplicates = _detect_duplicate_prices(per_domain_prices)
+    rejected_duplicate_pids: set[str] = set()
+    rejected_duplicates: list[tuple[str, str, int]] = []  # (pid, domain, price)
+
+    for (domain, price), pids in duplicates.items():
+        logger.warning(
+            "DUPLICATE CLUSTER: %s returned HK$%d for %d products (%s) — REJECTING ALL",
+            domain, price, len(pids), ", ".join(pids),
+        )
+        for pid in pids:
+            rejected_duplicate_pids.add(pid)
+            rejected_duplicates.append((pid, domain, price))
+
+    # ---------------------------------------------------------------------------
+    # PASS 3: Apply updates (only for products surviving both safety checks)
+    # ---------------------------------------------------------------------------
+    logger.info("=== Pass 3: Applying updates ===")
+    tier1_changed: list[str] = []
+    tier2_changed: list[str] = []
+    suspicious: list[tuple[str, int, int, float]] = []  # (pid, old, new, ratio)
+    checked_count = 0
+
+    for product in data:
+        pid = product.get("id", "?")
+        prev_stock = product.get("stock_status", "in_stock")
+
+        # ---- Out-of-stock handling ----
+        if pid in oos_pids:
+            if prev_stock != "out_of_stock":
+                product["stock_status"] = "out_of_stock"
+                product["stock_status_changed"] = today
+                logger.info("  [%s] STOCK: in_stock → out_of_stock", pid)
+            else:
+                product["stock_status"] = "out_of_stock"
+            product["last_checked"] = today
+            checked_count += 1
+            continue
+
+        # ---- Was this product successfully fetched + extracted? ----
+        if pid not in fetched_prices:
+            # Failed in Pass 1 — leave untouched
+            continue
+
+        # ---- LAYER 2 reject: parser returned duplicate price across domain ----
+        if pid in rejected_duplicate_pids:
+            # Do NOT update anything (not even last_checked) — we don't trust this fetch
+            continue
+
+        info = fetched_prices[pid]
+        price = info["price"]
+        is_tier2 = info["is_tier2"]
 
         current_min = product.get("price_min")
         try:
@@ -287,7 +343,7 @@ def main():
         except (TypeError, ValueError):
             current_min_int = None
 
-        # Sanity check: reject implausible price changes
+        # ---- LAYER 1 reject: single-product sanity check ----
         if current_min_int is not None and current_min_int > 0 and price != current_min_int:
             if not _is_sane_change(current_min_int, price):
                 ratio = price / current_min_int
@@ -296,20 +352,19 @@ def main():
                     pid, current_min_int, price, ratio,
                 )
                 suspicious.append((pid, current_min_int, price, ratio))
-                # Do NOT update any fields — not even last_checked (we don't trust this fetch)
                 continue
 
-        # ---- Stock status: in_stock confirmed (no OOS keyword + valid price) ----
+        # ---- Stock status: in_stock confirmed ----
         stock_flipped_to_in = (prev_stock == "out_of_stock")
         if stock_flipped_to_in:
             product["stock_status"] = "in_stock"
             product["stock_status_changed"] = today
             logger.info("  [%s] STOCK: out_of_stock → in_stock (有貨了!)", pid)
         else:
-            product["stock_status"] = "in_stock"  # ensure field exists
-        
-        # If stock flipped to in_stock, force price update (treat as new appearance)
+            product["stock_status"] = "in_stock"
+
         force_price_update = stock_flipped_to_in
+        checked_count += 1
 
         if current_min_int is not None and price == current_min_int and not force_price_update:
             # Price unchanged — only update last_checked
@@ -373,9 +428,9 @@ def main():
     # Summary
     # ---------------------------------------------------------------------------
     print()
-    print("=" * 40)
+    print("=" * 60)
     print("Price Check Summary")
-    print("=" * 40)
+    print("=" * 60)
     print(f"Checked: {checked_count} products")
     print()
     print(f"Tier 1 changed ({len(tier1_changed)}) — auto-updated:")
@@ -412,7 +467,7 @@ def main():
             print(f"  - {pid}: {domain} returned HK${price:,} (same as 3+ products on same site) *** SKIPPED ***")
     else:
         print("  (none)")
-    print("=" * 40)
+    print("=" * 60)
 
 
 if __name__ == "__main__":

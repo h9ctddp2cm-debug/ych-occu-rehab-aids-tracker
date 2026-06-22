@@ -24,16 +24,16 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Check GEMINI_API_KEY is set
+      - name: Check PERPLEXITY_API_KEY is set
         run: |
-          if [ -z "$GEMINI_API_KEY" ]; then
-            echo "ERROR: GEMINI_API_KEY secret is not set."
-            echo "Please add it at: https://github.com/ychoccu/ych-occu-rehab-aids-tracker/settings/secrets/actions"
+          if [ -z "$PERPLEXITY_API_KEY" ]; then
+            echo "ERROR: PERPLEXITY_API_KEY secret is not set."
+            echo "Please add it at: https://github.com/${{ github.repository }}/settings/secrets/actions"
             exit 1
           fi
-          echo "GEMINI_API_KEY is present (length: ${#GEMINI_API_KEY})"
+          echo "PERPLEXITY_API_KEY is present (length: ${#PERPLEXITY_API_KEY})"
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
 
       - name: Set up Python 3.11
         uses: actions/setup-python@v5
@@ -45,11 +45,14 @@ jobs:
           pip install --upgrade pip
           pip install -r scripts/requirements.txt
 
+      - name: Run unit tests (safety logic must pass)
+        run: python scripts/test_price_checker.py
+
       - name: Run price checker
         run: python scripts/price_checker.py
         env:
           PYTHONPATH: ${{ github.workspace }}
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
 
       - name: Check for changes in products.json
         id: check_changes

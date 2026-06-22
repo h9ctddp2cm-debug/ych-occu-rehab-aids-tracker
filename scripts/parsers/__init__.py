@@ -1,7 +1,8 @@
 """
-Single Gemini-based extractor for all domains.
+Single Perplexity-based extractor for all domains.
+(Was Gemini — switched 2026-06-22 because Gemini API is blocked in Hong Kong.)
 """
-from .gemini_extract import extract_price as _gemini_extract
+from .perplexity_extract import extract_price as _pplx_extract
 
 
 def get_parser(domain: str):
@@ -11,7 +12,7 @@ def get_parser(domain: str):
 
 class _UnifiedParser:
     def extract_price(self, html: str, url: str) -> int | None:
-        return _gemini_extract(html, url, tier=1)
+        return _pplx_extract(html, url, tier=1)
 
     def extract_min_price(self, html: str, url: str) -> int | None:
-        return _gemini_extract(html, url, tier=2)
+        return _pplx_extract(html, url, tier=2)
