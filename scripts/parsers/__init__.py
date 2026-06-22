@@ -1,12 +1,14 @@
 """
-Single Groq-based extractor for all domains.
+Single Qwen-based extractor for all domains.
 History:
 - Originally Gemini -> blocked in Hong Kong (2026-06)
 - Perplexity -> requires $5 prepay credit card (no Alipay)
-- OpenRouter -> free tier only 50 req/day (hits 429 with 58 products)
-- Now Groq -> free 1000 req/day on llama-3.3-70b, fast & HK-friendly
+- OpenRouter -> free tier only 50 req/day
+- Groq -> blocked in Hong Kong (Forbidden)
+- Cerebras -> blocked in Hong Kong (Cloudflare)
+- Now Qwen (Alibaba) -> HK-friendly, 1M tokens/model free 90 days
 """
-from .groq_extract import extract_price as _groq_extract
+from .qwen_extract import extract_price as _qwen_extract
 
 
 def get_parser(domain: str):
@@ -16,7 +18,7 @@ def get_parser(domain: str):
 
 class _UnifiedParser:
     def extract_price(self, html: str, url: str) -> int | None:
-        return _groq_extract(html, url, tier=1)
+        return _qwen_extract(html, url, tier=1)
 
     def extract_min_price(self, html: str, url: str) -> int | None:
-        return _groq_extract(html, url, tier=2)
+        return _qwen_extract(html, url, tier=2)

@@ -1,9 +1,14 @@
 """
-Groq-based price extractor.
-Replaces OpenRouter (free tier limited to 50 req/day, hits 429 with 58 products).
+Qwen (Alibaba Model Studio) based price extractor.
+Replaces previous attempts (all blocked in HK or rate-limited):
+- Gemini -> HK geo-blocked
+- Perplexity -> requires $5 credit-card prepay
+- OpenRouter -> free tier only 50 req/day
+- Groq -> HK geo-blocked (Forbidden)
+- Cerebras -> HK geo-blocked (Cloudflare)
 
-Groq free tier: llama-3.3-70b-versatile = 30 RPM, 1000 RPD — fits 58 products easily.
-Uses OpenAI-compatible API.
+Qwen is HK-friendly (Alibaba is a Chinese company; has dedicated HK endpoint).
+New accounts on Singapore endpoint get 1M tokens free per model, 90 days.
 """
 import os
 import re
@@ -14,13 +19,16 @@ import requests
 
 logger = logging.getLogger(__name__)
 
-# Primary: Llama 3.3 70B (strongest instruction-following on Groq free)
-# Fallback: Llama 3.1 8B (higher RPD limit if 70B exhausted)
-PRIMARY_MODEL = "llama-3.3-70b-versatile"
-FALLBACK_MODEL = "llama-3.1-8b-instant"
-API_URL = "https://api.groq.com/openai/v1/chat/completions"
+# Primary: qwen-plus (balanced cost/quality, strong instruction-following)
+# Fallback: qwen-turbo (cheapest, fastest)
+PRIMARY_MODEL = "qwen-plus"
+FALLBACK_MODEL = "qwen-turbo"
 
-_api_key = os.environ.get("GROQ_API_KEY")
+# Singapore endpoint = International region with free quota
+# Hong Kong endpoint exists too but no free quota
+API_URL = "https://dashscope-intl.aliyuncs.com/compatible-mode/v1/chat/completions"
+
+_api_key = os.environ.get("DASHSCOPE_API_KEY")
 
 
 def _truncate_html(html: str, max_chars: int = 50000) -> str:
@@ -69,8 +77,8 @@ HTML content:
 """
 
 
-def _call_groq(prompt: str, model: str) -> Optional[str]:
-    """Single Groq API call. Returns response text or None."""
+def _call_qwen(prompt: str, model: str) -> Optional[str]:
+    """Single Qwen API call via OpenAI-compatible endpoint. Returns response text or None."""
     payload = {
         "model": model,
         "messages": [
@@ -88,25 +96,25 @@ def _call_groq(prompt: str, model: str) -> Optional[str]:
         resp.raise_for_status()
         data = resp.json()
         if not data.get("choices"):
-            logger.warning("Groq empty choices (model=%s): %s", model, data.get("error", {}))
+            logger.warning("Qwen empty choices (model=%s): %s", model, data.get("error", {}))
             return None
         return data["choices"][0]["message"]["content"].strip()
     except requests.RequestException as e:
-        logger.warning("Groq API error (model=%s): %s", model, e)
+        logger.warning("Qwen API error (model=%s): %s", model, e)
         return None
     except (KeyError, IndexError, ValueError) as e:
-        logger.warning("Groq unexpected response (model=%s): %s", model, e)
+        logger.warning("Qwen unexpected response (model=%s): %s", model, e)
         return None
 
 
 def extract_price(html: str, url: str, tier: int = 1) -> Optional[int]:
     """
-    Use Groq to extract main product price (Tier 1) or lowest variant price (Tier 2).
+    Use Qwen to extract main product price (Tier 1) or lowest variant price (Tier 2).
     Tries PRIMARY_MODEL first, falls back to FALLBACK_MODEL if empty/error.
     Returns int or None.
     """
     if not _api_key:
-        logger.error("GROQ_API_KEY not set — cannot extract prices")
+        logger.error("DASHSCOPE_API_KEY not set — cannot extract prices")
         return None
 
     clean_html = _truncate_html(html)
@@ -115,11 +123,11 @@ def extract_price(html: str, url: str, tier: int = 1) -> Optional[int]:
 
     prompt = (TIER2_PROMPT if tier == 2 else TIER1_PROMPT) + clean_html
 
-    text = _call_groq(prompt, PRIMARY_MODEL)
+    text = _call_qwen(prompt, PRIMARY_MODEL)
 
     if text is None:
         logger.info("Falling back to %s for %s", FALLBACK_MODEL, url)
-        text = _call_groq(prompt, FALLBACK_MODEL)
+        text = _call_qwen(prompt, FALLBACK_MODEL)
         if text is None:
             return None
 
@@ -128,7 +136,7 @@ def extract_price(html: str, url: str, tier: int = 1) -> Optional[int]:
 
     m = re.search(r'\d+', text)
     if not m:
-        logger.warning("Groq returned non-numeric for %s: %r", url, text[:100])
+        logger.warning("Qwen returned non-numeric for %s: %r", url, text[:100])
         return None
 
     return int(m.group(0))
