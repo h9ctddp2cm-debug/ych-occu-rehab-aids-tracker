@@ -1,8 +1,9 @@
 """
-Perplexity-based price extractor.
-Replaces Gemini extractor (Gemini API blocked in Hong Kong).
+OpenRouter-based price extractor.
+Replaces Perplexity (requires $5 prepay, no Alipay) and Gemini (HK geo-blocked).
 
-Uses Perplexity Sonar API via OpenAI-compatible endpoint.
+Uses OpenRouter's OpenAI-compatible endpoint with FREE models.
+Free tier: 20 RPM, 200 requests/day per model — fits 58 products/week easily.
 """
 import os
 import re
@@ -13,12 +14,17 @@ import requests
 
 logger = logging.getLogger(__name__)
 
-# Sonar is the cheapest model ($1/$1 per 1M tokens, $5 per 1K requests low context)
-# For our use case (extracting a single integer), Sonar is more than enough.
-MODEL = "sonar"
-API_URL = "https://api.perplexity.ai/chat/completions"
+# Primary: Gemini 2.0 Flash (free tier on OpenRouter, 1M context, fast)
+# Fallback: DeepSeek V3 (free tier, strong instruction-following)
+PRIMARY_MODEL = "google/gemini-2.0-flash-exp:free"
+FALLBACK_MODEL = "deepseek/deepseek-chat-v3-0324:free"
+API_URL = "https://openrouter.ai/api/v1/chat/completions"
 
-_api_key = os.environ.get("PERPLEXITY_API_KEY")
+_api_key = os.environ.get("OPENROUTER_API_KEY")
+
+# Optional headers OpenRouter uses for analytics/ranking — not required
+_REFERER = "https://github.com/ychoccu/ych-occu-rehab-aids-tracker"
+_TITLE = "YCH Rehab Aids Tracker"
 
 
 def _truncate_html(html: str, max_chars: int = 50000) -> str:
@@ -32,7 +38,7 @@ def _truncate_html(html: str, max_chars: int = 50000) -> str:
 
 TIER1_PROMPT = """You are extracting the MAIN PRODUCT price from an e-commerce product page (Hong Kong retailer, prices in HK$).
 
-The HTML content below is the COMPLETE source of truth. Do NOT search the web. Do NOT use external knowledge. Use ONLY the HTML provided.
+The HTML content below is the COMPLETE source of truth. Do NOT use external knowledge. Use ONLY the HTML provided.
 
 The page may contain:
 - The main product's current price (what we want)
@@ -51,7 +57,7 @@ HTML content:
 
 TIER2_PROMPT = """You are extracting the LOWEST price from an e-commerce product page that sells multiple SIZE VARIANTS of the same product (Hong Kong retailer, prices in HK$).
 
-The HTML content below is the COMPLETE source of truth. Do NOT search the web. Do NOT use external knowledge. Use ONLY the HTML provided.
+The HTML content below is the COMPLETE source of truth. Do NOT use external knowledge. Use ONLY the HTML provided.
 
 This product has multiple sizes/variants at different prices. We want the cheapest variant's current selling price.
 
@@ -67,13 +73,48 @@ HTML content:
 """
 
 
+def _call_openrouter(prompt: str, model: str) -> Optional[str]:
+    """Single OpenRouter API call. Returns response text or None."""
+    payload = {
+        "model": model,
+        "messages": [
+            {"role": "user", "content": prompt},
+        ],
+        "temperature": 0.0,
+        "max_tokens": 20,
+    }
+    headers = {
+        "Authorization": f"Bearer {_api_key}",
+        "Content-Type": "application/json",
+        "HTTP-Referer": _REFERER,
+        "X-Title": _TITLE,
+    }
+    try:
+        resp = requests.post(API_URL, headers=headers, json=payload, timeout=60)
+        resp.raise_for_status()
+        data = resp.json()
+        # OpenRouter free models sometimes return empty choices on rate-limit/upstream issues
+        if not data.get("choices"):
+            err = data.get("error", {})
+            logger.warning("OpenRouter empty choices (model=%s): %s", model, err)
+            return None
+        return data["choices"][0]["message"]["content"].strip()
+    except requests.RequestException as e:
+        logger.warning("OpenRouter API error (model=%s): %s", model, e)
+        return None
+    except (KeyError, IndexError, ValueError) as e:
+        logger.warning("OpenRouter unexpected response (model=%s): %s", model, e)
+        return None
+
+
 def extract_price(html: str, url: str, tier: int = 1) -> Optional[int]:
     """
-    Use Perplexity Sonar to extract main product price (Tier 1) or lowest variant price (Tier 2).
+    Use OpenRouter to extract main product price (Tier 1) or lowest variant price (Tier 2).
+    Tries PRIMARY_MODEL first, falls back to FALLBACK_MODEL if empty/error.
     Returns int or None.
     """
     if not _api_key:
-        logger.error("PERPLEXITY_API_KEY not set — cannot extract prices")
+        logger.error("OPENROUTER_API_KEY not set — cannot extract prices")
         return None
 
     clean_html = _truncate_html(html)
@@ -82,35 +123,15 @@ def extract_price(html: str, url: str, tier: int = 1) -> Optional[int]:
 
     prompt = (TIER2_PROMPT if tier == 2 else TIER1_PROMPT) + clean_html
 
-    payload = {
-        "model": MODEL,
-        "messages": [
-            {"role": "user", "content": prompt},
-        ],
-        "temperature": 0.0,
-        "max_tokens": 20,
-        # Use low search context to minimize cost
-        "web_search_options": {
-            "search_context_size": "low",
-        },
-    }
+    # Primary attempt
+    text = _call_openrouter(prompt, PRIMARY_MODEL)
 
-    headers = {
-        "Authorization": f"Bearer {_api_key}",
-        "Content-Type": "application/json",
-    }
-
-    try:
-        resp = requests.post(API_URL, headers=headers, json=payload, timeout=60)
-        resp.raise_for_status()
-        data = resp.json()
-        text = data["choices"][0]["message"]["content"].strip()
-    except requests.RequestException as e:
-        logger.warning("Perplexity API error for %s: %s", url, e)
-        return None
-    except (KeyError, IndexError, ValueError) as e:
-        logger.warning("Perplexity API unexpected response for %s: %s", url, e)
-        return None
+    # Fallback if primary failed
+    if text is None:
+        logger.info("Falling back to %s for %s", FALLBACK_MODEL, url)
+        text = _call_openrouter(prompt, FALLBACK_MODEL)
+        if text is None:
+            return None
 
     if text.upper() == "UNKNOWN" or not text:
         return None
@@ -118,7 +139,7 @@ def extract_price(html: str, url: str, tier: int = 1) -> Optional[int]:
     # Parse integer
     m = re.search(r'\d+', text)
     if not m:
-        logger.warning("Perplexity returned non-numeric for %s: %r", url, text[:100])
+        logger.warning("OpenRouter returned non-numeric for %s: %r", url, text[:100])
         return None
 
     return int(m.group(0))
