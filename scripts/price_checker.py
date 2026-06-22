@@ -130,12 +130,39 @@ def _validate_price(price) -> int | None:
 # ---------------------------------------------------------------------------
 # Sanity check — reject implausible price changes
 # ---------------------------------------------------------------------------
+# Tightened 2026-06-22 after Gemini parser hallucinated wrong prices for 33 products
+# Old threshold (0.33x-3.0x) was too loose: e.g. $2,400→$1,980 (0.825x) passed
+# even though it was wrong. New threshold: ±25% (0.75x-1.33x).
+# Real supplier price changes within a week rarely exceed ±25%.
 def _is_sane_change(old_price: int, new_price: int) -> bool:
-    """Reject changes where new price is < 1/3 or > 3x old price (likely parser error)."""
+    """Reject changes where new price is < 75% or > 133% of old price (likely parser error)."""
     if old_price <= 0:
         return True  # No previous price to compare
     ratio = new_price / old_price
-    return 0.33 <= ratio <= 3.0
+    return 0.75 <= ratio <= 1.33
+
+
+# ---------------------------------------------------------------------------
+# Cross-product duplicate detection
+# ---------------------------------------------------------------------------
+# If Gemini returns the SAME exact price for 3+ different products on the SAME
+# supplier domain, that's a strong sign Gemini is hallucinating (e.g. picking
+# up a shipping cost or a banner price). Reject all of them.
+# This was the root cause of the 2026-06-21 incident:
+#   healthyliving: 3 products all = HK$499 (the "free shipping over $499" banner)
+#   justmed: 7 products all = HK$1,980
+#   gethealth: 5 products all = HK$800
+#   healthtop: 3 products all = HK$1,000
+def _detect_duplicate_prices(per_domain_prices: dict) -> dict:
+    """Return {(domain, price): [pids]} for prices that repeat 3+ times within a domain.
+    These will be skipped to prevent mass-overwrite from a hallucinating parser.
+    """
+    duplicates = {}
+    for domain, price_to_pids in per_domain_prices.items():
+        for price, pids in price_to_pids.items():
+            if len(pids) >= 3:
+                duplicates[(domain, price)] = pids
+    return duplicates
 
 
 # ---------------------------------------------------------------------------
@@ -372,10 +399,17 @@ def main():
     else:
         print("  (none)")
     print()
-    print(f"SUSPICIOUS — price change too large, skipped for safety ({len(suspicious)}):")
+    print(f"SUSPICIOUS — price change too large (>±25%), skipped for safety ({len(suspicious)}):")
     if suspicious:
         for pid, old_p, new_p, ratio in suspicious:
             print(f"  - {pid}: HK${old_p:,} → HK${new_p:,} ({ratio:.2f}x) *** manual review needed ***")
+    else:
+        print("  (none)")
+    print()
+    print(f"REJECTED — duplicate prices within same domain (parser hallucination, {len(rejected_duplicates)}):")
+    if rejected_duplicates:
+        for pid, domain, price in rejected_duplicates:
+            print(f"  - {pid}: {domain} returned HK${price:,} (same as 3+ products on same site) *** SKIPPED ***")
     else:
         print("  (none)")
     print("=" * 40)
