@@ -56,7 +56,7 @@ logger = logging.getLogger(__name__)
 # Rate limiting — Perplexity Sonar tier 0/1 = 20 RPM
 # Sleep after each API call to stay well within limits.
 # ---------------------------------------------------------------------------
-API_SLEEP = 3.5  # seconds between products (~17 RPM max)
+API_SLEEP = 2.5  # seconds between products (~24 RPM, under Groq 30 RPM limit)
 
 # ---------------------------------------------------------------------------
 # HTTP session with retry logic

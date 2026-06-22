@@ -24,16 +24,16 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Check OPENROUTER_API_KEY is set
+      - name: Check GROQ_API_KEY is set
         run: |
-          if [ -z "$OPENROUTER_API_KEY" ]; then
-            echo "ERROR: OPENROUTER_API_KEY secret is not set."
+          if [ -z "$GROQ_API_KEY" ]; then
+            echo "ERROR: GROQ_API_KEY secret is not set."
             echo "Please add it at: https://github.com/${{ github.repository }}/settings/secrets/actions"
             exit 1
           fi
-          echo "OPENROUTER_API_KEY is present (length: ${#OPENROUTER_API_KEY})"
+          echo "GROQ_API_KEY is present (length: ${#GROQ_API_KEY})"
         env:
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
 
       - name: Set up Python 3.11
         uses: actions/setup-python@v5
@@ -52,7 +52,7 @@ jobs:
         run: python scripts/price_checker.py
         env:
           PYTHONPATH: ${{ github.workspace }}
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
 
       - name: Check for changes in products.json
         id: check_changes
