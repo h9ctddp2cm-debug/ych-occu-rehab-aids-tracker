@@ -60,13 +60,9 @@ SCHEMA = {
         "core": ["尺碼"],
         "optional": ["腰圍", "臀圍", "重量"],
     },
-    "antislip": {
-        "core": ["尺寸"],
-        "optional": ["厚度", "數量"],
-    },
-    "restraintvest": {
-        "core": ["尺碼"],
-        "optional": ["胸圍", "重量"],
+    "restraint": {
+        "core": ["尺碼", "尺寸"],
+        "optional": ["胸圍", "腰圍", "衫長", "肩寬", "物料", "重量"],
     },
 }
 
@@ -109,7 +105,9 @@ LABEL_ZH_TO_EN = {
     "腰圍": "Waist",
     "臀圍": "Hip",
     "胸圍": "Chest",
-    "數量": "Quantity",
+    "衫長": "Garment length",
+    "肩寬": "Shoulder width",
+    "物料": "Material",
 }
 
 # Reverse + common aliases

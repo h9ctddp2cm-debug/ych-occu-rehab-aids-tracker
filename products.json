@@ -2225,5 +2225,165 @@
     "stock_status": "in_stock",
     "features": [],
     "features_en": []
+  },
+  {
+    "id": "rs1",
+    "category": "restraint",
+    "product_name": "藍色約束衣",
+    "model": "FS-RESTRIANER",
+    "price_min": 240,
+    "price_max": 240,
+    "price_display": "HK$240",
+    "price_display_en": "HK$240.00",
+    "specs": [
+      "尺碼：XS / S / M / L / XL",
+      "胸圍：40.5\" / 42\" / 43.5\" / 45\" / 47\"",
+      "衫長：18.9\" / 19.6\" / 20.5\" / 21.2\" / 23.25\"",
+      "肩寬：16.9\" / 17.2\" / 17.6\" / 18\" / 19\""
+    ],
+    "specs_en": [
+      "Size: XS / S / M / L / XL",
+      "Chest: 40.5\" / 42\" / 43.5\" / 45\" / 47\"",
+      "Garment length: 18.9\" / 19.6\" / 20.5\" / 21.2\" / 23.25\"",
+      "Shoulder width: 16.9\" / 17.2\" / 17.6\" / 18\" / 19\""
+    ],
+    "features": [
+      "適用於無法控制肢體及有干擾治療行為的病人"
+    ],
+    "features_en": [
+      "For patients unable to control limb movement or who interfere with treatment"
+    ],
+    "image_url": "images/restraint_justmed_fs_restrainer.jpg",
+    "product_url": "https://www.justmed.com.hk/product-detail.php?id=820",
+    "product_name_en": "Blue Restraint Vest",
+    "stock_status": "in_stock",
+    "source": "justmed",
+    "source_name": "真善美醫護",
+    "phone": "2742 4370",
+    "purchase_method": "whatsapp_only",
+    "note": "⚠ 不支援線上付款，請 WhatsApp 2742 4370 落單",
+    "updated_date": "2026-10-01",
+    "last_checked": "2026-10-01"
+  },
+  {
+    "id": "rs2",
+    "category": "restraint",
+    "product_name": "HLM 睡床安全腰帶 (可左右轉身)",
+    "model": "",
+    "price_min": 230,
+    "price_max": 230,
+    "price_display": "HK$230.00 (原價 $280)",
+    "price_display_en": "HK$230.00 (Original $280)",
+    "specs": [
+      "尺碼：S / M / L",
+      "尺寸：S 腰圍長115 x 闊16cm / M 135 x 17.5cm / L 150 x 19cm",
+      "重量：0.34kg",
+      "物料：斜紋棉布、魔術貼"
+    ],
+    "specs_en": [
+      "Size: S / M / L",
+      "Dimensions: S waist 115 x 16 cm / M 135 x 17.5 cm / L 150 x 19 cm",
+      "Weight: 0.34 kg",
+      "Material: twill cotton, Velcro"
+    ],
+    "features": [
+      "腰腹部保護性約束，預防跌倒或墜床",
+      "約束後可左右轉身側睡",
+      "適用於各款病床及家居床",
+      "布料可耐氯消毒"
+    ],
+    "features_en": [
+      "Waist restraint to prevent falls from bed",
+      "Allows turning to either side while restrained",
+      "Fits hospital and home beds",
+      "Chlorine-resistant fabric"
+    ],
+    "image_url": "images/restraint_healthyliving_bed_belt.jpg",
+    "product_url": "https://www.healthyliving.com.hk/shop/hlm-睡床安全腰帶-可左右轉身/",
+    "product_name_en": "HLM Bed Safety Belt (allows side turning)",
+    "stock_status": "in_stock",
+    "source": "healthyliving",
+    "source_name": "盈康 Healthy Living",
+    "phone": "3426 9090",
+    "updated_date": "2026-10-01",
+    "last_checked": "2026-10-01"
+  },
+  {
+    "id": "rs3",
+    "category": "restraint",
+    "product_name": "HLM 軟墊防滑帶",
+    "model": "DMNS-0030",
+    "price_min": 180,
+    "price_max": 180,
+    "price_display": "HK$180.00 (原價 $200)",
+    "price_display_en": "HK$180.00 (Original $200)",
+    "specs": [
+      "尺碼：單一尺碼",
+      "尺寸：腰帶長90-180 x 下帶最長160 x 高51cm",
+      "物料：加厚棉布、防水布"
+    ],
+    "specs_en": [
+      "Size: one size",
+      "Dimensions: waist belt 90-180 cm x lower strap up to 160 cm x height 51 cm",
+      "Material: thick cotton, waterproof fabric"
+    ],
+    "features": [
+      "防前傾、防前滑保護，適合輪椅使用者",
+      "內置軟墊減壓",
+      "襠部內置防水布",
+      "插扣可調節"
+    ],
+    "features_en": [
+      "Prevents forward sliding; for wheelchair users",
+      "Built-in padding",
+      "Waterproof crotch lining",
+      "Adjustable buckle"
+    ],
+    "image_url": "images/restraint_healthyliving_padded_belt.jpg",
+    "product_url": "https://www.healthyliving.com.hk/shop/hlm-軟墊防滑帶/",
+    "product_name_en": "HLM Padded Anti-slide Belt",
+    "stock_status": "in_stock",
+    "source": "healthyliving",
+    "source_name": "盈康 Healthy Living",
+    "phone": "3426 9090",
+    "updated_date": "2026-10-01",
+    "last_checked": "2026-10-01"
+  },
+  {
+    "id": "rs4",
+    "category": "restraint",
+    "product_name": "網布防滑帶",
+    "model": "FS-REST-BELT",
+    "price_min": 200,
+    "price_max": 200,
+    "price_display": "HK$200",
+    "price_display_en": "HK$200.00",
+    "specs": [
+      "尺寸：前闊23\" / 襠長22.5\"",
+      "尺寸：帶長(連扣) 前80\" / 後61\"",
+      "物料：網布"
+    ],
+    "specs_en": [
+      "Dimensions: front width 23\" / crotch length 22.5\"",
+      "Strap length (incl. buckle): front 80\" / rear 61\"",
+      "Material: mesh"
+    ],
+    "features": [
+      "坐著時防止身體前滑"
+    ],
+    "features_en": [
+      "Prevents sliding forward when seated"
+    ],
+    "image_url": "images/restraint_justmed_fs_rest_belt.jpg",
+    "product_url": "https://www.justmed.com.hk/product-detail.php?id=824",
+    "product_name_en": "Mesh Anti-slide Belt",
+    "stock_status": "in_stock",
+    "source": "justmed",
+    "source_name": "真善美醫護",
+    "phone": "2742 4370",
+    "purchase_method": "whatsapp_only",
+    "note": "⚠ 不支援線上付款，請 WhatsApp 2742 4370 落單",
+    "updated_date": "2026-10-01",
+    "last_checked": "2026-10-01"
   }
 ]
