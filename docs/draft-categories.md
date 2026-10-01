@@ -9,8 +9,7 @@
 |---|---|---|
 | `highbackchair` | 高背椅 | High-back chair |
 | `hipprotector` | 髖關節保護褲 | Hip protector |
-| `antislip` | 浴室防滑貼 | Bathroom anti-slip strips |
-| `restraintvest` | 約束背心 | Restraint vest |
+| `restraint` | 約束用品 | Restraint items |
 
 ## 預覽草稿（喺正式網站都得）
 
@@ -32,9 +31,9 @@ https://ychoccu.github.io/ych-occu-rehab-aids-tracker/?draft=1
 
 ```js
 // 發佈前
-const DRAFT_CATEGORIES = new Set(['highbackchair', 'hipprotector', 'antislip', 'restraintvest']);
+const DRAFT_CATEGORIES = new Set(['highbackchair', 'hipprotector', 'restraint']);
 // 例如發佈「高背椅」之後
-const DRAFT_CATEGORIES = new Set(['hipprotector', 'antislip', 'restraintvest']);
+const DRAFT_CATEGORIES = new Set(['hipprotector', 'restraint']);
 ```
 
 然後 commit 同 push 去 `main`，GitHub Pages 幾分鐘內更新。
@@ -42,6 +41,6 @@ const DRAFT_CATEGORIES = new Set(['hipprotector', 'antislip', 'restraintvest']);
 
 ## 相關檔案
 
-- `index.html` — `DRAFT_CATEGORIES`、分類下拉選單、中英標籤、首頁格仔、約束背心注意事項
-- `scripts/category_schema.py` — 四個新類別嘅規格欄位
+- `index.html` — `DRAFT_CATEGORIES`、分類下拉選單、中英標籤、首頁格仔、約束用品注意事項
+- `scripts/category_schema.py` — 三個新類別嘅規格欄位
 - `ych_rehab_aids_standalone.html` — 由 `python scripts/rebuild_html.py` 自動產生，唔使手改
