@@ -51,6 +51,23 @@ SCHEMA = {
         "core": ["長度"],
         "optional": ["重量"],
     },
+    # --- Draft categories (hidden on the public site until published in index.html) ---
+    "highbackchair": {
+        "core": ["座高", "座闊", "背高", "承重"],
+        "optional": ["座深", "總外闊", "扶手高", "重量"],
+    },
+    "hipprotector": {
+        "core": ["尺碼"],
+        "optional": ["腰圍", "臀圍", "重量"],
+    },
+    "antislip": {
+        "core": ["尺寸"],
+        "optional": ["厚度", "數量"],
+    },
+    "restraintvest": {
+        "core": ["尺碼"],
+        "optional": ["胸圍", "重量"],
+    },
 }
 
 # Label translations: zh -> en
@@ -88,6 +105,11 @@ LABEL_ZH_TO_EN = {
     "管條數量": "Number of tubes",
     "氣泵流量": "Pump flow",
     "夾頭闊度": "Jaw width",
+    "尺碼": "Size",
+    "腰圍": "Waist",
+    "臀圍": "Hip",
+    "胸圍": "Chest",
+    "數量": "Quantity",
 }
 
 # Reverse + common aliases
