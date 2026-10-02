@@ -556,6 +556,7 @@
     <option value="reacher" data-i18n="cat_reacher">長柄夾</option>
     <option value="sockaid" data-i18n="cat_sockaid">穿襪輔助器</option>
     <option value="highbackchair" data-i18n="cat_highbackchair">高背椅</option>
+    <option value="armchair" data-i18n="cat_armchair">扶手椅</option>
     <option value="hipprotector" data-i18n="cat_hipprotector">髖關節保護褲</option>
     <option value="restraint" data-i18n="cat_restraint">約束用品</option>
   </select>
@@ -667,7 +668,7 @@ const I18N = {
     cat_ramp: '斜台板', cat_bathboard: '浴缸板', cat_mattress: '氣墊床褥',
     cat_bed: '電動床', cat_walker: '助行架',
     cat_reacher: '長柄夾', cat_sockaid: '穿襪輔助器',
-    cat_highbackchair: '高背椅', cat_hipprotector: '髖關節保護褲',
+    cat_highbackchair: '高背椅', cat_armchair: '扶手椅', cat_hipprotector: '髖關節保護褲',
     cat_restraint: '約束用品',
     draft_preview_banner: '草稿預覽模式：以下有未公開的類別，公眾網站不會顯示。',
     home_title: '請選擇輔助工具類別',
@@ -752,7 +753,7 @@ const I18N = {
     cat_ramp: 'Ramp', cat_bathboard: 'Bath board', cat_mattress: 'Pressure-relief mattress',
     cat_bed: 'Electric care bed', cat_walker: 'Walker',
     cat_reacher: 'Reacher / Grabber', cat_sockaid: 'Sock aid',
-    cat_highbackchair: 'High-back chair', cat_hipprotector: 'Hip protector',
+    cat_highbackchair: 'High-back chair', cat_armchair: 'Armchair', cat_hipprotector: 'Hip protector',
     cat_restraint: 'Restraint items',
     draft_preview_banner: 'Draft preview: unpublished categories are shown here but hidden on the public site.',
     home_title: 'Choose a category',
@@ -834,7 +835,7 @@ const CATEGORY_LABELS = {
         bedrail:'免安裝扶手床欄',
         ramp:'斜台板', bathboard:'浴缸板', mattress:'氣墊床褥',
         bed:'電動床', walker:'助行架', reacher:'長柄夾', sockaid:'穿襪輔助器',
-        highbackchair:'高背椅', hipprotector:'髖關節保護褲',
+        highbackchair:'高背椅', armchair:'扶手椅', hipprotector:'髖關節保護褲',
         restraint:'約束用品' },
   en: { wheelchair:'Wheelchair', shower:'Shower chair',
         commode:'Commode / Shower commode', toiletriser:'Toilet riser',
@@ -842,7 +843,7 @@ const CATEGORY_LABELS = {
         bedrail:'No-install bed rail',
         ramp:'Ramp', bathboard:'Bath board', mattress:'Mattress',
         bed:'Electric bed', walker:'Walker', reacher:'Reacher', sockaid:'Sock aid',
-        highbackchair:'High-back chair', hipprotector:'Hip protector',
+        highbackchair:'High-back chair', armchair:'Armchair', hipprotector:'Hip protector',
         restraint:'Restraint items' },
 };
 
@@ -851,7 +852,7 @@ const CATEGORY_LABELS = {
    no dropdown option, no products, and #/cat/<id> redirects home.
    To PUBLISH a category: delete its id from this list (one line), commit, push.
    To PREVIEW drafts on the live site: open the page with ?draft=1 in the URL. */
-const DRAFT_CATEGORIES = new Set(['highbackchair', 'hipprotector', 'restraint']);
+const DRAFT_CATEGORIES = new Set(['highbackchair', 'armchair', 'hipprotector', 'restraint']);
 const DRAFT_PREVIEW = new URLSearchParams(location.search).get('draft') === '1';
 function isHiddenCategory(cat) { return DRAFT_CATEGORIES.has(cat) && !DRAFT_PREVIEW; }
 
@@ -870,6 +871,7 @@ const CATEGORY_TILES = [
   { cat: 'bedrail',     icon: '🚬' },
   { cat: 'sockaid',     icon: '🧦' },
   { cat: 'highbackchair', icon: '💺' },
+  { cat: 'armchair',      icon: '🪑' },
   { cat: 'hipprotector',  icon: '🩲' },
   { cat: 'restraint',     icon: '🦺' },
 ];

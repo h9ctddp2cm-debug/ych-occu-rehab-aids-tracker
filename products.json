@@ -2506,5 +2506,264 @@
     "stock_status": "in_stock",
     "updated_date": "2026-10-02",
     "last_checked": "2026-10-02"
+  },
+  {
+    "id": "ac1",
+    "source": "culturehomes",
+    "source_name": "文化村 Culture Homes",
+    "category": "armchair",
+    "product_name": "銀適黑色可調高度健康椅",
+    "model": "SKU 01080060",
+    "price_min": 848,
+    "price_max": 848,
+    "price_display": "HK$848.30 (原價 $998，本月85折)",
+    "price_display_en": "HK$848.30 (Original $998, 15% off this month)",
+    "specs": [
+      "座高：395-520mm (約15.5\"-20.5\"，可調)",
+      "座闊：460mm (約18\")",
+      "座深：445mm (約17.5\")",
+      "背高：430mm (約17\")",
+      "總外闊：580mm (總深650mm，總高820-950mm)",
+      "扶手高：190mm",
+      "重量：10.5kg",
+      "承重：120kg"
+    ],
+    "specs_en": [
+      "Seat height: 395-520 mm (approx. 15.5\"-20.5\", adjustable)",
+      "Seat width: 460 mm (approx. 18\")",
+      "Seat depth: 445 mm (approx. 17.5\")",
+      "Back height: 430 mm (approx. 17\")",
+      "Overall width: 580 mm (depth 650 mm, height 820-950 mm)",
+      "Armrest height: 190 mm",
+      "Weight: 10.5 kg",
+      "Max load: 120 kg"
+    ],
+    "features": [
+      "椅腳可調校高度，適合不同高度人士",
+      "附有靠背及扶手，提供舒適承托",
+      "防滑橡膠凳腳",
+      "符合 BS7176:2007 + A1:2011 中／強度風險阻燃標準"
+    ],
+    "features_en": [
+      "Height-adjustable legs for users of different heights",
+      "Backrest and armrests for comfortable support",
+      "Non-slip rubber feet",
+      "Meets BS7176:2007 + A1:2011 medium/high hazard fire-retardant standard"
+    ],
+    "image_url": "images/armchair_culturehomes_silver_black.jpg",
+    "product_url": "https://eshop.culturehomes.com.hk/products/銀適黑色可調高度健康椅",
+    "product_name_en": "Silver Solutions Height-adjustable Health Chair (Black)",
+    "phone": "6219 9679",
+    "note": "客戶服務 WhatsApp 6219 9679；折扣價每月可能不同",
+    "note_en": "Customer service WhatsApp 6219 9679; monthly discount may vary",
+    "stock_status": "in_stock",
+    "updated_date": "2026-10-02",
+    "last_checked": "2026-10-02"
+  },
+  {
+    "id": "ac2",
+    "product_name": "Advanced Rest High 高背椅 (座高及座深可調)",
+    "model": "",
+    "price_min": 1450,
+    "price_max": 1450,
+    "price_display": "HK$1,450.00 (原價 $2,600)",
+    "price_display_en": "HK$1,450.00 (Original $2,600)",
+    "specs": [
+      "座高：16.5\"-22.5\" (可調，每級1\")",
+      "座闊：20\"",
+      "座深：18.2\"-19.7\" (可調)",
+      "背高：高背 (總高43.9\")",
+      "總外闊：26\" (總深27.2\")",
+      "重量：15kg",
+      "承重：451.9lb / 205kg"
+    ],
+    "specs_en": [
+      "Seat height: 16.5\"-22.5\" (adjustable in 1\" steps)",
+      "Seat width: 20\"",
+      "Seat depth: 18.2\"-19.7\" (adjustable)",
+      "Back: high back (overall height 43.9\")",
+      "Overall width: 26\" (depth 27.2\")",
+      "Weight: 15 kg",
+      "Max load: 451.9 lb / 205 kg"
+    ],
+    "features": [
+      "高背設計，舒適頭部承托",
+      "超舒適 4.3\" 特厚座墊",
+      "座深及座高可調",
+      "超粗腳管 (直徑1.3\")，承重達 451.9lb",
+      "耐污防火仿皮座背墊，符合美國 CAL 117 防火標準",
+      "防滑腳膠"
+    ],
+    "features_en": [
+      "High back with head support",
+      "Extra-thick 4.3\" seat cushion",
+      "Adjustable seat depth and height",
+      "Extra-thick 1.3\" legs, max load 451.9 lb",
+      "Stain-resistant fire-retardant PU upholstery (US CAL 117)",
+      "Non-slip rubber feet"
+    ],
+    "image_url": "images/armchair_healthyliving_rest_high.jpg",
+    "product_url": "https://www.healthyliving.com.hk/shop/advanced-rest-high-高背椅-座高及座深可調/",
+    "product_name_en": "Advanced Rest High High-back Chair (adjustable seat height & depth)",
+    "source": "healthyliving",
+    "source_name": "盈康 Healthy Living",
+    "phone": "3426 9090",
+    "category": "armchair",
+    "stock_status": "in_stock",
+    "updated_date": "2026-10-02",
+    "last_checked": "2026-10-02"
+  },
+  {
+    "id": "ac3",
+    "product_name": "Advanced Rest Low 低背椅/休閒椅/扶手椅 – 灰色",
+    "model": "",
+    "price_min": 980,
+    "price_max": 980,
+    "price_display": "HK$980.00 (原價 $1,200)",
+    "price_display_en": "HK$980.00 (Original $1,200)",
+    "specs": [
+      "座高：14.5\"-18.5\" (可調，每級1\")",
+      "座闊：18.7\" / 21\" (可調)",
+      "座深：15\"-17\" (可調)",
+      "背高：低背",
+      "總外闊：23\" (總深21.5\"，總高31.8\")",
+      "重量：11.4kg",
+      "承重：440.9lb / 200kg"
+    ],
+    "specs_en": [
+      "Seat height: 14.5\"-18.5\" (adjustable in 1\" steps)",
+      "Seat width: 18.7\" / 21\" (adjustable)",
+      "Seat depth: 15\"-17\" (adjustable)",
+      "Back: low back",
+      "Overall width: 23\" (depth 21.5\", height 31.8\")",
+      "Weight: 11.4 kg",
+      "Max load: 440.9 lb / 200 kg"
+    ],
+    "features": [
+      "超舒適 3.5\" 特厚座墊",
+      "座闊、座深及座高可調",
+      "設有扶手，借力坐立更輕鬆",
+      "耐污防火仿皮座背墊，符合美國 CAL 117 防火標準",
+      "防滑腳膠"
+    ],
+    "features_en": [
+      "Extra-thick 3.5\" seat cushion",
+      "Adjustable seat width, depth and height",
+      "Armrests for easier sit-to-stand",
+      "Stain-resistant fire-retardant PU upholstery (US CAL 117)",
+      "Non-slip rubber feet"
+    ],
+    "image_url": "images/armchair_healthyliving_rest_low_grey.jpg",
+    "product_url": "https://www.healthyliving.com.hk/shop/advanced-rest-low-低背椅-休閒椅-扶手椅-健康椅-灰色/",
+    "product_name_en": "Advanced Rest Low Low-back Armchair – Grey",
+    "source": "healthyliving",
+    "source_name": "盈康 Healthy Living",
+    "phone": "3426 9090",
+    "category": "armchair",
+    "stock_status": "in_stock",
+    "updated_date": "2026-10-02",
+    "last_checked": "2026-10-02"
+  },
+  {
+    "id": "ac4",
+    "product_name": "Advanced Rest Low 低背椅/休閒椅/扶手椅 – 黑色",
+    "model": "",
+    "price_min": 980,
+    "price_max": 980,
+    "price_display": "HK$980.00 (原價 $1,200)",
+    "price_display_en": "HK$980.00 (Original $1,200)",
+    "specs": [
+      "座高：14.5\"-18.5\" (可調，每級1\")",
+      "座闊：18.7\" / 21\" (可調)",
+      "座深：15\"-17\" (可調)",
+      "背高：低背",
+      "總外闊：23\" (總深21.5\"，總高31.8\")",
+      "重量：11.4kg",
+      "承重：440.9lb / 200kg"
+    ],
+    "specs_en": [
+      "Seat height: 14.5\"-18.5\" (adjustable in 1\" steps)",
+      "Seat width: 18.7\" / 21\" (adjustable)",
+      "Seat depth: 15\"-17\" (adjustable)",
+      "Back: low back",
+      "Overall width: 23\" (depth 21.5\", height 31.8\")",
+      "Weight: 11.4 kg",
+      "Max load: 440.9 lb / 200 kg"
+    ],
+    "features": [
+      "超舒適 3.5\" 特厚座墊",
+      "座闊、座深及座高可調",
+      "設有扶手，借力坐立更輕鬆",
+      "耐污防火仿皮座背墊，符合美國 CAL 117 防火標準",
+      "防滑腳膠"
+    ],
+    "features_en": [
+      "Extra-thick 3.5\" seat cushion",
+      "Adjustable seat width, depth and height",
+      "Armrests for easier sit-to-stand",
+      "Stain-resistant fire-retardant PU upholstery (US CAL 117)",
+      "Non-slip rubber feet"
+    ],
+    "image_url": "images/armchair_healthyliving_rest_low_black.jpg",
+    "product_url": "https://www.healthyliving.com.hk/shop/advanced-rest-low-低背椅-休閒椅-扶手椅-健康椅-黑色/",
+    "product_name_en": "Advanced Rest Low Low-back Armchair – Black",
+    "source": "healthyliving",
+    "source_name": "盈康 Healthy Living",
+    "phone": "3426 9090",
+    "category": "armchair",
+    "stock_status": "in_stock",
+    "updated_date": "2026-10-02",
+    "last_checked": "2026-10-02"
+  },
+  {
+    "id": "ac5",
+    "source": "justmed",
+    "source_name": "真善美醫護",
+    "category": "armchair",
+    "product_name": "休閒座椅 (可調高度)",
+    "model": "H-VM90",
+    "price_min": 900,
+    "price_max": 900,
+    "price_display": "HK$900",
+    "price_display_en": "HK$900.00",
+    "specs": [
+      "座高：16\"-21\" (可調)",
+      "座闊：18\"",
+      "座深：18.5\"",
+      "背高：14\"",
+      "總外闊：23\" (總深20\")",
+      "扶手高：8.5\" (離座)",
+      "重量：13kg",
+      "承重：100kg"
+    ],
+    "specs_en": [
+      "Seat height: 16\"-21\" (adjustable)",
+      "Seat width: 18\"",
+      "Seat depth: 18.5\"",
+      "Back height: 14\"",
+      "Overall width: 23\" (depth 20\")",
+      "Armrest height: 8.5\" above seat",
+      "Weight: 13 kg",
+      "Max load: 100 kg"
+    ],
+    "features": [
+      "基本款式，黑色鐵鋼支架、黑色人造皮座墊",
+      "可調較座高，適合不同身型用者",
+      "符合 BS7176 中度防火標準，可於院舍使用"
+    ],
+    "features_en": [
+      "Basic model: black steel frame, black PU seat",
+      "Adjustable seat height for different body sizes",
+      "Meets BS7176 medium hazard fire-retardant standard, suitable for care homes"
+    ],
+    "image_url": "images/armchair_justmed_hvm90.jpg",
+    "product_url": "https://www.justmed.com.hk/product-detail.php?id=719",
+    "product_name_en": "Leisure Chair (Height-adjustable)",
+    "phone": "2742 4370",
+    "purchase_method": "whatsapp_only",
+    "note": "⚠ 不支援線上付款，請 WhatsApp 2742 4370 落單",
+    "stock_status": "in_stock",
+    "updated_date": "2026-10-02",
+    "last_checked": "2026-10-02"
   }
 ]
