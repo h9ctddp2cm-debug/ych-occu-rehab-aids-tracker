@@ -2385,5 +2385,126 @@
     "note": "⚠ 不支援線上付款，請 WhatsApp 2742 4370 落單",
     "updated_date": "2026-10-01",
     "last_checked": "2026-10-01"
+  },
+  {
+    "id": "hp1",
+    "source": "medex",
+    "source_name": "萬得醫療用品 MEDEX",
+    "category": "hipprotector",
+    "product_name": "T03a 髖關節保護褲",
+    "model": "T03a",
+    "price_min": 252,
+    "price_max": 252,
+    "price_display": "HK$252.00 (原價 $280)",
+    "price_display_en": "HK$252.00 (Original $280)",
+    "specs": [
+      "尺碼：男／女裝，小至加加加大 (S–XXXL)",
+      "腰圍：小 23-25\" / 中 25-27\" / 大 27-29\" / 加大 29-31\" / 加加大 31-33\" / 加加加大 33-38\""
+    ],
+    "specs_en": [
+      "Size: men's / women's, S–XXXL",
+      "Waist: S 23-25\" / M 25-27\" / L 27-29\" / XL 29-31\" / XXL 31-33\" / XXXL 33-38\""
+    ],
+    "features": [
+      "內褲形設計，髖關節兩側內附防震塑膠墊",
+      "預防長者跌倒時髖關節骨折"
+    ],
+    "features_en": [
+      "Underwear-style design with shock-absorbing pads over both hips",
+      "Helps prevent hip fracture from falls in older adults"
+    ],
+    "image_url": "images/hipprotector_medex_t03a.jpg",
+    "product_url": "https://www.medexbrace.com/t03a-髖關節保護褲",
+    "product_name_en": "T03a Hip Protector Pants",
+    "phone": "2656 8211",
+    "note": "可於萬得網站或指定店舖購買",
+    "note_en": "Available online or at listed retail shops",
+    "stock_status": "in_stock",
+    "updated_date": "2026-10-02",
+    "last_checked": "2026-10-02"
+  },
+  {
+    "id": "hp2",
+    "source": "nero",
+    "source_name": "Nero 力宏醫療器材",
+    "category": "hipprotector",
+    "product_name": "Hip Protector 髖關節保護褲",
+    "model": "RE1900S / RE1900M / RE1900L / RE1900XL",
+    "price_min": 0,
+    "price_max": 0,
+    "price_display": "HK$ — 參考價錢，請致電查詢",
+    "price_display_en": "HK$ — Please call for quotation",
+    "specs": [
+      "尺碼：細碼 / 中碼 / 大碼 / 加大碼",
+      "尺寸：S 30-32\" / M 32-34\" / L 36-38\" / XL 38-42\"",
+      "物料：閉孔泡棉保護墊縫於褲內"
+    ],
+    "specs_en": [
+      "Size: S / M / L / XL",
+      "Dimensions: S 30-32\" / M 32-34\" / L 36-38\" / XL 38-42\"",
+      "Material: closed-cell foam pads sewn into garment"
+    ],
+    "features": [
+      "保護髖部，減低側跌受傷風險",
+      "適合有髖關節骨折風險的病人"
+    ],
+    "features_en": [
+      "Hip protection against lateral-fall injuries",
+      "For patients at risk of hip fracture"
+    ],
+    "image_url": "images/hipprotector_nero_re1900.jpg",
+    "product_url": "https://www.nrmedic.com/index.php?route=product/product&path=79&product_id=796",
+    "product_name_en": "Hip Protector",
+    "phone": "2419 6788",
+    "note": "網站只提供「索取報價」，貨期約 3-4 星期",
+    "note_en": "Quotation only on website; lead time about 3-4 weeks",
+    "stock_status": "in_stock",
+    "updated_date": "2026-10-02",
+    "last_checked": "2026-10-02"
+  },
+  {
+    "id": "hp3",
+    "source": "easy66",
+    "source_name": "樂齡網 Easy66",
+    "category": "hipprotector",
+    "product_name": "【IHOO】護髖褲 G100 (智能凝膠)",
+    "model": "G100",
+    "price_min": 480,
+    "price_max": 480,
+    "price_display": "HK$480.00 (原價 $550，基本套裝)",
+    "price_display_en": "HK$480.00 (Original $550, basic set)",
+    "specs": [
+      "尺碼：女用 L / XL；男用 2XL / 3XL",
+      "腰圍：女 L 26-34\" (105-125磅) / 女 XL 28-36\" (125-140磅) / 男 2XL 29-37\" (145-165磅) / 男 3XL 31-39\" (165-185磅)",
+      "物料：53.7% 竹纖維 + 38.9% 錦綸 + 9% 氨綸",
+      "數量：基本套裝 內褲 2 件 + 智能凝膠保護墊 2 片"
+    ],
+    "specs_en": [
+      "Size: women's L / XL; men's 2XL / 3XL",
+      "Waist: W-L 26-34\" (105-125 lb) / W-XL 28-36\" (125-140 lb) / M-2XL 29-37\" (145-165 lb) / M-3XL 31-39\" (165-185 lb)",
+      "Material: 53.7% bamboo fibre + 38.9% nylon + 9% spandex",
+      "Basic set: 2 pairs of underwear + 2 smart-gel pads"
+    ],
+    "features": [
+      "NND 智能凝膠保護墊，受撞擊時瞬間變硬",
+      "隱形設計，外觀與普通內褲無異",
+      "符合歐盟 EN1621-1:2012 撞擊測試",
+      "凝膠墊會自然分解，建議每年更換"
+    ],
+    "features_en": [
+      "NND smart-gel pads harden instantly on impact",
+      "Discreet design, looks like normal underwear",
+      "Meets EU EN1621-1:2012 impact standard",
+      "Gel pads biodegrade; replace yearly"
+    ],
+    "image_url": "images/hipprotector_easy66_ihoo_g100.jpg",
+    "product_url": "https://www.easy66.com.hk/products/hip-protecticon-pants",
+    "product_name_en": "IHOO Hip Protection Underwear G100 (Smart Gel)",
+    "phone": "2102 7180",
+    "note": "另有「更替用」內褲 2 件裝選項，價錢不同",
+    "note_en": "A replacement 2-pack (underwear only) is also sold at a different price",
+    "stock_status": "in_stock",
+    "updated_date": "2026-10-02",
+    "last_checked": "2026-10-02"
   }
 ]
