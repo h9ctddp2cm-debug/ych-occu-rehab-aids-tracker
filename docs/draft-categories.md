@@ -8,6 +8,7 @@
 | id | 中文 | English |
 |---|---|---|
 | `highbackchair` | 高背椅 | High-back chair |
+| `armchair` | 扶手椅 | Armchair |
 | `hipprotector` | 髖關節保護褲 | Hip protector |
 | `restraint` | 約束用品 | Restraint items |
 
@@ -31,7 +32,7 @@ https://ychoccu.github.io/ych-occu-rehab-aids-tracker/?draft=1
 
 ```js
 // 發佈前
-const DRAFT_CATEGORIES = new Set(['highbackchair', 'hipprotector', 'restraint']);
+const DRAFT_CATEGORIES = new Set(['highbackchair', 'armchair', 'hipprotector', 'restraint']);
 // 例如發佈「高背椅」之後
 const DRAFT_CATEGORIES = new Set(['hipprotector', 'restraint']);
 ```
@@ -42,5 +43,5 @@ const DRAFT_CATEGORIES = new Set(['hipprotector', 'restraint']);
 ## 相關檔案
 
 - `index.html` — `DRAFT_CATEGORIES`、分類下拉選單、中英標籤、首頁格仔、約束用品注意事項
-- `scripts/category_schema.py` — 三個新類別嘅規格欄位
+- `scripts/category_schema.py` — 四個新類別嘅規格欄位
 - `ych_rehab_aids_standalone.html` — 由 `python scripts/rebuild_html.py` 自動產生，唔使手改
