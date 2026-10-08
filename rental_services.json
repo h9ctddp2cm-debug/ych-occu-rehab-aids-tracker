@@ -878,7 +878,9 @@
           "deposit": "請致電查詢",
           "deposit_en": "Please call",
           "cat": "ewheelchair",
-          "group": "mobility"
+          "group": "mobility",
+          "image": "images/rental_ewheelchair_emv_models.jpg",
+          "image_credit": "EMV 網站"
         },
         {
           "item": "維修服務",
@@ -886,7 +888,9 @@
           "rent": "每次 $400（更換零件另議）",
           "rent_en": "$400 per visit (parts extra)",
           "deposit": "—",
-          "group": "service"
+          "group": "service",
+          "image": "images/rental_repair_emv_workshop.jpg",
+          "image_credit": "EMV 網站"
         },
         {
           "item": "上門檢查",
@@ -967,6 +971,6 @@
       "label_en": "Other services"
     }
   ],
-  "image_note": "器材圖片取自各租借機構網站（a家、香港紅十字會），僅供參考；實際出租的型號、顏色及配置以該機構為準。沒有圖片的機構，其網站未有提供器材相片。",
-  "image_note_en": "Equipment photos are taken from the rental organisations' own websites (age at home, Hong Kong Red Cross) for reference only; actual models, colours and configurations are subject to each organisation. Organisations without photos do not provide equipment images on their websites."
+  "image_note": "器材圖片取自各租借機構網站（a家、香港紅十字會、EMV），僅供參考；實際出租的型號、顏色及配置以該機構為準。沒有圖片的機構，其網站未有提供器材相片。",
+  "image_note_en": "Equipment photos are taken from the rental organisations' own websites (age at home, Hong Kong Red Cross, EMV) for reference only; actual models, colours and configurations are subject to each organisation. Organisations without photos do not provide equipment images on their websites."
 }
