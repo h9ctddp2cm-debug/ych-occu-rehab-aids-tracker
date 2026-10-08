@@ -9,85 +9,81 @@
       "id": "wheelchair",
       "label": "輪椅",
       "label_en": "Wheelchair",
-      "image": "images/wheelchair_justmed_alpha_t05.jpg",
-      "image_credit": "真善美醫護"
+      "image": "images/rental_wheelchair_redcross.jpg",
+      "image_credit": "香港紅十字會網站"
     },
     {
       "id": "ewheelchair",
       "label": "電動輪椅",
       "label_en": "Powered wheelchair",
       "image": "images/rental_ewheelchair_ageathome_lw.jpg",
-      "image_credit": "a家"
+      "image_credit": "a家網站"
     },
     {
       "id": "highbackchair",
       "label": "高背椅",
-      "label_en": "High-back chair",
-      "image": "images/highbackchair_healthyliving_harmony_st.jpg",
-      "image_credit": "健康生活"
+      "label_en": "High-back chair"
     },
     {
       "id": "commode",
       "label": "便椅／沐浴椅",
       "label_en": "Commode / shower chair",
-      "image": "images/commode_supreme_ca1360.jpg",
-      "image_credit": "Supreme Medical"
+      "image": "images/rental_commode_redcross.jpg",
+      "image_credit": "香港紅十字會網站"
     },
     {
       "id": "bed",
       "label": "電動床／護理床",
       "label_en": "Electric / nursing bed",
-      "image": "images/bed_medicare_ehb00055.jpeg",
-      "image_credit": "Medicare"
+      "image": "images/rental_bed_ageathome_mfb.jpg",
+      "image_credit": "a家網站"
     },
     {
       "id": "mattress",
       "label": "氣墊床褥／防壓瘡床褥",
       "label_en": "Air / pressure-relief mattress",
       "image": "images/rental_mattress_ageathome_am.jpg",
-      "image_credit": "a家"
+      "image_credit": "a家網站"
     },
     {
       "id": "backrest",
       "label": "靠背架",
-      "label_en": "Bed backrest",
-      "image": "images/backrest_medimart_silverforce.jpg",
-      "image_credit": "Medimart"
+      "label_en": "Bed backrest"
     },
     {
       "id": "bedrail",
       "label": "床欄／扶手",
       "label_en": "Bed rails / grab rails",
-      "image": "images/bedrail_justmed_p42434.jpeg",
-      "image_credit": "真善美醫護"
+      "image": "images/rental_bedrail_ageathome_sp.jpg",
+      "image_credit": "a家網站"
     },
     {
       "id": "ramp",
       "label": "斜台板",
       "label_en": "Ramp",
-      "image": "images/ramp_supreme_wa200.jpeg",
-      "image_credit": "Supreme Medical"
+      "image": "images/rental_ramp_redcross.jpg",
+      "image_credit": "香港紅十字會網站"
     },
     {
       "id": "hoist",
       "label": "移位機",
       "label_en": "Hoist",
       "image": "images/rental_hoist_ageathome_ee.jpg",
-      "image_credit": "a家"
+      "image_credit": "a家網站"
     },
     {
       "id": "walking",
       "label": "助行架／拐杖",
       "label_en": "Walking frame / crutches",
-      "image": "images/rental_walking_ageathome_rw.jpg",
-      "image_credit": "a家"
+      "image": "images/rental_rollator_redcross.jpg",
+      "image_credit": "香港紅十字會網站"
     },
     {
       "id": "others",
       "label": "其他器材",
       "label_en": "Other equipment",
-      "image": "images/rental_others_ageathome_table.jpg",
-      "image_credit": "a家"
+      "image": "images/rental_tray_redcross.jpg",
+      "image_credit": "香港紅十字會網站"
     }
   ],
   "organisations": [
@@ -139,7 +135,9 @@
           "deposit": "請向職員查詢",
           "deposit_en": "Ask staff",
           "cat": "wheelchair",
-          "group": "mobility"
+          "group": "mobility",
+          "image": "images/rental_highback_ageathome_km.jpg",
+          "image_credit": "a家網站"
         },
         {
           "item": "電動輪椅",
@@ -148,7 +146,9 @@
           "deposit": "請向職員查詢",
           "deposit_en": "Ask staff",
           "cat": "ewheelchair",
-          "group": "mobility"
+          "group": "mobility",
+          "image": "images/rental_ewheelchair_ageathome_lw.jpg",
+          "image_credit": "a家網站"
         },
         {
           "item": "沐浴椅／便椅",
@@ -157,7 +157,9 @@
           "deposit": "請向職員查詢",
           "deposit_en": "Ask staff",
           "cat": "commode",
-          "group": "bathroom"
+          "group": "bathroom",
+          "image": "images/rental_commode_ageathome_rb.jpg",
+          "image_credit": "a家網站"
         },
         {
           "item": "醫療護理床",
@@ -166,7 +168,9 @@
           "deposit": "請向職員查詢",
           "deposit_en": "Ask staff",
           "cat": "bed",
-          "group": "posture"
+          "group": "posture",
+          "image": "images/rental_bed_ageathome_mfb.jpg",
+          "image_credit": "a家網站"
         },
         {
           "item": "特別功能床褥／氣墊床褥",
@@ -175,7 +179,9 @@
           "deposit": "請向職員查詢",
           "deposit_en": "Ask staff",
           "cat": "mattress",
-          "group": "posture"
+          "group": "posture",
+          "image": "images/rental_mattress_ageathome_am.jpg",
+          "image_credit": "a家網站"
         },
         {
           "item": "移位機",
@@ -184,7 +190,9 @@
           "deposit": "請向職員查詢",
           "deposit_en": "Ask staff",
           "cat": "hoist",
-          "group": "posture"
+          "group": "posture",
+          "image": "images/rental_hoist_ageathome_ee.jpg",
+          "image_credit": "a家網站"
         },
         {
           "item": "扶手／床欄",
@@ -193,7 +201,9 @@
           "deposit": "請向職員查詢",
           "deposit_en": "Ask staff",
           "cat": "bedrail",
-          "group": "daily"
+          "group": "daily",
+          "image": "images/rental_bedrail_ageathome_sp.jpg",
+          "image_credit": "a家網站"
         },
         {
           "item": "斜台（組合式／折疊式）",
@@ -202,7 +212,9 @@
           "deposit": "請向職員查詢",
           "deposit_en": "Ask staff",
           "cat": "ramp",
-          "group": "daily"
+          "group": "daily",
+          "image": "images/rental_ramp_ageathome_ds.jpg",
+          "image_credit": "a家網站"
         },
         {
           "item": "輔助餵食機",
@@ -211,7 +223,9 @@
           "deposit": "請向職員查詢",
           "deposit_en": "Ask staff",
           "cat": "others",
-          "group": "daily"
+          "group": "daily",
+          "image": "images/rental_feeder_ageathome_b.jpg",
+          "image_credit": "a家網站"
         }
       ],
       "notes": [
@@ -682,7 +696,9 @@
           "rent": "$140",
           "deposit": "$200",
           "cat": "wheelchair",
-          "group": "mobility"
+          "group": "mobility",
+          "image": "images/rental_wheelchair_redcross.jpg",
+          "image_credit": "香港紅十字會網站"
         },
         {
           "item": "高背輪椅 *",
@@ -690,7 +706,9 @@
           "rent": "$220",
           "deposit": "$400",
           "cat": "wheelchair",
-          "group": "mobility"
+          "group": "mobility",
+          "image": "images/rental_highbackwheelchair_redcross.jpg",
+          "image_credit": "香港紅十字會網站"
         },
         {
           "item": "高背傾斜及後躺輪椅 *",
@@ -698,7 +716,9 @@
           "rent": "$630",
           "deposit": "$1,000",
           "cat": "wheelchair",
-          "group": "mobility"
+          "group": "mobility",
+          "image": "images/rental_reclinewheelchair_redcross.jpg",
+          "image_credit": "香港紅十字會網站"
         },
         {
           "item": "助行車",
@@ -706,7 +726,9 @@
           "rent": "$140",
           "deposit": "$200",
           "cat": "walking",
-          "group": "mobility"
+          "group": "mobility",
+          "image": "images/rental_rollator_redcross.jpg",
+          "image_credit": "香港紅十字會網站"
         },
         {
           "item": "步行架／四腳叉／穿手拐杖",
@@ -714,7 +736,9 @@
           "rent": "$60",
           "deposit": "$100",
           "cat": "walking",
-          "group": "mobility"
+          "group": "mobility",
+          "image": "images/rental_walkingframe_redcross.jpg",
+          "image_credit": "香港紅十字會網站"
         },
         {
           "item": "有轆步行架 *",
@@ -722,7 +746,9 @@
           "rent": "$80",
           "deposit": "$100",
           "cat": "walking",
-          "group": "mobility"
+          "group": "mobility",
+          "image": "images/rental_wheeledframe_redcross.jpg",
+          "image_credit": "香港紅十字會網站"
         },
         {
           "item": "沐浴椅",
@@ -730,7 +756,9 @@
           "rent": "$60",
           "deposit": "$100",
           "cat": "commode",
-          "group": "bathroom"
+          "group": "bathroom",
+          "image": "images/rental_bathchair_redcross.jpg",
+          "image_credit": "香港紅十字會網站"
         },
         {
           "item": "便椅",
@@ -738,7 +766,9 @@
           "rent": "$90",
           "deposit": "$100",
           "cat": "commode",
-          "group": "bathroom"
+          "group": "bathroom",
+          "image": "images/rental_commode_redcross.jpg",
+          "image_credit": "香港紅十字會網站"
         },
         {
           "item": "可傾斜沐浴便椅 *",
@@ -746,7 +776,9 @@
           "rent": "$430",
           "deposit": "$1,000",
           "cat": "commode",
-          "group": "bathroom"
+          "group": "bathroom",
+          "image": "images/rental_tiltcommode_redcross.jpg",
+          "image_credit": "香港紅十字會網站"
         },
         {
           "item": "輪椅活動枱板",
@@ -754,7 +786,9 @@
           "rent": "$60",
           "deposit": "$100",
           "cat": "others",
-          "group": "daily"
+          "group": "daily",
+          "image": "images/rental_tray_redcross.jpg",
+          "image_credit": "香港紅十字會網站"
         },
         {
           "item": "手提斜台板",
@@ -762,7 +796,9 @@
           "rent": "$280",
           "deposit": "$500",
           "cat": "ramp",
-          "group": "daily"
+          "group": "daily",
+          "image": "images/rental_ramp_redcross.jpg",
+          "image_credit": "香港紅十字會網站"
         }
       ],
       "notes": [
@@ -931,6 +967,6 @@
       "label_en": "Other services"
     }
   ],
-  "image_note": "圖片僅供參考，來自 a家及供應商網站；各機構實際出租的型號、顏色及配置以該機構為準。",
-  "image_note_en": "Photos are for reference only (from “a家” and supplier websites); actual models, colours and configurations vary by organisation."
+  "image_note": "器材圖片取自各租借機構網站（a家、香港紅十字會），僅供參考；實際出租的型號、顏色及配置以該機構為準。沒有圖片的機構，其網站未有提供器材相片。",
+  "image_note_en": "Equipment photos are taken from the rental organisations' own websites (age at home, Hong Kong Red Cross) for reference only; actual models, colours and configurations are subject to each organisation. Organisations without photos do not provide equipment images on their websites."
 }

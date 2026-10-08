@@ -176,6 +176,9 @@
     .rental-cat-card .rc-list { list-style: none; margin: 0; padding: 4px 14px 10px; }
     .rental-cat-card .rc-item { padding: 9px 0; border-bottom: 1px dashed #cbd5e1; line-height: 1.45; }
     .rental-cat-card .rc-item:last-child { border-bottom: 0; }
+    .rental-cat-card .rc-item.has-img { display: flex; gap: 10px; align-items: flex-start; }
+    .rental-cat-card .rc-thumb { width: 56px; height: 56px; object-fit: contain; background: #fff; border: 1px solid #e5e7eb; border-radius: 6px; flex-shrink: 0; }
+    .rental-cat-card .rc-body { flex: 1; min-width: 0; }
     .rental-cat-card .rc-top { display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
     .rental-cat-card .rc-item-name { font-weight: 800; color: #0c4a6e; }
     .rental-cat-card .rc-org { color: #075985; font-weight: 700; text-decoration: underline; font-size: 0.92em; }
@@ -258,7 +261,7 @@
       .rental-card .rental-row .k { min-width: 100%; }
       .rental-table { font-size: 0.92em; }
       .rental-toolbar .rt-group { width: 100%; }
-      .rental-table .rt-thumb { display: none; }
+      .rental-table .rt-thumb { width: 36px; height: 36px; }
       .rental-toolbar .rt-label { white-space: nowrap; }
       .rental-toolbar .seg { flex: 1; }
       .rental-toolbar .seg-btn { flex: 1; padding: 8px 6px; font-size: 0.92em; }
@@ -1699,7 +1702,7 @@ function rentalOrgCardHTML(o, q) {
     groups[gid].forEach(f => {
       const rent = rl(f, 'rent'), dep = rl(f, 'deposit'), extra = rl(f, 'extra');
       const fc = feeCats(f)[0];
-      const thumb = (fc && fc !== 'others' && !/拐杖|四腳叉|四爪|cane|crutch/i.test(f.item + ' ' + (f.item_en || ''))) ? rentalCatImage(data, fc) : '';
+      const thumb = f.image || '';
       rows += `<tr><td><div class="rt-item">${thumb ? `<img class="rt-thumb" src="${escapeHTML(thumb)}" alt="" loading="lazy" onerror="this.style.display='none'">` : ''}<span>${escapeHTML(rl(f, 'item'))}</span></div></td><td class="${RENTAL_ASK.test(rent) ? 'ask' : ''}">${escapeHTML(rent)}</td><td class="${RENTAL_ASK.test(dep) ? 'ask' : ''}">${escapeHTML(dep)}</td>${cols.length > 3 ? `<td>${escapeHTML(extra)}</td>` : ''}</tr>`;
     });
   });
@@ -1746,12 +1749,13 @@ function rentalCatCardsHTML(data, q) {
     const items = rows.map(({ o, f }) => {
       const rent = rl(f, 'rent'), dep = rl(f, 'deposit');
       const ph = (o.phones && o.phones[0]) ? o.phones[0].number : '';
-      return `<li class="rc-item">
-          <div class="rc-top"><span class="rc-item-name">${escapeHTML(rl(f, 'item'))}</span>
+      return `<li class="rc-item${f.image ? ' has-img' : ''}">
+          ${f.image ? `<img class="rc-thumb" src="${escapeHTML(f.image)}" alt="" loading="lazy" onerror="this.style.display='none'">` : ''}
+          <div class="rc-body"><div class="rc-top"><span class="rc-item-name">${escapeHTML(rl(f, 'item'))}</span>
             <a href="#/rental" class="rc-org" onclick="event.preventDefault();gotoRentalOrg('${escapeHTML(o.id)}')">${escapeHTML(rl(o, 'short') || rl(o, 'name'))} ›</a></div>
           <div class="rc-fee"><span class="${RENTAL_ASK.test(rent) ? 'ask' : 'rc-rent'}">${escapeHTML(rent)}</span>${RENTAL_ASK.test(rent) ? '' : ` <span class="rc-unit">${escapeHTML(rl(o, 'rent_unit'))}</span>`}
             <span class="rc-sep">·</span> <span class="rc-dep-label">${escapeHTML(t('rental_deposit'))}</span> <span class="${RENTAL_ASK.test(dep) ? 'ask' : 'rc-dep'}">${escapeHTML(dep)}</span>
-            ${ph ? `<a class="btn-call rc-tel" href="${telHref(ph)}">📞 ${escapeHTML(ph)}</a>` : ''}</div>
+            ${ph ? `<a class="btn-call rc-tel" href="${telHref(ph)}">📞 ${escapeHTML(ph)}</a>` : ''}</div></div>
         </li>`;
     }).join('');
     html += `<div class="rental-cat-card" id="rental-cat-${escapeHTML(c.id)}">
