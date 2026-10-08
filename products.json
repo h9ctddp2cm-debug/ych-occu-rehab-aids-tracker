@@ -2765,5 +2765,250 @@
     "stock_status": "in_stock",
     "updated_date": "2026-10-02",
     "last_checked": "2026-10-05"
+  },
+  {
+    "id": "hb1",
+    "category": "highbackchair",
+    "product_name": "Advanced Harmony ST 後躺有輪高背椅 (附枱板)",
+    "model": "",
+    "price_min": 4800,
+    "price_max": 4800,
+    "price_display": "HK$4,800.00 (原價 $6,000)",
+    "price_display_en": "HK$4,800.00 (Original $6,000)",
+    "specs": [
+      "座高：18.9\"",
+      "座闊：16\" / 18\" (扶手內闊 17\" / 19\")",
+      "座深：17.2\"",
+      "背高：29\"",
+      "總外闊：22.9\" / 24.4\" (總深34.4\"，總高46.7\")",
+      "椅背角度：110°–155° 無段式後傾",
+      "重量：30kg",
+      "承重：220lb / 100kg"
+    ],
+    "specs_en": [
+      "Seat height: 18.9\"",
+      "Seat width: 16\" / 18\" (between armrests 17\" / 19\")",
+      "Seat depth: 17.2\"",
+      "Back height: 29\"",
+      "Overall width: 22.9\" / 24.4\" (depth 34.4\", height 46.7\")",
+      "Recline: 110°–155°, infinitely adjustable",
+      "Weight: 30 kg",
+      "Max load: 220 lb / 100 kg"
+    ],
+    "features": [
+      "椅背可後傾至 155°，椅背與托腿墊聯動升降",
+      "升降扶手，方便過床／過輪椅",
+      "防滑腳踏板",
+      "附可拆式枱板，深度可調",
+      "4 個 4\" 德國 Tente 帶鎖萬向轆",
+      "防火耐磨人造皮 (BS7176:2007 中度防火)"
+    ],
+    "features_en": [
+      "Back reclines to 155°; leg rest rises with the back",
+      "Drop-down armrests for bed / wheelchair transfers",
+      "Non-slip footplate",
+      "Detachable tray with adjustable depth",
+      "4 × 4\" German Tente locking castors",
+      "Fire-retardant wear-resistant PU (BS7176:2007 medium hazard)"
+    ],
+    "image_url": "images/highbackchair_healthyliving_harmony_st.jpg",
+    "product_url": "https://www.healthyliving.com.hk/shop/advanced-harmony-st-後躺有輪高背椅-附枱板/",
+    "product_name_en": "Advanced Harmony ST Reclining High-back Chair with Wheels (with tray)",
+    "stock_status": "in_stock",
+    "source": "healthyliving",
+    "source_name": "盈康 Healthy Living",
+    "phone": "3426 9090",
+    "updated_date": "2026-10-08",
+    "last_checked": "2026-10-08"
+  },
+  {
+    "id": "hb2",
+    "category": "highbackchair",
+    "product_name": "後傾有輪高背椅 (扶手可升降，方便轉移)",
+    "model": "GHM-GC-R5003",
+    "price_min": 4000,
+    "price_max": 4000,
+    "price_display": "HK$4,000 (原價 $4,300)",
+    "price_display_en": "HK$4,000 (Original $4,300)",
+    "specs": [
+      "座高：49.5cm / 19.5\"",
+      "座闊：45cm / 17.7\"",
+      "座深：44.5cm / 17.5\"",
+      "背高：75cm / 29.5\"",
+      "總外闊：62cm / 24.5\" (總長89-144cm，總高86-115cm)",
+      "扶手高：21cm / 8.3\"",
+      "椅背角度：96°–138° 無段式後傾",
+      "承重：120kg"
+    ],
+    "specs_en": [
+      "Seat height: 49.5 cm / 19.5\"",
+      "Seat width: 45 cm / 17.7\"",
+      "Seat depth: 44.5 cm / 17.5\"",
+      "Back height: 75 cm / 29.5\"",
+      "Overall width: 62 cm / 24.5\" (length 89-144 cm, height 86-115 cm)",
+      "Armrest height: 21 cm / 8.3\"",
+      "Recline: 96°–138°, infinitely adjustable",
+      "Max load: 120 kg"
+    ],
+    "features": [
+      "椅背可後傾至 138°，腿墊可獨立調校",
+      "兩邊扶手可升降，方便進出／轉移",
+      "伸縮腳踏，PVC 防滑面",
+      "附飯板及後推手柄",
+      "高密度海綿、阻燃人造皮座背墊",
+      "現貨為灰藍色皮"
+    ],
+    "features_en": [
+      "Back reclines to 138°; leg rest adjusts independently",
+      "Both armrests drop down for easier entry / transfer",
+      "Extendable footrest with non-slip PVC surface",
+      "Tray and rear push handle included",
+      "High-density foam, fire-retardant PU upholstery",
+      "Current stock: grey-blue upholstery"
+    ],
+    "image_url": "images/highbackchair_gethealth_r5003.jpg",
+    "product_url": "https://www.gethealth.com.hk/商品/後傾有輪高背椅-扶手可升降-方便轉移/",
+    "product_name_en": "Reclining High-back Chair with Wheels (drop-down armrests)",
+    "stock_status": "in_stock",
+    "source": "gethealth",
+    "source_name": "健康家居 GetHealth",
+    "phone": "2432 2028",
+    "updated_date": "2026-10-08",
+    "last_checked": "2026-10-08"
+  },
+  {
+    "id": "bk1",
+    "source": "medimart",
+    "source_name": "樂康軒 Medimart",
+    "phone": "3107 7745",
+    "category": "backrest",
+    "product_name": "Silver Force 可摺疊靠背床墊 (深藍)",
+    "model": "",
+    "price_min": 475,
+    "price_max": 475,
+    "price_display": "HK$475.00",
+    "price_display_en": "HK$475.00",
+    "specs": [
+      "尺寸：靠背 54 × 59cm；底架 59 × 57cm",
+      "角度：5 段固定角度",
+      "物料：鋼製支架"
+    ],
+    "specs_en": [
+      "Size: backrest 54 × 59 cm; frame 59 × 57 cm",
+      "Angle: 5 fixed positions",
+      "Material: steel frame"
+    ],
+    "features": [
+      "非電動，人手調校",
+      "可摺疊，方便收納",
+      "舒適頭枕",
+      "香港品牌"
+    ],
+    "features_en": [
+      "Manual (non-electric)",
+      "Foldable for storage",
+      "Comfortable headrest",
+      "Hong Kong brand"
+    ],
+    "image_url": "images/backrest_medimart_silverforce.jpg",
+    "product_url": "https://www.medimart.com.hk/product/silver-force-可摺疊靠背床墊-深藍",
+    "product_name_en": "Silver Force Foldable Back Rest (Blue)",
+    "stock_status": "in_stock",
+    "updated_date": "2026-10-08",
+    "last_checked": "2026-10-08"
+  },
+  {
+    "id": "bk2",
+    "category": "backrest",
+    "product_name": "靠背架 (五段角度調校)",
+    "model": "GHM-NBA-BR1",
+    "price_min": 450,
+    "price_max": 450,
+    "price_display": "HK$450",
+    "price_display_en": "HK$450.00",
+    "specs": [
+      "尺寸：52 (深) × 55 (闊) × 31-55cm (高)",
+      "角度：5 段調校",
+      "重量：2.2kg",
+      "承重：136kg",
+      "物料：碳鋼支架、透氣 PVC 網面"
+    ],
+    "specs_en": [
+      "Size: 52 (D) × 55 (W) × 31-55 cm (H)",
+      "Angle: 5 positions",
+      "Weight: 2.2 kg",
+      "Max load: 136 kg",
+      "Material: carbon steel frame, breathable PVC mesh"
+    ],
+    "features": [
+      "非電動，人手調校",
+      "輕便可摺，收納方便",
+      "人體工學弧度設計",
+      "PVC 網面可拆出清洗",
+      "1\" 厚海綿頭枕"
+    ],
+    "features_en": [
+      "Manual (non-electric)",
+      "Lightweight and foldable",
+      "Ergonomic curved design",
+      "Removable washable PVC mesh",
+      "1\" foam headrest"
+    ],
+    "image_url": "images/backrest_gethealth_br1.jpg",
+    "product_url": "https://www.gethealth.com.hk/商品/靠背架五段角度調校/",
+    "product_name_en": "Bed Backrest (5-position angle adjustment)",
+    "stock_status": "in_stock",
+    "source": "gethealth",
+    "source_name": "健康家居 GetHealth",
+    "phone": "2432 2028",
+    "updated_date": "2026-10-08",
+    "last_checked": "2026-10-08"
+  },
+  {
+    "id": "bk3",
+    "source": "easy66",
+    "source_name": "樂齡網 Easy66",
+    "phone": "2102 7180",
+    "category": "backrest",
+    "product_name": "【KF】電動升降起身輔助靠背架 (2呎半 / 3呎闊)",
+    "model": "",
+    "price_min": 3800,
+    "price_max": 3800,
+    "price_display": "HK$3,800.00 (原價 $6,000)",
+    "price_display_en": "HK$3,800.00 (Original $6,000)",
+    "specs": [
+      "尺寸：3呎款 115 × 85 × 4cm (連扶手闊89cm)；2呎半款 115 × 72 × 4cm (連扶手闊76cm)",
+      "角度：0°–70° 無段式電動調校",
+      "重量：約18.5kg",
+      "承重：120kg",
+      "電壓：220V 三腳插頭"
+    ],
+    "specs_en": [
+      "Size: 3 ft 115 × 85 × 4 cm (89 cm wide incl. handles); 2.5 ft 115 × 72 × 4 cm (76 cm incl. handles)",
+      "Angle: 0°–70°, electric, infinitely adjustable",
+      "Weight: approx. 18.5 kg",
+      "Max load: 120 kg",
+      "Power: 220 V, 3-pin plug"
+    ],
+    "features": [
+      "電動升降，有線遙控器",
+      "直接放在原有床架及床褥上，毋需換床",
+      "可拆式起身扶手",
+      "價錢已包送貨及安裝",
+      "摩打及支架保用 3 年，遙控器 1 年"
+    ],
+    "features_en": [
+      "Electric lift with wired remote",
+      "Sits on the existing bed frame and mattress; no need to change bed",
+      "Detachable rise-assist handles",
+      "Price includes delivery and installation",
+      "3-year motor/frame warranty, 1-year remote"
+    ],
+    "image_url": "images/backrest_easy66_kf_electric.jpg",
+    "product_url": "https://www.easy66.com.hk/products/kf-electric-bed-frame",
+    "product_name_en": "KF Electric Rise-assist Bed Backrest (2.5 ft / 3 ft wide)",
+    "stock_status": "in_stock",
+    "updated_date": "2026-10-08",
+    "last_checked": "2026-10-08"
   }
 ]

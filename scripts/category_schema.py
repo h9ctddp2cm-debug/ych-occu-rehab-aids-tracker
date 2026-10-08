@@ -60,6 +60,10 @@ SCHEMA = {
         "core": ["座高", "座闊", "背高", "承重"],
         "optional": ["座深", "總外闊", "扶手高", "重量"],
     },
+    "backrest": {
+        "core": ["尺寸", "角度"],
+        "optional": ["重量", "承重", "物料", "電壓"],
+    },
     "hipprotector": {
         "core": ["尺碼"],
         "optional": ["腰圍", "臀圍", "重量"],
@@ -112,6 +116,8 @@ LABEL_ZH_TO_EN = {
     "衫長": "Garment length",
     "肩寬": "Shoulder width",
     "物料": "Material",
+    "角度": "Angle",
+    "電壓": "Voltage",
 }
 
 # Reverse + common aliases

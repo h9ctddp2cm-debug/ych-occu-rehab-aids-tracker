@@ -203,6 +203,23 @@ def _extract_nrmedic(soup) -> Optional[int]:
     return None
 
 
+def _extract_medex(soup) -> Optional[int]:
+    """medexbrace.com (nopCommerce): discounted price first, then regular.
+    Page is very long (nav menus), so CSS beats the truncated AI fallback."""
+    el = soup.select_one(".prices .discounted-price span[itemprop=price]")
+    if el and el.get("content"):
+        return _parse_price_text(el["content"])
+    el = soup.select_one(".prices .discounted-price span, .prices span[itemprop=price]")
+    if el:
+        price = _parse_price_text(el.get_text(strip=True))
+        if price:
+            return price
+    el = soup.select_one(".prices .non-discounted-price span, .product-price span")
+    if el:
+        return _parse_price_text(el.get_text(strip=True))
+    return None
+
+
 def _extract_rehabexpress(soup) -> Optional[int]:
     """rehabexpress.com.hk (Magento): [data-price-amount] on main product."""
     # Magento marks main product price with data-price-type="finalPrice"
@@ -257,7 +274,24 @@ _EXTRACTORS = {
     "nrmedic.com": _extract_nrmedic,
     "rehabexpress.com.hk": _extract_rehabexpress,
     "aidapt.com.hk": _extract_aidapt,
+    "medexbrace.com": _extract_medex,
 }
+
+# Sites behind a bot-protection wall: requests (and headless browsers) only get a
+# "Robot Challenge" page, so there is nothing to parse. Skip quickly without
+# spending an AI call; price must be checked manually.
+_BOT_WALLED_SUPPLIERS = {
+    "medimart.com.hk",
+}
+
+_BOT_WALL_MARKERS = ("sgcaptcha", "Robot Challenge", "Checking the site connection security")
+
+
+def is_bot_wall_html(html: str) -> bool:
+    if not html:
+        return False
+    head = html[:5000]
+    return any(m in head for m in _BOT_WALL_MARKERS)
 
 
 # ---------------------------------------------------------------------------
@@ -278,6 +312,7 @@ class _SupplierParser:
         self.domain = domain_key
         self.extractor = _EXTRACTORS.get(domain_key)
         self.skip_css = domain_key in _NO_PRICE_SUPPLIERS
+        self.bot_walled = domain_key in _BOT_WALLED_SUPPLIERS
 
     def _try_css(self, html: str) -> Optional[int]:
         if self.skip_css or not self.extractor or not BeautifulSoup or not html:
@@ -292,7 +327,18 @@ class _SupplierParser:
             logger.warning("  CSS parser error [%s]: %s", self.domain, exc)
             return None
 
+    def _blocked(self, html: str) -> bool:
+        if self.bot_walled or is_bot_wall_html(html):
+            logger.warning(
+                "  BOT WALL [%s]: site returned a robot-challenge page — price needs manual check",
+                self.domain,
+            )
+            return True
+        return False
+
     def extract_price(self, html: str, url: str, product_hint: str = "") -> Optional[int]:
+        if self._blocked(html):
+            return None
         price = self._try_css(html)
         if price is not None:
             return price
@@ -304,6 +350,8 @@ class _SupplierParser:
     def extract_min_price(self, html: str, url: str, product_hint: str = "") -> Optional[int]:
         # Tier 2 (price ranges): CSS already returns the lower bound for ranges
         # (we parse the first number found). Use same flow.
+        if self._blocked(html):
+            return None
         price = self._try_css(html)
         if price is not None:
             return price
