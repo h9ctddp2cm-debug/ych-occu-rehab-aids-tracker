@@ -137,16 +137,13 @@
     .home-tile.favorites .tile-label { color: #b45309; }
 
     /* ===== Rental services entry (home) & page ===== */
-    .rental-entries { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr; gap: 12px; }
     .home-tile.rental-big {
+      grid-column: 1 / -1;
       background: linear-gradient(135deg, #e0f2fe, #bae6fd);
       border-color: #0284c7; min-height: 110px; padding: 22px 18px;
     }
     .home-tile.rental-big .tile-label { color: #075985; font-size: 1.5em; }
     .home-tile.rental-big .tile-sub { font-size: 0.98em; color: #0c4a6e; font-weight: 600; line-height: 1.4; }
-    .home-tile.bath-big { background: linear-gradient(135deg, #ccfbf1, #99f6e4); border-color: #0f766e; }
-    .home-tile.bath-big .tile-label { color: #115e59; }
-    .home-tile.bath-big .tile-sub { color: #134e4a; }
     .rental-toolbar {
       background: rgba(255,255,255,0.95); border-radius: 14px; padding: 12px 16px; margin: 0 0 14px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.08); display: flex; flex-wrap: wrap; gap: 12px 18px; align-items: center;
@@ -188,14 +185,6 @@
     .rental-cat-card .rc-dep { font-weight: 700; color: #374151; }
     .rental-cat-card .ask { color: #6b7280; font-weight: 600; }
     .rental-cat-card .rc-tel { margin-left: auto; border-radius: 8px; padding: 3px 10px; text-decoration: none; font-weight: 700; font-size: 0.92em; white-space: nowrap; }
-    .bath-section { margin-top: 10px; }
-    .bath-intro h2 { color: #0f766e; }
-    .bath-group-title { color: white; font-size: 1.15em; font-weight: 800; margin: 14px 0 8px; text-shadow: 0 1px 2px rgba(0,0,0,0.25); }
-    .rental-card.bath-card h3 { color: #0f766e; }
-    .bath-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 14px; align-items: start; }
-    @media (max-width: 700px) { .bath-grid { grid-template-columns: 1fr; } }
-    .bath-apply { font-size: 0.9em; color: #374151; }
-    .bath-card .rental-chips .chip { background: #ecfdf5; color: #065f46; border-color: #a7f3d0; }
     #rental-view { max-width: 1100px; margin: 0 auto; padding: 0 14px 10px; }
     .rental-intro {
       background: rgba(255,255,255,0.95); border-radius: 14px; padding: 18px 22px;
@@ -886,9 +875,6 @@ const I18N = {
     notice_backrest_1: '如不使用電動床，可用靠背架承托上半身，方便在床上進食、閱讀或休息',
     rental_entry_title: '租用輔助工具',
     rental_entry_sub: '六間機構的租金、按金及聯絡電話',
-    bath_entry_title: '上門沖涼／助浴服務',
-    bath_entry_sub: '政府資助、社區券、自費平台及免費計劃',
-    bath_search_ph: '搜尋服務或機構（例如：社區券、免費、Toby）',
     rental_title: '租用輔助工具',
     rental_date_label: '資料核對日期：',
     rental_jump: '跳至機構：',
@@ -910,14 +896,9 @@ const I18N = {
     rental_search_ph: '搜尋器材或機構（例如：輪椅、紅十字會）',
     rental_no_match: '找不到相關器材、機構或服務。',
     rental_deposit: '按金',
-    bath_k_who: '服務對象：',
-    bath_k_apply: '申請方法：',
-    bath_k_fee: '收費：',
-    bath_k_wait: '等候時間：',
     rental_btn_web: '網頁',
     rental_btn_email: '電郵',
     rental_more: '其他資料',
-    rental_more_phones: '更多電話及詳情',
     rental_k_fees: '收費說明：',
   },
   en: {
@@ -1007,9 +988,6 @@ const I18N = {
     notice_backrest_1: 'If an electric bed is not used, a bed backrest can support the upper body for eating, reading or resting in bed.',
     rental_entry_title: 'Rent Assistive Equipment',
     rental_entry_sub: 'Rents, deposits and phone numbers of six organisations',
-    bath_entry_title: 'Home Bathing Services',
-    bath_entry_sub: 'Subsidised, voucher, self-financed and free options',
-    bath_search_ph: 'Search services or organisations (e.g. voucher, free, Toby)',
     rental_title: 'Rent Assistive Equipment',
     rental_date_label: 'Information checked on: ',
     rental_jump: 'Jump to: ',
@@ -1031,14 +1009,9 @@ const I18N = {
     rental_search_ph: 'Search equipment or organisation (e.g. wheelchair, Red Cross)',
     rental_no_match: 'No matching equipment, organisation or service.',
     rental_deposit: 'Deposit',
-    bath_k_who: 'Who: ',
-    bath_k_apply: 'How to apply: ',
-    bath_k_fee: 'Fees: ',
-    bath_k_wait: 'Waiting time: ',
     rental_btn_web: 'Website',
     rental_btn_email: 'Email',
     rental_more: 'More details',
-    rental_more_phones: 'More phone numbers & details',
     rental_k_fees: 'Fees: ',
   }
 };
@@ -1150,7 +1123,7 @@ function setLang(lang) {
     renderHomePage();
   } else if ((location.hash || '').startsWith('#/favorites')) {
     renderFavoritesView();
-  } else if ((location.hash || '').startsWith('#/rental') || (location.hash || '').startsWith('#/bathing')) {
+  } else if ((location.hash || '').startsWith('#/rental')) {
     renderRentalView();
   } else {
     const curCat = document.getElementById('filter-category');
@@ -1606,18 +1579,13 @@ function renderHomePage() {
   grid.appendChild(favTile);
   // Rental services entry: one big full-width tile after favorites (hidden until published)
   if (!isRentalHidden()) {
-    const wrap = document.createElement('div');
-    wrap.className = 'rental-entries';
-    wrap.innerHTML = `
-      <a class="home-tile rental-big" href="#/rental">
-        <div class="tile-label">${escapeHTML(t('rental_entry_title'))}</div>
-        <div class="tile-sub">${escapeHTML(t('rental_entry_sub'))}</div>
-      </a>
-      <a class="home-tile rental-big bath-big" href="#/bathing">
-        <div class="tile-label">${escapeHTML(t('bath_entry_title'))}</div>
-        <div class="tile-sub">${escapeHTML(t('bath_entry_sub'))}</div>
-      </a>`;
-    grid.appendChild(wrap);
+    const rt = document.createElement('a');
+    rt.className = 'home-tile rental-big';
+    rt.href = '#/rental';
+    rt.innerHTML = `
+      <div class="tile-label">${escapeHTML(t('rental_entry_title'))}</div>
+      <div class="tile-sub">${escapeHTML(t('rental_entry_sub'))}</div>`;
+    grid.appendChild(rt);
   }
 }
 
@@ -1795,92 +1763,45 @@ function rentalCatCardsHTML(data, q) {
   return html ? `<div class="rental-cat-grid">${html}</div>` : '';
 }
 
-/* -- Home bathing services section (compact cards) -- */
-function rentalBathingHTML(data, q) {
-  const b = data.bathing;
-  if (!b) return '';
-  let groupsHTML = '';
-  (b.groups || []).forEach(g => {
-    const gLabel = rl(g, 'label');
-    const gHit = rentalMatch(q, gLabel, g.label, g.label_en, '沖涼', '助浴', 'bath', '洗澡', '沐浴');
-    const svcs = (g.services || []).filter(sv => gHit || rentalMatch(q, rl(sv, 'name'), sv.name, sv.name_en, rl(sv, 'who'), rl(sv, 'apply'), rl(sv, 'fee'), (sv.contacts || []).map(c => rl(c, 'label') + ' ' + c.number).join(' ')));
-    if (svcs.length === 0) return;
-    const cards = svcs.map(sv => {
-      const contacts = sv.contacts || [];
-      const mainPhones = contacts.slice(0, 2);
-      const extraPhones = contacts.length > 2 ? contacts : [];
-      const chips = [rl(sv, 'who_short'), rl(sv, 'fee_short'), rl(sv, 'wait_short')].filter(Boolean);
-      const more = `
-        <div class="rental-row"><span class="k">${escapeHTML(t('bath_k_who'))}</span><span class="v">${escapeHTML(rl(sv, 'who'))}</span></div>
-        <div class="rental-row"><span class="k">${escapeHTML(t('bath_k_apply'))}</span><span class="v">${escapeHTML(rl(sv, 'apply'))}</span></div>
-        <div class="rental-row"><span class="k">${escapeHTML(t('bath_k_fee'))}</span><span class="v">${escapeHTML(rl(sv, 'fee'))}</span></div>
-        ${rl(sv, 'wait') ? `<div class="rental-row"><span class="k">${escapeHTML(t('bath_k_wait'))}</span><span class="v">${escapeHTML(rl(sv, 'wait'))}</span></div>` : ''}
-        ${extraPhones.length ? `<div class="rental-row"><span class="k">${escapeHTML(t('rental_k_phone'))}</span><span class="v"><ul class="rental-phone-list">${extraPhones.map(c => `<li><a class="btn-call" href="${telHref(c.number)}">📞 ${escapeHTML(c.number)}</a> <span>${escapeHTML(rl(c, 'label'))}</span></li>`).join('')}</ul></span></div>` : ''}
-        <div class="rental-source">${escapeHTML(t('rental_source'))}<a class="rental-link" href="${escapeHTML(sv.source_url)}" target="_blank" rel="noopener">${escapeHTML(rl(sv, 'source_label') || sv.source_url)}</a></div>`;
-      return `
-      <div class="rental-card bath-card" id="rental-bath-${escapeHTML(sv.id)}">
-        <h3>${escapeHTML(rl(sv, 'name'))}</h3>
-        ${rl(sv, 'sub') ? `<div class="rental-en-name">${escapeHTML(rl(sv, 'sub'))}</div>` : ''}
-        ${rentalActionsHTML(mainPhones, sv.whatsapp, sv.website, sv.website_label, null)}
-        ${rentalChipsHTML(chips)}
-        <div class="bath-apply">${escapeHTML(t('bath_k_apply'))}${escapeHTML(rl(sv, 'apply_short'))}</div>
-        ${rentalMoreHTML(extraPhones.length ? t('rental_more_phones') : t('rental_more'), more)}
-      </div>`;
-    }).join('');
-    groupsHTML += `<div class="bath-group"><h3 class="bath-group-title">${escapeHTML(gLabel)}</h3><div class="bath-grid">${cards}</div></div>`;
-  });
-  if (!groupsHTML) return '';
-  return `<div class="bath-section" id="rental-bathing">${groupsHTML}</div>`;
-}
-
-let rentalSection = 'rental'; // 'rental' = equipment rental page, 'bath' = home bathing page
 function renderRentalBody() {
   const body = document.getElementById('rental-body');
   if (!body || !rentalData) return;
   const q = rentalQuery;
   document.querySelectorAll('.rental-toolbar .seg-btn[data-rview]').forEach(b => b.classList.toggle('active', b.dataset.rview === rentalViewMode));
   const clearBtn = document.getElementById('rental-search-clear'); if (clearBtn) clearBtn.style.display = q ? 'inline-block' : 'none';
-  let html = '';
-  if (rentalSection === 'bath') {
-    html = rentalBathingHTML(rentalData, q);
-  } else {
-    html = rentalViewMode === 'cat' ? rentalCatCardsHTML(rentalData, q)
-                                    : (() => { const h = (rentalData.organisations || []).map(o => rentalOrgCardHTML(o, q)).join(''); return h ? `<div class="rental-org-grid">${h}</div>` : ''; })();
-  }
+  let html = rentalViewMode === 'cat' ? rentalCatCardsHTML(rentalData, q)
+                                      : (() => { const h = (rentalData.organisations || []).map(o => rentalOrgCardHTML(o, q)).join(''); return h ? `<div class="rental-org-grid">${h}</div>` : ''; })();
   if (!html) html = `<div class="rental-intro"><div id="status">${escapeHTML(t('rental_no_match'))}</div></div>`;
-  else if (rentalSection !== 'bath' && rl(rentalData, 'image_note')) html += `<div class="rental-img-note">${escapeHTML(rl(rentalData, 'image_note'))}</div>`;
+  else if (rl(rentalData, 'image_note')) html += `<div class="rental-img-note">${escapeHTML(rl(rentalData, 'image_note'))}</div>`;
   html += `<div class="rental-back"><a href="#/">${escapeHTML(t('rental_back_home'))}</a></div>`;
   body.innerHTML = html;
 }
 
-async function renderRentalView(section) {
-  if (section && section !== rentalSection) { rentalSection = section; rentalQuery = ''; }
+async function renderRentalView() {
   const view = document.getElementById('rental-view');
   if (!view) return;
   view.innerHTML = '<div class="rental-intro"><div id="status">' + escapeHTML(t('loading') || '載入中…') + '</div></div>';
   let data;
   try { data = await loadRental(); }
   catch (e) { view.innerHTML = '<div class="rental-intro">' + escapeHTML(t('rental_load_fail')) + escapeHTML(e.message) + '</div>'; return; }
-  const isBath = rentalSection === 'bath';
-  const b = data.bathing || {};
-  const title = isBath ? (rl(b, 'title') || t('bath_entry_title')) : t('rental_title');
-  const intro = isBath ? rl(b, 'intro') : ((data.intro || {})[currentLang] || (data.intro || {}).zh || '');
+  const title = t('rental_title');
+  const intro = (data.intro || {})[currentLang] || (data.intro || {}).zh || '';
   view.innerHTML = `
-    <div class="rental-intro ${isBath ? 'bath-intro' : ''}">
+    <div class="rental-intro">
       <h2>${escapeHTML(title)}</h2>
       <div>${escapeHTML(intro)}</div>
       <div class="rental-date">${escapeHTML(t('rental_date_label'))}${escapeHTML(data.data_date || '')}</div>
     </div>
     <div class="rental-toolbar">
-      ${isBath ? '' : `<div class="rt-group">
+      <div class="rt-group">
         <span class="rt-label">${escapeHTML(t('rental_view_label'))}</span>
         <div class="seg">
           <button type="button" class="seg-btn" data-rview="cat" onclick="setRentalView('cat')">${escapeHTML(t('rental_view_cat'))}</button>
           <button type="button" class="seg-btn" data-rview="org" onclick="setRentalView('org')">${escapeHTML(t('rental_view_org'))}</button>
         </div>
-      </div>`}
+      </div>
       <div class="rt-group rt-search">
-        <input type="search" id="rental-search" placeholder="${escapeHTML(isBath ? t('bath_search_ph') : t('rental_search_ph'))}" value="${escapeHTML(rentalQuery)}" oninput="onRentalSearch(this.value)" aria-label="${escapeHTML(t('rental_search_ph'))}">
+        <input type="search" id="rental-search" placeholder="${escapeHTML(t('rental_search_ph'))}" value="${escapeHTML(rentalQuery)}" oninput="onRentalSearch(this.value)" aria-label="${escapeHTML(t('rental_search_ph'))}">
         <button type="button" id="rental-search-clear" onclick="clearRentalSearch()" style="display:none">✕</button>
       </div>
     </div>
@@ -1905,14 +1826,14 @@ function handleRoute() {
     return;
   }
 
-  if (hash.startsWith('#/rental') || hash.startsWith('#/bathing')) {
-    // RENTAL SERVICES / HOME BATHING PAGES (hidden until published)
+  if (hash.startsWith('#/rental')) {
+    // RENTAL SERVICES PAGE (hidden until published)
     if (isRentalHidden()) { location.hash = '#/'; return; }
     homeView.style.display = 'none';
     productsView.style.display = 'none';
     if (rentalView) rentalView.style.display = 'block';
     document.body.classList.add('show-home-btn');
-    renderRentalView(hash.startsWith('#/bathing') ? 'bath' : 'rental');
+    renderRentalView();
     window.scrollTo(0, 0);
     return;
   }
