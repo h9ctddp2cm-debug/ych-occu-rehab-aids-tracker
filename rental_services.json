@@ -99,12 +99,12 @@
       "equipment_intro_en": "Each item has a fixed monthly rent. Recipients of CSSA / Higher Disability Allowance (Subsidy A) or Old Age Living Allowance / Normal Disability Allowance (Subsidy B) pay a reduced rent. Standard monthly rents from the September 2026 price list:",
       "fee_columns": [
         "器材",
-        "每月租金（標準）",
+        "每月租金",
         "按金"
       ],
       "fee_columns_en": [
         "Equipment",
-        "Monthly rent (standard)",
+        "Monthly rent",
         "Deposit"
       ],
       "fees": [
@@ -210,12 +210,12 @@
       "rent_unit_en": "per month",
       "facts": [
         "18 歲或以上（指定地區）",
-        "月租固定，綜援／傷津／長生津可減免",
+        "標準價；綜援／傷津／長生津可減免",
         "送貨每程 $300"
       ],
       "facts_en": [
         "Aged 18+ (designated districts)",
-        "Fixed monthly rent; CSSA / DA / OALA discounts",
+        "Standard rate; CSSA / DA / OALA discounts",
         "Delivery $300 per trip"
       ]
     },
@@ -417,15 +417,15 @@
       "equipment_intro_en": "General equipment is free for the first 2 months and electrical / large equipment for the first 3 months; monthly rent applies afterwards (up to 6 months). A cash deposit and one-off cleaning fee are paid before borrowing; rent is deducted from the deposit.",
       "fee_columns": [
         "器材",
-        "每月租金（免費期後）",
+        "每月租金",
         "按金",
         "清潔費"
       ],
       "fee_columns_en": [
         "Equipment",
-        "Monthly rent (after free period)",
+        "Monthly rent",
         "Deposit",
-        "Cleaning fee"
+        "Cleaning"
       ],
       "fees": [
         {
@@ -600,12 +600,12 @@
       "rent_unit": "每月（免費期後）",
       "rent_unit_en": "per month (after free period)",
       "facts": [
-        "免費借用首 2–3 個月",
+        "首 2–3 個月免租，其後收月租",
         "按金 + 一次性清潔費",
         "自行提取及歸還"
       ],
       "facts_en": [
-        "First 2–3 months free",
+        "First 2–3 months free, then monthly rent",
         "Deposit + one-off cleaning fee",
         "Self collection and return"
       ]
@@ -644,12 +644,12 @@
       "fee_columns": [
         "器材",
         "每月租金",
-        "按金（本地居民）"
+        "按金"
       ],
       "fee_columns_en": [
         "Equipment",
         "Monthly rent",
-        "Deposit (local residents)"
+        "Deposit"
       ],
       "fees": [
         {
@@ -763,12 +763,14 @@
       "facts": [
         "最少租一個月",
         "* 須醫護人員轉介",
-        "須先致電預約"
+        "須先致電預約",
+        "按金為本地居民價"
       ],
       "facts_en": [
         "Minimum one month",
         "* Healthcare referral required",
-        "Phone appointment first"
+        "Phone appointment first",
+        "Deposit shown is for local residents"
       ]
     },
     {
@@ -799,12 +801,12 @@
       "equipment_intro_en": "Short-term electric wheelchair rental (also for trial before purchase), up to 3 months; rent and two-way transport are paid in advance. Fees effective 1 October 2025:",
       "fee_columns": [
         "服務",
-        "收費（每月／每次）",
+        "收費",
         "按金"
       ],
       "fee_columns_en": [
         "Service",
-        "Fee (per month / per visit)",
+        "Fee",
         "Deposit"
       ],
       "fees": [
