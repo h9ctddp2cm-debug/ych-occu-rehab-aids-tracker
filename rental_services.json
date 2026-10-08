@@ -1,0 +1,264 @@
+{
+  "data_date": "2026-10-08",
+  "intro": {
+    "zh": "以下為本港提供復康器材租借服務的非牟利機構資料，供有需要短期使用器材的病人及家屬參考。租借前請自行向機構查詢現貨供應、實際價格、按金及運費。職業治療師的推薦不涉及任何利益關係。",
+    "en": "Non-profit organisations in Hong Kong that rent out rehabilitation equipment, for patients and families who need equipment for a short period. Please contact the organisation directly to confirm availability, current fees, deposits and delivery charges before renting. Recommendations by occupational therapists involve no commercial interest."
+  },
+  "organisations": [
+    {
+      "id": "ageathome",
+      "name": "賽馬會「a 家」樂齡科技教育及租賃服務（香港社會服務聯會）",
+      "name_en": "The Jockey Club \"age at home\" Gerontech Education and Rental Service (HKCSS)",
+      "address": "新界沙田小瀝源牛皮沙街 2 號愉翠商場 M 樓 2 號舖（租賃服務中心）",
+      "address_en": "Shop 2, M/F, Yu Chui Shopping Centre, 2 Ngau Pei Sha Street, Siu Lek Yuen, Sha Tin, N.T. (Rental Service Centre)",
+      "phones": [
+        { "label": "查詢", "label_en": "Enquiry", "number": "3153 5252" },
+        { "label": "荃灣／葵青／屯門／元朗／沙田等區", "label_en": "Tsuen Wan / Kwai Tsing / Tuen Mun / Yuen Long / Sha Tin etc.", "number": "3153 5255" },
+        { "label": "港島／深水埗／油尖旺／觀塘／西貢", "label_en": "HK Island / Sham Shui Po / Yau Tsim Mong / Kwun Tong / Sai Kung", "number": "2596 2554" }
+      ],
+      "email": "ersc@ageathome.hk",
+      "website": "https://ageathome.hk/zh/rental-service-flow/",
+      "website_label": "ageathome.hk",
+      "eligibility": "指定地區（包括荃灣、葵青、沙田、深水埗等 17 區）18 歲或以上人士",
+      "eligibility_en": "Residents aged 18 or above living in designated districts (17 districts including Tsuen Wan, Kwai Tsing, Sha Tin and Sham Shui Po)",
+      "equipment_intro": "每件器材有固定月租；正領取綜援／高額傷殘津貼（資助類別甲）或長者生活津貼／普通傷殘津貼（資助類別乙）人士可享減免租金。下表為 2026 年 9 月價目表的標準月租範圍：",
+      "equipment_intro_en": "Each item has a fixed monthly rent. Recipients of CSSA / Higher Disability Allowance (Subsidy A) or Old Age Living Allowance / Normal Disability Allowance (Subsidy B) pay a reduced rent. Standard monthly rents from the September 2026 price list:",
+      "fee_columns": ["器材", "每月租金（標準）", "按金"],
+      "fee_columns_en": ["Equipment", "Monthly rent (standard)", "Deposit"],
+      "fees": [
+        { "item": "特別功能輪椅", "item_en": "Special-function wheelchair", "rent": "$614 – $880", "deposit": "請向職員查詢", "deposit_en": "Ask staff" },
+        { "item": "電動輪椅", "item_en": "Powered wheelchair", "rent": "$940 – $2,472", "deposit": "請向職員查詢", "deposit_en": "Ask staff" },
+        { "item": "沐浴椅／便椅", "item_en": "Shower chair / commode", "rent": "$483 – $1,106", "deposit": "請向職員查詢", "deposit_en": "Ask staff" },
+        { "item": "醫療護理床", "item_en": "Nursing bed", "rent": "$1,261 – $3,220", "deposit": "請向職員查詢", "deposit_en": "Ask staff" },
+        { "item": "特別功能床褥／氣墊床褥", "item_en": "Pressure-relief / air mattress", "rent": "$289 – $1,239", "deposit": "請向職員查詢", "deposit_en": "Ask staff" },
+        { "item": "移位機", "item_en": "Hoist", "rent": "$2,076 – $2,609", "deposit": "請向職員查詢", "deposit_en": "Ask staff" },
+        { "item": "扶手／床欄", "item_en": "Grab rails / bed rails", "rent": "$338 – $1,566", "deposit": "請向職員查詢", "deposit_en": "Ask staff" },
+        { "item": "斜台（組合式／折疊式）", "item_en": "Ramp (modular / folding)", "rent": "$185 – $917", "deposit": "請向職員查詢", "deposit_en": "Ask staff" },
+        { "item": "輔助餵食機", "item_en": "Assistive feeding device", "rent": "$3,206 – $3,261", "deposit": "請向職員查詢", "deposit_en": "Ask staff" }
+      ],
+      "notes": [
+        "租金已包括器材及一次上門安裝及教學；送貨及回收每程 $300（租賃超過 3 個月可豁免回收運費）",
+        "可選用職業治療師評估服務：上門 $1,300／中心 $800（資助類別甲 $80、乙 $480）",
+        "其他器材（助行器、洗頭機、助聽器等）請參閱官方價目表"
+      ],
+      "notes_en": [
+        "Rent includes the equipment plus one home installation and training visit; delivery and collection $300 per trip (collection fee waived for rentals over 3 months)",
+        "Optional occupational therapist assessment: home visit $1,300 / at centre $800 (Subsidy A $80, Subsidy B $480)",
+        "Other equipment (walking aids, hair-washing devices, hearing aids, etc.) — see the official price list"
+      ],
+      "source_url": "https://ageathome.hk/wp-content/uploads/2024/09/20260901_%E5%99%A8%E6%9D%90%E6%9C%88%E7%A7%9F%E5%83%B9%E7%9B%AE%E8%A1%A8_compressed.pdf",
+      "source_label": "器材租金價目表（2026 年 9 月版）",
+      "source_label_en": "Equipment rental price list (Sept 2026 edition)"
+    },
+    {
+      "id": "ychfyy",
+      "name": "仁濟醫院方若愚長者鄰舍中心",
+      "name_en": "Yan Chai Hospital Fong Yock Yee Neighbourhood Elderly Centre",
+      "address": "正址：荃灣仁濟街 18 號仁濟醫院綜合服務大樓地下；副址：荃灣青山道 99-113 號荃灣浸信會大樓 5 樓",
+      "address_en": "Main: G/F, Yan Chai Hospital Multi-services Complex, 18 Yan Chai Street, Tsuen Wan; Sub-base: 5/F, Tsuen Wan Baptist Church Building, 99-113 Castle Peak Road, Tsuen Wan",
+      "phones": [
+        { "label": "正址", "label_en": "Main centre", "number": "2439 6776" },
+        { "label": "副址", "label_en": "Sub-base", "number": "2419 9831" }
+      ],
+      "fax": "2439 6766",
+      "email": "fyy@ychss.org.hk",
+      "website": "https://www.ychss.org.hk/elder/elderly-nec/fyy",
+      "website_label": "ychss.org.hk",
+      "eligibility": "居於區內年滿 60 歲或以上人士可成為中心會員（會員年費 $21）",
+      "eligibility_en": "Residents of the district aged 60 or above may join as members (annual fee $21)",
+      "equipment_intro": "提供復康用品租借服務，租借期最長四星期。",
+      "equipment_intro_en": "Rehabilitation aids rental; maximum rental period four weeks.",
+      "fee_columns": ["器材", "每星期租金", "按金"],
+      "fee_columns_en": ["Equipment", "Weekly rent", "Deposit"],
+      "fees": [
+        { "item": "輪椅（會員）", "item_en": "Wheelchair (member)", "rent": "$10", "deposit": "請致電查詢", "deposit_en": "Please call" },
+        { "item": "輪椅（非會員）", "item_en": "Wheelchair (non-member)", "rent": "$20", "deposit": "請致電查詢", "deposit_en": "Please call" }
+      ],
+      "notes": [
+        "租金為 2022 年 12 月資料，請致電中心確認最新收費及可供租借的器材"
+      ],
+      "notes_en": [
+        "Fees shown are from December 2022; please call the centre to confirm current fees and available equipment"
+      ],
+      "source_url": "https://www.ychss.org.hk/elder/elderly-nec/fyy/192-2026-07-17-03-20-45",
+      "source_label": "中心網頁（關於我們）",
+      "source_label_en": "Centre website (About us)"
+    },
+    {
+      "id": "plk",
+      "name": "保良局「一站照護」Wellness One（原名「康復一站通」）",
+      "name_en": "Po Leung Kuk Wellness One (formerly \"Rehab One\")",
+      "address": "新界葵涌打磚坪街 49-53 號華基工業大廈第一期 5 樓 B 室（陳列室，參觀請先預約）",
+      "address_en": "Flat B, 5/F, Phase 1, Wah Kei Industrial Building, 49-53 Ta Chuen Ping Street, Kwai Chung, N.T. (showroom, by appointment)",
+      "phones": [
+        { "label": "復康及護理用品專線", "label_en": "Rehab & nursing products hotline", "number": "2422 1233" }
+      ],
+      "whatsapp": "9126 9690",
+      "fax": "2757 3225",
+      "email": "wellnessone@poleungkuk.org.hk",
+      "website": "https://www.poleungkuk.org.hk/service/social/other-services/social-entreprise-and-vocational-rehabilitation-services-centre/wellness-one",
+      "website_label": "poleungkuk.org.hk",
+      "eligibility": "任何有需要人士",
+      "eligibility_en": "Anyone in need",
+      "equipment_intro": "全新／二手復康器材代購及租用，包括輪椅、高背椅、便椅、移位機、電動醫護床、助行架。",
+      "equipment_intro_en": "Purchase (new / second-hand) and rental of rehabilitation equipment: wheelchairs, high-back chairs, commodes, hoists, electric nursing beds, walking frames.",
+      "fee_columns": ["器材", "每月租金", "按金"],
+      "fee_columns_en": ["Equipment", "Monthly rent", "Deposit"],
+      "fees": [
+        { "item": "一般輪椅", "item_en": "Standard wheelchair", "rent": "$120", "deposit": "請致電查詢", "deposit_en": "Please call" },
+        { "item": "電動醫護床", "item_en": "Electric nursing bed", "rent": "$700 起", "rent_en": "from $700", "deposit": "請致電查詢", "deposit_en": "Please call" },
+        { "item": "高背椅／移位機／助行架", "item_en": "High-back chair / hoist / walking frame", "rent": "請致電查詢", "rent_en": "Please call", "deposit": "請致電查詢", "deposit_en": "Please call" }
+      ],
+      "notes": [
+        "亦可購買二手器材，例如輪椅 $400–$2,000、電動醫護床 $5,000 起、便椅 $300 起（便椅暫不租借）",
+        "按金及租期細節請致電或 WhatsApp 查詢"
+      ],
+      "notes_en": [
+        "Second-hand equipment is also for sale, e.g. wheelchair $400–$2,000, electric nursing bed from $5,000, commode from $300 (commodes currently not for rent)",
+        "Please call or WhatsApp for deposit and rental period details"
+      ],
+      "source_url": "https://www.poleungkuk.org.hk/service/social/other-services/social-entreprise-and-vocational-rehabilitation-services-centre/wellness-one",
+      "source_label": "保良局一站照護網頁及查詢表格",
+      "source_label_en": "Po Leung Kuk Wellness One webpage and enquiry form"
+    },
+    {
+      "id": "hkra",
+      "name": "香港復康諮詢協會 — 復康器材借用及租借服務",
+      "name_en": "Hong Kong Rehabilitation A & E Association — Rehabilitation Equipment Borrowing and Lending",
+      "address": "九龍深水埗東沙島街 188 號樂年花園 B3 地下",
+      "address_en": "B3, G/F, Lok Nin Garden, 188 Tonkin Street, Sham Shui Po, Kowloon",
+      "phones": [
+        { "label": "查詢", "label_en": "Enquiry", "number": "2388 9915" }
+      ],
+      "fax": "2388 9916",
+      "email": "info@hkrehabright.org",
+      "website": "https://www.hkrehabright.org/",
+      "website_label": "hkrehabright.org",
+      "eligibility": "全港傷病患者；需自行安排運輸工具到協會提取及歸還器材",
+      "eligibility_en": "Patients and persons with disabilities in Hong Kong; borrowers arrange their own transport to collect and return equipment",
+      "equipment_intro": "普通器材可免費借用首 2 個月、電機及重型器材首 3 個月，其後按月收取租金（最多租用 6 個月）。借用前須以現金繳付按金及一次性清潔費；租金會在按金內扣減。",
+      "equipment_intro_en": "General equipment is free for the first 2 months and electrical / large equipment for the first 3 months; monthly rent applies afterwards (up to 6 months). A cash deposit and one-off cleaning fee are paid before borrowing; rent is deducted from the deposit.",
+      "fee_columns": ["器材", "每月租金（免費期後）", "按金", "清潔費"],
+      "fee_columns_en": ["Equipment", "Monthly rent (after free period)", "Deposit", "Cleaning fee"],
+      "fees": [
+        { "item": "輪椅（大輪／中輪／細輪）", "item_en": "Wheelchair (large / medium / small wheels)", "rent": "$90", "deposit": "$500", "extra": "$50" },
+        { "item": "高背托腳輪椅", "item_en": "High-back wheelchair with leg rest", "rent": "$120", "deposit": "$800", "extra": "$100" },
+        { "item": "高背椅（有轆）", "item_en": "High-back chair with wheels", "rent": "$200", "deposit": "$3,000", "extra": "$100" },
+        { "item": "沖涼椅（有扶手）", "item_en": "Shower chair with armrests", "rent": "$50", "deposit": "$250", "extra": "$50" },
+        { "item": "沖涼便椅（有轆／無轆）", "item_en": "Shower commode (with / without wheels)", "rent": "$60", "deposit": "$500", "extra": "$100" },
+        { "item": "防壓瘡床褥（4 吋）", "item_en": "Anti-pressure-sore mattress (4\")", "rent": "$200", "deposit": "$2,000", "extra": "$150" },
+        { "item": "電動氣墊床", "item_en": "Electric alternating-pressure mattress", "rent": "$200", "deposit": "$1,000", "extra": "$150" },
+        { "item": "電動靠背", "item_en": "Electric backrest", "rent": "$200", "deposit": "$1,500", "extra": "$100" },
+        { "item": "手動靠背", "item_en": "Manual backrest", "rent": "$60", "deposit": "$300", "extra": "$50" },
+        { "item": "床欄（L 形）", "item_en": "Bed rails (L-shaped)", "rent": "$60", "deposit": "$300", "extra": "$50" },
+        { "item": "坐墊（啫喱）", "item_en": "Gel cushion", "rent": "$80", "deposit": "$600", "extra": "$50" },
+        { "item": "助行架（無轆／有轆）", "item_en": "Walking frame (without / with wheels)", "rent": "$30 / $60", "deposit": "$250 / $400", "extra": "$50" },
+        { "item": "穿手拐杖／腋下拐杖", "item_en": "Elbow / axillary crutches", "rent": "$50", "deposit": "$180", "extra": "$50" },
+        { "item": "四爪拐杖", "item_en": "Quadripod", "rent": "$30", "deposit": "$120", "extra": "$50" },
+        { "item": "鹽水架", "item_en": "Drip stand", "rent": "$60", "deposit": "$300", "extra": "$50" },
+        { "item": "病床餐枱", "item_en": "Over-bed table", "rent": "$50", "deposit": "$250", "extra": "$50" },
+        { "item": "翻身輔助器", "item_en": "Turning aid", "rent": "$30", "deposit": "$120", "extra": "$50" }
+      ],
+      "notes": [
+        "借還時間：星期一至五 上午 9:30–12:30、下午 2:30–5:00（星期六、日及公眾假期休息）",
+        "整段借用期普通器材不可超過 8 個月、電機及重型器材不可超過 9 個月；器材損毀按維修費在按金內扣減",
+        "申請表格可於協會網頁下載或填寫網上表格"
+      ],
+      "notes_en": [
+        "Collection / return: Mon–Fri 9:30am–12:30pm and 2:30–5:00pm (closed Sat, Sun and public holidays)",
+        "Total period cannot exceed 8 months (general) or 9 months (electrical / large); repair costs for damage are deducted from the deposit",
+        "Application form available on the association's website (download or online form)"
+      ],
+      "source_url": "https://www.hkrehabright.org/_files/ugd/fb7b96_9dd068738e1349a0b96adffb401fb891.pdf",
+      "source_label": "復康器材租借價目表（協會網頁）",
+      "source_label_en": "Rehabilitation equipment lending fee list (association website)"
+    },
+    {
+      "id": "redcross",
+      "name": "香港紅十字會 — 輔助行動器材租借服務",
+      "name_en": "Hong Kong Red Cross — Mobility Equipment Loan Service",
+      "address": "大窩口交收中心：葵涌大窩口邨富雅樓 2 號地下（星期一至五 10:30–12:30、14:30–16:30）。另設總部（西九龍海庭道 19 號）、沙田、灣仔及瑪嘉烈、威爾斯、屯門、東區、瑪麗醫院交收中心",
+      "address_en": "Tai Wo Hau Centre: G/F, No. 2 Fu Nga House, Tai Wo Hau Estate, Kwai Chung (Mon–Fri 10:30am–12:30pm, 2:30–4:30pm). Other centres: Headquarters (19 Hoi Ting Road, West Kowloon), Sha Tin, Wan Chai, and Princess Margaret, Prince of Wales, Tuen Mun, Pamela Youde Eastern and Queen Mary Hospitals",
+      "phones": [
+        { "label": "大窩口交收中心／總部／器材到戶服務", "label_en": "Tai Wo Hau Centre / HQ / home delivery", "number": "2610 0515" },
+        { "label": "瑪嘉烈醫院交收中心", "label_en": "Princess Margaret Hospital Centre", "number": "2990 3819" },
+        { "label": "屯門醫院交收中心", "label_en": "Tuen Mun Hospital Centre", "number": "2455 7608" }
+      ],
+      "fax": "3103 4010",
+      "email": "mel@redcross.org.hk",
+      "website": "https://www.redcross.org.hk/tc/community_healthcare/mobility_equip/intro_me.html",
+      "website_label": "redcross.org.hk",
+      "eligibility": "行動不便的傷病者或需短暫租借輔助行動器材人士；由年滿 18 歲的使用者或保證人辦理，須先致電交收中心預約",
+      "eligibility_en": "Persons with mobility impairment or needing short-term mobility equipment; applications by a user or guarantor aged 18 or above, by telephone appointment with a centre",
+      "equipment_intro": "基本租借期最少一個月，可延長；已繳租金不獲發還。標示 * 的器材必須由醫護人員轉介。",
+      "equipment_intro_en": "Minimum rental period one month, extendable; rent paid is non-refundable. Items marked * require referral by a healthcare professional.",
+      "fee_columns": ["器材", "每月租金", "按金（本地居民）"],
+      "fee_columns_en": ["Equipment", "Monthly rent", "Deposit (local residents)"],
+      "fees": [
+        { "item": "輪椅", "item_en": "Wheelchair", "rent": "$140", "deposit": "$200" },
+        { "item": "高背輪椅 *", "item_en": "High-back wheelchair *", "rent": "$220", "deposit": "$400" },
+        { "item": "高背傾斜及後躺輪椅 *", "item_en": "Tilt-in-space and reclining wheelchair *", "rent": "$630", "deposit": "$1,000" },
+        { "item": "助行車", "item_en": "Rollator", "rent": "$140", "deposit": "$200" },
+        { "item": "步行架／四腳叉／穿手拐杖", "item_en": "Walking frame / quadripod / elbow crutch", "rent": "$60", "deposit": "$100" },
+        { "item": "有轆步行架 *", "item_en": "Wheeled walking frame *", "rent": "$80", "deposit": "$100" },
+        { "item": "沐浴椅", "item_en": "Shower chair", "rent": "$60", "deposit": "$100" },
+        { "item": "便椅", "item_en": "Commode", "rent": "$90", "deposit": "$100" },
+        { "item": "可傾斜沐浴便椅 *", "item_en": "Tilting shower commode *", "rent": "$430", "deposit": "$1,000" },
+        { "item": "輪椅活動枱板", "item_en": "Wheelchair tray", "rent": "$60", "deposit": "$100" },
+        { "item": "手提斜台板", "item_en": "Portable ramp", "rent": "$280", "deposit": "$500" }
+      ],
+      "notes": [
+        "辦理手續時須出示租用者／保證人身份證、保證人住址證明，並繳付按金及租金；非本地居民按金為 $1,000–$2,000",
+        "部分器材只在總部及部分交收中心提供；可選擇付費器材到戶服務",
+        "綜援受助人可保留單據向社會福利署申請醫療復康用品津貼（由社署獨立審批）"
+      ],
+      "notes_en": [
+        "Bring the user's / guarantor's HKID, the guarantor's proof of address, deposit and rent; deposit for non-local residents is $1,000–$2,000",
+        "Some items are available only at the headquarters and selected centres; paid home-delivery service is available",
+        "CSSA recipients may keep the receipt to apply for the SWD medical / rehabilitation appliance grant (assessed independently by SWD)"
+      ],
+      "source_url": "https://www.redcross.org.hk/tc/community_healthcare/mobility_equip/intro_me.html",
+      "source_label": "紅十字會輔助行動器材租借服務網頁",
+      "source_label_en": "Red Cross Mobility Equipment Loan Service webpage"
+    },
+    {
+      "id": "emv",
+      "name": "工程及醫療義務工作協會 — 電動輪椅一站通",
+      "name_en": "Association for Engineering and Medical Volunteer Services — Electric Wheelchair One-Stop Service",
+      "address": "新界葵涌健康街 1-7 號致華工業大廈 8 樓 B 室",
+      "address_en": "Unit B, 8/F, Che Wah Industrial Building, 1-7 Kin Hong Street, Kwai Chung, N.T.",
+      "phones": [
+        { "label": "電動輪椅一站通", "label_en": "Electric Wheelchair One-Stop", "number": "2772 3080" },
+        { "label": "協會總部（石硤尾）", "label_en": "Association office (Shek Kip Mei)", "number": "2776 8569" }
+      ],
+      "fax": "2772 3280",
+      "email": "ewc@emv.org.hk",
+      "website": "https://www.emv.org.hk/service/detail/11/",
+      "website_label": "emv.org.hk",
+      "eligibility": "電動輪椅使用者；租賃、維修及上門檢查服務可自行申請，其他服務須經社會服務機構、醫院或診所專職人員轉介",
+      "eligibility_en": "Electric wheelchair users; rental, repair and home-check services can be applied for directly, other services require referral by a social service agency, hospital or clinic professional",
+      "equipment_intro": "短期電動輪椅租賃（亦可於購買前試用），租期不超過 3 個月；租用者需預繳租金及來回運費。以下收費由 2025 年 10 月 1 日起生效：",
+      "equipment_intro_en": "Short-term electric wheelchair rental (also for trial before purchase), up to 3 months; rent and two-way transport are paid in advance. Fees effective 1 October 2025:",
+      "fee_columns": ["服務", "收費", "按金"],
+      "fee_columns_en": ["Service", "Fee", "Deposit"],
+      "fees": [
+        { "item": "電動輪椅租賃", "item_en": "Electric wheelchair rental", "rent": "每月 $700 – $1,500（按型號）", "rent_en": "$700 – $1,500 per month (by model)", "deposit": "請致電查詢", "deposit_en": "Please call" },
+        { "item": "維修服務", "item_en": "Repair service", "rent": "每次 $400（更換零件另議）", "rent_en": "$400 per visit (parts extra)", "deposit": "—" },
+        { "item": "上門檢查", "item_en": "Home inspection", "rent": "每次 $400（自行到會 $200）", "rent_en": "$400 per visit ($200 at centre)", "deposit": "—" },
+        { "item": "電動輪椅駕駛學院", "item_en": "Electric wheelchair driving school", "rent": "每節 $500（45 分鐘）", "rent_en": "$500 per 45-minute session", "deposit": "—" },
+        { "item": "職業治療師電動輪椅處方服務", "item_en": "OT electric wheelchair prescription", "rent": "$1,000（上門評估及試車各一次）", "rent_en": "$1,000 (one home assessment and one trial)", "deposit": "—" }
+      ],
+      "notes": [
+        "提早退租仍須繳付全期租金；續租須於期滿前一星期通知",
+        "逾期未通知交還，罰款每日 $60"
+      ],
+      "notes_en": [
+        "Early return does not refund the remaining rent; notify one week before expiry to extend",
+        "Late return without notice: $60 per day"
+      ],
+      "source_url": "https://www.emv.org.hk/service/detail/11/",
+      "source_label": "電動輪椅一站通服務及收費網頁",
+      "source_label_en": "Electric Wheelchair One-Stop service and fees webpage"
+    }
+  ]
+}
