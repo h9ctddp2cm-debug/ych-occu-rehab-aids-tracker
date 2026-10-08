@@ -8,62 +8,86 @@
     {
       "id": "wheelchair",
       "label": "輪椅",
-      "label_en": "Wheelchair"
+      "label_en": "Wheelchair",
+      "image": "images/wheelchair_justmed_alpha_t05.jpg",
+      "image_credit": "真善美醫護"
     },
     {
       "id": "ewheelchair",
       "label": "電動輪椅",
-      "label_en": "Powered wheelchair"
+      "label_en": "Powered wheelchair",
+      "image": "images/rental_ewheelchair_ageathome_lw.jpg",
+      "image_credit": "a家"
     },
     {
       "id": "highbackchair",
       "label": "高背椅",
-      "label_en": "High-back chair"
+      "label_en": "High-back chair",
+      "image": "images/highbackchair_healthyliving_harmony_st.jpg",
+      "image_credit": "健康生活"
     },
     {
       "id": "commode",
       "label": "便椅／沐浴椅",
-      "label_en": "Commode / shower chair"
+      "label_en": "Commode / shower chair",
+      "image": "images/commode_supreme_ca1360.jpg",
+      "image_credit": "Supreme Medical"
     },
     {
       "id": "bed",
       "label": "電動床／護理床",
-      "label_en": "Electric / nursing bed"
+      "label_en": "Electric / nursing bed",
+      "image": "images/bed_medicare_ehb00055.jpeg",
+      "image_credit": "Medicare"
     },
     {
       "id": "mattress",
       "label": "氣墊床褥／防壓瘡床褥",
-      "label_en": "Air / pressure-relief mattress"
+      "label_en": "Air / pressure-relief mattress",
+      "image": "images/rental_mattress_ageathome_am.jpg",
+      "image_credit": "a家"
     },
     {
       "id": "backrest",
       "label": "靠背架",
-      "label_en": "Bed backrest"
+      "label_en": "Bed backrest",
+      "image": "images/backrest_medimart_silverforce.jpg",
+      "image_credit": "Medimart"
     },
     {
       "id": "bedrail",
       "label": "床欄／扶手",
-      "label_en": "Bed rails / grab rails"
+      "label_en": "Bed rails / grab rails",
+      "image": "images/bedrail_justmed_p42434.jpeg",
+      "image_credit": "真善美醫護"
     },
     {
       "id": "ramp",
       "label": "斜台板",
-      "label_en": "Ramp"
+      "label_en": "Ramp",
+      "image": "images/ramp_supreme_wa200.jpeg",
+      "image_credit": "Supreme Medical"
     },
     {
       "id": "hoist",
       "label": "移位機",
-      "label_en": "Hoist"
+      "label_en": "Hoist",
+      "image": "images/rental_hoist_ageathome_ee.jpg",
+      "image_credit": "a家"
     },
     {
       "id": "walking",
       "label": "助行架／拐杖",
-      "label_en": "Walking frame / crutches"
+      "label_en": "Walking frame / crutches",
+      "image": "images/rental_walking_ageathome_rw.jpg",
+      "image_credit": "a家"
     },
     {
       "id": "others",
       "label": "其他器材",
-      "label_en": "Other equipment"
+      "label_en": "Other equipment",
+      "image": "images/rental_others_ageathome_table.jpg",
+      "image_credit": "a家"
     }
   ],
   "organisations": [
@@ -1218,5 +1242,7 @@
       "label": "其他服務",
       "label_en": "Other services"
     }
-  ]
+  ],
+  "image_note": "圖片僅供參考，來自 a家及供應商網站；各機構實際出租的型號、顏色及配置以該機構為準。",
+  "image_note_en": "Photos are for reference only (from “a家” and supplier websites); actual models, colours and configurations vary by organisation."
 }
