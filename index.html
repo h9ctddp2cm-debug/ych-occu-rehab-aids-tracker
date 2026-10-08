@@ -742,7 +742,6 @@ const I18N = {
     notice_restraint_3: '選購前請先向職業治療師查詢合適的款式及尺碼',
     notice_backrest_title: '用途：',
     notice_backrest_1: '如不使用電動床，可用靠背架承托上半身，方便在床上進食、閱讀或休息',
-    notice_backrest_2: '頭兩款為非電動、人手調校角度；第三款為電動升降',
   },
   en: {
     title_app: 'Common Assistive Devices Reference',
@@ -751,12 +750,12 @@ const I18N = {
     settings_lang: '🌐 Language:',
     settings_size: '🔍 Font Size:',
     cat_all: 'All categories', cat_wheelchair: 'Wheelchair', cat_shower: 'Shower chair',
-    cat_commode: 'Commode / Shower commode', cat_toiletriser: 'Toilet riser',
+    cat_commode: 'Toilet / Shower commode', cat_toiletriser: 'Raised toilet seat',
     cat_toilet: 'Commode / Raised toilet',
     cat_handrail: 'Handrail', cat_bedrail: 'No-install bed rail',
-    cat_ramp: 'Ramp', cat_bathboard: 'Bath board', cat_mattress: 'Pressure-relief mattress',
+    cat_ramp: 'Ramp', cat_bathboard: 'Bath board', cat_mattress: 'Air mattress',
     cat_bed: 'Electric care bed', cat_walker: 'Walker',
-    cat_reacher: 'Reacher / Grabber', cat_sockaid: 'Sock aid',
+    cat_reacher: 'Long handle reacher', cat_sockaid: 'Sock aid',
     cat_highbackchair: 'High-back chair', cat_armchair: 'Armchair', cat_backrest: 'Bed backrest', cat_hipprotector: 'Hip protector',
     cat_restraint: 'Restraint items',
     draft_preview_banner: 'Draft preview: unpublished categories are shown here but hidden on the public site.',
@@ -830,7 +829,6 @@ const I18N = {
     notice_restraint_3: 'Please consult the occupational therapist about a suitable style and size before purchasing.',
     notice_backrest_title: 'Purpose:',
     notice_backrest_1: 'If an electric bed is not used, a bed backrest can support the upper body for eating, reading or resting in bed.',
-    notice_backrest_2: 'The first two models are manual (angle set by hand); the third is electrically adjustable.',
   }
 };
 
@@ -845,11 +843,11 @@ const CATEGORY_LABELS = {
         highbackchair:'高背椅', armchair:'扶手椅', backrest:'靠背架', hipprotector:'髖關節保護褲',
         restraint:'約束用品' },
   en: { wheelchair:'Wheelchair', shower:'Shower chair',
-        commode:'Commode / Shower commode', toiletriser:'Toilet riser',
+        commode:'Toilet / Shower commode', toiletriser:'Raised toilet seat',
         toilet:'Commode', handrail:'Handrail',
         bedrail:'No-install bed rail',
-        ramp:'Ramp', bathboard:'Bath board', mattress:'Mattress',
-        bed:'Electric bed', walker:'Walker', reacher:'Reacher', sockaid:'Sock aid',
+        ramp:'Ramp', bathboard:'Bath board', mattress:'Air mattress',
+        bed:'Electric bed', walker:'Walker', reacher:'Long handle reacher', sockaid:'Sock aid',
         highbackchair:'High-back chair', armchair:'Armchair', backrest:'Bed backrest', hipprotector:'Hip protector',
         restraint:'Restraint items' },
 };
@@ -1102,7 +1100,7 @@ const CATEGORY_NOTICES = {
   toiletriser: { titleKey: 'notice_toiletriser_title', itemKeys: ['notice_toiletriser_1','notice_toiletriser_2','notice_toiletriser_3'] },
   commode:     { titleKey: 'notice_commode_title',     itemKeys: ['notice_commode_1','notice_commode_2','notice_commode_3'] },
   restraint: { titleKey: 'notice_restraint_title', itemKeys: ['notice_restraint_1','notice_restraint_2','notice_restraint_3'] },
-  backrest: { titleKey: 'notice_backrest_title', itemKeys: ['notice_backrest_1','notice_backrest_2'] }
+  backrest: { titleKey: 'notice_backrest_title', itemKeys: ['notice_backrest_1'] }
 };
 
 function renderCategoryNotice(cat) {
