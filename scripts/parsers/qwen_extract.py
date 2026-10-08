@@ -25,13 +25,34 @@ API_URL = "https://api.deepseek.com/chat/completions"
 _api_key = os.environ.get("DEEPSEEK_API_KEY")
 
 
+# Markers that usually sit right next to the main product's price block.
+_PRICE_ANCHORS = (
+    'itemprop="offers"', 'itemprop="price"', 'product:price:amount',
+    'class="prices"', 'product-price', 'price-sale', 'price-regular', 'price-new',
+    '加入購物車', 'Add to cart', 'add-to-cart',
+)
+
+
 def _truncate_html(html: str, max_chars: int = 30000) -> str:
-    """Strip <script>, <style>, comments. Keep main content."""
+    """Strip <script>, <style>, comments; drop nav/header/footer; then keep a
+    window centred on the first price anchor so very long pages (huge menus)
+    do not push the product price past the cut-off."""
     html = re.sub(r'<script[^>]*>.*?</script>', '', html, flags=re.DOTALL | re.IGNORECASE)
     html = re.sub(r'<style[^>]*>.*?</style>', '', html, flags=re.DOTALL | re.IGNORECASE)
     html = re.sub(r'<!--.*?-->', '', html, flags=re.DOTALL)
+    html = re.sub(r'<(nav|header|footer)\b[^>]*>.*?</\1>', ' ', html, flags=re.DOTALL | re.IGNORECASE)
     html = re.sub(r'\s+', ' ', html)
-    return html[:max_chars]
+    if len(html) <= max_chars:
+        return html
+    pos = -1
+    for anchor in _PRICE_ANCHORS:
+        i = html.find(anchor)
+        if i != -1 and (pos == -1 or i < pos):
+            pos = i
+    if pos == -1:
+        return html[:max_chars]
+    start = max(0, pos - max_chars // 3)
+    return html[start:start + max_chars]
 
 
 TIER1_PROMPT_TEMPLATE = """You are extracting the MAIN PRODUCT price from an e-commerce product page (Hong Kong retailer, prices in HK$).

@@ -326,8 +326,12 @@ def main():
 
         price = _validate_price(raw_price)
         if price is None:
-            logger.warning("SKIP [%s]: no valid price found (raw=%r)", pid, raw_price)
-            failed_skipped.append((pid, f"no valid price (raw={raw_price!r})"))
+            if getattr(parser, "bot_walled", False):
+                reason = "bot wall — site blocks robots, check price manually"
+            else:
+                reason = f"no valid price (raw={raw_price!r})"
+            logger.warning("SKIP [%s]: %s", pid, reason)
+            failed_skipped.append((pid, reason))
             product["last_checked"] = today  # cron ran today, even if no price extracted
             continue
 

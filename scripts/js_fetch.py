@@ -11,7 +11,16 @@ logger = logging.getLogger(__name__)
 JS_RENDERED_DOMAINS = {
     "justmed.com.hk",
     "www.justmed.com.hk",
+    # Shopline stores inject prices client-side; plain requests HTML has no price.
+    "easy66.com.hk",
+    "www.easy66.com.hk",
 }
+
+# Selectors that indicate the price has been injected (any one is enough).
+_PRICE_READY_SELECTORS = (
+    "#price .product-price",      # justmed.com.hk
+    ".price-sale, .price-regular",  # easy66.com.hk (Shopline)
+)
 
 
 def needs_js_render(url: str) -> bool:
@@ -39,13 +48,16 @@ def fetch_html_with_browser(url: str, timeout_ms: int = 30000) -> Optional[str]:
             page = context.new_page()
             try:
                 page.goto(url, timeout=timeout_ms, wait_until="domcontentloaded")
-                # Wait for JS-injected #price div (justmed.com.hk).
-                # If it appears, return immediately; else fall through to fixed wait.
+                # Wait for a JS-injected price element (justmed / Shopline).
+                # If one appears, return immediately; else fall through to fixed wait.
                 try:
+                    selectors_js = ", ".join(_PRICE_READY_SELECTORS)
                     page.wait_for_function(
-                        "() => { const el = document.querySelector('#price .product-price'); "
-                        "return el && el.innerText.trim().length > 0; }",
-                        timeout=6000,
+                        "(sel) => { const els = document.querySelectorAll(sel); "
+                        "for (const el of els) { if (el.innerText && /\\d/.test(el.innerText)) return true; } "
+                        "return false; }",
+                        arg=selectors_js,
+                        timeout=8000,
                     )
                 except Exception:
                     pass

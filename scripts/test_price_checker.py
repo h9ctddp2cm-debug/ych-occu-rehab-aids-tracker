@@ -145,11 +145,52 @@ def test_price_validation():
     print("  PASS — price validation working")
 
 
+def test_medex_css_extractor():
+    """medexbrace.com: discounted price (itemprop=price content) wins over 現價."""
+    from bs4 import BeautifulSoup
+    from parsers import _extract_medex
+    html = ('<div class="prices" itemprop="offers"><div class="non-discounted-price">'
+            '<label>現價:</label><span>HK$280.00</span></div>'
+            '<div class="product-price discounted-price"><label>您的價格:</label>'
+            '<span itemprop="price" content="252.00">HK$252.00</span></div></div>')
+    assert _extract_medex(BeautifulSoup(html, "html.parser")) == 252
+    html2 = '<div class="prices"><div class="non-discounted-price"><span>HK$280.00</span></div></div>'
+    assert _extract_medex(BeautifulSoup(html2, "html.parser")) == 280
+    print("  PASS — medex CSS extractor")
+
+
+def test_ai_truncation_keeps_price_block():
+    """Long pages: the window handed to the AI must contain the price anchor."""
+    from parsers.qwen_extract import _truncate_html
+    filler = '<li><a href="/x">menu</a></li>' * 3000  # ~90K chars of nav
+    html = '<nav>' + filler + '</nav><div>' + filler + '</div>' + \
+           '<div class="prices" itemprop="offers"><span itemprop="price">HK$252.00</span></div><p>tail</p>'
+    out = _truncate_html(html, max_chars=30000)
+    assert len(out) <= 30000
+    assert 'HK$252.00' in out, "price block was truncated away"
+    print("  PASS — AI truncation keeps price block")
+
+
+def test_bot_wall_detection():
+    from parsers import is_bot_wall_html, get_parser
+    wall = '<html><head><title>Robot Challenge Screen</title></head><body>sgcaptcha</body></html>'
+    assert is_bot_wall_html(wall) is True
+    assert is_bot_wall_html('<html><body><span class="price">HK$475</span></body></html>') is False
+    assert get_parser("www.medimart.com.hk").bot_walled is True
+    assert get_parser("www.healthyliving.com.hk").bot_walled is False
+    # A bot-walled domain never reaches CSS/AI (returns None without calling out)
+    assert get_parser("www.medimart.com.hk").extract_price(wall, "https://www.medimart.com.hk/x") is None
+    print("  PASS — bot wall detection")
+
+
 if __name__ == "__main__":
     test_sane_change()
     test_duplicate_detection()
     test_stock_detection()
     test_price_validation()
+    test_medex_css_extractor()
+    test_ai_truncation_keeps_price_block()
+    test_bot_wall_detection()
     print()
     print("=" * 60)
     print("All tests PASS — 2026-06-21 bug is now prevented.")
