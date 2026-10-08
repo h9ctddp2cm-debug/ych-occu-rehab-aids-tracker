@@ -8,7 +8,7 @@
     "model": "AD-0171",
     "price_min": 2680.0,
     "price_max": 2680.0,
-    "price_display": "HK$2,680.00 (原價 $4,500, 減40%)",
+    "price_display": "HK$2,680.00",
     "specs": [
       "座高：19\"",
       "座闊：16\" / 18\"",
@@ -28,7 +28,7 @@
       "Weight: 12.9 kg",
       "Max load: 360 lb / 163.2 kg"
     ],
-    "price_display_en": "HK$2,680.00 (Original $4,500, 40% off)",
+    "price_display_en": "HK$2,680.00",
     "stock_status": "in_stock",
     "features": [
       "扶手腳踏可拆",
@@ -216,7 +216,7 @@
     "model": "TTST-0004 / RE30",
     "price_min": 3900.0,
     "price_max": 3900.0,
-    "price_display": "HK$3,900.00 (原價 $6,800, 減43%)",
+    "price_display": "HK$3,900.00",
     "specs": [
       "座高：19.7\"",
       "座闊：16\" / 18\"",
@@ -234,7 +234,7 @@
       "Weight: 20 kg",
       "Max load: 100 kg"
     ],
-    "price_display_en": "HK$5,800.00",
+    "price_display_en": "HK$3,900.00",
     "stock_status": "in_stock",
     "features": [
       "可後躺172°",
@@ -677,7 +677,7 @@
     "model": "BP3888",
     "price_min": 920.0,
     "price_max": 1770.0,
-    "price_display": "HK$920 - $1,770 (BP3888 $920 / BP3868 $1,770, 原價 $970-$1,820)",
+    "price_display": "HK$920 - $1,770 (BP3888 $920 / BP3868 $1,770)",
     "image_url": "images/bedrail_nero_bp3888.jpeg",
     "product_url": "https://www.nrmedic.com/index.php?route=product/product&product_id=509",
     "updated_date": "2026-06-15",
@@ -691,7 +691,7 @@
     "specs_en": [
       "Dimensions: 24\"(D) × 24\"(W wood base) × 18\"(H)"
     ],
-    "price_display_en": "HK$920 - $1,770 (BP3888 $920 / BP3868 $1,770, was $970-$1,820)",
+    "price_display_en": "HK$920 - $1,770 (BP3888 $920 / BP3868 $1,770)",
     "note_en": "Single-side footless rail; includes 24×24\" wood base; price covers delivery + install; recommend mounting on bed frame; metal frame install costs extra",
     "stock_status": "in_stock",
     "features": [
@@ -762,7 +762,7 @@
     "model": "RX-AM40A",
     "price_min": 1980.0,
     "price_max": 1980.0,
-    "price_display": "HK$1,980.00 (原價 $2,200, 減 10%)",
+    "price_display": "HK$1,980.00",
     "specs": [
       "充氣後尺寸：74\"(L) × 33.8\"(W) × 4\"(H)",
       "承重：135kg",
@@ -782,7 +782,7 @@
       "Number of tubes: 20 (19 spare)",
       "Pump flow: 7–8 L / min"
     ],
-    "price_display_en": "HK$1,980.00 (original $2,200, 10% off)",
+    "price_display_en": "HK$1,980.00",
     "note_en": "Specs available online; price not listed — please call. Suitable for medium-to-high pressure ulcer risk",
     "stock_status": "in_stock",
     "features": [
@@ -1867,7 +1867,7 @@
     "model": "SING-0009 / SING-0008",
     "price_min": 1980.0,
     "price_max": 1980.0,
-    "price_display": "HK$1,980.00 (網店實價, 原價 $2,500, 慳 $520)",
+    "price_display": "HK$1,980.00 (網店實價)",
     "specs": [
       "充氣後尺寸：72.5\"(L) × 31.5\"(W) × 4\"(H)",
       "承重：140kg",
@@ -1887,7 +1887,7 @@
       "Number of tubes: 17",
       "Pump flow: 5 L / min"
     ],
-    "price_display_en": "HK$1,980.00 (online; original $2,500 — save $520)",
+    "price_display_en": "HK$1,980.00 (online price)",
     "note_en": "Online price $1,980 (original $2,500, save $520)",
     "stock_status": "in_stock",
     "features": [
@@ -2272,8 +2272,8 @@
     "model": "",
     "price_min": 230,
     "price_max": 230,
-    "price_display": "HK$230.00 (原價 $280)",
-    "price_display_en": "HK$230.00 (Original $280)",
+    "price_display": "HK$230.00",
+    "price_display_en": "HK$230.00",
     "specs": [
       "尺碼：S / M / L",
       "尺寸：S 腰圍長115 x 闊16cm / M 135 x 17.5cm / L 150 x 19cm",
@@ -2315,8 +2315,8 @@
     "model": "DMNS-0030",
     "price_min": 180,
     "price_max": 180,
-    "price_display": "HK$180.00 (原價 $200)",
-    "price_display_en": "HK$180.00 (Original $200)",
+    "price_display": "HK$180.00",
+    "price_display_en": "HK$180.00",
     "specs": [
       "尺碼：單一尺碼",
       "尺寸：腰帶長90-180 x 下帶最長160 x 高51cm",
@@ -2395,8 +2395,8 @@
     "model": "T03a",
     "price_min": 252,
     "price_max": 252,
-    "price_display": "HK$252.00 (原價 $280)",
-    "price_display_en": "HK$252.00 (Original $280)",
+    "price_display": "HK$252.00",
+    "price_display_en": "HK$252.00",
     "specs": [
       "尺碼：男／女裝，小至加加加大 (S–XXXL)",
       "腰圍：小 23-25\" / 中 25-27\" / 大 27-29\" / 加大 29-31\" / 加加大 31-33\" / 加加加大 33-38\""
@@ -2471,8 +2471,8 @@
     "model": "G100",
     "price_min": 480,
     "price_max": 480,
-    "price_display": "HK$480.00 (原價 $550，基本套裝)",
-    "price_display_en": "HK$480.00 (Original $550, basic set)",
+    "price_display": "HK$480.00 (基本套裝)",
+    "price_display_en": "HK$480.00 (basic set)",
     "specs": [
       "尺碼：女用 L / XL；男用 2XL / 3XL",
       "腰圍：女 L 26-34\" (105-125磅) / 女 XL 28-36\" (125-140磅) / 男 2XL 29-37\" (145-165磅) / 男 3XL 31-39\" (165-185磅)",
@@ -2516,8 +2516,8 @@
     "model": "SKU 01080060",
     "price_min": 848,
     "price_max": 848,
-    "price_display": "HK$848.30 (原價 $998，本月85折)",
-    "price_display_en": "HK$848.30 (Original $998, 15% off this month)",
+    "price_display": "HK$848.30 (本月85折)",
+    "price_display_en": "HK$848.30 (15% off this month)",
     "specs": [
       "座高：395-520mm (約15.5\"-20.5\"，可調)",
       "座闊：460mm (約18\")",
@@ -2566,8 +2566,8 @@
     "model": "",
     "price_min": 1450,
     "price_max": 1450,
-    "price_display": "HK$1,450.00 (原價 $2,600)",
-    "price_display_en": "HK$1,450.00 (Original $2,600)",
+    "price_display": "HK$1,450.00",
+    "price_display_en": "HK$1,450.00",
     "specs": [
       "座高：16.5\"-22.5\" (可調，每級1\")",
       "座闊：20\"",
@@ -2619,8 +2619,8 @@
     "model": "",
     "price_min": 980,
     "price_max": 980,
-    "price_display": "HK$980.00 (原價 $1,200)",
-    "price_display_en": "HK$980.00 (Original $1,200)",
+    "price_display": "HK$980.00",
+    "price_display_en": "HK$980.00",
     "specs": [
       "座高：14.5\"-18.5\" (可調，每級1\")",
       "座闊：18.7\" / 21\" (可調)",
@@ -2670,8 +2670,8 @@
     "model": "",
     "price_min": 980,
     "price_max": 980,
-    "price_display": "HK$980.00 (原價 $1,200)",
-    "price_display_en": "HK$980.00 (Original $1,200)",
+    "price_display": "HK$980.00",
+    "price_display_en": "HK$980.00",
     "specs": [
       "座高：14.5\"-18.5\" (可調，每級1\")",
       "座闊：18.7\" / 21\" (可調)",
@@ -2773,8 +2773,8 @@
     "model": "",
     "price_min": 4800,
     "price_max": 4800,
-    "price_display": "HK$4,800.00 (原價 $6,000)",
-    "price_display_en": "HK$4,800.00 (Original $6,000)",
+    "price_display": "HK$4,800.00",
+    "price_display_en": "HK$4,800.00",
     "specs": [
       "座高：18.9\"",
       "座闊：16\" / 18\" (扶手內闊 17\" / 19\")",
@@ -2828,8 +2828,8 @@
     "model": "GHM-GC-R5003",
     "price_min": 4000,
     "price_max": 4000,
-    "price_display": "HK$4,000 (原價 $4,300)",
-    "price_display_en": "HK$4,000 (Original $4,300)",
+    "price_display": "HK$4,000.00",
+    "price_display_en": "HK$4,000.00",
     "specs": [
       "座高：49.5cm / 19.5\"",
       "座闊：45cm / 17.7\"",
@@ -2974,8 +2974,8 @@
     "model": "",
     "price_min": 3800,
     "price_max": 3800,
-    "price_display": "HK$3,800.00 (原價 $6,000)",
-    "price_display_en": "HK$3,800.00 (Original $6,000)",
+    "price_display": "HK$3,800.00",
+    "price_display_en": "HK$3,800.00",
     "specs": [
       "尺寸：3呎款 115 × 85 × 4cm (連扶手闊89cm)；2呎半款 115 × 72 × 4cm (連扶手闊76cm)",
       "角度：0°–70° 無段式電動調校",
