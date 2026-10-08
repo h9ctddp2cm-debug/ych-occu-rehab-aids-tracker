@@ -1725,13 +1725,13 @@ function rentalOrgCardHTML(o, q) {
     <div class="rental-card" id="rental-${escapeHTML(o.id)}">
       <h3>${escapeHTML(currentLang === 'en' ? (o.name_en || o.name) : o.name)}</h3>
       ${currentLang !== 'en' && o.name_en ? `<div class="rental-en-name">${escapeHTML(o.name_en)}</div>` : ''}
+      ${rentalActionsHTML(o.phones, o.whatsapp, o.website, o.website_label, o.email)}
       <div class="rental-addr">📍 ${escapeHTML(rl(o, 'address'))}</div>
       ${rentalChipsHTML(currentLang === 'en' ? (o.facts_en || o.facts) : o.facts)}
       <div class="rental-table-wrap"><table class="rental-table">
         <thead><tr>${cols.map(c => `<th>${escapeHTML(c)}</th>`).join('')}</tr></thead>
         <tbody>${rows}</tbody>
       </table></div>
-      ${rentalActionsHTML(o.phones, o.whatsapp, o.website, o.website_label, o.email)}
       ${rentalMoreHTML(t('rental_more'), more)}
     </div>`;
 }
@@ -1798,9 +1798,9 @@ function rentalBathingHTML(data, q) {
       <div class="rental-card bath-card" id="rental-bath-${escapeHTML(sv.id)}">
         <h3>${escapeHTML(rl(sv, 'name'))}</h3>
         ${rl(sv, 'sub') ? `<div class="rental-en-name">${escapeHTML(rl(sv, 'sub'))}</div>` : ''}
+        ${rentalActionsHTML(mainPhones, sv.whatsapp, sv.website, sv.website_label, null)}
         ${rentalChipsHTML(chips)}
         <div class="bath-apply">${escapeHTML(t('bath_k_apply'))}${escapeHTML(rl(sv, 'apply_short'))}</div>
-        ${rentalActionsHTML(mainPhones, sv.whatsapp, sv.website, sv.website_label, null)}
         ${rentalMoreHTML(extraPhones.length ? t('rental_more_phones') : t('rental_more'), more)}
       </div>`;
     }).join('');
