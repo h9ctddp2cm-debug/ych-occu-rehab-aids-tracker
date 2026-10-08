@@ -33,7 +33,7 @@ https://ychoccu.github.io/ych-occu-rehab-aids-tracker/?draft=1
 
 ```js
 // 發佈前
-const DRAFT_CATEGORIES = new Set(['highbackchair', 'armchair', 'backrest', 'hipprotector', 'restraint']);
+const DRAFT_CATEGORIES = new Set([]); // 2026-10-08 起全部公開
 // 例如發佈「高背椅」之後
 const DRAFT_CATEGORIES = new Set(['hipprotector', 'restraint']);
 ```
@@ -46,3 +46,8 @@ const DRAFT_CATEGORIES = new Set(['hipprotector', 'restraint']);
 - `index.html` — `DRAFT_CATEGORIES`、分類下拉選單、中英標籤、首頁格仔、約束用品注意事項
 - `scripts/category_schema.py` — 五個新類別嘅規格欄位
 - `ych_rehab_aids_standalone.html` — 由 `python scripts/rebuild_html.py` 自動產生，唔使手改
+
+
+## 目前狀態
+
+2026-10-08：高背椅、扶手椅、靠背架、髖關節保護褲、約束用品五個類別已全部公開，`DRAFT_CATEGORIES` 為空。日後要新增隱藏類別，將其 id 加入 Set 即可。

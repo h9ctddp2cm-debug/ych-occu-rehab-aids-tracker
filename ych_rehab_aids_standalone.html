@@ -876,7 +876,7 @@ const CATEGORY_LABELS = {
    no dropdown option, no products, and #/cat/<id> redirects home.
    To PUBLISH a category: delete its id from this list (one line), commit, push.
    To PREVIEW drafts on the live site: open the page with ?draft=1 in the URL. */
-const DRAFT_CATEGORIES = new Set(['highbackchair', 'armchair', 'backrest', 'hipprotector', 'restraint']);
+const DRAFT_CATEGORIES = new Set([]); // 全部類別已公開（2026-10-08）；要收起某類別，將其 id 加入此 Set
 const DRAFT_PREVIEW = new URLSearchParams(location.search).get('draft') === '1';
 function isHiddenCategory(cat) { return DRAFT_CATEGORIES.has(cat) && !DRAFT_PREVIEW; }
 
