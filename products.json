@@ -400,34 +400,48 @@
     "source": "justmed",
     "source_name": "真善美醫護",
     "category": "commode",
-    "product_name": "不銹鋼沐浴便廁椅 (下翻式/固定扶手, 附Tilt-bar)",
-    "model": "H-61-G-5-PW3",
-    "price_min": 1880,
-    "price_max": 1880,
-    "price_display": "HK$1,880",
+    "product_name": "不銹鋼沐浴便廁椅 (下翻式或固定扶手, 附Tilt-bar後翻杆)",
+    "model": "H-61-G-D-PW3",
+    "price_min": 1850,
+    "price_max": 1850,
+    "price_display": "HK$1,850",
     "specs": [
       "座高：20\"",
       "座闊：16\"",
-      "總外闊：19\"–20\"",
+      "總闊：19\"–20\"",
+      "重量：12.5kg",
       "承重：90kg",
-      "適合座廁高：17\"",
-      "適合座廁闊：14\"–16\""
+      "適合座廁高：17\""
     ],
     "image_url": "images/commode_justmed_h61.jpg",
-    "product_url": "https://www.justmed.com.hk/product-detail.php?id=55",
+    "product_url": "https://yanchai.justmed.com.hk/product-detail.php?id=36",
     "phone": "2742 4370",
-    "updated_date": "2026-07-01",
-    "last_checked": "2026-09-28",
+    "updated_date": "2026-10-12",
+    "last_checked": "2026-10-12",
     "product_name_en": "Stainless Steel Shower/Commode Chair (Drop-down Arms + Tilt Bar)",
-    "specs_en": [],
-    "price_display_en": "HK$1,880.00",
+    "specs_en": [
+      "Seat height: 20\"",
+      "Seat width: 16\"",
+      "Overall width: 19\"–20\"",
+      "Weight: 12.5 kg",
+      "Max load: 90 kg",
+      "Fits toilet height: 17\""
+    ],
+    "price_display_en": "HK$1,850.00",
     "stock_status": "in_stock",
-    "features": [],
+    "features": [
+      "超窄身設計適合大部份浴室",
+      "Tilt-bar 後翻杆輔助推過門檻",
+      "下翻式扶手方便轉移",
+      "可拆式便桶",
+      "另有 H-61-G1-D-PW3 附防翻柱"
+    ],
     "features_en": [
-      "Stainless steel frame",
+      "Slim frame fits most bathrooms",
+      "Tilt bar helps over door thresholds",
       "Drop-down armrests for easy transfer",
-      "Tilt-bar for caregiver",
-      "Padded seat"
+      "Removable commode pan",
+      "H-61-G1-D-PW3 variant with anti-tip posts also available"
     ],
     "purchase_method": "whatsapp_only",
     "note": "⚠ 不支援線上付款，請 WhatsApp 2742 4370 落單"
@@ -1187,6 +1201,58 @@
       "Height adjustable",
       "Anti-slip feet"
     ]
+  },
+  {
+    "id": "sc10",
+    "source": "justmed",
+    "source_name": "真善美醫護",
+    "category": "shower",
+    "product_name": "EVA靠背沐浴椅/沖涼椅",
+    "model": "ST-D1001",
+    "price_min": 500.0,
+    "price_max": 500.0,
+    "price_display": "HK$500.00",
+    "specs": [
+      "座高：13.75\"–17.35\"（可調校）",
+      "座闊：15.75\"",
+      "座深：11\"",
+      "重量：2.3kg",
+      "承重：100kg",
+      "支架：銀色鋁質；座／背墊：EVA 塑膠"
+    ],
+    "image_url": "images/shower_justmed_std1001.jpg",
+    "product_url": "https://yanchai.justmed.com.hk/product-detail.php?id=41",
+    "phone": "2742 4370",
+    "note": "⚠ 不支援線上付款，請 WhatsApp 2742 4370 落單",
+    "updated_date": "2026-10-12",
+    "last_checked": "2026-10-12",
+    "product_name_en": "EVA Padded Shower Chair with Backrest",
+    "specs_en": [
+      "Seat height: 13.75\"–17.35\" (adjustable)",
+      "Seat width: 15.75\"",
+      "Seat depth: 11\"",
+      "Weight: 2.3 kg",
+      "Max load: 100 kg",
+      "Aluminium frame; EVA seat/back pads"
+    ],
+    "price_display_en": "HK$500.00",
+    "note_en": "",
+    "stock_status": "in_stock",
+    "features": [
+      "銀色鋁質支架，輕巧抗氧化",
+      "可調座高，適合不同高度人士",
+      "EVA 塑膠座／背墊，沐浴更舒適",
+      "三面無阻礙轉移",
+      "EVA 軟墊可拆出清洗"
+    ],
+    "features_en": [
+      "Lightweight anti-rust aluminium frame",
+      "Adjustable seat height",
+      "EVA padded seat and back for comfort",
+      "Open on three sides for easy transfer",
+      "Removable EVA pads for washing"
+    ],
+    "purchase_method": "whatsapp_only"
   },
   {
     "id": "tr1",
