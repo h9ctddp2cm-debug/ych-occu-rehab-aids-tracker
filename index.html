@@ -447,25 +447,25 @@
     /* Compare bar: fixed to the bottom of the screen so it is always visible once something is selected */
     #compare-bar {
       display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 900;
-      background: #fff3cd; border-top: 3px solid #e67e22; box-shadow: 0 -4px 16px rgba(0,0,0,.18);
-      padding: 12px 16px calc(12px + env(safe-area-inset-bottom)); text-align: center; font-size: 1.05em; font-weight: 600; color: #7c3a00;
+      background: #e8f5ec; border-top: 3px solid #27ae60; box-shadow: 0 -4px 16px rgba(0,0,0,.18);
+      padding: 12px 16px calc(12px + env(safe-area-inset-bottom)); text-align: center; font-size: 1.05em; font-weight: 600; color: #166534;
     }
     #compare-bar button {
       margin: 4px 8px; padding: 12px 26px; border: none;
       border-radius: 10px; cursor: pointer; font-size: 1.05em; font-weight: 700;
     }
-    #btn-compare { background: #e67e22; color: white; box-shadow: 0 2px 8px rgba(230,126,34,.45); }
-    #btn-compare:hover { background: #d35400; }
+    #btn-compare { background: #27ae60; color: white; box-shadow: 0 2px 8px rgba(39,174,96,.45); }
+    #btn-compare:hover { background: #219150; }
     #btn-clear   { background: #aaa; color: white; }
     body.has-compare #products-view { padding-bottom: 110px; }
     /* Compare toggle on each card: a clear button instead of a tiny checkbox */
     .card .cmp-toggle {
       display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 8px;
-      padding: 10px 12px; border: 2px solid #e67e22; border-radius: 10px; background: #fff;
-      color: #c2410c; font-weight: 700; font-size: 0.95em; cursor: pointer; user-select: none;
+      padding: 10px 12px; border: 2px solid #27ae60; border-radius: 10px; background: #fff;
+      color: #27ae60; font-weight: 700; font-size: 1em; cursor: pointer; user-select: none;
     }
     .card .cmp-toggle input { position: absolute; opacity: 0; width: 0; height: 0; margin: 0; pointer-events: none; }
-    .card .cmp-toggle.on { background: #e67e22; color: #fff; }
+    .card .cmp-toggle.on { background: #27ae60; color: #fff; }
     .card .cmp-toggle .cmp-off, .card .cmp-toggle.on .cmp-on { display: inline; }
     .card .cmp-toggle .cmp-on, .card .cmp-toggle.on .cmp-off { display: none; }
 
@@ -906,7 +906,7 @@ const I18N = {
     btn_search: '🔎 搜尋',
     cmp_selected: '已選', cmp_max: '件產品（最多4件）',
     btn_compare: '比較', btn_clear: '清除',
-    cmp_add: '加入比較', cmp_added: '已加入比較', cmp_now: '立即比較',
+    cmp_add: '比較', cmp_added: '比較', cmp_now: '比較',
     cmp_specs_hint: '同一類別產品：規格已逐項分開對比；「—」表示供應商未提供該項資料。',
     cmp_mixed_hint: '所選產品屬不同類別，規格以列表方式顯示。',
     loading: '正在載入產品資料...', no_match: '找不到符合條件的產品',
@@ -1025,7 +1025,7 @@ const I18N = {
     btn_search: '🔎 Search',
     cmp_selected: 'Selected', cmp_max: 'items (max 4)',
     btn_compare: 'Compare', btn_clear: 'Clear',
-    cmp_add: 'Add to compare', cmp_added: 'Added to compare', cmp_now: 'Compare now',
+    cmp_add: 'Compare', cmp_added: 'Compare', cmp_now: 'Compare',
     cmp_specs_hint: 'Same category: each specification is compared side by side; "—" means the supplier did not list it.',
     cmp_mixed_hint: 'Selected products are in different categories, so specifications are shown as lists.',
     loading: 'Loading products...', no_match: 'No matching products found',
