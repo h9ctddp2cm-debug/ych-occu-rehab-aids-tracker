@@ -3682,7 +3682,7 @@ function renderCards(products) {
       ${actionsHTML}
       <div class="updated">${t('updated')}${escapeHTML(p.updated_date || 'N/A')}</div>
       <div class="updated checked">✓ ${t('checked')}${escapeHTML(p.last_checked || p.updated_date || 'N/A')}</div>
-      <label class="cmp-toggle ${checked ? 'on' : ''}"><input type="checkbox" ${checked} data-id="${id}" data-product="${pData}" onchange="toggleCompare(this)"><span class="cmp-off">⚖️ ${t('cmp_add')}</span><span class="cmp-on">✓ ${t('cmp_added')}</span></label>
+      <label class="cmp-toggle ${checked ? 'on' : ''}"><input type="checkbox" ${checked} data-id="${id}" data-product="${pData}" onchange="toggleCompare(this)"><span class="cmp-off">${t("cmp_add")}</span><span class="cmp-on">✓ ${t('cmp_added')}</span></label>
     `;
     grid.appendChild(card);
   });
@@ -3820,7 +3820,7 @@ function updateCompareBar() {
   document.getElementById('compare-bar').style.display = n > 0 ? 'block' : 'none';
   document.body.classList.toggle('has-compare', n > 0);
   const btn = document.getElementById('btn-compare');
-  if (btn) { btn.textContent = `⚖️ ${t('cmp_now')} (${n})`; btn.disabled = n < 2; btn.style.opacity = n < 2 ? '.55' : '1'; }
+  if (btn) { btn.textContent = `${t("cmp_now")} (${n})`; btn.disabled = n < 2; btn.style.opacity = n < 2 ? '.55' : '1'; }
 }
 
 function clearCompare() {
