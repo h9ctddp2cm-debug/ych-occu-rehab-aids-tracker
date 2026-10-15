@@ -474,6 +474,7 @@
       display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 16px; max-width: 1000px; margin: 16px auto 0;
     }
+    .grid-group { grid-column: 1 / -1; margin: 8px 0 -4px; padding: 8px 14px; background: #e8f5ec; border-left: 5px solid #27ae60; border-radius: 8px; color: #166534; font-weight: 700; font-size: 1.05em; }
     .card {
       background: white; border-radius: 12px; padding: 16px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
@@ -909,6 +910,7 @@ const I18N = {
     btn_compare: '比較', btn_clear: '清除',
     cmp_add: '比較', cmp_added: '比較', cmp_now: '比較',
     cmp_title_cat: '比較：',
+    sub_self: '自助式輪椅（大轆）', sub_transit: '助推式輪椅（細轆，照顧者推）', sub_recline: '高背後躺輪椅',
     cmp_mixed_hint: '所選產品屬不同類別，規格以列表方式顯示。',
     loading: '正在載入產品資料...', no_match: '找不到符合條件的產品',
     load_fail: '載入失敗：', no_data: '資料庫暫時沒有產品',
@@ -1028,6 +1030,7 @@ const I18N = {
     btn_compare: 'Compare', btn_clear: 'Clear',
     cmp_add: 'Compare', cmp_added: 'Compare', cmp_now: 'Compare',
     cmp_title_cat: 'Compare: ',
+    sub_self: 'Self-propelled wheelchairs (large rear wheels)', sub_transit: 'Transit wheelchairs (small wheels, attendant-propelled)', sub_recline: 'High-back reclining wheelchairs',
     cmp_mixed_hint: 'Selected products are in different categories, so specifications are shown as lists.',
     loading: 'Loading products...', no_match: 'No matching products found',
     load_fail: 'Failed to load: ', no_data: 'No products in database yet',
@@ -1310,7 +1313,18 @@ function renderCards(products) {
     return;
   }
   grid.innerHTML = '';
+  // Sub-group headers (e.g. wheelchair: 自助式 / 助推式 / 高背後躺) when all shown products are one category
+  const SUB_ORDER = ['self', 'transit', 'recline'];
+  const oneCat = products.every(p => p.category === products[0].category);
+  const useGroups = oneCat && products.some(p => p.subgroup);
+  if (useGroups) products = products.slice().sort((a, b) => SUB_ORDER.indexOf(a.subgroup || 'zzz') - SUB_ORDER.indexOf(b.subgroup || 'zzz'));
+  let lastGroup = null;
   products.forEach((p, i) => {
+    if (useGroups && p.subgroup && p.subgroup !== lastGroup) {
+      lastGroup = p.subgroup;
+      const h = document.createElement('div'); h.className = 'grid-group'; h.textContent = t('sub_' + p.subgroup) || p.subgroup;
+      grid.appendChild(h);
+    }
     const id = p.id || i;
     const card = document.createElement('div');
     card.className = 'card';
