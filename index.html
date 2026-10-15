@@ -1314,7 +1314,7 @@ function renderCards(products) {
   }
   grid.innerHTML = '';
   // Sub-group headers (e.g. wheelchair: 自助式 / 助推式 / 高背後躺) when all shown products are one category
-  const SUB_ORDER = ['self', 'transit', 'recline'];
+  const SUB_ORDER = ['transit', 'self', 'recline'];
   const oneCat = products.every(p => p.category === products[0].category);
   const useGroups = oneCat && products.some(p => p.subgroup);
   if (useGroups) products = products.slice().sort((a, b) => SUB_ORDER.indexOf(a.subgroup || 'zzz') - SUB_ORDER.indexOf(b.subgroup || 'zzz'));

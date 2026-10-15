@@ -1,5 +1,134 @@
 [
   {
+    "id": "w5",
+    "source": "justice",
+    "source_name": "信義醫療",
+    "category": "wheelchair",
+    "product_name": "手推式摺背型輪椅",
+    "model": "H508",
+    "price_min": 1880.0,
+    "price_max": 1880.0,
+    "price_display": "HK$1,880.00（參考價錢）",
+    "specs": [
+      "座高：20\"",
+      "座闊：16\" / 18\"",
+      "總外闊：23\" / 25\"",
+      "重量：14–15kg"
+    ],
+    "image_url": "images/wheelchair_justice_h508.jpg",
+    "product_url": "https://www.justicemed.com/product.php?sid=20&id=671",
+    "phone": "3904 9019",
+    "note": "產品頁由相片 QR code 確認, 請致電/WhatsApp 54062554 查詢最新價格 [網站 SSL 證書失效, 系統會 fallback 跳過驗證]",
+    "updated_date": "2026-06-11",
+    "last_checked": "2026-10-15",
+    "product_name_en": "Folding-back Manual Wheelchair",
+    "specs_en": [
+      "Seat height: 20\"",
+      "Seat width: 16\" / 18\""
+    ],
+    "price_display_en": "HK$1,880.00",
+    "stock_status": "in_stock",
+    "features": [
+      "PVC座墊背墊",
+      "後翻式長/短扶手",
+      "靠背可摺疊",
+      "前7\" / 後22\" 輪"
+    ],
+    "features_en": [
+      "Foldable back design",
+      "Aluminium alloy frame"
+    ],
+    "price_note": "參考價錢",
+    "subgroup": "transit"
+  },
+  {
+    "id": "w6",
+    "source": "healthtop",
+    "source_name": "唯健康 Health Top",
+    "category": "wheelchair",
+    "product_name": "功能型鋁合金小輪手動輪椅",
+    "model": "FHW-13",
+    "price_min": 1980,
+    "price_max": 1980,
+    "price_display": "HK$1,980（網購價）",
+    "specs": [
+      "座高：19\"",
+      "座闊：16\" / 18\"",
+      "總外闊：22\" / 24\"",
+      "重量：14kg",
+      "承重：100kg"
+    ],
+    "image_url": "images/wheelchair_healthtop_fhw13.jpg",
+    "product_url": "https://health.esdlife.com/shop/hk/product/topone-fhw-13-%E5%8A%9F%E8%83%BD%E5%9E%8B%E5%B0%8F%E8%BC%AA%E8%BC%AA%E6%A4%85",
+    "phone": "2413 7867",
+    "updated_date": "2026-10-15",
+    "last_checked": "2026-10-15",
+    "product_name_en": "Functional Aluminium Small-wheel Manual Wheelchair FHW-13",
+    "specs_en": [
+      "Seat width: 16\" / 18\""
+    ],
+    "price_display_en": "HK$1,980 (online price)",
+    "stock_status": "in_stock",
+    "features": [
+      "7003 航太鋁合金",
+      "前6\" PU實芯 / 後16\" PU實芯",
+      "前後手剎掣",
+      "5年車架保養"
+    ],
+    "features_en": [
+      "Small rear wheels (caregiver-assist)",
+      "Aluminium alloy, lightweight",
+      "Foldable"
+    ],
+    "note": "唯健康網站暫停，連結為唯健康於「健康網購 ESDlife」嘅官方產品頁；網購價，門市價請致電查詢",
+    "note_en": "Health Top website is down; link goes to Health Top's official listing on ESDlife (online price; call for shop price)",
+    "subgroup": "transit"
+  },
+  {
+    "id": "w10",
+    "source": "healthyliving",
+    "source_name": "盈康 Healthy Living",
+    "category": "wheelchair",
+    "product_name": "美國 Advanced 7530 多功能輕輪椅",
+    "model": "7530",
+    "price_min": 2380.0,
+    "price_max": 2380.0,
+    "price_display": "HK$2,380.00",
+    "specs": [
+      "座高：19\"",
+      "座闊：16\" / 18\"",
+      "總外闊：23\" / 25\" / 27\"",
+      "重量：11.9kg",
+      "承重：360lb / 163.2kg",
+      "座深：16.3\"",
+      "背高：16.3\"",
+      "扶手高：9.8\"",
+      "後輪：16\""
+    ],
+    "image_url": "images/wheelchair_healthyliving_ad7530.jpeg",
+    "product_url": "https://www.healthyliving.com.hk/shop/%E7%BE%8E%E5%9C%8B-advanced-7530-%E5%A4%9A%E5%8A%9F%E8%83%BD%E8%BC%95%E8%BC%AA%E6%A4%85/",
+    "phone": "3426 9090",
+    "updated_date": "2026-06-13",
+    "last_checked": "2026-10-15",
+    "product_name_en": "Advanced 7530 Multi-functional Lightweight Wheelchair",
+    "specs_en": [
+      "Seat height: 19\"",
+      "Seat width: 16\" / 18\"",
+      "Overall width: 23\" / 25\" / 27\"",
+      "Weight: 11.9 kg",
+      "Max load: 360 lb / 163.2 kg",
+      "Seat depth: 16.3\"",
+      "Back height: 16.3\"",
+      "Armrest height: 9.8\"",
+      "Rear wheel: 16\""
+    ],
+    "price_display_en": "HK$2,380.00",
+    "stock_status": "in_stock",
+    "features": [],
+    "features_en": [],
+    "subgroup": "transit"
+  },
+  {
     "id": "w1",
     "source": "healthyliving",
     "source_name": "盈康 Healthy Living",
@@ -134,135 +263,6 @@
       "Detachable armrests & footrests"
     ],
     "subgroup": "self"
-  },
-  {
-    "id": "w5",
-    "source": "justice",
-    "source_name": "信義醫療",
-    "category": "wheelchair",
-    "product_name": "手推式摺背型輪椅",
-    "model": "H508",
-    "price_min": 1880.0,
-    "price_max": 1880.0,
-    "price_display": "HK$1,880.00（參考價錢）",
-    "specs": [
-      "座高：20\"",
-      "座闊：16\" / 18\"",
-      "總外闊：23\" / 25\"",
-      "重量：14–15kg"
-    ],
-    "image_url": "images/wheelchair_justice_h508.jpg",
-    "product_url": "https://www.justicemed.com/product.php?sid=20&id=671",
-    "phone": "3904 9019",
-    "note": "產品頁由相片 QR code 確認, 請致電/WhatsApp 54062554 查詢最新價格 [網站 SSL 證書失效, 系統會 fallback 跳過驗證]",
-    "updated_date": "2026-06-11",
-    "last_checked": "2026-10-15",
-    "product_name_en": "Folding-back Manual Wheelchair",
-    "specs_en": [
-      "Seat height: 20\"",
-      "Seat width: 16\" / 18\""
-    ],
-    "price_display_en": "HK$1,880.00",
-    "stock_status": "in_stock",
-    "features": [
-      "PVC座墊背墊",
-      "後翻式長/短扶手",
-      "靠背可摺疊",
-      "前7\" / 後22\" 輪"
-    ],
-    "features_en": [
-      "Foldable back design",
-      "Aluminium alloy frame"
-    ],
-    "price_note": "參考價錢",
-    "subgroup": "self"
-  },
-  {
-    "id": "w6",
-    "source": "healthtop",
-    "source_name": "唯健康 Health Top",
-    "category": "wheelchair",
-    "product_name": "功能型鋁合金小輪手動輪椅",
-    "model": "FHW-13",
-    "price_min": 1980,
-    "price_max": 1980,
-    "price_display": "HK$1,980（網購價）",
-    "specs": [
-      "座高：19\"",
-      "座闊：16\" / 18\"",
-      "總外闊：22\" / 24\"",
-      "重量：14kg",
-      "承重：100kg"
-    ],
-    "image_url": "images/wheelchair_healthtop_fhw13.jpg",
-    "product_url": "https://health.esdlife.com/shop/hk/product/topone-fhw-13-%E5%8A%9F%E8%83%BD%E5%9E%8B%E5%B0%8F%E8%BC%AA%E8%BC%AA%E6%A4%85",
-    "phone": "2413 7867",
-    "updated_date": "2026-10-15",
-    "last_checked": "2026-10-15",
-    "product_name_en": "Functional Aluminium Small-wheel Manual Wheelchair FHW-13",
-    "specs_en": [
-      "Seat width: 16\" / 18\""
-    ],
-    "price_display_en": "HK$1,980 (online price)",
-    "stock_status": "in_stock",
-    "features": [
-      "7003 航太鋁合金",
-      "前6\" PU實芯 / 後16\" PU實芯",
-      "前後手剎掣",
-      "5年車架保養"
-    ],
-    "features_en": [
-      "Small rear wheels (caregiver-assist)",
-      "Aluminium alloy, lightweight",
-      "Foldable"
-    ],
-    "note": "唯健康網站暫停，連結為唯健康於「健康網購 ESDlife」嘅官方產品頁；網購價，門市價請致電查詢",
-    "note_en": "Health Top website is down; link goes to Health Top's official listing on ESDlife (online price; call for shop price)",
-    "subgroup": "transit"
-  },
-  {
-    "id": "w10",
-    "source": "healthyliving",
-    "source_name": "盈康 Healthy Living",
-    "category": "wheelchair",
-    "product_name": "美國 Advanced 7530 多功能輕輪椅",
-    "model": "7530",
-    "price_min": 2380.0,
-    "price_max": 2380.0,
-    "price_display": "HK$2,380.00",
-    "specs": [
-      "座高：19\"",
-      "座闊：16\" / 18\"",
-      "總外闊：23\" / 25\" / 27\"",
-      "重量：11.9kg",
-      "承重：360lb / 163.2kg",
-      "座深：16.3\"",
-      "背高：16.3\"",
-      "扶手高：9.8\"",
-      "後輪：16\""
-    ],
-    "image_url": "images/wheelchair_healthyliving_ad7530.jpeg",
-    "product_url": "https://www.healthyliving.com.hk/shop/%E7%BE%8E%E5%9C%8B-advanced-7530-%E5%A4%9A%E5%8A%9F%E8%83%BD%E8%BC%95%E8%BC%AA%E6%A4%85/",
-    "phone": "3426 9090",
-    "updated_date": "2026-06-13",
-    "last_checked": "2026-10-15",
-    "product_name_en": "Advanced 7530 Multi-functional Lightweight Wheelchair",
-    "specs_en": [
-      "Seat height: 19\"",
-      "Seat width: 16\" / 18\"",
-      "Overall width: 23\" / 25\" / 27\"",
-      "Weight: 11.9 kg",
-      "Max load: 360 lb / 163.2 kg",
-      "Seat depth: 16.3\"",
-      "Back height: 16.3\"",
-      "Armrest height: 9.8\"",
-      "Rear wheel: 16\""
-    ],
-    "price_display_en": "HK$2,380.00",
-    "stock_status": "in_stock",
-    "features": [],
-    "features_en": [],
-    "subgroup": "transit"
   },
   {
     "id": "w7",
