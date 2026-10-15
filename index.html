@@ -480,6 +480,7 @@
     .card .price.out-of-stock { color: #999; text-decoration: line-through; font-size: 0.95em; font-weight: 500; }
     .card .stock-badge { display: inline-block; background: #fee2e2; color: #b91c1c; font-size: 0.9em; font-weight: 600; padding: 4px 10px; border-radius: 6px; margin: 4px 0 6px 0; border: 1px solid #fca5a5; }
     .card .source { font-size: 0.85em; color: #27ae60; }
+    .card .branch { font-size: 0.78em; color: #555; margin-top: 2px; line-height: 1.35; }
     /* === Product-page QR code (right of price / supplier) === */
     .card .price-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
     .card .price-row .price-main { flex: 1; min-width: 0; }
@@ -1215,6 +1216,7 @@ function fieldFeatures(p) {
   const list = currentLang === 'en' ? (p.features_en || p.features) : (p.features);
   return Array.isArray(list) ? list : (typeof list === 'string' ? safeParseArray(list) : []);
 }
+function fieldBranch(p) { return currentLang === 'en' ? (p.branch_en || p.branch || '') : (p.branch || ''); }
 function fieldNote(p)   { return currentLang === 'en' ? (p.note_en || p.note || '') : (p.note || ''); }
 
 function safeParseArray(v) { try { const r = JSON.parse(v); return Array.isArray(r) ? r : []; } catch { return []; } }
@@ -1310,7 +1312,7 @@ function renderCards(products) {
       <h3>${escapeHTML(fieldName(p))}</h3>
       <div class="model">${escapeHTML(p.model || '')}</div>
       <div class="price-row"><div class="price-main">${priceBlockHTML(p)}
-      <div class="source">📦 ${escapeHTML(supplierName(p))}</div></div>${qrButtonsHTML(p)}</div>
+      <div class="source">📦 ${escapeHTML(supplierName(p))}</div>${fieldBranch(p) ? `<div class="branch">🏪 ${escapeHTML(fieldBranch(p))}</div>` : ''}</div>${qrButtonsHTML(p)}</div>
       ${specsHTML}
       ${featuresHTML}
       ${actionsHTML}
@@ -1976,7 +1978,7 @@ function handleRoute() {
         <h2>${escapeHTML(fieldName(prod))}</h2>
         <div class="go-model">${escapeHTML(prod.model || '')}</div>
         <div class="go-price">${escapeHTML(fieldPrice(prod))}</div>
-        <div class="go-sup">📦 ${escapeHTML(supplierName(prod))}</div>
+        <div class="go-sup">📦 ${escapeHTML(supplierName(prod))}</div>${fieldBranch(prod) ? `<div class="go-sup">🏪 ${escapeHTML(fieldBranch(prod))}</div>` : ''}
         <div class="go-note">${escapeHTML(t('go_note'))}<br><small>${escapeHTML(t('go_checked'))}${escapeHTML(prod.web_down_date || prod.last_checked || '')}</small></div>
         ${phoneClean ? `<a class="btn-call" href="tel:${phoneClean}">📞 ${escapeHTML(prod.phone)}</a>` : ''}
         <a class="go-home" href="#/">${escapeHTML(t('go_home'))}</a>
