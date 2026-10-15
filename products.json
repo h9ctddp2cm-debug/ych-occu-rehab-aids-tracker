@@ -2883,6 +2883,61 @@
     "last_checked": "2026-10-15"
   },
   {
+    "id": "ac6",
+    "source": "justmed",
+    "source_name": "真善美醫護",
+    "category": "armchair",
+    "product_name": "休閒座椅 (連餐桌板)(座深可調)",
+    "model": "H-VM90MS",
+    "price_min": 1500,
+    "price_max": 1500,
+    "price_display": "HK$1,500",
+    "price_display_en": "HK$1,500",
+    "specs": [
+      "座高：15\"-20\" (可調)",
+      "座闊：19\"",
+      "座深：19\" (可調至21\"，附滑盤功能)",
+      "背高：26\"",
+      "總外闊：25\"",
+      "扶手高：8\" (離座)",
+      "枱板：15\"-25.5\" (掛式，無段鎖扣可調深度)",
+      "物料：鐵鋼支架、紅色人造皮座墊"
+    ],
+    "specs_en": [
+      "Seat height: 15\"-20\" (adjustable)",
+      "Seat width: 19\"",
+      "Seat depth: 19\" (adjustable to 21\", sliding seat)",
+      "Back height: 26\"",
+      "Overall width: 25\"",
+      "Armrest height: 8\" above seat",
+      "Tray table: 15\"-25.5\" (hook-on, stepless depth adjustment)",
+      "Material: steel frame, red PU seat"
+    ],
+    "features": [
+      "仁濟醫院網上復康店地址：荃灣街市街128號安裕大廈地舖（近仁濟醫院）",
+      "橙紅色款式，連餐桌板",
+      "可調較座高及座深，適合不同身型用者",
+      "符合 BS7176 中度防火標準，可於院舍使用"
+    ],
+    "features_en": [
+      "Yan Chai Hospital Online Rehab Store: G/F, On Yue Building, 128 Tsuen Wan Market Street (near Yan Chai Hospital)",
+      "Orange-red model with tray table",
+      "Adjustable seat height and seat depth for different body sizes",
+      "Meets BS7176 medium hazard fire-retardant standard, suitable for care homes"
+    ],
+    "image_url": "images/armchair_justmed_hvm90ms.jpg",
+    "product_url": "https://yanchai.justmed.com.hk/product-detail.php?id=49",
+    "product_name_en": "Leisure Chair with Tray Table (Adjustable Seat Depth)",
+    "phone": "9730 1857",
+    "purchase_method": "whatsapp_only",
+    "note": "2026-10-15 新增 (仁濟醫院網上復康店 id=49)",
+    "stock_status": "in_stock",
+    "updated_date": "2026-10-15",
+    "last_checked": "2026-10-15",
+    "branch": "仁濟醫院網上復康店有售",
+    "branch_en": "Available at Yan Chai Hospital Online Rehab Store"
+  },
+  {
     "id": "ac3",
     "product_name": "Advanced Rest Low 低背椅/休閒椅/扶手椅 – 灰色",
     "model": "",
@@ -3033,61 +3088,6 @@
     "phone": "9730 1857",
     "purchase_method": "whatsapp_only",
     "note": "2026-10-15 改用仁濟醫院網上復康店 (yanchai.justmed) 連結及價錢, 原公開店價 HK$900; ⚠ 不支援線上付款，請 WhatsApp 2742 4370 落單",
-    "stock_status": "in_stock",
-    "updated_date": "2026-10-15",
-    "last_checked": "2026-10-15",
-    "branch": "仁濟醫院網上復康店有售",
-    "branch_en": "Available at Yan Chai Hospital Online Rehab Store"
-  },
-  {
-    "id": "ac6",
-    "source": "justmed",
-    "source_name": "真善美醫護",
-    "category": "armchair",
-    "product_name": "休閒座椅 (連餐桌板)(座深可調)",
-    "model": "H-VM90MS",
-    "price_min": 1500,
-    "price_max": 1500,
-    "price_display": "HK$1,500",
-    "price_display_en": "HK$1,500",
-    "specs": [
-      "座高：15\"-20\" (可調)",
-      "座闊：19\"",
-      "座深：19\" (可調至21\"，附滑盤功能)",
-      "背高：26\"",
-      "總外闊：25\"",
-      "扶手高：8\" (離座)",
-      "枱板：15\"-25.5\" (掛式，無段鎖扣可調深度)",
-      "物料：鐵鋼支架、紅色人造皮座墊"
-    ],
-    "specs_en": [
-      "Seat height: 15\"-20\" (adjustable)",
-      "Seat width: 19\"",
-      "Seat depth: 19\" (adjustable to 21\", sliding seat)",
-      "Back height: 26\"",
-      "Overall width: 25\"",
-      "Armrest height: 8\" above seat",
-      "Tray table: 15\"-25.5\" (hook-on, stepless depth adjustment)",
-      "Material: steel frame, red PU seat"
-    ],
-    "features": [
-      "仁濟醫院網上復康店地址：荃灣街市街128號安裕大廈地舖（近仁濟醫院）",
-      "橙紅色款式，連餐桌板",
-      "可調較座高及座深，適合不同身型用者",
-      "符合 BS7176 中度防火標準，可於院舍使用"
-    ],
-    "features_en": [
-      "Yan Chai Hospital Online Rehab Store: G/F, On Yue Building, 128 Tsuen Wan Market Street (near Yan Chai Hospital)",
-      "Orange-red model with tray table",
-      "Adjustable seat height and seat depth for different body sizes",
-      "Meets BS7176 medium hazard fire-retardant standard, suitable for care homes"
-    ],
-    "image_url": "images/armchair_justmed_hvm90ms.jpg",
-    "product_url": "https://yanchai.justmed.com.hk/product-detail.php?id=49",
-    "product_name_en": "Leisure Chair with Tray Table (Adjustable Seat Depth)",
-    "phone": "9730 1857",
-    "purchase_method": "whatsapp_only",
-    "note": "2026-10-15 新增 (仁濟醫院網上復康店 id=49)",
     "stock_status": "in_stock",
     "updated_date": "2026-10-15",
     "last_checked": "2026-10-15",
