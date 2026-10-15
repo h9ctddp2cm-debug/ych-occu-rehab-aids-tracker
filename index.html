@@ -432,7 +432,7 @@
 
     .controls {
       background: white; border-radius: 12px; padding: 16px;
-      margin: 0 auto; max-width: 1000px;
+      margin: 0 auto 12px; max-width: 1000px;
       display: flex; flex-wrap: wrap; gap: 12px; align-items: center;
     }
     .controls select, .controls input {
@@ -700,23 +700,9 @@
   </div>
 </div>
 
-<!-- Home view -->
-<div id="home-view" class="home-wrap" style="display:none">
-  <div class="home-title" data-i18n="home_title">請選擇輔助工具類別</div>
-  <div class="home-grid" id="home-grid"></div>
-</div>
-
-<!-- Rental services view -->
-<div id="rental-view" style="display:none"></div>
-<!-- QR short-link fallback view (supplier website down) -->
-<div id="go-view" style="display:none"></div>
-
-<!-- Products view (default; container for everything else below) -->
-<div id="products-view">
-
-
+<!-- Filters: category / supplier / search (shown on BOTH home view and products view) -->
 <div class="controls">
-  <select id="filter-category">
+  <select id="filter-category" onchange="onFilterChange()">
     <option value="" data-i18n="cat_all">所有類別</option>
     <option value="wheelchair" data-i18n="cat_wheelchair">輪椅</option>
     <option value="shower" data-i18n="cat_shower">沐浴椅</option>
@@ -736,10 +722,25 @@
     <option value="hipprotector" data-i18n="cat_hipprotector">髖關節保護褲</option>
     <option value="restraint" data-i18n="cat_restraint">約束用品</option>
   </select>
-  <select id="filter-source"><option value="" data-i18n="src_all">所有供應商</option></select>
+  <select id="filter-source" onchange="onFilterChange()"><option value="" data-i18n="src_all">所有供應商</option></select>
   <input id="search-input" type="text" data-i18n-attr="placeholder" data-i18n="search_placeholder" placeholder="搜尋產品名稱..." />
-  <button onclick="applyFilters()" data-i18n="btn_search">🔎 搜尋</button>
+  <button onclick="onFilterChange()" data-i18n="btn_search">🔎 搜尋</button>
 </div>
+
+<!-- Home view -->
+<div id="home-view" class="home-wrap" style="display:none">
+  <div class="home-title" data-i18n="home_title">請選擇輔助工具類別</div>
+  <div class="home-grid" id="home-grid"></div>
+</div>
+
+<!-- Rental services view -->
+<div id="rental-view" style="display:none"></div>
+<!-- QR short-link fallback view (supplier website down) -->
+<div id="go-view" style="display:none"></div>
+
+<!-- Products view (default; container for everything else below) -->
+<div id="products-view">
+
 
 <div id="compare-bar">
   <span data-i18n="cmp_selected">已選</span>
@@ -1420,7 +1421,17 @@ function applyFilters() {
   }));
 }
 
-document.getElementById('search-input').addEventListener('keydown', e => { if (e.key==='Enter') applyFilters(); });
+document.getElementById('search-input').addEventListener('keydown', e => { if (e.key==='Enter') onFilterChange(); });
+
+/* Filter box is shared by the home page and the product list. From the home page (or favorites/rental)
+   a change navigates to the matching list; inside a list it just re-filters. */
+function onFilterChange() {
+  const cat = document.getElementById('filter-category').value;
+  const hash = location.hash || '#/';
+  const want = cat ? '#/cat/' + cat : '#/search';
+  if (hash === want) { applyFilters(); updateShareBar(); updatePatientBanner(); return; }
+  location.hash = want;   // handleRoute() applies the filters
+}
 
 function toggleCompare(checkbox) {
   const id = String(checkbox.dataset.id);
@@ -1938,6 +1949,8 @@ function handleRoute() {
 
   if (hash === '#/' || hash === '' || hash === '#') {
     // HOME PAGE
+    // Filter box is shared with the product list: reset it so the home page always starts clean
+    ['filter-category', 'filter-source', 'search-input'].forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
     homeView.style.display = 'block';
     productsView.style.display = 'none';
     if (rentalView) rentalView.style.display = 'none';
@@ -1996,6 +2009,12 @@ function handleRoute() {
     const cat = hash.slice('#/cat/'.length);
     if (isHiddenCategory(cat)) { location.hash = '#/'; return; }  // draft category: not public yet
     document.getElementById('filter-category').value = cat;
+    applyFilters();
+    updateShareBar();
+    updatePatientBanner();
+  } else if (hash.startsWith('#/search')) {
+    // All categories: filter by supplier and/or search text only
+    document.getElementById('filter-category').value = '';
     applyFilters();
     updateShareBar();
     updatePatientBanner();
