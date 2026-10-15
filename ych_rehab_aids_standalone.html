@@ -3665,6 +3665,7 @@ function productQRLinks(p) {
   return [];
 }
 function qrButtonsHTML(p) {
+  if (p.web_down) return '';  // supplier website down: no QR while the page is unavailable
   const links = productQRLinks(p);
   if (!links.length) return '';
   const name = fieldName(p), sup = supplierName(p);
