@@ -454,6 +454,8 @@ def main():
             product["price_min"] = price
             product["price_max"] = price
             product["price_display"] = f"HK${price:,}"
+            if "price_display_en" in product:
+                product["price_display_en"] = product["price_display"]  # keep EN in sync (was drifting)
             product["updated_date"] = today
             product["last_checked"] = today
             tier1_changed.append(pid)
