@@ -1,5 +1,134 @@
 [
   {
+    "id": "w5",
+    "source": "justice",
+    "source_name": "信義醫療",
+    "category": "wheelchair",
+    "product_name": "手推式摺背型輪椅",
+    "model": "H508",
+    "price_min": 1880.0,
+    "price_max": 1880.0,
+    "price_display": "HK$1,880.00（參考價錢）",
+    "specs": [
+      "座高：20\"",
+      "座闊：16\" / 18\"",
+      "總外闊：23\" / 25\"",
+      "重量：14–15kg"
+    ],
+    "image_url": "images/wheelchair_justice_h508.jpg",
+    "product_url": "https://www.justicemed.com/product.php?sid=20&id=671",
+    "phone": "3904 9019",
+    "note": "產品頁由相片 QR code 確認, 請致電/WhatsApp 54062554 查詢最新價格 [網站 SSL 證書失效, 系統會 fallback 跳過驗證]",
+    "updated_date": "2026-06-11",
+    "last_checked": "2026-10-15",
+    "product_name_en": "Folding-back Manual Wheelchair",
+    "specs_en": [
+      "Seat height: 20\"",
+      "Seat width: 16\" / 18\""
+    ],
+    "price_display_en": "HK$1,880.00",
+    "stock_status": "in_stock",
+    "features": [
+      "PVC座墊背墊",
+      "後翻式長/短扶手",
+      "靠背可摺疊",
+      "前7\" / 後22\" 輪"
+    ],
+    "features_en": [
+      "Foldable back design",
+      "Aluminium alloy frame"
+    ],
+    "price_note": "參考價錢",
+    "subgroup": "transit"
+  },
+  {
+    "id": "w6",
+    "source": "healthtop",
+    "source_name": "唯健康 Health Top",
+    "category": "wheelchair",
+    "product_name": "功能型鋁合金小輪手動輪椅",
+    "model": "FHW-13",
+    "price_min": 1980,
+    "price_max": 1980,
+    "price_display": "HK$1,980（網購價）",
+    "specs": [
+      "座高：19\"",
+      "座闊：16\" / 18\"",
+      "總外闊：22\" / 24\"",
+      "重量：14kg",
+      "承重：100kg"
+    ],
+    "image_url": "images/wheelchair_healthtop_fhw13.jpg",
+    "product_url": "https://health.esdlife.com/shop/hk/product/topone-fhw-13-%E5%8A%9F%E8%83%BD%E5%9E%8B%E5%B0%8F%E8%BC%AA%E8%BC%AA%E6%A4%85",
+    "phone": "2413 7867",
+    "updated_date": "2026-10-15",
+    "last_checked": "2026-10-15",
+    "product_name_en": "Functional Aluminium Small-wheel Manual Wheelchair FHW-13",
+    "specs_en": [
+      "Seat width: 16\" / 18\""
+    ],
+    "price_display_en": "HK$1,980 (online price)",
+    "stock_status": "in_stock",
+    "features": [
+      "7003 航太鋁合金",
+      "前6\" PU實芯 / 後16\" PU實芯",
+      "前後手剎掣",
+      "5年車架保養"
+    ],
+    "features_en": [
+      "Small rear wheels (caregiver-assist)",
+      "Aluminium alloy, lightweight",
+      "Foldable"
+    ],
+    "note": "唯健康網站暫停，連結為唯健康於「健康網購 ESDlife」嘅官方產品頁；網購價，門市價請致電查詢",
+    "note_en": "Health Top website is down; link goes to Health Top's official listing on ESDlife (online price; call for shop price)",
+    "subgroup": "transit"
+  },
+  {
+    "id": "w10",
+    "source": "healthyliving",
+    "source_name": "盈康 Healthy Living",
+    "category": "wheelchair",
+    "product_name": "美國 Advanced 7530 多功能輕輪椅",
+    "model": "7530",
+    "price_min": 2380.0,
+    "price_max": 2380.0,
+    "price_display": "HK$2,380.00",
+    "specs": [
+      "座高：19\"",
+      "座闊：16\" / 18\"",
+      "總外闊：23\" / 25\" / 27\"",
+      "重量：11.9kg",
+      "承重：360lb / 163.2kg",
+      "座深：16.3\"",
+      "背高：16.3\"",
+      "扶手高：9.8\"",
+      "後輪：16\""
+    ],
+    "image_url": "images/wheelchair_healthyliving_ad7530.jpeg",
+    "product_url": "https://www.healthyliving.com.hk/shop/%E7%BE%8E%E5%9C%8B-advanced-7530-%E5%A4%9A%E5%8A%9F%E8%83%BD%E8%BC%95%E8%BC%AA%E6%A4%85/",
+    "phone": "3426 9090",
+    "updated_date": "2026-06-13",
+    "last_checked": "2026-10-15",
+    "product_name_en": "Advanced 7530 Multi-functional Lightweight Wheelchair",
+    "specs_en": [
+      "Seat height: 19\"",
+      "Seat width: 16\" / 18\"",
+      "Overall width: 23\" / 25\" / 27\"",
+      "Weight: 11.9 kg",
+      "Max load: 360 lb / 163.2 kg",
+      "Seat depth: 16.3\"",
+      "Back height: 16.3\"",
+      "Armrest height: 9.8\"",
+      "Rear wheel: 16\""
+    ],
+    "price_display_en": "HK$2,380.00",
+    "stock_status": "in_stock",
+    "features": [],
+    "features_en": [],
+    "subgroup": "transit"
+  },
+  {
     "id": "w1",
     "source": "healthyliving",
     "source_name": "盈康 Healthy Living",
@@ -134,135 +263,6 @@
       "Detachable armrests & footrests"
     ],
     "subgroup": "self"
-  },
-  {
-    "id": "w5",
-    "source": "justice",
-    "source_name": "信義醫療",
-    "category": "wheelchair",
-    "product_name": "手推式摺背型輪椅",
-    "model": "H508",
-    "price_min": 1880.0,
-    "price_max": 1880.0,
-    "price_display": "HK$1,880.00（參考價錢）",
-    "specs": [
-      "座高：20\"",
-      "座闊：16\" / 18\"",
-      "總外闊：23\" / 25\"",
-      "重量：14–15kg"
-    ],
-    "image_url": "images/wheelchair_justice_h508.jpg",
-    "product_url": "https://www.justicemed.com/product.php?sid=20&id=671",
-    "phone": "3904 9019",
-    "note": "產品頁由相片 QR code 確認, 請致電/WhatsApp 54062554 查詢最新價格 [網站 SSL 證書失效, 系統會 fallback 跳過驗證]",
-    "updated_date": "2026-06-11",
-    "last_checked": "2026-10-15",
-    "product_name_en": "Folding-back Manual Wheelchair",
-    "specs_en": [
-      "Seat height: 20\"",
-      "Seat width: 16\" / 18\""
-    ],
-    "price_display_en": "HK$1,880.00",
-    "stock_status": "in_stock",
-    "features": [
-      "PVC座墊背墊",
-      "後翻式長/短扶手",
-      "靠背可摺疊",
-      "前7\" / 後22\" 輪"
-    ],
-    "features_en": [
-      "Foldable back design",
-      "Aluminium alloy frame"
-    ],
-    "price_note": "參考價錢",
-    "subgroup": "self"
-  },
-  {
-    "id": "w6",
-    "source": "healthtop",
-    "source_name": "唯健康 Health Top",
-    "category": "wheelchair",
-    "product_name": "功能型鋁合金小輪手動輪椅",
-    "model": "FHW-13",
-    "price_min": 1980,
-    "price_max": 1980,
-    "price_display": "HK$1,980（網購價）",
-    "specs": [
-      "座高：19\"",
-      "座闊：16\" / 18\"",
-      "總外闊：22\" / 24\"",
-      "重量：14kg",
-      "承重：100kg"
-    ],
-    "image_url": "images/wheelchair_healthtop_fhw13.jpg",
-    "product_url": "https://health.esdlife.com/shop/hk/product/topone-fhw-13-%E5%8A%9F%E8%83%BD%E5%9E%8B%E5%B0%8F%E8%BC%AA%E8%BC%AA%E6%A4%85",
-    "phone": "2413 7867",
-    "updated_date": "2026-10-15",
-    "last_checked": "2026-10-15",
-    "product_name_en": "Functional Aluminium Small-wheel Manual Wheelchair FHW-13",
-    "specs_en": [
-      "Seat width: 16\" / 18\""
-    ],
-    "price_display_en": "HK$1,980 (online price)",
-    "stock_status": "in_stock",
-    "features": [
-      "7003 航太鋁合金",
-      "前6\" PU實芯 / 後16\" PU實芯",
-      "前後手剎掣",
-      "5年車架保養"
-    ],
-    "features_en": [
-      "Small rear wheels (caregiver-assist)",
-      "Aluminium alloy, lightweight",
-      "Foldable"
-    ],
-    "note": "唯健康網站暫停，連結為唯健康於「健康網購 ESDlife」嘅官方產品頁；網購價，門市價請致電查詢",
-    "note_en": "Health Top website is down; link goes to Health Top's official listing on ESDlife (online price; call for shop price)",
-    "subgroup": "transit"
-  },
-  {
-    "id": "w10",
-    "source": "healthyliving",
-    "source_name": "盈康 Healthy Living",
-    "category": "wheelchair",
-    "product_name": "美國 Advanced 7530 多功能輕輪椅",
-    "model": "7530",
-    "price_min": 2380.0,
-    "price_max": 2380.0,
-    "price_display": "HK$2,380.00",
-    "specs": [
-      "座高：19\"",
-      "座闊：16\" / 18\"",
-      "總外闊：23\" / 25\" / 27\"",
-      "重量：11.9kg",
-      "承重：360lb / 163.2kg",
-      "座深：16.3\"",
-      "背高：16.3\"",
-      "扶手高：9.8\"",
-      "後輪：16\""
-    ],
-    "image_url": "images/wheelchair_healthyliving_ad7530.jpeg",
-    "product_url": "https://www.healthyliving.com.hk/shop/%E7%BE%8E%E5%9C%8B-advanced-7530-%E5%A4%9A%E5%8A%9F%E8%83%BD%E8%BC%95%E8%BC%AA%E6%A4%85/",
-    "phone": "3426 9090",
-    "updated_date": "2026-06-13",
-    "last_checked": "2026-10-15",
-    "product_name_en": "Advanced 7530 Multi-functional Lightweight Wheelchair",
-    "specs_en": [
-      "Seat height: 19\"",
-      "Seat width: 16\" / 18\"",
-      "Overall width: 23\" / 25\" / 27\"",
-      "Weight: 11.9 kg",
-      "Max load: 360 lb / 163.2 kg",
-      "Seat depth: 16.3\"",
-      "Back height: 16.3\"",
-      "Armrest height: 9.8\"",
-      "Rear wheel: 16\""
-    ],
-    "price_display_en": "HK$2,380.00",
-    "stock_status": "in_stock",
-    "features": [],
-    "features_en": [],
-    "subgroup": "transit"
   },
   {
     "id": "w7",
@@ -641,12 +641,16 @@
     "note": "免安裝；床欄可由 25\" 伸長至 40\"；置於床褥下使用；床墊厚度需大過 8cm/3吋; ⚠ 不支援線上付款，請 WhatsApp 2742 4370 落單",
     "product_name_en": "UK NRS Single-side Bed Rail (Extendable)",
     "specs_en": [
-      "Dimensions: 37.5\"(D) × 25–40\"(W) × 18.75\"(H)"
+      "Dimensions: 37.5\"(D) × 25–40\"(W) × 18.75\"(H)",
+      "Installation: No installation — slides under mattress",
+      "Recommended mattress thickness: not stated by supplier"
     ],
     "price_display_en": "HK$1,080.00",
     "note_en": "No-install; rail extends 25\" to 40\"; placed under mattress; requires mattress thicker than 8cm/3\"",
     "specs": [
-      "尺寸：37.5\"(深) × 25–40\"(闊) × 18.75\"(高)"
+      "尺寸：37.5\"(深) × 25–40\"(闊) × 18.75\"(高)",
+      "安裝方法：免安裝，置於床褥下",
+      "建議床褥厚度：供應商未列明"
     ],
     "stock_status": "in_stock",
     "features": [
@@ -680,11 +684,15 @@
     "phone": "2432 2028",
     "note": "免安裝；高度可調 5 段（46.5-56cm）；床墊厚度需大過 8cm/3吋；床面需與床框同一水平；4 防滑腳墊",
     "specs": [
-      "尺寸：90cm(深) × 51cm(闊) × 46.5–56cm(高)"
+      "尺寸：90cm(深) × 51cm(闊) × 46.5–56cm(高)",
+      "安裝方法：免安裝，可隨時放置或移走（需床褥厚度 > 8cm）",
+      "建議床褥厚度：8cm 以上"
     ],
     "product_name_en": "No-install Bed Rail (Sit-to-Stand Assist)",
     "specs_en": [
-      "Dimensions: 90 cm(D) × 51 cm(W) × 46.5–56 cm(H)"
+      "Dimensions: 90 cm(D) × 51 cm(W) × 46.5–56 cm(H)",
+      "Installation: No installation — place/remove anytime (mattress thicker than 8 cm)",
+      "Recommended mattress thickness: more than 8 cm"
     ],
     "price_display_en": "HK$380",
     "note_en": "No-install; 5-level height adjust (46.5–56cm); mattress must be >8cm/3\" thick; bed surface level with frame",
@@ -721,11 +729,15 @@
     "phone": "2419 6788",
     "note": "單邊無腳扶手；連 24\"×24\" 木底板；費用已包送貨及上門安裝；建議固定於床板；如鐵床板/床架另收費",
     "specs": [
-      "尺寸：24吋(深) × 24吋(闊木底板) × 18吋(高)"
+      "尺寸：24吋(深) × 24吋(闊木底板) × 18吋(高)",
+      "安裝方法：螺絲固定於床板上（費用已包上門安裝）",
+      "建議床褥厚度：不適用（螺絲固定於床板）"
     ],
     "product_name_en": "Bedside Footless Bed Rail (Single)",
     "specs_en": [
-      "Dimensions: 24\"(D) × 24\"(W wood base) × 18\"(H)"
+      "Dimensions: 24\"(D) × 24\"(W wood base) × 18\"(H)",
+      "Installation: Screwed to the bed frame (installation included)",
+      "Recommended mattress thickness: not applicable (screwed to bed frame)"
     ],
     "price_display_en": "HK$920 - $1,770 (BP3888 $920 / BP3868 $1,770)",
     "note_en": "Single-side footless rail; includes 24×24\" wood base; price covers delivery + install; recommend mounting on bed frame; metal frame install costs extra",
@@ -2883,6 +2895,61 @@
     "last_checked": "2026-10-15"
   },
   {
+    "id": "ac6",
+    "source": "justmed",
+    "source_name": "真善美醫護",
+    "category": "armchair",
+    "product_name": "休閒座椅 (連餐桌板)(座深可調)",
+    "model": "H-VM90MS",
+    "price_min": 1500,
+    "price_max": 1500,
+    "price_display": "HK$1,500",
+    "price_display_en": "HK$1,500",
+    "specs": [
+      "座高：15\"-20\" (可調)",
+      "座闊：19\"",
+      "座深：19\" (可調至21\"，附滑盤功能)",
+      "背高：26\"",
+      "總外闊：25\"",
+      "扶手高：8\" (離座)",
+      "枱板：15\"-25.5\" (掛式，無段鎖扣可調深度)",
+      "物料：鐵鋼支架、紅色人造皮座墊"
+    ],
+    "specs_en": [
+      "Seat height: 15\"-20\" (adjustable)",
+      "Seat width: 19\"",
+      "Seat depth: 19\" (adjustable to 21\", sliding seat)",
+      "Back height: 26\"",
+      "Overall width: 25\"",
+      "Armrest height: 8\" above seat",
+      "Tray table: 15\"-25.5\" (hook-on, stepless depth adjustment)",
+      "Material: steel frame, red PU seat"
+    ],
+    "features": [
+      "仁濟醫院網上復康店地址：荃灣街市街128號安裕大廈地舖（近仁濟醫院）",
+      "橙紅色款式，連餐桌板",
+      "可調較座高及座深，適合不同身型用者",
+      "符合 BS7176 中度防火標準，可於院舍使用"
+    ],
+    "features_en": [
+      "Yan Chai Hospital Online Rehab Store: G/F, On Yue Building, 128 Tsuen Wan Market Street (near Yan Chai Hospital)",
+      "Orange-red model with tray table",
+      "Adjustable seat height and seat depth for different body sizes",
+      "Meets BS7176 medium hazard fire-retardant standard, suitable for care homes"
+    ],
+    "image_url": "images/armchair_justmed_hvm90ms.jpg",
+    "product_url": "https://yanchai.justmed.com.hk/product-detail.php?id=49",
+    "product_name_en": "Leisure Chair with Tray Table (Adjustable Seat Depth)",
+    "phone": "9730 1857",
+    "purchase_method": "whatsapp_only",
+    "note": "2026-10-15 新增 (仁濟醫院網上復康店 id=49)",
+    "stock_status": "in_stock",
+    "updated_date": "2026-10-15",
+    "last_checked": "2026-10-15",
+    "branch": "仁濟醫院網上復康店有售",
+    "branch_en": "Available at Yan Chai Hospital Online Rehab Store"
+  },
+  {
     "id": "ac3",
     "product_name": "Advanced Rest Low 低背椅/休閒椅/扶手椅 – 灰色",
     "model": "",
@@ -3033,61 +3100,6 @@
     "phone": "9730 1857",
     "purchase_method": "whatsapp_only",
     "note": "2026-10-15 改用仁濟醫院網上復康店 (yanchai.justmed) 連結及價錢, 原公開店價 HK$900; ⚠ 不支援線上付款，請 WhatsApp 2742 4370 落單",
-    "stock_status": "in_stock",
-    "updated_date": "2026-10-15",
-    "last_checked": "2026-10-15",
-    "branch": "仁濟醫院網上復康店有售",
-    "branch_en": "Available at Yan Chai Hospital Online Rehab Store"
-  },
-  {
-    "id": "ac6",
-    "source": "justmed",
-    "source_name": "真善美醫護",
-    "category": "armchair",
-    "product_name": "休閒座椅 (連餐桌板)(座深可調)",
-    "model": "H-VM90MS",
-    "price_min": 1500,
-    "price_max": 1500,
-    "price_display": "HK$1,500",
-    "price_display_en": "HK$1,500",
-    "specs": [
-      "座高：15\"-20\" (可調)",
-      "座闊：19\"",
-      "座深：19\" (可調至21\"，附滑盤功能)",
-      "背高：26\"",
-      "總外闊：25\"",
-      "扶手高：8\" (離座)",
-      "枱板：15\"-25.5\" (掛式，無段鎖扣可調深度)",
-      "物料：鐵鋼支架、紅色人造皮座墊"
-    ],
-    "specs_en": [
-      "Seat height: 15\"-20\" (adjustable)",
-      "Seat width: 19\"",
-      "Seat depth: 19\" (adjustable to 21\", sliding seat)",
-      "Back height: 26\"",
-      "Overall width: 25\"",
-      "Armrest height: 8\" above seat",
-      "Tray table: 15\"-25.5\" (hook-on, stepless depth adjustment)",
-      "Material: steel frame, red PU seat"
-    ],
-    "features": [
-      "仁濟醫院網上復康店地址：荃灣街市街128號安裕大廈地舖（近仁濟醫院）",
-      "橙紅色款式，連餐桌板",
-      "可調較座高及座深，適合不同身型用者",
-      "符合 BS7176 中度防火標準，可於院舍使用"
-    ],
-    "features_en": [
-      "Yan Chai Hospital Online Rehab Store: G/F, On Yue Building, 128 Tsuen Wan Market Street (near Yan Chai Hospital)",
-      "Orange-red model with tray table",
-      "Adjustable seat height and seat depth for different body sizes",
-      "Meets BS7176 medium hazard fire-retardant standard, suitable for care homes"
-    ],
-    "image_url": "images/armchair_justmed_hvm90ms.jpg",
-    "product_url": "https://yanchai.justmed.com.hk/product-detail.php?id=49",
-    "product_name_en": "Leisure Chair with Tray Table (Adjustable Seat Depth)",
-    "phone": "9730 1857",
-    "purchase_method": "whatsapp_only",
-    "note": "2026-10-15 新增 (仁濟醫院網上復康店 id=49)",
     "stock_status": "in_stock",
     "updated_date": "2026-10-15",
     "last_checked": "2026-10-15",
