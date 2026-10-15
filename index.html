@@ -1646,6 +1646,7 @@ const SPEC_CANON = [
   ['weight',   '重量',     'Weight',         ['重量','淨重','weight']],
   ['material', '物料',     'Material',       ['物料','材質','material']],
   ['size_code','尺碼',     'Size',           ['尺碼']],
+  ['install',  '安裝方法', 'Installation',   ['安裝方法','安裝','installation','mounting']],
 ];
 const SPEC_ALIAS = {}; SPEC_CANON.forEach(([id,,,al]) => al.forEach(a => { SPEC_ALIAS[a] = id; }));
 function specKeyId(raw) { const t0 = (raw || '').trim().replace(/\s+/g,' '); const k = t0.toLowerCase(); return SPEC_ALIAS[k] || ('raw:' + t0); }
