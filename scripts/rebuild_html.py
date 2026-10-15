@@ -64,6 +64,16 @@ def rebuild():
 
     html = re.sub(r'src=["\']([^"\']*images/[^"\']+)["\']', rep, html)
 
+    # Inline local vendor scripts (e.g. vendor/qrcode.js) so the standalone file stays fully offline
+    def inline_script(m: re.Match) -> str:
+        src = m.group(1)
+        path = REPO / src
+        if path.exists():
+            return "<script>\n" + path.read_text(encoding="utf-8") + "\n</script>"
+        return m.group(0)
+
+    html = re.sub(r'<script src=["\'](vendor/[^"\']+\.js)["\']></script>', inline_script, html)
+
     # Inject embedded products + fetch override
     inject = f"""<script>
 window.__EMBEDDED_PRODUCTS__ = {json.dumps(products, ensure_ascii=False)};

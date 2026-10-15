@@ -480,6 +480,28 @@
     .card .price.out-of-stock { color: #999; text-decoration: line-through; font-size: 0.95em; font-weight: 500; }
     .card .stock-badge { display: inline-block; background: #fee2e2; color: #b91c1c; font-size: 0.9em; font-weight: 600; padding: 4px 10px; border-radius: 6px; margin: 4px 0 6px 0; border: 1px solid #fca5a5; }
     .card .source { font-size: 0.85em; color: #27ae60; }
+    /* === Product-page QR code (right of price / supplier) === */
+    .card .price-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+    .card .price-row .price-main { flex: 1; min-width: 0; }
+    .card .qr-wrap { display: flex; gap: 6px; flex-shrink: 0; }
+    .card .qr-btn { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 4px 4px 2px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 2px; font: inherit; color: #475569; }
+    .card .qr-btn:hover, .card .qr-btn:focus-visible { border-color: #3498db; box-shadow: 0 0 0 2px rgba(52,152,219,0.2); outline: none; }
+    .card .qr-box { width: 100px; height: 100px; }
+    .card .qr-box svg { width: 100%; height: 100%; display: block; }
+    .card .qr-cap { font-size: 0.68em; font-weight: 600; white-space: nowrap; line-height: 1.2; }
+    .card .qr-label { font-size: 0.68em; color: #64748b; line-height: 1.1; }
+    @media (max-width: 480px) { .card .qr-box { width: 84px; height: 84px; } }
+    /* QR modal */
+    .qr-modal { position: fixed; inset: 0; background: rgba(15,23,42,0.6); display: none; align-items: center; justify-content: center; z-index: 10000; padding: 16px; }
+    .qr-modal.open { display: flex; }
+    .qr-modal .qr-dialog { background: #fff; border-radius: 16px; padding: 20px 22px 18px; max-width: 360px; width: 100%; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
+    .qr-modal .qr-big { width: min(260px, 70vw); height: min(260px, 70vw); margin: 6px auto 10px; }
+    .qr-modal .qr-big svg { width: 100%; height: 100%; display: block; }
+    .qr-modal h3 { font-size: 1.05em; color: #1e293b; margin: 0 0 2px; line-height: 1.35; }
+    .qr-modal .qr-sub { font-size: 0.85em; color: #27ae60; margin-bottom: 4px; }
+    .qr-modal .qr-hint { font-size: 0.85em; color: #475569; margin: 0 0 6px; }
+    .qr-modal .qr-url { font-size: 0.72em; color: #94a3b8; word-break: break-all; margin-bottom: 12px; }
+    .qr-modal .qr-close { background: #2c3e50; color: #fff; border: none; border-radius: 8px; padding: 10px 22px; font-size: 1em; font-weight: 700; cursor: pointer; }
     .card .updated { font-size: 0.75em; color: #aaa; line-height: 1.4; }
     .card .updated.checked { color: #16a34a; font-weight: 500; }
     /* === Specs as bullet list, one per line === */
@@ -788,6 +810,7 @@
   </div>
 </footer>
 
+<script src="vendor/qrcode.js"></script>
 <script>
 const JSON_URL = './products.json';
 let allProducts = [];
@@ -846,6 +869,7 @@ const I18N = {
     updated: '價錢最後變動：',
     checked: '最後核對：',
     btn_call_text: '一按即打', btn_web_text: '產品網頁',
+    qr_caption: '掃描開網頁', qr_title: '產品網頁 QR code', qr_hint: '用手機相機掃描，即可開啟產品網頁', qr_close: '關閉',
     alert_max: '最多選4件產品', alert_min: '請選至少2件產品',
     footer_contact_title: '仁濟醫院職業治療部電話',
     footer_phone_op: '門診骨科',
@@ -959,6 +983,7 @@ const I18N = {
     updated: 'Price last changed: ',
     checked: 'Last verified: ',
     btn_call_text: 'Call', btn_web_text: 'Product page',
+    qr_caption: 'Scan to open', qr_title: 'Product page QR code', qr_hint: 'Scan with your phone camera to open the product page', qr_close: 'Close',
     alert_max: 'Maximum 4 products', alert_min: 'Please select at least 2 products',
     footer_contact_title: 'Yan Chai Hospital Occupational Therapy — Phone',
     footer_phone_op: 'Outpatient Orthopaedic',
@@ -1258,8 +1283,8 @@ function renderCards(products) {
       ${imgHTML}
       <h3>${escapeHTML(fieldName(p))}</h3>
       <div class="model">${escapeHTML(p.model || '')}</div>
-      ${priceBlockHTML(p)}
-      <div class="source">📦 ${escapeHTML(supplierName(p))}</div>
+      <div class="price-row"><div class="price-main">${priceBlockHTML(p)}
+      <div class="source">📦 ${escapeHTML(supplierName(p))}</div></div>${qrButtonsHTML(p)}</div>
       ${specsHTML}
       ${featuresHTML}
       ${actionsHTML}
@@ -1270,6 +1295,55 @@ function renderCards(products) {
     grid.appendChild(card);
   });
 }
+
+// ---- Product-page QR code (offline, generated in the browser) ----
+const SITE_URL = 'https://ychoccu.github.io/ych-occu-rehab-aids-tracker/';
+// Short redirect URL encoded in the QR (short = sparser, easier-to-scan QR; the phone scanning it is online even when this page is used offline)
+function productGoURL(p, idx) { return SITE_URL + '#/go/' + encodeURIComponent(p.id) + (idx ? '/' + idx : ''); }
+const _qrCache = {};
+function qrSVG(url) {
+  if (!url || typeof qrcode !== 'function') return '';
+  if (_qrCache[url]) return _qrCache[url];
+  try {
+    const q = qrcode(0, 'L'); q.addData(url); q.make();
+    const svg = q.createSvgTag({ cellSize: 2, margin: 2, scalable: true });
+    _qrCache[url] = svg; return svg;
+  } catch (e) { return ''; }
+}
+function productQRLinks(p) {
+  if (Array.isArray(p.product_urls) && p.product_urls.length) return p.product_urls.map(u => ({ url: u.url, label: u.label || '' }));
+  if (p.product_url) return [{ url: p.product_url, label: '' }];
+  return [];
+}
+function qrButtonsHTML(p) {
+  const links = productQRLinks(p);
+  if (!links.length) return '';
+  const name = fieldName(p), sup = supplierName(p);
+  const btns = links.map((l, i) => {
+    const go = productGoURL(p, i);
+    const svg = qrSVG(go); if (!svg) return '';
+    return `<button type="button" class="qr-btn" title="${escapeAttr(t('qr_title'))}" aria-label="${escapeAttr(t('qr_title'))}: ${escapeAttr(name)}" data-url="${escapeAttr(go)}" data-target="${escapeAttr(l.url)}" data-name="${escapeAttr(name)}" data-sup="${escapeAttr(sup)}" data-label="${escapeAttr(l.label)}" onclick="showQR(this)"><div class="qr-box">${svg}</div>${l.label ? `<span class="qr-label">${escapeHTML(l.label)}</span>` : ''}<span class="qr-cap">${escapeHTML(t('qr_caption'))}</span></button>`;
+  }).join('');
+  return btns ? `<div class="qr-wrap">${btns}</div>` : '';
+}
+function showQR(btn) {
+  const m = document.getElementById('qrModal'); if (!m) return;
+  const url = btn.dataset.url || '';
+  m.querySelector('.qr-big').innerHTML = qrSVG(url);
+  m.querySelector('h3').textContent = btn.dataset.name || '';
+  m.querySelector('.qr-sub').textContent = [btn.dataset.sup, btn.dataset.label].filter(Boolean).join(' · ');
+  m.querySelector('.qr-hint').textContent = t('qr_hint');
+  let host = ''; try { host = new URL(btn.dataset.target || url).hostname.replace(/^www\./, ''); } catch (e) {}
+  m.querySelector('.qr-url').textContent = host ? '🌐 ' + host : '';
+  m.querySelector('.qr-close').textContent = t('qr_close');
+  m.classList.add('open'); m.setAttribute('aria-hidden', 'false');
+  m.querySelector('.qr-close').focus();
+}
+function closeQR() {
+  const m = document.getElementById('qrModal'); if (!m) return;
+  m.classList.remove('open'); m.setAttribute('aria-hidden', 'true');
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeQR(); });
 
 function escapeHTML(s) {
   if (s == null) return '';
@@ -1843,6 +1917,17 @@ function handleRoute() {
     return;
   }
 
+  if (hash.startsWith('#/go/')) {
+    // QR-code short link: redirect straight to the product page on the supplier website
+    const parts = hash.slice('#/go/'.length).split('/');
+    const pid = decodeURIComponent(parts[0] || ''), idx = parseInt(parts[1] || '0', 10) || 0;
+    const prod = (allProducts || []).find(x => String(x.id) === pid);
+    const links = prod ? productQRLinks(prod) : [];
+    const target = links[idx] ? links[idx].url : (links[0] ? links[0].url : '');
+    if (target) { location.replace(target); return; }
+    location.hash = '#/'; return;
+  }
+
   if (hash.startsWith('#/rental')) {
     // RENTAL SERVICES PAGE (hidden until published)
     if (isRentalHidden()) { location.hash = '#/'; return; }
@@ -1920,5 +2005,15 @@ async function bootstrap() {
 }
 bootstrap();
 </script>
+<div id="qrModal" class="qr-modal" role="dialog" aria-modal="true" aria-hidden="true" onclick="if(event.target===this)closeQR()">
+  <div class="qr-dialog">
+    <h3></h3>
+    <div class="qr-sub"></div>
+    <div class="qr-big"></div>
+    <p class="qr-hint"></p>
+    <div class="qr-url"></div>
+    <button type="button" class="qr-close" onclick="closeQR()">關閉</button>
+  </div>
+</div>
 </body>
 </html>
