@@ -444,16 +444,30 @@
       border: none; border-radius: 8px; cursor: pointer; font-size: 0.95em;
     }
     .controls button:hover { background: #219150; }
+    /* Compare bar: fixed to the bottom of the screen so it is always visible once something is selected */
     #compare-bar {
-      display: none; background: #fff3cd; border-radius: 12px;
-      padding: 14px 20px; margin: 12px auto; max-width: 1000px; text-align: center;
+      display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 900;
+      background: #fff3cd; border-top: 3px solid #e67e22; box-shadow: 0 -4px 16px rgba(0,0,0,.18);
+      padding: 12px 16px calc(12px + env(safe-area-inset-bottom)); text-align: center; font-size: 1.05em; font-weight: 600; color: #7c3a00;
     }
     #compare-bar button {
-      margin: 4px 8px; padding: 8px 18px; border: none;
-      border-radius: 8px; cursor: pointer; font-size: 0.9em;
+      margin: 4px 8px; padding: 12px 26px; border: none;
+      border-radius: 10px; cursor: pointer; font-size: 1.05em; font-weight: 700;
     }
-    #btn-compare { background: #e67e22; color: white; }
+    #btn-compare { background: #e67e22; color: white; box-shadow: 0 2px 8px rgba(230,126,34,.45); }
+    #btn-compare:hover { background: #d35400; }
     #btn-clear   { background: #aaa; color: white; }
+    body.has-compare #products-view { padding-bottom: 110px; }
+    /* Compare toggle on each card: a clear button instead of a tiny checkbox */
+    .card .cmp-toggle {
+      display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 8px;
+      padding: 10px 12px; border: 2px solid #e67e22; border-radius: 10px; background: #fff;
+      color: #c2410c; font-weight: 700; font-size: 0.95em; cursor: pointer; user-select: none;
+    }
+    .card .cmp-toggle input { position: absolute; opacity: 0; width: 0; height: 0; margin: 0; pointer-events: none; }
+    .card .cmp-toggle.on { background: #e67e22; color: #fff; }
+    .card .cmp-toggle .cmp-off, .card .cmp-toggle.on .cmp-on { display: inline; }
+    .card .cmp-toggle .cmp-on, .card .cmp-toggle.on .cmp-off { display: none; }
 
     /* === Product cards === */
     #product-grid {
@@ -602,6 +616,24 @@
     #compare-modal h2 { margin-bottom: 16px; color: #2c3e50; }
     #compare-table { width: 100%; border-collapse: collapse; font-size: 0.9em; }
     #compare-table th { background: #27ae60; color: white; padding: 10px; }
+    /* Product columns: white header with a small product photo above the name */
+    #compare-table th.cmp-prod { background: #f4fbf6; color: #1f2937; vertical-align: bottom; min-width: 150px; border: 1px solid #ddd; }
+    #compare-table th.cmp-prod img { display: block; width: 110px; height: 110px; object-fit: contain; margin: 0 auto 8px; background: #fff; border-radius: 10px; }
+    #compare-table th.cmp-prod .cmp-name { font-weight: 700; font-size: 0.95em; line-height: 1.3; }
+    #compare-table th.cmp-prod .cmp-model { font-weight: 400; font-size: 0.8em; color: #6b7280; margin-top: 2px; }
+    #compare-table th.cmp-item { text-align: left; }
+    #compare-table td.cmp-na { color: #9ca3af; text-align: center; }
+    #compare-table tr.cmp-group td { background: #e8f5ec; color: #166534; font-weight: 700; }
+    #compare-table .cmp-hint { font-size: 0.85em; color: #6b7280; margin: -8px 0 12px; }
+    #compare-table td:first-child { white-space: nowrap; }
+    @media (max-width: 600px) {
+      #compare-table { font-size: 0.85em; }
+      #compare-table th.cmp-prod { min-width: 120px; }
+      #compare-table th.cmp-prod img { width: 80px; height: 80px; }
+      #compare-table th:first-child, #compare-table td:first-child { position: sticky; left: 0; z-index: 1; background: #fff; }
+      #compare-table th:first-child { background: #27ae60; }
+      #compare-table tr.cmp-group td:first-child { background: #e8f5ec; }
+    }
     #compare-table td { padding: 10px; border: 1px solid #ddd; vertical-align: top; }
     #compare-table tr:nth-child(even) td { background: #f9f9f9; }
     #compare-table ul { margin-left: 18px; }
@@ -773,6 +805,7 @@
 <div id="compare-modal">
   <div class="modal-inner">
     <h2 data-i18n="cmp_title">產品比較</h2>
+    <p class="cmp-hint" id="compare-hint"></p>
     <div style="overflow-x:auto"><table id="compare-table"></table></div>
     <button id="btn-close-modal" onclick="closeCompare()" data-i18n="btn_close">關閉</button>
   </div>
@@ -873,6 +906,9 @@ const I18N = {
     btn_search: '🔎 搜尋',
     cmp_selected: '已選', cmp_max: '件產品（最多4件）',
     btn_compare: '比較', btn_clear: '清除',
+    cmp_add: '加入比較', cmp_added: '已加入比較', cmp_now: '立即比較',
+    cmp_specs_hint: '同一類別產品：規格已逐項分開對比；「—」表示供應商未提供該項資料。',
+    cmp_mixed_hint: '所選產品屬不同類別，規格以列表方式顯示。',
     loading: '正在載入產品資料...', no_match: '找不到符合條件的產品',
     load_fail: '載入失敗：', no_data: '資料庫暫時沒有產品',
     cmp_title: '產品比較', btn_close: '關閉',
@@ -989,6 +1025,9 @@ const I18N = {
     btn_search: '🔎 Search',
     cmp_selected: 'Selected', cmp_max: 'items (max 4)',
     btn_compare: 'Compare', btn_clear: 'Clear',
+    cmp_add: 'Add to compare', cmp_added: 'Added to compare', cmp_now: 'Compare now',
+    cmp_specs_hint: 'Same category: each specification is compared side by side; "—" means the supplier did not list it.',
+    cmp_mixed_hint: 'Selected products are in different categories, so specifications are shown as lists.',
     loading: 'Loading products...', no_match: 'No matching products found',
     load_fail: 'Failed to load: ', no_data: 'No products in database yet',
     cmp_title: 'Product Comparison', btn_close: 'Close',
@@ -1168,6 +1207,7 @@ function setLang(lang) {
   currentLang = lang;
   localStorage.setItem('lang', lang);
   applyI18N();
+  updateCompareBar();
   // Re-populate supplier filter (label depends on language)
   rebuildSourceFilter();
   // Re-render whichever view is active
@@ -1318,7 +1358,7 @@ function renderCards(products) {
       ${actionsHTML}
       <div class="updated">${t('updated')}${escapeHTML(p.updated_date || 'N/A')}</div>
       <div class="updated checked">✓ ${t('checked')}${escapeHTML(p.last_checked || p.updated_date || 'N/A')}</div>
-      <label><input type="checkbox" ${checked} data-id="${id}" data-product="${pData}" onchange="toggleCompare(this)"> ${t('btn_compare')}</label>
+      <label class="cmp-toggle ${checked ? 'on' : ''}"><input type="checkbox" ${checked} data-id="${id}" data-product="${pData}" onchange="toggleCompare(this)"><span class="cmp-off">⚖️ ${t('cmp_add')}</span><span class="cmp-on">✓ ${t('cmp_added')}</span></label>
     `;
     grid.appendChild(card);
   });
@@ -1446,17 +1486,22 @@ function toggleCompare(checkbox) {
     compareList = compareList.filter(x => x !== id);
     delete window._compareData[id];
   }
+  const lbl = checkbox.closest('.cmp-toggle'); if (lbl) lbl.classList.toggle('on', checkbox.checked);
   updateCompareBar();
 }
 
 function updateCompareBar() {
-  document.getElementById('compare-count').textContent = compareList.length;
-  document.getElementById('compare-bar').style.display = compareList.length > 0 ? 'block' : 'none';
+  const n = compareList.length;
+  document.getElementById('compare-count').textContent = n;
+  document.getElementById('compare-bar').style.display = n > 0 ? 'block' : 'none';
+  document.body.classList.toggle('has-compare', n > 0);
+  const btn = document.getElementById('btn-compare');
+  if (btn) { btn.textContent = `⚖️ ${t('cmp_now')} (${n})`; btn.disabled = n < 2; btn.style.opacity = n < 2 ? '.55' : '1'; }
 }
 
 function clearCompare() {
   compareList = []; window._compareData = {}; updateCompareBar();
-  document.querySelectorAll('.card input[type=checkbox]').forEach(c => c.checked = false);
+  document.querySelectorAll('.card input[type=checkbox]').forEach(c => { c.checked = false; const l = c.closest('.cmp-toggle'); if (l) l.classList.remove('on'); });
 }
 
 function showCompare() {
@@ -1479,8 +1524,7 @@ function showCompare() {
   if (items.length < 2) { alert(t('alert_min')); return; }
   const catMap = CATEGORY_LABELS[currentLang] || CATEGORY_LABELS.zh;
   const rows = [
-    [t('label_product'),  p => escapeHTML(fieldName(p)) || '-'],
-    [t('label_model'),    p => escapeHTML(p.model||'-')],
+    // product name + model are shown in the column header (with photo)
     [t('label_price'),    p => escapeHTML(fieldPrice(p)) || '-'],
     [t('label_supplier'), p => escapeHTML(supplierName(p)) || '-'],
     [t('label_category'), p => escapeHTML(catMap[p.category] || p.category || '-')],
@@ -1513,15 +1557,78 @@ function showCompare() {
     [t('label_checked'),  p => escapeHTML(p.last_checked || p.updated_date || '-')],
     // [t('label_stock'),    p => isOutOfStock(p) ? `<span style="color:#b91c1c;font-weight:600">${t('stock_out')}</span>` : t('stock_in')],
   ];
-  let html = `<tr><th>${t('label_item')}</th>` + items.map(p=>`<th>${escapeHTML(fieldName(p))||'-'}</th>`).join('') + '</tr>';
+  // Same category -> split the specs into one row per variable (座高 / 座闊 / 承重 ...) so they line up.
+  const sameCat = items.every(p => p.category && p.category === items[0].category);
+  let specRows = null;
+  if (sameCat) {
+    const parsed = items.map(p => parseSpecs(fieldSpecs(p)));
+    const order = [];
+    parsed.forEach(m => Object.keys(m).forEach(k => { if (!order.includes(k)) order.push(k); }));
+    order.sort((a, b) => specRank(a) - specRank(b));
+    if (order.length) {
+      specRows = order.map(k => [specLabel(k), p => {
+        const v = parsed[items.indexOf(p)][k];
+        return v ? escapeHTML(v) : '<span class="cmp-na">—</span>';
+      }]);
+    }
+  }
+  let html = `<tr><th class="cmp-item">${t('label_item')}</th>` + items.map(p => `<th class="cmp-prod">${p.image_url ? `<img src="${escapeAttr(p.image_url)}" alt="" onerror="this.style.display='none'">` : ''}<div class="cmp-name">${escapeHTML(fieldName(p))||'-'}</div><div class="cmp-model">${escapeHTML(p.model||'')}</div></th>`).join('') + '</tr>';
   rows.forEach(([label, fn]) => {
+    if (specRows && label === t('label_specs')) {
+      html += `<tr class="cmp-group"><td colspan="${items.length + 1}">${label}</td></tr>`;
+      specRows.forEach(([l, f]) => { html += `<tr><td><strong>${escapeHTML(l)}</strong></td>` + items.map(p => `<td>${f(p)}</td>`).join('') + '</tr>'; });
+      return;
+    }
     html += `<tr><td><strong>${label}</strong></td>` + items.map(p=>`<td>${fn(p)}</td>`).join('') + '</tr>';
   });
+  const hintEl = document.getElementById('compare-hint');
+  if (hintEl) hintEl.textContent = specRows ? t('cmp_specs_hint') : t('cmp_mixed_hint');
   document.getElementById('compare-table').innerHTML = html;
   document.getElementById('compare-modal').style.display = 'block';
 }
 
 function closeCompare() { document.getElementById('compare-modal').style.display = 'none'; }
+
+/* ---- Spec alignment for same-category comparison ----
+   Specs are stored as "key：value" strings. Keys from different suppliers are normalised to a shared
+   canonical id so the same variable lands on the same row; unknown keys keep their own text. */
+const SPEC_CANON = [
+  // [canonical id, zh label, en label, aliases (zh + en, lower-case)]
+  ['dims',     '尺寸',     'Dimensions',     ['尺寸','總尺寸','整體尺寸','dimensions','overall size','size']],
+  ['width',    '總外闊',   'Overall width',  ['總外闊','總闊','闊度','width','overall width']],
+  ['length',   '長度',     'Length',         ['長度','總長','length']],
+  ['height',   '高度',     'Height',         ['高度','height','height range']],
+  ['depth',    '深度',     'Depth',          ['深度','depth']],
+  ['seat_h',   '座高',     'Seat height',    ['座高','座位高度','座椅高度','seat height']],
+  ['seat_w',   '座闊',     'Seat width',     ['座闊','座寬','座位闊度','seat width']],
+  ['seat_d',   '座深',     'Seat depth',     ['座深','座位深度','seat depth']],
+  ['back_h',   '背高',     'Back height',    ['背高','靠背高度','back height','back']],
+  ['arm_h',    '扶手高',   'Armrest height', ['扶手高','扶手高度','armrest height']],
+  ['angle',    '角度',     'Angle',          ['角度','椅背角度','angle','recline']],
+  ['load',     '承重',     'Max load',       ['承重','最大承重','最大載重','載重','max load','max. load','weight capacity']],
+  ['weight',   '重量',     'Weight',         ['重量','淨重','weight']],
+  ['material', '物料',     'Material',       ['物料','材質','material']],
+  ['size_code','尺碼',     'Size',           ['尺碼']],
+];
+const SPEC_ALIAS = {}; SPEC_CANON.forEach(([id,,,al]) => al.forEach(a => { SPEC_ALIAS[a] = id; }));
+function specKeyId(raw) { const t0 = (raw || '').trim().replace(/\s+/g,' '); const k = t0.toLowerCase(); return SPEC_ALIAS[k] || ('raw:' + t0); }
+function specLabel(id) {
+  const c = SPEC_CANON.find(x => x[0] === id);
+  if (c) return currentLang === 'en' ? c[2] : c[1];
+  return id.replace(/^raw:/, '');
+}
+function specRank(id) { const i = SPEC_CANON.findIndex(x => x[0] === id); return i >= 0 ? i : 100; }
+function parseSpecs(list) {
+  const out = {};
+  (list || []).forEach(s => {
+    const m = /^\s*([^：:]{1,30}?)\s*[：:]\s*(.+)$/.exec(String(s));
+    if (!m) { out['raw:' + s] = ''; return; }
+    const id = specKeyId(m[1]);
+    out[id] = out[id] ? out[id] + '；' + m[2].trim() : m[2].trim();
+    if (id.startsWith('raw:')) { /* keep the supplier's own key text as label */ out[id] = out[id]; }
+  });
+  return out;
+}
 
 /* ===== Favorites (localStorage) ===== */
 let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
