@@ -1312,7 +1312,7 @@ function renderCards(products) {
       <h3>${escapeHTML(fieldName(p))}</h3>
       <div class="model">${escapeHTML(p.model || '')}</div>
       <div class="price-row"><div class="price-main">${priceBlockHTML(p)}
-      <div class="source">📦 ${escapeHTML(supplierName(p))}</div>${fieldBranch(p) ? `<div class="branch">🏪 ${escapeHTML(fieldBranch(p))}</div>` : ''}</div>${qrButtonsHTML(p)}</div>
+      <div class="source">📦 ${escapeHTML(supplierName(p))}</div>${fieldBranch(p) ? `<div class="branch">📍 ${escapeHTML(fieldBranch(p))}</div>` : ''}</div>${qrButtonsHTML(p)}</div>
       ${specsHTML}
       ${featuresHTML}
       ${actionsHTML}
@@ -1978,7 +1978,7 @@ function handleRoute() {
         <h2>${escapeHTML(fieldName(prod))}</h2>
         <div class="go-model">${escapeHTML(prod.model || '')}</div>
         <div class="go-price">${escapeHTML(fieldPrice(prod))}</div>
-        <div class="go-sup">📦 ${escapeHTML(supplierName(prod))}</div>${fieldBranch(prod) ? `<div class="go-sup">🏪 ${escapeHTML(fieldBranch(prod))}</div>` : ''}
+        <div class="go-sup">📦 ${escapeHTML(supplierName(prod))}</div>${fieldBranch(prod) ? `<div class="go-sup">📍 ${escapeHTML(fieldBranch(prod))}</div>` : ''}
         <div class="go-note">${escapeHTML(t('go_note'))}<br><small>${escapeHTML(t('go_checked'))}${escapeHTML(prod.web_down_date || prod.last_checked || '')}</small></div>
         ${phoneClean ? `<a class="btn-call" href="tel:${phoneClean}">📞 ${escapeHTML(prod.phone)}</a>` : ''}
         <a class="go-home" href="#/">${escapeHTML(t('go_home'))}</a>
