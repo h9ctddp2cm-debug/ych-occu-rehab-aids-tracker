@@ -522,8 +522,13 @@ window.__EMBEDDED_RENTAL__ = {"data_date": "2026-10-08", "intro": {"zh": "短期
     .card .source { font-size: 0.85em; color: #27ae60; }
     .card .branch { font-size: 0.78em; color: #555; margin-top: 2px; line-height: 1.35; }
     /* === Product-page QR code (right of price / supplier) === */
-    .card .price-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
-    .card .price-row .price-main { flex: 1; min-width: 0; }
+    /* QR floats on the right; price, supplier and the specs list flow around it so there is no empty block under the price */
+    .card .body-flow { display: flow-root; }
+    .card .body-flow .qr-wrap { float: right; margin: 0 0 4px 10px; }
+    .card .price-row .price-main { min-width: 0; }
+    .card .body-flow .specs-list { margin-top: 6px; }
+    .card .qr-wrap.two .qr-box { width: 72px; height: 72px; }   /* two QR codes side by side: keep room for the price */
+    .card .qr-wrap.two .qr-btn { padding: 3px 3px 2px; }
     .card .qr-wrap { display: flex; gap: 6px; flex-shrink: 0; }
     .card .qr-btn { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 4px 4px 2px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 2px; font: inherit; color: #475569; }
     .card .qr-btn:hover, .card .qr-btn:focus-visible { border-color: #3498db; box-shadow: 0 0 0 2px rgba(52,152,219,0.2); outline: none; }
@@ -3690,9 +3695,9 @@ function renderCards(products) {
       ${imgHTML}
       <h3>${escapeHTML(fieldName(p))}</h3>
       <div class="model">${escapeHTML(p.model || '')}</div>
-      <div class="price-row"><div class="price-main">${priceBlockHTML(p)}
-      <div class="source">📦 ${escapeHTML(supplierName(p))}</div>${fieldBranch(p) ? `<div class="branch">📍 ${escapeHTML(fieldBranch(p))}</div>` : ''}</div>${qrButtonsHTML(p)}</div>
-      ${specsHTML}
+      <div class="body-flow">${qrButtonsHTML(p)}<div class="price-row"><div class="price-main">${priceBlockHTML(p)}
+      <div class="source">📦 ${escapeHTML(supplierName(p))}</div>${fieldBranch(p) ? `<div class="branch">📍 ${escapeHTML(fieldBranch(p))}</div>` : ''}</div></div>
+      ${specsHTML}</div>
       ${featuresHTML}
       ${actionsHTML}
       <div class="updated">${t('updated')}${escapeHTML(p.updated_date || 'N/A')}</div>
@@ -3732,7 +3737,7 @@ function qrButtonsHTML(p) {
     const svg = qrSVG(go); if (!svg) return '';
     return `<button type="button" class="qr-btn" title="${escapeAttr(t('qr_title'))}" aria-label="${escapeAttr(t('qr_title'))}: ${escapeAttr(name)}" data-url="${escapeAttr(go)}" data-target="${escapeAttr(l.url)}"${p.web_down ? ' data-down="1"' : ''} data-name="${escapeAttr(name)}" data-sup="${escapeAttr(sup)}" data-label="${escapeAttr(l.label)}" onclick="showQR(this)"><div class="qr-box">${svg}</div>${l.label ? `<span class="qr-label">${escapeHTML(l.label)}</span>` : ''}<span class="qr-cap">${escapeHTML(t('qr_caption'))}</span></button>`;
   }).join('');
-  return btns ? `<div class="qr-wrap">${btns}</div>` : '';
+  return btns ? `<div class="qr-wrap${links.length > 1 ? ' two' : ''}">${btns}</div>` : '';
 }
 function showQR(btn) {
   const m = document.getElementById('qrModal'); if (!m) return;
