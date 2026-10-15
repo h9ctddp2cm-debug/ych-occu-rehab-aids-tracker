@@ -642,13 +642,15 @@
     "product_name_en": "UK NRS Single-side Bed Rail (Extendable)",
     "specs_en": [
       "Dimensions: 37.5\"(D) × 25–40\"(W) × 18.75\"(H)",
-      "Installation: No installation — slides under mattress"
+      "Installation: No installation — slides under mattress",
+      "Recommended mattress thickness: not stated by supplier"
     ],
     "price_display_en": "HK$1,080.00",
     "note_en": "No-install; rail extends 25\" to 40\"; placed under mattress; requires mattress thicker than 8cm/3\"",
     "specs": [
       "尺寸：37.5\"(深) × 25–40\"(闊) × 18.75\"(高)",
-      "安裝方法：免安裝，置於床褥下"
+      "安裝方法：免安裝，置於床褥下",
+      "建議床褥厚度：供應商未列明"
     ],
     "stock_status": "in_stock",
     "features": [
@@ -683,12 +685,14 @@
     "note": "免安裝；高度可調 5 段（46.5-56cm）；床墊厚度需大過 8cm/3吋；床面需與床框同一水平；4 防滑腳墊",
     "specs": [
       "尺寸：90cm(深) × 51cm(闊) × 46.5–56cm(高)",
-      "安裝方法：免安裝，可隨時放置或移走（需床褥厚度 > 8cm）"
+      "安裝方法：免安裝，可隨時放置或移走（需床褥厚度 > 8cm）",
+      "建議床褥厚度：8cm 以上"
     ],
     "product_name_en": "No-install Bed Rail (Sit-to-Stand Assist)",
     "specs_en": [
       "Dimensions: 90 cm(D) × 51 cm(W) × 46.5–56 cm(H)",
-      "Installation: No installation — place/remove anytime (mattress thicker than 8 cm)"
+      "Installation: No installation — place/remove anytime (mattress thicker than 8 cm)",
+      "Recommended mattress thickness: more than 8 cm"
     ],
     "price_display_en": "HK$380",
     "note_en": "No-install; 5-level height adjust (46.5–56cm); mattress must be >8cm/3\" thick; bed surface level with frame",
@@ -726,12 +730,14 @@
     "note": "單邊無腳扶手；連 24\"×24\" 木底板；費用已包送貨及上門安裝；建議固定於床板；如鐵床板/床架另收費",
     "specs": [
       "尺寸：24吋(深) × 24吋(闊木底板) × 18吋(高)",
-      "安裝方法：螺絲固定於床板上（費用已包上門安裝）"
+      "安裝方法：螺絲固定於床板上（費用已包上門安裝）",
+      "建議床褥厚度：不適用（螺絲固定於床板）"
     ],
     "product_name_en": "Bedside Footless Bed Rail (Single)",
     "specs_en": [
       "Dimensions: 24\"(D) × 24\"(W wood base) × 18\"(H)",
-      "Installation: Screwed to the bed frame (installation included)"
+      "Installation: Screwed to the bed frame (installation included)",
+      "Recommended mattress thickness: not applicable (screwed to bed frame)"
     ],
     "price_display_en": "HK$920 - $1,770 (BP3888 $920 / BP3868 $1,770)",
     "note_en": "Single-side footless rail; includes 24×24\" wood base; price covers delivery + install; recommend mounting on bed frame; metal frame install costs extra",
