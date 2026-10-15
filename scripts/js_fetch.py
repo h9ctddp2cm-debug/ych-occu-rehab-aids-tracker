@@ -11,6 +11,7 @@ logger = logging.getLogger(__name__)
 JS_RENDERED_DOMAINS = {
     "justmed.com.hk",
     "www.justmed.com.hk",
+    "yanchai.justmed.com.hk",   # 仁濟醫院網上復康店 (same platform, member prices)
     # Shopline stores inject prices client-side; plain requests HTML has no price.
     "easy66.com.hk",
     "www.easy66.com.hk",

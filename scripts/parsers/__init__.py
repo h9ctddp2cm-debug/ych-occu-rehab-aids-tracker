@@ -267,6 +267,7 @@ _NO_PRICE_SUPPLIERS = {
 _EXTRACTORS = {
     "healthyliving.com.hk": _extract_healthyliving,
     "justmed.com.hk": _extract_justmed,
+    "yanchai.justmed.com.hk": _extract_justmed,   # 仁濟醫院網上復康店 (same platform)
     "gethealth.com.hk": _extract_gethealth,
     "healthtop.com.hk": _extract_healthtop,
     "medicare.com.hk": _extract_medicare,
