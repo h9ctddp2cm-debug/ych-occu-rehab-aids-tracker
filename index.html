@@ -504,6 +504,13 @@
     .variant-table th { background: #e8f5ec; color: #166534; font-weight: 700; }
     .variant-table td:first-child { text-align: left; color: #555; background: #f9fafb; white-space: nowrap; }
     .variant-table .vt-model { font-weight: 400; font-size: 0.85em; color: #6b7280; }
+    .variant-rows { display: flex; flex-direction: column; gap: 6px; }
+    .variant-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 6px 0; border-bottom: 1px dashed #e5e7eb; }
+    .variant-row:last-child { border-bottom: none; }
+    .variant-row .vr-label { font-size: 0.95em; font-weight: 700; color: #333; line-height: 1.5; }
+    .variant-row .vr-label .price { display: inline; font-size: 1.15em; }
+    .variant-row .vr-model { font-size: 0.78em; color: #6b7280; margin-top: 2px; }
+    .variant-row .qr-btn .qr-box { width: 72px; height: 72px; }
     .card .source { font-size: 0.85em; color: #27ae60; }
     .card .branch { font-size: 0.78em; color: #555; margin-top: 3px; line-height: 1.45; }
     /* === Product-page QR code (right of price / supplier) === */
@@ -1420,10 +1427,11 @@ function renderCards(products) {
       ${imgHTML}
       <h3>${escapeHTML(fieldName(p))}</h3>
       <div class="model">${escapeHTML(p.model || '')}</div>
-      <div class="body-flow">${qrButtonsHTML(p)}<div class="price-row"><div class="price-main">${priceBlockHTML(p)}
+      ${p.variants ? `${isOutOfStock(p) ? `<div class="stock-badge">${t('stock_out')}</div>` : ''}${variantRowsHTML(p)}${variantTableHTML(p)}
+      <div class="source">📦 ${escapeHTML(supplierName(p))}</div>${fieldBranch(p) ? `<div class="branch">📍 ${escapeHTML(fieldBranch(p))}</div>` : ''}
+      ${specsHTML}` : `<div class="body-flow">${qrButtonsHTML(p)}<div class="price-row"><div class="price-main">${priceBlockHTML(p)}
       <div class="source">📦 ${escapeHTML(supplierName(p))}</div>${fieldBranch(p) ? `<div class="branch">📍 ${escapeHTML(fieldBranch(p))}</div>` : ''}</div></div>
-      ${specsHTML}</div>
-      ${variantTableHTML(p)}
+      ${specsHTML}</div>`}
       ${featuresHTML}
       ${actionsHTML}
       ${p.price_ref ? '' : `<div class="updated">${t('updated')}${escapeHTML(p.updated_date || 'N/A')}</div>
@@ -1457,13 +1465,25 @@ function qrButtonsHTML(p) {
   if (p.web_down) return '';  // supplier website down: no QR while the page is unavailable
   const links = productQRLinks(p);
   if (!links.length) return '';
-  const name = fieldName(p), sup = supplierName(p);
-  const btns = links.map((l, i) => {
-    const go = productGoURL(p, i);
-    const svg = qrSVG(go); if (!svg) return '';
-    return `<button type="button" class="qr-btn" title="${escapeAttr(t('qr_title'))}" aria-label="${escapeAttr(t('qr_title'))}: ${escapeAttr(name)}" data-url="${escapeAttr(go)}" data-target="${escapeAttr(l.url)}"${p.web_down ? ' data-down="1"' : ''} data-name="${escapeAttr(name)}" data-sup="${escapeAttr(sup)}" data-label="${escapeAttr(l.label)}" onclick="showQR(this)"><div class="qr-box">${svg}</div>${l.label ? `<span class="qr-label">${escapeHTML(l.label)}</span>` : ''}<span class="qr-cap">${escapeHTML(t('qr_caption'))}</span></button>`;
-  }).join('');
+  const btns = links.map((l, i) => qrButtonHTML(p, i, l, true)).join('');
   return btns ? `<div class="qr-wrap${links.length > 1 ? ' two' : ''}">${btns}</div>` : '';
+}
+function qrButtonHTML(p, i, l, showLabel) {
+  const name = fieldName(p), sup = supplierName(p);
+  const go = productGoURL(p, i);
+  const svg = qrSVG(go); if (!svg) return '';
+  return `<button type="button" class="qr-btn" title="${escapeAttr(t('qr_title'))}" aria-label="${escapeAttr(t('qr_title'))}: ${escapeAttr(name)}" data-url="${escapeAttr(go)}" data-target="${escapeAttr(l.url)}"${p.web_down ? ' data-down="1"' : ''} data-name="${escapeAttr(name)}" data-sup="${escapeAttr(sup)}" data-label="${escapeAttr(l.label)}" onclick="showQR(this)"><div class="qr-box">${svg}</div>${showLabel && l.label ? `<span class="qr-label">${escapeHTML(l.label)}</span>` : ''}<span class="qr-cap">${escapeHTML(t('qr_caption'))}</span></button>`;
+}
+// Variant layout (e.g. narrow / standard frame of the same chair): one row per variant = name + price + its own QR,
+// then a mini table of the specs that differ; the shared specs stay in the normal list.
+function variantRowsHTML(p) {
+  const v = p.variants; if (!v || !v.cols) return '';
+  const en = currentLang === 'en', links = productQRLinks(p);
+  return `<div class="variant-rows">` + v.cols.map(c => {
+    const l = links[c.url_idx != null ? c.url_idx : 0];
+    const qr = (l && !p.web_down) ? qrButtonHTML(p, c.url_idx || 0, l, false) : '';
+    return `<div class="variant-row"><div class="vr-text"><div class="vr-label">${escapeHTML(en ? (c.label_en || c.label) : c.label)}：<span class="price">${escapeHTML(en ? (c.price_en || c.price) : c.price)}</span></div>${c.model ? `<div class="vr-model">${escapeHTML(c.model)}</div>` : ''}</div>${qr}</div>`;
+  }).join('') + `</div>`;
 }
 function showQR(btn) {
   const m = document.getElementById('qrModal'); if (!m) return;

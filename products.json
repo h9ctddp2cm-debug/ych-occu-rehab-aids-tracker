@@ -592,10 +592,8 @@
     "specs": [
       "座高：19.5\" (連坐墊 20.5\")",
       "座闊：17\" × 17\"",
-      "總外闊：18.3\" (窄身) / 19.1\" (標準)",
       "承重：120kg",
-      "適合座廁高：17\"",
-      "適合座廁闊：15.25\" (窄身) / 16\" (標準)"
+      "適合座廁高：17\""
     ],
     "image_url": "images/commode_medicare_ecm30442.jpg",
     "phone": "2687 6380",
@@ -605,10 +603,8 @@
     "specs_en": [
       "Seat height: 19.5\" (20.5\" with cushion)",
       "Seat width: 17\" × 17\"",
-      "Overall width: 18.3\" (narrow) / 19.1\" (standard)",
       "Max load: 120 kg",
-      "Fits toilet height: 17\"",
-      "Fits toilet width: 15.25\" (narrow) / 16\" (standard)"
+      "Fits toilet height: 17\""
     ],
     "price_display_en": "HK$2,200 (narrow frame) / $2,500 (standard frame)",
     "stock_status": "in_stock",
@@ -629,23 +625,19 @@
         {
           "label": "窄身車架",
           "label_en": "Narrow frame",
-          "model": "ECM30444S"
+          "model": "ECM30444S",
+          "price": "HK$2,200",
+          "url_idx": 0
         },
         {
           "label": "標準車架",
           "label_en": "Standard frame",
-          "model": "ECM30442"
+          "model": "ECM30442",
+          "price": "HK$2,500",
+          "url_idx": 1
         }
       ],
       "rows": [
-        {
-          "label": "價錢",
-          "label_en": "Price",
-          "values": [
-            "HK$2,200",
-            "HK$2,500"
-          ]
-        },
         {
           "label": "總外闊",
           "label_en": "Overall width",
@@ -660,18 +652,6 @@
           "values": [
             "15.25\"",
             "16\""
-          ]
-        },
-        {
-          "label": "適合",
-          "label_en": "Suits",
-          "values": [
-            "香港細浴室",
-            "大多數馬桶"
-          ],
-          "values_en": [
-            "Small HK bathrooms",
-            "Most toilets"
           ]
         }
       ]
@@ -2134,8 +2114,7 @@
     "price_display": "HK$12,000",
     "specs": [
       "尺寸：總長 199cm (78.3\") × 總闊 96cm (37.7\")",
-      "面板高度：34.5cm – 80cm (13.5\" – 31.4\")",
-      "可調床高：14\" – 29\" (垂直升降)",
+      "可調床高：14\" – 29\" (約 36 – 74cm，垂直升降)",
       "床欄長：127.5cm (50\")，離床面 34.5cm (12\")",
       "床頭升高：0° - 85°",
       "床尾屈曲：0° - 40°"
@@ -2149,8 +2128,7 @@
     "product_name_en": "3 ft Electric 3-action Steel Care Bed",
     "specs_en": [
       "Dimensions: 199 cm (78.3\") L × 96 cm (37.7\") W",
-      "Deck height: 34.5 – 80 cm (13.5\" – 31.4\")",
-      "Bed height: 14\" – 29\" (vertical lift)",
+      "Bed height: 14\" – 29\" (approx. 36 – 74 cm, vertical lift)",
       "Siderail length 127.5 cm (50\"), 34.5 cm (12\") above deck",
       "Back raise: 0° – 85°",
       "Knee bend: 0° – 40°"
