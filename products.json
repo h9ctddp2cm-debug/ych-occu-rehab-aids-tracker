@@ -2100,6 +2100,57 @@
     ]
   },
   {
+    "id": "bed4",
+    "source": "justmed",
+    "source_name": "真善美醫護",
+    "category": "bed",
+    "product_name": "Allway® 電動三功能護理床 (附送3吋厚阻燃床褥)",
+    "model": "BED-AW-E3CPM",
+    "price_min": 7600,
+    "price_max": 7600,
+    "price_display": "HK$7,600",
+    "price_display_en": "HK$7,600",
+    "specs": [
+      "尺寸：78\"(總長) × 38.5\"(總闊)，內長 72\" × 內闊 35.5\"",
+      "離地高度：14\"-28\" (可調，垂直升降)",
+      "床頭升高：0-70°",
+      "床尾屈曲：0-35°",
+      "承重：175kg",
+      "物料：鋁合金"
+    ],
+    "specs_en": [
+      "Dimensions: 78\"(L) × 38.5\"(W) overall; inner 72\" × 35.5\"",
+      "Height range: 14\"-28\" (adjustable, vertical lift)",
+      "Back raise: 0-70°",
+      "Knee bend: 0-35°",
+      "Max load: 175 kg",
+      "Material: aluminium alloy"
+    ],
+    "features": [
+      "附送 3 吋厚阻燃床褥（加 $2,000 可升級為防褥瘡床褥）",
+      "MOTECK 摩打，附儲電池",
+      "快拆式 ABS 床頭尾板，有孔鋼床面",
+      "鋁合金摺疊式護欄，4 個 5 吋鎖輪",
+      "可配拉手架及鹽水架"
+    ],
+    "features_en": [
+      "Includes 3\" fire-retardant mattress (upgrade to pressure-relief mattress +$2,000)",
+      "MOTECK motor with battery backup",
+      "Quick-release ABS head/foot boards; perforated steel deck",
+      "Folding aluminium siderails; four 5\" locking castors",
+      "Optional grip handle and IV pole"
+    ],
+    "image_url": "images/bed_justmed_aw_e3cpm.jpg",
+    "product_url": "https://www.justmed.com.hk/product-detail.php?id=737",
+    "product_name_en": "Allway® 3-function Electric Care Bed (with 3\" fire-retardant mattress)",
+    "phone": "2742 4370",
+    "purchase_method": "whatsapp_only",
+    "note": "2026-10-16 新增 (真善美公開店 id=737; 仁濟醫院網上復康店冇護理床類別); ⚠ 不支援線上付款，請 WhatsApp 2742 4370 落單",
+    "stock_status": "in_stock",
+    "updated_date": "2026-10-16",
+    "last_checked": "2026-10-16"
+  },
+  {
     "id": "mat2",
     "source": "healthyliving",
     "source_name": "盈康 Healthy Living",
