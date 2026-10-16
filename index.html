@@ -507,9 +507,10 @@
     .variant-rows { display: flex; flex-direction: column; gap: 6px; }
     .variant-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 6px 0; border-bottom: 1px dashed #e5e7eb; }
     .variant-row:last-child { border-bottom: none; }
-    .variant-row .vr-label { font-size: 0.95em; font-weight: 700; color: #333; line-height: 1.5; }
-    .variant-row .vr-label .price { display: inline; font-size: 1.15em; }
-    .variant-row .vr-model { font-size: 0.78em; color: #6b7280; margin-top: 2px; }
+    .variant-row .vr-label { font-size: 0.9em; font-weight: 700; color: #333; line-height: 1.5; }
+    .variant-row .vr-text .price { margin-top: 2px; }
+    .specs-list .vs-pair { display: inline-block; margin-right: 12px; white-space: nowrap; }
+    .specs-list .vs-col { color: #166534; font-weight: 600; }
     .variant-row .qr-btn .qr-box { width: 72px; height: 72px; }
     .card .source { font-size: 0.85em; color: #27ae60; }
     .card .branch { font-size: 0.78em; color: #555; margin-top: 3px; line-height: 1.45; }
@@ -1393,8 +1394,9 @@ function renderCards(products) {
       ? `<img src="${p.image_url}" alt="${escapeAttr(fieldName(p))}" onerror="this.style.display='none'">`
       : `<div class="no-img">🦽</div>`;
     const specs = fieldSpecs(p);
-    const specsHTML = specs.length
-      ? `<ul class="specs-list">${specs.map(s => `<li>${escapeHTML(s)}</li>`).join('')}</ul>`
+    const vItems = variantSpecItems(p);
+    const specsHTML = (specs.length || vItems)
+      ? `<ul class="specs-list">${vItems}${specs.map(s => `<li>${escapeHTML(s)}</li>`).join('')}</ul>`
       : '';
     const features = fieldFeatures(p);
     const featuresHTML = features.length
@@ -1426,9 +1428,9 @@ function renderCards(products) {
       <button class="fav-btn ${isFav ? 'faved' : ''}" data-id="${id}" onclick="toggleFavorite(this)" title="${favTitle}" aria-label="${favTitle}"><span class="star">${favStar}</span></button>
       ${imgHTML}
       <h3>${escapeHTML(fieldName(p))}</h3>
-      <div class="model">${escapeHTML(p.model || '')}</div>
-      ${p.variants ? `${isOutOfStock(p) ? `<div class="stock-badge">${t('stock_out')}</div>` : ''}${variantRowsHTML(p)}${variantTableHTML(p)}
-      <div class="source">📦 ${escapeHTML(supplierName(p))}</div>${fieldBranch(p) ? `<div class="branch">📍 ${escapeHTML(fieldBranch(p))}</div>` : ''}
+      ${p.variants ? '' : `<div class="model">${escapeHTML(p.model || '')}</div>`}
+      ${p.variants ? `<div class="source">📦 ${escapeHTML(supplierName(p))}</div>${fieldBranch(p) ? `<div class="branch">📍 ${escapeHTML(fieldBranch(p))}</div>` : ''}
+      ${isOutOfStock(p) ? `<div class="stock-badge">${t('stock_out')}</div>` : ''}${variantRowsHTML(p)}
       ${specsHTML}` : `<div class="body-flow">${qrButtonsHTML(p)}<div class="price-row"><div class="price-main">${priceBlockHTML(p)}
       <div class="source">📦 ${escapeHTML(supplierName(p))}</div>${fieldBranch(p) ? `<div class="branch">📍 ${escapeHTML(fieldBranch(p))}</div>` : ''}</div></div>
       ${specsHTML}</div>`}
@@ -1482,8 +1484,15 @@ function variantRowsHTML(p) {
   return `<div class="variant-rows">` + v.cols.map(c => {
     const l = links[c.url_idx != null ? c.url_idx : 0];
     const qr = (l && !p.web_down) ? qrButtonHTML(p, c.url_idx || 0, l, false) : '';
-    return `<div class="variant-row"><div class="vr-text"><div class="vr-label">${escapeHTML(en ? (c.label_en || c.label) : c.label)}：<span class="price">${escapeHTML(en ? (c.price_en || c.price) : c.price)}</span></div>${c.model ? `<div class="vr-model">${escapeHTML(c.model)}</div>` : ''}</div>${qr}</div>`;
+    const lab = escapeHTML(en ? (c.label_en || c.label) : c.label);
+    return `<div class="variant-row"><div class="vr-text"><div class="vr-label">${c.model ? `${escapeHTML(c.model)} (${lab})` : lab}</div><div class="price">${escapeHTML(en ? (c.price_en || c.price) : c.price)}</div></div>${qr}</div>`;
   }).join('') + `</div>`;
+}
+// Specs that differ between variants, as list items: "總外闊：窄身車架 18.3"　標準車架 19.1""
+function variantSpecItems(p) {
+  const v = p.variants; if (!v || !v.rows) return '';
+  const en = currentLang === 'en';
+  return v.rows.map(r => `<li>${escapeHTML(en ? (r.label_en || r.label) : r.label)}：${(en && r.values_en ? r.values_en : r.values).map((x, i) => `<span class="vs-pair"><span class="vs-col">${escapeHTML(en ? (v.cols[i].label_en || v.cols[i].label) : v.cols[i].label)}</span> ${escapeHTML(x)}</span>`).join('')}</li>`).join('');
 }
 function showQR(btn) {
   const m = document.getElementById('qrModal'); if (!m) return;
