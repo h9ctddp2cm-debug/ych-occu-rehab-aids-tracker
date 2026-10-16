@@ -73,15 +73,16 @@
     /* === Home button (屋仔) === */
     .home-btn {
       position: fixed; top: 12px; right: 12px; z-index: 100;
-      background: white; border: 2px solid #27ae60; border-radius: 50%;
-      width: 46px; height: 46px;
+      background: white; border: 2px solid #27ae60; border-radius: 999px;
+      height: 46px; padding: 0 14px 0 10px; gap: 6px;
       display: none; align-items: center; justify-content: center;
       cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-      font-size: 22px; line-height: 1;
+      font-size: 22px; line-height: 1; color: #166534; font-weight: 700;
       transition: transform 0.15s;
       text-decoration: none;
     }
-    .home-btn:hover { transform: scale(1.08); background: #eafaf1; }
+    .home-btn:hover { transform: scale(1.05); background: #eafaf1; }
+    .home-btn .home-txt { font-size: 15px; }
     body.show-home-btn .home-btn { display: flex; }
 
     /* === Home page grid === */
@@ -478,7 +479,7 @@
     .card {
       background: white; border-radius: 12px; padding: 16px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      display: flex; flex-direction: column; gap: 8px;
+      display: flex; flex-direction: column; gap: 10px;
     }
     .card img {
       width: 100%; height: 160px; object-fit: contain;
@@ -490,15 +491,24 @@
       color: #aaa; font-size: 2em;
     }
     .card h3 { font-size: 1em; font-weight: bold; color: #2c3e50; line-height: 1.35; }
-    .card .model { font-size: 0.8em; color: #888; }
+    .card .model { font-size: 0.95em; color: #666; }
     .card .price { font-size: 1.2em; color: #e74c3c; font-weight: bold; }
     .card .price.out-of-stock { color: #999; text-decoration: line-through; font-size: 0.95em; font-weight: 500; }
     .card .stock-badge { display: inline-block; background: #fee2e2; color: #b91c1c; font-size: 0.9em; font-weight: 600; padding: 4px 10px; border-radius: 6px; margin: 4px 0 6px 0; border: 1px solid #fca5a5; }
+    .card .price-note { font-size: 0.78em; color: #c0392b; line-height: 1.4; margin: 0 0 3px; }
+    .card .price-call { font-size: 0.74em; color: #6b7280; line-height: 1.35; margin: 0 0 4px; }
+    .card .price + .price { margin-top: 2px; }
+    .card .source { margin-top: 4px; }
     .card .source { font-size: 0.85em; color: #27ae60; }
-    .card .branch { font-size: 0.78em; color: #555; margin-top: 2px; line-height: 1.35; }
+    .card .branch { font-size: 0.78em; color: #555; margin-top: 3px; line-height: 1.45; }
     /* === Product-page QR code (right of price / supplier) === */
-    .card .price-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
-    .card .price-row .price-main { flex: 1; min-width: 0; }
+    /* QR floats on the right; price, supplier and the specs list flow around it so there is no empty block under the price */
+    .card .body-flow { display: flow-root; }
+    .card .body-flow .qr-wrap { float: right; margin: 0 0 4px 10px; }
+    .card .price-row .price-main { min-width: 0; }
+    .card .body-flow .specs-list { margin-top: 6px; }
+    .card .qr-wrap.two .qr-box { width: 72px; height: 72px; }   /* two QR codes side by side: keep room for the price */
+    .card .qr-wrap.two .qr-btn { padding: 3px 3px 2px; }
     .card .qr-wrap { display: flex; gap: 6px; flex-shrink: 0; }
     .card .qr-btn { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 4px 4px 2px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 2px; font: inherit; color: #475569; }
     .card .qr-btn:hover, .card .qr-btn:focus-visible { border-color: #3498db; box-shadow: 0 0 0 2px rgba(52,152,219,0.2); outline: none; }
@@ -518,17 +528,17 @@
     .qr-modal .qr-hint { font-size: 0.85em; color: #475569; margin: 0 0 6px; }
     .qr-modal .qr-url { font-size: 0.72em; color: #94a3b8; word-break: break-all; margin-bottom: 12px; }
     .qr-modal .qr-close { background: #2c3e50; color: #fff; border: none; border-radius: 8px; padding: 10px 22px; font-size: 1em; font-weight: 700; cursor: pointer; }
-    .card .updated { font-size: 0.75em; color: #aaa; line-height: 1.4; }
+    .card .updated { font-size: 0.75em; color: #aaa; line-height: 1.6; }
     .card .updated.checked { color: #16a34a; font-weight: 500; }
     /* === Specs as bullet list, one per line === */
     .card .specs-list {
       margin: 4px 0 4px 18px;
       padding: 0;
       font-size: 0.82em; color: #444;
-      line-height: 1.45;
+      line-height: 1.6;
     }
     .card .specs-list li {
-      margin: 2px 0;
+      margin: 5px 0;
       padding-left: 2px;
     }
     /* === Features section: collapsible with subtle heading + ✓ tags === */
@@ -703,7 +713,7 @@
 <body>
 
 <!-- Home button (only shown when not on home page) -->
-<a class="home-btn" href="#/" id="home-btn" title="返主頁 / Home" aria-label="Home">🏠</a>
+<a class="home-btn" href="#/" id="home-btn" title="返回主頁 / Home" aria-label="Home">🏠<span class="home-txt" data-i18n="home_btn">返回主頁</span></a>
 
 <div class="header">
   <div class="logo-wrap">
@@ -910,6 +920,7 @@ const I18N = {
     btn_compare: '比較', btn_clear: '清除',
     cmp_add: '比較', cmp_added: '比較', cmp_now: '比較',
     cmp_title_cat: '比較：',
+    home_btn: '返回主頁', price_ref_label: '參考價錢', price_ref_call: '關於產品的最新價錢，請致電復康公司職員查詢',
     sub_self: '自助式輪椅（大轆）', sub_transit: '助推式輪椅（細轆，照顧者推）', sub_recline: '高背後躺輪椅',
     cmp_mixed_hint: '所選產品屬不同類別，規格以列表方式顯示。',
     loading: '正在載入產品資料...', no_match: '找不到符合條件的產品',
@@ -1030,6 +1041,7 @@ const I18N = {
     btn_compare: 'Compare', btn_clear: 'Clear',
     cmp_add: 'Compare', cmp_added: 'Compare', cmp_now: 'Compare',
     cmp_title_cat: 'Compare: ',
+    home_btn: 'Home', price_ref_label: 'Reference price', price_ref_call: 'For the latest price, please call the supplier.',
     sub_self: 'Self-propelled wheelchairs (large rear wheels)', sub_transit: 'Transit wheelchairs (small wheels, attendant-propelled)', sub_recline: 'High-back reclining wheelchairs',
     cmp_mixed_hint: 'Selected products are in different categories, so specifications are shown as lists.',
     loading: 'Loading products...', no_match: 'No matching products found',
@@ -1244,13 +1256,42 @@ function fieldPrice(p)  {
   return p.price_display || p.price_display_en || 'HK$ N/A';
 }
 function isOutOfStock(p) { return false; }
+// Split a trailing note such as "（參考價錢）" / "(online price)" off the price so it can sit on its own line.
+// Size/variant brackets like (4") , (2.5ft / 3ft), (60 / 70 cm) or (BP3888 $920 / …) stay inline.
+function splitPriceNote(str) {
+  const m = /^(.*?)\s*[（(]([^（）()]+)[)）]\s*$/.exec(str || '');
+  if (m && m[1] && !/[$"]|\d\s*(ft|cm|mm)\b/i.test(m[2])) return { main: m[1].trim(), note: m[2].trim() };
+  return { main: str || '', note: '' };
+}
+// "HK$300 (2\") / $320 (4\")" -> ["HK$300 (2\")", "HK$320 (4\")"]  (only splits on " / " outside brackets)
+function priceLines(main) {
+  const parts = []; let depth = 0, cur = '';
+  for (let i = 0; i < main.length; i++) {
+    const c = main[i];
+    if (c === '(' || c === '（') depth++; else if (c === ')' || c === '）') depth--;
+    if (depth === 0 && main.substr(i, 3) === ' / ') { parts.push(cur); cur = ''; i += 2; continue; }
+    cur += c;
+  }
+  parts.push(cur);
+  return parts.map(x => x.trim()).filter(Boolean).map(x => x.startsWith('$') ? 'HK' + x : x);
+}
+function priceHTML(p, cls) {
+  const { main, note } = splitPriceNote(fieldPrice(p));
+  const lines = priceLines(main);
+  const hasNumber = /\d/.test(main);
+  let h = lines.map(l => `<div class="price${cls ? ' ' + cls : ''}">${escapeHTML(l)}</div>`).join('');
+  if (note) h += `<div class="price-note">（${escapeHTML(note)}）</div>`;
+  if (p.price_ref) {
+    if (hasNumber) h += `<div class="price-note">（${t('price_ref_label')}）</div>`;
+    h += `<div class="price-call">${t('price_ref_call')}</div>`;
+  }
+  return h;
+}
 function priceBlockHTML(p) {
   if (isOutOfStock(p)) {
-    const last = escapeHTML(fieldPrice(p));
-    return `<div class="stock-badge">${t('stock_out')}</div>` +
-           `<div class="price out-of-stock" title="${escapeHTML(t('stock_last_price'))}">${last}</div>`;
+    return `<div class="stock-badge">${t('stock_out')}</div>` + priceHTML(p, 'out-of-stock');
   }
-  return `<div class="price">${escapeHTML(fieldPrice(p))}</div>`;
+  return priceHTML(p, '');
 }
 function fieldSpecs(p)  {
   const list = currentLang === 'en' ? (p.specs_en || p.specs) : (p.specs);
@@ -1366,13 +1407,13 @@ function renderCards(products) {
       ${imgHTML}
       <h3>${escapeHTML(fieldName(p))}</h3>
       <div class="model">${escapeHTML(p.model || '')}</div>
-      <div class="price-row"><div class="price-main">${priceBlockHTML(p)}
-      <div class="source">📦 ${escapeHTML(supplierName(p))}</div>${fieldBranch(p) ? `<div class="branch">📍 ${escapeHTML(fieldBranch(p))}</div>` : ''}</div>${qrButtonsHTML(p)}</div>
-      ${specsHTML}
+      <div class="body-flow">${qrButtonsHTML(p)}<div class="price-row"><div class="price-main">${priceBlockHTML(p)}
+      <div class="source">📦 ${escapeHTML(supplierName(p))}</div>${fieldBranch(p) ? `<div class="branch">📍 ${escapeHTML(fieldBranch(p))}</div>` : ''}</div></div>
+      ${specsHTML}</div>
       ${featuresHTML}
       ${actionsHTML}
-      <div class="updated">${t('updated')}${escapeHTML(p.updated_date || 'N/A')}</div>
-      <div class="updated checked">✓ ${t('checked')}${escapeHTML(p.last_checked || p.updated_date || 'N/A')}</div>
+      ${p.price_ref ? '' : `<div class="updated">${t('updated')}${escapeHTML(p.updated_date || 'N/A')}</div>
+      <div class="updated checked">✓ ${t('checked')}${escapeHTML(p.last_checked || p.updated_date || 'N/A')}</div>`}
       <label class="cmp-toggle ${checked ? 'on' : ''}"><input type="checkbox" ${checked} data-id="${id}" data-product="${pData}" onchange="toggleCompare(this)"><span class="cmp-off">${t("cmp_add")}</span><span class="cmp-on">✓ ${t('cmp_added')}</span></label>
     `;
     grid.appendChild(card);
@@ -1402,13 +1443,14 @@ function qrButtonsHTML(p) {
   if (p.web_down) return '';  // supplier website down: no QR while the page is unavailable
   const links = productQRLinks(p);
   if (!links.length) return '';
+  const btns = links.map((l, i) => qrButtonHTML(p, i, l, true)).join('');
+  return btns ? `<div class="qr-wrap${links.length > 1 ? ' two' : ''}">${btns}</div>` : '';
+}
+function qrButtonHTML(p, i, l, showLabel) {
   const name = fieldName(p), sup = supplierName(p);
-  const btns = links.map((l, i) => {
-    const go = productGoURL(p, i);
-    const svg = qrSVG(go); if (!svg) return '';
-    return `<button type="button" class="qr-btn" title="${escapeAttr(t('qr_title'))}" aria-label="${escapeAttr(t('qr_title'))}: ${escapeAttr(name)}" data-url="${escapeAttr(go)}" data-target="${escapeAttr(l.url)}"${p.web_down ? ' data-down="1"' : ''} data-name="${escapeAttr(name)}" data-sup="${escapeAttr(sup)}" data-label="${escapeAttr(l.label)}" onclick="showQR(this)"><div class="qr-box">${svg}</div>${l.label ? `<span class="qr-label">${escapeHTML(l.label)}</span>` : ''}<span class="qr-cap">${escapeHTML(t('qr_caption'))}</span></button>`;
-  }).join('');
-  return btns ? `<div class="qr-wrap">${btns}</div>` : '';
+  const go = productGoURL(p, i);
+  const svg = qrSVG(go); if (!svg) return '';
+  return `<button type="button" class="qr-btn" title="${escapeAttr(t('qr_title'))}" aria-label="${escapeAttr(t('qr_title'))}: ${escapeAttr(name)}" data-url="${escapeAttr(go)}" data-target="${escapeAttr(l.url)}"${p.web_down ? ' data-down="1"' : ''} data-name="${escapeAttr(name)}" data-sup="${escapeAttr(sup)}" data-label="${escapeAttr(l.label)}" onclick="showQR(this)"><div class="qr-box">${svg}</div>${showLabel && l.label ? `<span class="qr-label">${escapeHTML(l.label)}</span>` : ''}<span class="qr-cap">${escapeHTML(t('qr_caption'))}</span></button>`;
 }
 function showQR(btn) {
   const m = document.getElementById('qrModal'); if (!m) return;
@@ -1557,7 +1599,7 @@ function showCompare() {
   const rows = [
     // product name + model are shown in the column header (with photo)
     [t('label_supplier'), supplierCell],
-    [t('label_price'),    p => escapeHTML(fieldPrice(p)) || '-'],
+    [t('label_price'),    p => { const { main, note } = splitPriceNote(fieldPrice(p)); let h = priceLines(main).map(escapeHTML).join('<br>') || '-'; if (note) h += `<div style="font-size:.85em;color:#c0392b">（${escapeHTML(note)}）</div>`; if (p.price_ref) { if (/\d/.test(main)) h += `<div style="font-size:.85em;color:#c0392b">（${t('price_ref_label')}）</div>`; h += `<div style="font-size:.8em;color:#6b7280">${t('price_ref_call')}</div>`; } return h; }],
     [t('label_phone'),    p => {
       if (!p.phone) return '-';
       const clean = p.phone.replace(/\s+/g, '');
@@ -1583,8 +1625,8 @@ function showCompare() {
       const list = featuresNoAddr(p);
       return list.length ? `<ul>${list.map(x => `<li>${escapeHTML(x)}</li>`).join('')}</ul>` : '-';
     }],
-    [t('label_updated'),  p => escapeHTML(p.updated_date || '-')],
-    [t('label_checked'),  p => escapeHTML(p.last_checked || p.updated_date || '-')],
+    [t('label_updated'),  p => p.price_ref ? '—' : escapeHTML(p.updated_date || '-')],
+    [t('label_checked'),  p => p.price_ref ? '—' : escapeHTML(p.last_checked || p.updated_date || '-')],
   ];
   // Mixed categories: show the category row right after the supplier
   if (!sameCat) rows.splice(1, 0, [t('label_category'), p => escapeHTML(catMap[p.category] || p.category || '-')]);
@@ -2110,7 +2152,10 @@ function handleRoute() {
   if (hash.startsWith('#/go/')) {
     // QR-code short link: redirect straight to the product page on the supplier website
     const parts = hash.slice('#/go/'.length).split('/');
-    const pid = decodeURIComponent(parts[0] || ''), idx = parseInt(parts[1] || '0', 10) || 0;
+    let pid = decodeURIComponent(parts[0] || ''), idx = parseInt(parts[1] || '0', 10) || 0;
+    // QR codes printed before the chair was split into two cards
+    const LEGACY_GO = { 'cm6/1': 'cm7' };
+    if (LEGACY_GO[pid + '/' + idx]) { pid = LEGACY_GO[pid + '/' + idx]; idx = 0; }
     const prod = (allProducts || []).find(x => String(x.id) === pid);
     const links = prod ? productQRLinks(prod) : [];
     const target = links[idx] ? links[idx].url : (links[0] ? links[0].url : '');

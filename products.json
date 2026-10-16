@@ -8,7 +8,7 @@
     "model": "H508",
     "price_min": 1880.0,
     "price_max": 1880.0,
-    "price_display": "HK$1,880.00（參考價錢）",
+    "price_display": "HK$1,880.00",
     "specs": [
       "座高：20\"",
       "座闊：16\" / 18\"",
@@ -39,7 +39,8 @@
       "Aluminium alloy frame"
     ],
     "price_note": "參考價錢",
-    "subgroup": "transit"
+    "subgroup": "transit",
+    "price_ref": true
   },
   {
     "id": "w6",
@@ -50,7 +51,7 @@
     "model": "FHW-13",
     "price_min": 1980,
     "price_max": 1980,
-    "price_display": "HK$1,980（網購價）",
+    "price_display": "HK$1,980",
     "specs": [
       "座高：19\"",
       "座闊：16\" / 18\"",
@@ -67,7 +68,7 @@
     "specs_en": [
       "Seat width: 16\" / 18\""
     ],
-    "price_display_en": "HK$1,980 (online price)",
+    "price_display_en": "HK$1,980",
     "stock_status": "in_stock",
     "features": [
       "7003 航太鋁合金",
@@ -387,7 +388,7 @@
     "model": "CA1360",
     "price_min": 780.0,
     "price_max": 780.0,
-    "price_display": "HK$780.00（參考價錢）",
+    "price_display": "HK$780.00",
     "specs": [
       "座高：17–21\" (可調)",
       "座闊：17\"",
@@ -401,7 +402,7 @@
     "last_checked": "2026-10-15",
     "product_name_en": "Folding Shower & Commode Chair",
     "specs_en": [],
-    "price_display_en": "HK$780.00 (reference price)",
+    "price_display_en": "HK$780.00",
     "stock_status": "in_stock",
     "features": [
       "鋁合金支架"
@@ -411,7 +412,8 @@
       "Both shower & commode use",
       "Aluminium alloy"
     ],
-    "price_note": "參考價錢"
+    "price_note": "參考價錢",
+    "price_ref": true
   },
   {
     "id": "cm3",
@@ -477,7 +479,7 @@
     "model": "CS880A",
     "price_min": 0,
     "price_max": 0,
-    "price_display": "HK$ — 參考價錢，請致電查詢",
+    "price_display": "價錢請致電查詢",
     "specs": [
       "座高：20\"",
       "座闊：17\"",
@@ -492,7 +494,7 @@
     "last_checked": "2026-10-15",
     "product_name_en": "4-wheel Shower/Commode Chair with Flip-up Arms (V-Chair)",
     "specs_en": [],
-    "price_display_en": "HK$ — reference price, please call",
+    "price_display_en": "Price on request",
     "stock_status": "in_stock",
     "features": [
       "304不銹鋼支架",
@@ -507,7 +509,8 @@
       "V-shape seat opening",
       "Shower-safe materials"
     ],
-    "price_note": "參考價錢"
+    "price_note": "參考價錢",
+    "price_ref": true
   },
   {
     "id": "cm5",
@@ -581,47 +584,98 @@
     "source": "medicare",
     "source_name": "康健醫療用品",
     "category": "commode",
-    "product_name": "304不銹鋼沐浴便椅 (可選Tilt-bar)",
-    "model": "ECM30442 / ECM30444S",
+    "product_name": "304不銹鋼沐浴便椅 (窄身車架)",
+    "model": "ECM30444S",
+    "price_min": 2200,
+    "price_max": 2200,
+    "price_display": "HK$2,200",
+    "specs": [
+      "座高：19.5\" (連坐墊 20.5\")",
+      "座闊：17\" × 17\"",
+      "總外闊：18.3\" (窄身車架)",
+      "承重：120kg",
+      "適合座廁高：17\"",
+      "適合座廁闊：15.25\""
+    ],
+    "image_url": "images/commode_medicare_ecm30444s.jpg",
+    "phone": "2687 6380",
+    "updated_date": "2026-10-16",
+    "last_checked": "2026-10-16",
+    "product_name_en": "304 Stainless Steel Shower/Commode Chair (Narrow frame)",
+    "specs_en": [
+      "Seat height: 19.5\" (20.5\" with cushion)",
+      "Seat width: 17\" × 17\"",
+      "Overall width: 18.3\" (narrow frame)",
+      "Max load: 120 kg",
+      "Fits toilet height: 17\"",
+      "Fits toilet width: 15.25\""
+    ],
+    "price_display_en": "HK$2,200",
+    "stock_status": "in_stock",
+    "features": [
+      "304不銹鋼支架",
+      "360度活動扶手，可放置椅背",
+      "窄身車架，貼合香港浴室",
+      "5吋台灣製全鎖轆 × 4",
+      "可加配 Tilt-bar 後挑桿"
+    ],
+    "features_en": [
+      "304 stainless steel frame",
+      "360° swing-away armrests",
+      "Narrow frame for Hong Kong bathrooms",
+      "Four 5\" Taiwan-made locking castors",
+      "Optional tilt bar"
+    ],
+    "product_url": "https://www.medicare.com.hk/zh-hant/care/289/"
+  },
+  {
+    "id": "cm7",
+    "source": "medicare",
+    "source_name": "康健醫療用品",
+    "category": "commode",
+    "product_name": "304不銹鋼沐浴便椅 (標準車架)",
+    "model": "ECM30442",
     "price_min": 2500,
     "price_max": 2500,
     "price_display": "HK$2,500",
     "specs": [
-      "座高：19.5\"",
-      "座闊：17\"",
-      "總外闊：19.1\" / 18.3\"",
+      "座高：19.5\" (連坐墊 20.5\")",
+      "座闊：17\" × 17\"",
+      "總外闊：19.1\" (標準車架)",
       "承重：120kg",
       "適合座廁高：17\"",
-      "適合座廁闊：16\" / 15.25\""
+      "適合座廁闊：16\""
     ],
     "image_url": "images/commode_medicare_ecm30442.jpg",
     "phone": "2687 6380",
-    "updated_date": "2026-06-22",
-    "last_checked": "2026-10-15",
-    "product_name_en": "304 Stainless Steel Shower/Commode Chair (Optional Tilt Bar)",
+    "updated_date": "2026-10-16",
+    "last_checked": "2026-10-16",
+    "product_name_en": "304 Stainless Steel Shower/Commode Chair (Standard frame)",
     "specs_en": [
-      "Max load: 120 kg"
+      "Seat height: 19.5\" (20.5\" with cushion)",
+      "Seat width: 17\" × 17\"",
+      "Overall width: 19.1\" (standard frame)",
+      "Max load: 120 kg",
+      "Fits toilet height: 17\"",
+      "Fits toilet width: 16\""
     ],
     "price_display_en": "HK$2,500",
     "stock_status": "in_stock",
     "features": [
-      "304不銹鋼"
+      "304不銹鋼支架",
+      "360度活動扶手，可放置椅背",
+      "標準車架，適合大多馬桶",
+      "5吋台灣製全鎖轆 × 4",
+      "可加配 Tilt-bar 後挑桿"
     ],
     "features_en": [
-      "304 stainless steel — rust-resistant",
-      "Optional tilt-bar for caregiver",
-      "Shower-safe"
+      "304 stainless steel frame",
+      "360° swing-away armrests",
+      "Standard frame fits most toilets",
+      "Four 5\" Taiwan-made locking castors",
+      "Optional tilt bar"
     ],
-    "product_urls": [
-      {
-        "label": "ECM30444S",
-        "url": "https://www.medicare.com.hk/zh-hant/care/289/?back=6df2d64d5cd5bb7f387a99f77cdd2d04"
-      },
-      {
-        "label": "ECM30442",
-        "url": "https://www.medicare.com.hk/zh-hant/care/288/?back=6df2d64d5cd5bb7f387a99f77cdd2d04"
-      }
-    ]
+    "product_url": "https://www.medicare.com.hk/zh-hant/care/288/"
   },
   {
     "id": "br1",
@@ -721,7 +775,7 @@
     "model": "BP3888",
     "price_min": 920.0,
     "price_max": 1770.0,
-    "price_display": "HK$920 - $1,770 (BP3888 $920 / BP3868 $1,770)",
+    "price_display": "HK$920 (BP3888) / $1,770 (BP3868)",
     "image_url": "images/bedrail_nero_bp3888.jpeg",
     "product_url": "https://www.nrmedic.com/index.php?route=product/product&product_id=509",
     "updated_date": "2026-06-15",
@@ -739,7 +793,7 @@
       "Installation: Screwed to the bed frame (installation included)",
       "Recommended mattress thickness: not applicable (screwed to bed frame)"
     ],
-    "price_display_en": "HK$920 - $1,770 (BP3888 $920 / BP3868 $1,770)",
+    "price_display_en": "HK$920 (BP3888) / $1,770 (BP3868)",
     "note_en": "Single-side footless rail; includes 24×24\" wood base; price covers delivery + install; recommend mounting on bed frame; metal frame install costs extra",
     "stock_status": "in_stock",
     "features": [
@@ -864,7 +918,7 @@
     "model": "WA200",
     "price_min": 1500.0,
     "price_max": 2800.0,
-    "price_display": "HK$1,500 (36\") / $1,800 (48\") / $2,200 (60\") / $2,800 (72\")（參考價錢）",
+    "price_display": "HK$1,500 (36\") / $1,800 (48\") / $2,200 (60\") / $2,800 (72\")",
     "specs": [
       "長度：36\" / 48\" / 60\" / 72\" 四款",
       "闊度：29\""
@@ -895,7 +949,8 @@
       "Suitable for wheelchairs & power chairs",
       "Anti-slip surface"
     ],
-    "price_note": "參考價錢"
+    "price_note": "參考價錢",
+    "price_ref": true
   },
   {
     "id": "sc1",
@@ -1438,7 +1493,7 @@
     "model": "CX900C (3\"/4\"/5\")",
     "price_min": 430.0,
     "price_max": 530.0,
-    "price_display": "HK$430 (3\") / $480 (4\") / $530 (5\")（參考價錢）",
+    "price_display": "HK$430 (3\") / $480 (4\") / $530 (5\")",
     "specs": [
       "尺寸：15.5\"(L) × 14\"(W)",
       "高度：3\" / 4\" / 5\""
@@ -1453,7 +1508,7 @@
     "specs_en": [
       "Height: 3\" / 4\" / 5\""
     ],
-    "price_display_en": "HK$430 (3\") / $480 (4\") / $530 (5\") (reference price)",
+    "price_display_en": "HK$430 (3\") / $480 (4\") / $530 (5\")",
     "stock_status": "in_stock",
     "features": [
       "連蓋設計"
@@ -1462,7 +1517,8 @@
       "With lid",
       "Padded cushion"
     ],
-    "price_note": "參考價錢"
+    "price_note": "參考價錢",
+    "price_ref": true
   },
   {
     "id": "tr5",
@@ -1705,7 +1761,7 @@
     "model": "NOT-L71134 / NOT-M78342 / M78354",
     "price_min": 470.0,
     "price_max": 550.0,
-    "price_display": "HK$470 (26\"/27\"/28\") / $550 (30\"), 專用扶手另加 $100",
+    "price_display": "HK$470 (26\"/27\"/28\") / $550 (30\")",
     "specs": [
       "尺寸：26\" / 27\" / 28\"",
       "承重：190kg",
@@ -1724,10 +1780,11 @@
       "Max load: 190 kg",
       "Depth: 10.75\" (NRS series 9\")"
     ],
-    "price_display_en": "HK$470 (26\"/27\"/28\") / $550 (30\"); handrail +$100",
+    "price_display_en": "HK$470 (26\"/27\"/28\") / $550 (30\")",
     "note_en": "Product page confirmed via QR. Online actual price $470 for 26\"/27\"/28\"",
     "stock_status": "in_stock",
     "features": [
+      "專用扶手另加 $100",
       "底架至板邊間距: 1\"-3.5\"",
       "不含乳膠舒適膠面 (減低敏感)",
       "適合不同形狀浴缸",
@@ -1873,7 +1930,7 @@
     "model": "FHA-SR-R-70G2-E",
     "price_min": 0.0,
     "price_max": 0.0,
-    "price_display": "HK$ — 參考價錢，請致電查詢",
+    "price_display": "價錢請致電查詢",
     "specs": [
       "長度：2.5呎/70cm",
       "闊度：73cm",
@@ -1891,7 +1948,7 @@
       "Width: 73 cm",
       "Max load: 300 kg"
     ],
-    "price_display_en": "HK$ — Please call",
+    "price_display_en": "Price on request",
     "note_en": "Call to enquire",
     "stock_status": "out_of_stock",
     "stock_status_changed": "2026-06-15",
@@ -1907,7 +1964,8 @@
     ],
     "price_note": "參考價錢",
     "web_down": true,
-    "web_down_date": "2026-10-15"
+    "web_down_date": "2026-10-15",
+    "price_ref": true
   },
   {
     "source": "easy66",
@@ -2065,39 +2123,98 @@
     "price_max": 12000.0,
     "price_display": "HK$12,000",
     "specs": [
-      "尺寸：78(L) × 38(W) 吋, 總長 199cm × 96cm",
-      "離地高度：36cm – 74cm (面板高 34.5–80cm)"
+      "尺寸：總長 199cm (78.3\") × 總闊 96cm (37.7\")",
+      "可調床高：14\" – 29\" (約 36 – 74cm，垂直升降)",
+      "床欄長：127.5cm (50\")，離床面 34.5cm (12\")",
+      "床頭升高：0° - 85°",
+      "床尾屈曲：0° - 40°"
     ],
-    "image_url": "images/bed_medicare_ehb00055.jpeg",
+    "image_url": "images/bed_medicare_ehb00055.jpg",
     "product_url": "https://medicare.com.hk/zh-hant/care/247/",
     "phone": "2687 6380",
-    "note": "官網規格齊全, 但未公開列價, 請致電查詢",
-    "updated_date": "2026-06-11",
-    "last_checked": "2026-10-15",
+    "note": "2026-10-16 核對: 官網已列價 HKD 12,000, 圖片換為官網 EHB00055 K 產品圖",
+    "updated_date": "2026-10-16",
+    "last_checked": "2026-10-16",
     "product_name_en": "3 ft Electric 3-action Steel Care Bed",
     "specs_en": [
-      "Dimensions: 78(L) × 38(W) in; overall 199 × 96 cm"
+      "Dimensions: 199 cm (78.3\") L × 96 cm (37.7\") W",
+      "Bed height: 14\" – 29\" (approx. 36 – 74 cm, vertical lift)",
+      "Siderail length 127.5 cm (50\"), 34.5 cm (12\") above deck",
+      "Back raise: 0° – 85°",
+      "Knee bend: 0° – 40°"
     ],
     "price_display_en": "HK$12,000",
-    "note_en": "Full specs online; price not listed — please call",
+    "note_en": "Price HKD 12,000 listed on website (checked 2026-10-16)",
     "stock_status": "in_stock",
     "features": [
-      "丹麥 Linak 電動床摩打, 附儲電池",
-      "有孔鋼床面板, 摺疊式鋁合金床欄",
+      "丹麥 Linak 電動床摩打，附儲電池",
+      "四功能手控器",
+      "有孔鋼床面板，摺疊式鋁合金床欄一對",
       "可拆式 ABS 強化塑膠床頭尾板",
-      "床頭升高 0° - 85°, 床尾屈曲 0° - 40°",
-      "4個鹽水架孔 + 2個手拉架孔",
-      "5吋豪華萬向全鎖轆 × 4"
+      "4 個鹽水架孔 + 2 個手拉架孔",
+      "5 吋豪華萬向全鎖轆 × 4",
+      "網頁圖庫另有手拉架 (EHB00509) 及床褥 (PFM00040) 相片，是否包括在套裝內請致電查詢"
     ],
     "features_en": [
-      "Height: 36 – 74 cm (deck 34.5-80 cm)",
-      "Denmark LINAK motor with battery",
-      "Perforated steel deck; folding aluminium siderails",
+      "Denmark LINAK motor with battery backup",
+      "4-function handset",
+      "Perforated steel deck; pair of folding aluminium siderails",
       "Detachable reinforced ABS head/foot boards",
-      "Back: 0° – 85°; knee: 0° – 40°",
       "4× IV pole holes + 2× grip handle holes",
-      "Four 5\" deluxe locking castors"
+      "Four 5\" deluxe locking castors",
+      "Product gallery also shows a grip handle (EHB00509) and mattress (PFM00040); please call to confirm whether they are included"
     ]
+  },
+  {
+    "id": "bed4",
+    "source": "justmed",
+    "source_name": "真善美醫護",
+    "category": "bed",
+    "product_name": "Allway® 電動三功能護理床 (附送3吋厚阻燃床褥)",
+    "model": "BED-AW-E3CPM",
+    "price_min": 7600,
+    "price_max": 7600,
+    "price_display": "HK$7,600",
+    "price_display_en": "HK$7,600",
+    "specs": [
+      "尺寸：78\"(總長) × 38.5\"(總闊)，內長 72\" × 內闊 35.5\"",
+      "離地高度：14\"-28\" (可調，垂直升降)",
+      "床頭升高：0-70°",
+      "床尾屈曲：0-35°",
+      "承重：175kg",
+      "物料：鋁合金"
+    ],
+    "specs_en": [
+      "Dimensions: 78\"(L) × 38.5\"(W) overall; inner 72\" × 35.5\"",
+      "Height range: 14\"-28\" (adjustable, vertical lift)",
+      "Back raise: 0-70°",
+      "Knee bend: 0-35°",
+      "Max load: 175 kg",
+      "Material: aluminium alloy"
+    ],
+    "features": [
+      "附送 3 吋厚阻燃床褥（加 $2,000 可升級為防褥瘡床褥）",
+      "MOTECK 摩打，附儲電池",
+      "快拆式 ABS 床頭尾板，有孔鋼床面",
+      "鋁合金摺疊式護欄，4 個 5 吋鎖輪",
+      "可配拉手架及鹽水架"
+    ],
+    "features_en": [
+      "Includes 3\" fire-retardant mattress (upgrade to pressure-relief mattress +$2,000)",
+      "MOTECK motor with battery backup",
+      "Quick-release ABS head/foot boards; perforated steel deck",
+      "Folding aluminium siderails; four 5\" locking castors",
+      "Optional grip handle and IV pole"
+    ],
+    "image_url": "images/bed_justmed_aw_e3cpm.jpg",
+    "product_url": "https://www.justmed.com.hk/product-detail.php?id=737",
+    "product_name_en": "Allway® 3-function Electric Care Bed (with 3\" fire-retardant mattress)",
+    "phone": "2742 4370",
+    "purchase_method": "whatsapp_only",
+    "note": "2026-10-16 新增 (真善美公開店 id=737; 仁濟醫院網上復康店冇護理床類別); ⚠ 不支援線上付款，請 WhatsApp 2742 4370 落單",
+    "stock_status": "in_stock",
+    "updated_date": "2026-10-16",
+    "last_checked": "2026-10-16"
   },
   {
     "id": "mat2",
@@ -2108,7 +2225,7 @@
     "model": "SING-0009 / SING-0008",
     "price_min": 1980.0,
     "price_max": 1980.0,
-    "price_display": "HK$1,980.00 (網店實價)",
+    "price_display": "HK$1,980.00",
     "specs": [
       "充氣後尺寸：72.5\"(L) × 31.5\"(W) × 4\"(H)",
       "承重：140kg",
@@ -2128,7 +2245,7 @@
       "Number of tubes: 17",
       "Pump flow: 5 L / min"
     ],
-    "price_display_en": "HK$1,980.00 (online price)",
+    "price_display_en": "HK$1,980.00",
     "note_en": "Online price $1,980 (original $2,500, save $520)",
     "stock_status": "in_stock",
     "features": [
@@ -2357,7 +2474,7 @@
     "model": "DBPE-0014",
     "price_min": 880,
     "price_max": 1080,
-    "price_display": "HK$880 / $1,080 (60 / 70 cm)",
+    "price_display": "HK$880 (60cm) / $1,080 (70cm)",
     "image_url": "images/handrail_healthyliving_dbpe0014.jpeg",
     "product_url": "https://www.healthyliving.com.hk/shop/dbpe-%e4%b8%8a%e7%bf%bb%e5%bc%8f%e6%b5%b4%e5%ae%a4%e6%89%b6%e6%89%8b/",
     "updated_date": "2026-06-11",
@@ -2372,7 +2489,7 @@
       "Max load: 165 lb (75 kg)"
     ],
     "product_name_en": "DBPE Swing-up Bathroom Grab Bar",
-    "price_display_en": "HK$880 / $1,080 (60 / 70 cm)",
+    "price_display_en": "HK$880 (60 cm) / $1,080 (70 cm)",
     "note": "上翻式：閒置時可向上翻起，方便輪椅或助行架進出。常用於座廁旁邊。",
     "note_en": "Swing-up: folds up when not in use — wheelchair/walker access. Common around toilet.",
     "stock_status": "in_stock",
@@ -2713,8 +2830,8 @@
     "model": "RE1900S / RE1900M / RE1900L / RE1900XL",
     "price_min": 0,
     "price_max": 0,
-    "price_display": "HK$ — 參考價錢，請致電查詢",
-    "price_display_en": "HK$ — Please call for quotation",
+    "price_display": "價錢請致電查詢",
+    "price_display_en": "Price on request",
     "specs": [
       "尺碼：細碼 / 中碼 / 大碼 / 加大碼",
       "尺寸：S 30-32\" / M 32-34\" / L 36-38\" / XL 38-42\"",
@@ -2741,7 +2858,8 @@
     "note_en": "Quotation only on website; lead time about 3-4 weeks",
     "stock_status": "in_stock",
     "updated_date": "2026-10-02",
-    "last_checked": "2026-10-15"
+    "last_checked": "2026-10-15",
+    "price_ref": true
   },
   {
     "id": "hp3",
