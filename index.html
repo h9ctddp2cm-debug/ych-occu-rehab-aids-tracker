@@ -494,6 +494,7 @@
     .card .price { font-size: 1.2em; color: #e74c3c; font-weight: bold; }
     .card .price.out-of-stock { color: #999; text-decoration: line-through; font-size: 0.95em; font-weight: 500; }
     .card .stock-badge { display: inline-block; background: #fee2e2; color: #b91c1c; font-size: 0.9em; font-weight: 600; padding: 4px 10px; border-radius: 6px; margin: 4px 0 6px 0; border: 1px solid #fca5a5; }
+    .card .price-note { font-size: 0.78em; color: #c0392b; line-height: 1.3; margin: -2px 0 2px; }
     .card .source { font-size: 0.85em; color: #27ae60; }
     .card .branch { font-size: 0.78em; color: #555; margin-top: 2px; line-height: 1.35; }
     /* === Product-page QR code (right of price / supplier) === */
@@ -1249,13 +1250,22 @@ function fieldPrice(p)  {
   return p.price_display || p.price_display_en || 'HK$ N/A';
 }
 function isOutOfStock(p) { return false; }
+// Split a trailing note such as "（參考價錢）" / "(online price)" off the price so it can sit on its own line.
+// Size/variant brackets like (4") , (2.5ft / 3ft), (60 / 70 cm) or (BP3888 $920 / …) stay inline.
+function splitPriceNote(str) {
+  const m = /^(.*?)\s*[（(]([^（）()]+)[)）]\s*$/.exec(str || '');
+  if (m && m[1] && !/[$"]|\d\s*(ft|cm|mm)\b/i.test(m[2])) return { main: m[1].trim(), note: m[2].trim() };
+  return { main: str || '', note: '' };
+}
+function priceHTML(p, cls) {
+  const { main, note } = splitPriceNote(fieldPrice(p));
+  return `<div class="price${cls ? ' ' + cls : ''}">${escapeHTML(main)}</div>` + (note ? `<div class="price-note">（${escapeHTML(note)}）</div>` : '');
+}
 function priceBlockHTML(p) {
   if (isOutOfStock(p)) {
-    const last = escapeHTML(fieldPrice(p));
-    return `<div class="stock-badge">${t('stock_out')}</div>` +
-           `<div class="price out-of-stock" title="${escapeHTML(t('stock_last_price'))}">${last}</div>`;
+    return `<div class="stock-badge">${t('stock_out')}</div>` + priceHTML(p, 'out-of-stock');
   }
-  return `<div class="price">${escapeHTML(fieldPrice(p))}</div>`;
+  return priceHTML(p, '');
 }
 function fieldSpecs(p)  {
   const list = currentLang === 'en' ? (p.specs_en || p.specs) : (p.specs);
@@ -1562,7 +1572,7 @@ function showCompare() {
   const rows = [
     // product name + model are shown in the column header (with photo)
     [t('label_supplier'), supplierCell],
-    [t('label_price'),    p => escapeHTML(fieldPrice(p)) || '-'],
+    [t('label_price'),    p => { const { main, note } = splitPriceNote(fieldPrice(p)); return (escapeHTML(main) || '-') + (note ? `<div style="font-size:.85em;color:#c0392b">（${escapeHTML(note)}）</div>` : ''); }],
     [t('label_phone'),    p => {
       if (!p.phone) return '-';
       const clean = p.phone.replace(/\s+/g, '');
