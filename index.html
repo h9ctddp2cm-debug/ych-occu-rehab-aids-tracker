@@ -479,7 +479,7 @@
     .card {
       background: white; border-radius: 12px; padding: 16px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      display: flex; flex-direction: column; gap: 8px;
+      display: flex; flex-direction: column; gap: 10px;
     }
     .card img {
       width: 100%; height: 160px; object-fit: contain;
@@ -495,11 +495,17 @@
     .card .price { font-size: 1.2em; color: #e74c3c; font-weight: bold; }
     .card .price.out-of-stock { color: #999; text-decoration: line-through; font-size: 0.95em; font-weight: 500; }
     .card .stock-badge { display: inline-block; background: #fee2e2; color: #b91c1c; font-size: 0.9em; font-weight: 600; padding: 4px 10px; border-radius: 6px; margin: 4px 0 6px 0; border: 1px solid #fca5a5; }
-    .card .price-note { font-size: 0.78em; color: #c0392b; line-height: 1.3; margin: -2px 0 2px; }
+    .card .price-note { font-size: 0.78em; color: #c0392b; line-height: 1.4; margin: 0 0 3px; }
     .card .price-call { font-size: 0.74em; color: #6b7280; line-height: 1.35; margin: 0 0 4px; }
-    .card .price + .price { margin-top: -2px; }
+    .card .price + .price { margin-top: 2px; }
+    .card .source { margin-top: 4px; }
+    .variant-table { width: 100%; border-collapse: collapse; font-size: 0.8em; margin: 6px 0 2px; }
+    .variant-table th, .variant-table td { border: 1px solid #d1e7d9; padding: 5px 6px; text-align: center; line-height: 1.4; }
+    .variant-table th { background: #e8f5ec; color: #166534; font-weight: 700; }
+    .variant-table td:first-child { text-align: left; color: #555; background: #f9fafb; white-space: nowrap; }
+    .variant-table .vt-model { font-weight: 400; font-size: 0.85em; color: #6b7280; }
     .card .source { font-size: 0.85em; color: #27ae60; }
-    .card .branch { font-size: 0.78em; color: #555; margin-top: 2px; line-height: 1.35; }
+    .card .branch { font-size: 0.78em; color: #555; margin-top: 3px; line-height: 1.45; }
     /* === Product-page QR code (right of price / supplier) === */
     /* QR floats on the right; price, supplier and the specs list flow around it so there is no empty block under the price */
     .card .body-flow { display: flow-root; }
@@ -527,17 +533,17 @@
     .qr-modal .qr-hint { font-size: 0.85em; color: #475569; margin: 0 0 6px; }
     .qr-modal .qr-url { font-size: 0.72em; color: #94a3b8; word-break: break-all; margin-bottom: 12px; }
     .qr-modal .qr-close { background: #2c3e50; color: #fff; border: none; border-radius: 8px; padding: 10px 22px; font-size: 1em; font-weight: 700; cursor: pointer; }
-    .card .updated { font-size: 0.75em; color: #aaa; line-height: 1.4; }
+    .card .updated { font-size: 0.75em; color: #aaa; line-height: 1.6; }
     .card .updated.checked { color: #16a34a; font-weight: 500; }
     /* === Specs as bullet list, one per line === */
     .card .specs-list {
       margin: 4px 0 4px 18px;
       padding: 0;
       font-size: 0.82em; color: #444;
-      line-height: 1.45;
+      line-height: 1.6;
     }
     .card .specs-list li {
-      margin: 2px 0;
+      margin: 5px 0;
       padding-left: 2px;
     }
     /* === Features section: collapsible with subtle heading + ✓ tags === */
@@ -1286,6 +1292,14 @@ function priceHTML(p, cls) {
   }
   return h;
 }
+// Mini table for products sold in two frame sizes / models: lets the reader see each variant's size and price at a glance
+function variantTableHTML(p) {
+  const v = p.variants; if (!v || !v.cols || !v.rows) return '';
+  const en = currentLang === 'en';
+  const head = v.cols.map(c => `<th>${escapeHTML(en ? (c.label_en || c.label) : c.label)}${c.model ? `<div class="vt-model">${escapeHTML(c.model)}</div>` : ''}</th>`).join('');
+  const body = v.rows.map(r => `<tr><td>${escapeHTML(en ? (r.label_en || r.label) : r.label)}</td>${(en && r.values_en ? r.values_en : r.values).map(x => `<td>${escapeHTML(x)}</td>`).join('')}</tr>`).join('');
+  return `<table class="variant-table"><tr><th></th>${head}</tr>${body}</table>`;
+}
 function priceBlockHTML(p) {
   if (isOutOfStock(p)) {
     return `<div class="stock-badge">${t('stock_out')}</div>` + priceHTML(p, 'out-of-stock');
@@ -1409,6 +1423,7 @@ function renderCards(products) {
       <div class="body-flow">${qrButtonsHTML(p)}<div class="price-row"><div class="price-main">${priceBlockHTML(p)}
       <div class="source">📦 ${escapeHTML(supplierName(p))}</div>${fieldBranch(p) ? `<div class="branch">📍 ${escapeHTML(fieldBranch(p))}</div>` : ''}</div></div>
       ${specsHTML}</div>
+      ${variantTableHTML(p)}
       ${featuresHTML}
       ${actionsHTML}
       ${p.price_ref ? '' : `<div class="updated">${t('updated')}${escapeHTML(p.updated_date || 'N/A')}</div>
@@ -2151,9 +2166,6 @@ function handleRoute() {
     // QR-code short link: redirect straight to the product page on the supplier website
     const parts = hash.slice('#/go/'.length).split('/');
     let pid = decodeURIComponent(parts[0] || ''), idx = parseInt(parts[1] || '0', 10) || 0;
-    // Legacy QR codes printed before a product was split into separate cards
-    const LEGACY_GO = { 'cm6/1': 'cm7' };
-    if (LEGACY_GO[pid + '/' + idx]) { pid = LEGACY_GO[pid + '/' + idx]; idx = 0; }
     const prod = (allProducts || []).find(x => String(x.id) === pid);
     const links = prod ? productQRLinks(prod) : [];
     const target = links[idx] ? links[idx].url : (links[0] ? links[0].url : '');

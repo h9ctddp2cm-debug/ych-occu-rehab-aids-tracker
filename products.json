@@ -584,98 +584,108 @@
     "source": "medicare",
     "source_name": "康健醫療用品",
     "category": "commode",
-    "product_name": "304不銹鋼沐浴便椅 ECM30444S (窄身車架, 可選Tilt-bar)",
-    "model": "ECM30444S",
+    "product_name": "304不銹鋼沐浴便椅 (可選Tilt-bar)",
+    "model": "ECM30444S / ECM30442",
     "price_min": 2200,
-    "price_max": 2200,
-    "price_display": "HK$2,200",
-    "specs": [
-      "座高：19.5\" (連坐墊 20.5\")",
-      "座闊：17\" × 17\"",
-      "總外闊：18.3\" (窄身車架)",
-      "承重：120kg",
-      "適合座廁高：17\"",
-      "適合座廁闊：15.25\""
-    ],
-    "image_url": "images/commode_medicare_ecm30444s.jpg",
-    "phone": "2687 6380",
-    "updated_date": "2026-10-16",
-    "last_checked": "2026-10-16",
-    "product_name_en": "304 Stainless Steel Shower/Commode Chair ECM30444S (Narrow frame, optional tilt bar)",
-    "specs_en": [
-      "Seat height: 19.5\" (20.5\" with cushion)",
-      "Seat width: 17\" × 17\"",
-      "Overall width: 18.3\" (narrow frame)",
-      "Max load: 120 kg",
-      "Fits toilet height: 17\"",
-      "Fits toilet width: 15.25\""
-    ],
-    "price_display_en": "HK$2,200",
-    "stock_status": "in_stock",
-    "features": [
-      "304不銹鋼支架",
-      "360度活動扶手，可放置椅背",
-      "窄身車架，貼合香港浴室",
-      "5吋台灣製全鎖轆 × 4",
-      "可加配 Tilt-bar 後挑桿"
-    ],
-    "features_en": [
-      "304 stainless steel frame",
-      "360° swing-away armrests",
-      "Narrow frame for Hong Kong bathrooms",
-      "Four 5\" Taiwan-made locking castors",
-      "Optional tilt bar"
-    ],
-    "product_url": "https://www.medicare.com.hk/zh-hant/care/289/"
-  },
-  {
-    "id": "cm7",
-    "source": "medicare",
-    "source_name": "康健醫療用品",
-    "category": "commode",
-    "product_name": "304不銹鋼沐浴便椅 ECM30442 (標準車架, 可選Tilt-bar)",
-    "model": "ECM30442",
-    "price_min": 2500,
     "price_max": 2500,
-    "price_display": "HK$2,500",
+    "price_display": "HK$2,200 (窄身車架) / $2,500 (標準車架)",
     "specs": [
       "座高：19.5\" (連坐墊 20.5\")",
       "座闊：17\" × 17\"",
-      "總外闊：19.1\" (標準車架)",
+      "總外闊：18.3\" (窄身) / 19.1\" (標準)",
       "承重：120kg",
       "適合座廁高：17\"",
-      "適合座廁闊：16\""
+      "適合座廁闊：15.25\" (窄身) / 16\" (標準)"
     ],
     "image_url": "images/commode_medicare_ecm30442.jpg",
     "phone": "2687 6380",
     "updated_date": "2026-10-16",
     "last_checked": "2026-10-16",
-    "product_name_en": "304 Stainless Steel Shower/Commode Chair ECM30442 (Standard frame, optional tilt bar)",
+    "product_name_en": "304 Stainless Steel Shower/Commode Chair (Optional Tilt Bar)",
     "specs_en": [
       "Seat height: 19.5\" (20.5\" with cushion)",
       "Seat width: 17\" × 17\"",
-      "Overall width: 19.1\" (standard frame)",
+      "Overall width: 18.3\" (narrow) / 19.1\" (standard)",
       "Max load: 120 kg",
       "Fits toilet height: 17\"",
-      "Fits toilet width: 16\""
+      "Fits toilet width: 15.25\" (narrow) / 16\" (standard)"
     ],
-    "price_display_en": "HK$2,500",
+    "price_display_en": "HK$2,200 (narrow frame) / $2,500 (standard frame)",
     "stock_status": "in_stock",
     "features": [
       "304不銹鋼支架",
       "360度活動扶手，可放置椅背",
-      "標準車架，適合大多馬桶",
       "5吋台灣製全鎖轆 × 4",
       "可加配 Tilt-bar 後挑桿"
     ],
     "features_en": [
       "304 stainless steel frame",
       "360° swing-away armrests",
-      "Standard frame fits most toilets",
       "Four 5\" Taiwan-made locking castors",
       "Optional tilt bar"
     ],
-    "product_url": "https://www.medicare.com.hk/zh-hant/care/288/"
+    "variants": {
+      "cols": [
+        {
+          "label": "窄身車架",
+          "label_en": "Narrow frame",
+          "model": "ECM30444S"
+        },
+        {
+          "label": "標準車架",
+          "label_en": "Standard frame",
+          "model": "ECM30442"
+        }
+      ],
+      "rows": [
+        {
+          "label": "價錢",
+          "label_en": "Price",
+          "values": [
+            "HK$2,200",
+            "HK$2,500"
+          ]
+        },
+        {
+          "label": "總外闊",
+          "label_en": "Overall width",
+          "values": [
+            "18.3\"",
+            "19.1\""
+          ]
+        },
+        {
+          "label": "適合座廁闊",
+          "label_en": "Fits toilet width",
+          "values": [
+            "15.25\"",
+            "16\""
+          ]
+        },
+        {
+          "label": "適合",
+          "label_en": "Suits",
+          "values": [
+            "香港細浴室",
+            "大多數馬桶"
+          ],
+          "values_en": [
+            "Small HK bathrooms",
+            "Most toilets"
+          ]
+        }
+      ]
+    },
+    "product_urls": [
+      {
+        "label": "ECM30444S",
+        "url": "https://www.medicare.com.hk/zh-hant/care/289/"
+      },
+      {
+        "label": "ECM30442",
+        "url": "https://www.medicare.com.hk/zh-hant/care/288/"
+      }
+    ]
   },
   {
     "id": "br1",
