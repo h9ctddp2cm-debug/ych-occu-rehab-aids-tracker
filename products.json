@@ -2133,40 +2133,49 @@
     "price_max": 12000.0,
     "price_display": "HK$12,000",
     "specs": [
-      "尺寸：78(L) × 38(W) 吋, 總長 199cm × 96cm",
-      "離地高度：36cm – 74cm (面板高 34.5–80cm)"
+      "尺寸：總長 199cm (78.3\") × 總闊 96cm (37.7\")",
+      "面板高度：34.5cm – 80cm (13.5\" – 31.4\")",
+      "可調床高：14\" – 29\" (垂直升降)",
+      "床欄長：127.5cm (50\")，離床面 34.5cm (12\")",
+      "床頭升高：0° - 85°",
+      "床尾屈曲：0° - 40°"
     ],
-    "image_url": "images/bed_medicare_ehb00055.jpeg",
+    "image_url": "images/bed_medicare_ehb00055.jpg",
     "product_url": "https://medicare.com.hk/zh-hant/care/247/",
     "phone": "2687 6380",
-    "note": "官網規格齊全, 但未公開列價, 請致電查詢",
-    "updated_date": "2026-06-11",
-    "last_checked": "2026-10-15",
+    "note": "2026-10-16 核對: 官網已列價 HKD 12,000, 圖片換為官網 EHB00055 K 產品圖",
+    "updated_date": "2026-10-16",
+    "last_checked": "2026-10-16",
     "product_name_en": "3 ft Electric 3-action Steel Care Bed",
     "specs_en": [
-      "Dimensions: 78(L) × 38(W) in; overall 199 × 96 cm"
+      "Dimensions: 199 cm (78.3\") L × 96 cm (37.7\") W",
+      "Deck height: 34.5 – 80 cm (13.5\" – 31.4\")",
+      "Bed height: 14\" – 29\" (vertical lift)",
+      "Siderail length 127.5 cm (50\"), 34.5 cm (12\") above deck",
+      "Back raise: 0° – 85°",
+      "Knee bend: 0° – 40°"
     ],
     "price_display_en": "HK$12,000",
-    "note_en": "Full specs online; price not listed — please call",
+    "note_en": "Price HKD 12,000 listed on website (checked 2026-10-16)",
     "stock_status": "in_stock",
     "features": [
-      "丹麥 Linak 電動床摩打, 附儲電池",
-      "有孔鋼床面板, 摺疊式鋁合金床欄",
+      "丹麥 Linak 電動床摩打，附儲電池",
+      "四功能手控器",
+      "有孔鋼床面板，摺疊式鋁合金床欄一對",
       "可拆式 ABS 強化塑膠床頭尾板",
-      "床頭升高 0° - 85°, 床尾屈曲 0° - 40°",
-      "4個鹽水架孔 + 2個手拉架孔",
-      "5吋豪華萬向全鎖轆 × 4"
+      "4 個鹽水架孔 + 2 個手拉架孔",
+      "5 吋豪華萬向全鎖轆 × 4",
+      "網頁圖庫另有手拉架 (EHB00509) 及床褥 (PFM00040) 相片，是否包括在套裝內請致電查詢"
     ],
     "features_en": [
-      "Height: 36 – 74 cm (deck 34.5-80 cm)",
-      "Denmark LINAK motor with battery",
-      "Perforated steel deck; folding aluminium siderails",
+      "Denmark LINAK motor with battery backup",
+      "4-function handset",
+      "Perforated steel deck; pair of folding aluminium siderails",
       "Detachable reinforced ABS head/foot boards",
-      "Back: 0° – 85°; knee: 0° – 40°",
       "4× IV pole holes + 2× grip handle holes",
-      "Four 5\" deluxe locking castors"
-    ],
-    "price_ref": true
+      "Four 5\" deluxe locking castors",
+      "Product gallery also shows a grip handle (EHB00509) and mattress (PFM00040); please call to confirm whether they are included"
+    ]
   },
   {
     "id": "bed4",
